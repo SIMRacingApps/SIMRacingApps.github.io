@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: widgets/ShiftLights/ShiftLights.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: widgets/ShiftLights/ShiftLights.js</h1>
+
+    
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>'use strict';
+/**
+ * This widget is a generic implementation of the shift light bar. 
+ * &lt;/pre>&lt;/b>
+ * &lt;img src="../widgets/ShiftLights/icon.png" />
+ * @ngdoc directive
+ * @name sra-shift-lights
+ * @param {milliseconds} data-sra-args-flash-rate The rate to flash when CRITICAL state is reached.
+ * @param {boolean} data-sra-args-flash-on-critical Enable or disable the flash on critical. Defaults to true.
+ * @author Jeffrey Gilliam
+ * @since 1.0
+ * @copyright Copyright (C) 2015 Jeffrey Gilliam
+ * @license Apache License 2.0
+ */
+define(['SIMRacingApps','css!widgets/ShiftLights/ShiftLights'],
+function(SIMRacingApps) {
+
+    var self = {
+        name:            "sraShiftLights",
+        url:             'ShiftLights',
+        template:        'ShiftLights.html',
+        defaultWidth:    800,
+        defaultHeight:   100,
+        defaultInterval: 30   //initialize with the default interval
+    };
+
+    self.module = angular.module('SIMRacingApps'); //get the main module
+
+    self.module.directive(self.name,
+           ['sraDispatcher', '$filter', '$location', '$interval', '$rootScope',
+    function(sraDispatcher,  $filter,   $location,    $interval,   $rootScope) {
+        return {
+            restrict: 'EA',
+            scope: true,
+            templateUrl: sraDispatcher.getWidgetUrl(self.url) + '/' + self.template,
+            controller: [ '$scope', function($scope) {
+                $scope.directiveName   = self.name;
+                $scope.defaultWidth    = self.defaultWidth;
+                $scope.defaultHeight   = self.defaultHeight;
+                $scope.defaultInterval = self.defaultInterval;
+
+                $scope.percentages= [
+                                          //These should be from lowest to highest
+                                          { value: 0.00, color: 'SIMRacingApps-Widget-ShiftLights-start'  },
+                                          { value: 0.10, color: 'SIMRacingApps-Widget-ShiftLights-start'  },
+                                          { value: 0.20, color: 'SIMRacingApps-Widget-ShiftLights-start'  },
+                                          { value: 0.30, color: 'SIMRacingApps-Widget-ShiftLights-start'  },
+                                          { value: 0.40, color: 'SIMRacingApps-Widget-ShiftLights-middle' },
+                                          { value: 0.50, color: 'SIMRacingApps-Widget-ShiftLights-middle' },
+                                          { value: 0.60, color: 'SIMRacingApps-Widget-ShiftLights-middle' },
+                                          { value: 0.70, color: 'SIMRacingApps-Widget-ShiftLights-end'    },
+                                          { value: 0.80, color: 'SIMRacingApps-Widget-ShiftLights-end'    },
+                                          { value: 0.90, color: 'SIMRacingApps-Widget-ShiftLights-end'    }
+                                         ];
+                
+                $scope.maxSizePercent  = 0.8; //controls the spacing/size of the lights. 1.0 means no spacing.
+                $scope.offColor        = 'SIMRacingApps-Widget-ShiftLights-off';
+                $scope.lights          = [];
+                $scope.flashRate       = 100;
+                $scope.flashOnCritical = true;
+                
+                $scope.calculateLights = function() {
+                    $scope.lights = [];
+                    var numberOfLights = $scope.percentages.length;
+                    
+                    for (var i=0; i &lt; numberOfLights; i++) {
+                        var r = Math.min(self.defaultHeight,self.defaultWidth / numberOfLights) / 2;
+                        var light = {
+                            x:             ((self.defaultWidth / numberOfLights) * i) + ((self.defaultWidth / numberOfLights) / 2),
+                            y:             self.defaultHeight / 2,
+                            r:             (r * $scope.maxSizePercent),
+                            percentage:    $scope.percentages[i],
+                            on:            false,
+                            className:     $scope.offColor
+                        };
+                        $scope.lights.push(light);
+                    }
+                };
+                $scope.calculateLights(); //execute this now, just so the array is populated when the SVG element gets added to the DOM.
+
+                $scope.updateColors = function() {
+                    var value          = $scope.data.Car.REFERENCE.Gauge.Tachometer.ValueCurrent.Value         || 0.0;
+                    var state          = $scope.data.Car.REFERENCE.Gauge.Tachometer.ValueCurrent.State         || 'OFF';
+                    var percent        = ($scope.data.Car.REFERENCE.Gauge.Tachometer.ValueCurrent.StatePercent || 0.0) / 100.0;
+
+                    //first turn the light on and off based on where the actual value falls
+                    for (var i=0; i &lt; $scope.lights.length; i++) {
+                        if (sraDispatcher.State.isSHIFTLIGHTS(state) 
+                        &amp;&amp; percent >= $scope.lights[i].percentage.value
+                        ) {
+                            $scope.lights[i].on = true;
+                            if (!$scope._blink)
+                                $scope.lights[i].className = $scope.lights[i].percentage.color;
+                        }
+                        else
+                        if (sraDispatcher.State.isSHIFT(state) 
+                        ||  sraDispatcher.State.isSHIFTBLINK(state)
+                        ||  sraDispatcher.State.isCRITICAL(state)) {
+                            $scope.lights[i].on = true;
+                            if (!$scope._blink)
+                                $scope.lights[i].className = 'SIMRacingApps-Widget-ShiftLights-end';
+                        } 
+                        else {
+                            $scope.lights[i].on = false;
+                            if (!$scope._blink)
+                                $scope.lights[i].className = $scope.offColor;
+                        }
+                    }
+                    
+                    //stop the blinking if we are not in the critical state.
+                    if (!(sraDispatcher.State.isSHIFTBLINK(state) || sraDispatcher.State.isCRITICAL(state)) &amp;&amp; $scope._blink) {
+//                        console.log("ShiftLights - Blink Stop");
+                        $interval.cancel($scope._blink);
+                        $scope._blink = null;
+                    }
+
+                    if ((sraDispatcher.State.isSHIFTBLINK(state) || sraDispatcher.State.isCRITICAL(state)) &amp;&amp; $scope.flashOnCritical) {
+                        //TODO: Make it blink between critical and warning, self.blinkRate
+                        if ($scope._blink == null) {
+//                            console.log("ShiftLights - Blink Start");
+                            $scope._blink = $interval(function() {
+//                                if ($scope.lights[0].className != $scope.offColor)
+//                                    console.log("ShiftLights - Off");
+//                                else
+//                                    console.log("ShiftLights - On");
+                                    
+                                for (var i=0; i &lt; $scope.lights.length; i++) {
+                                    if ($scope.lights[i].className != $scope.offColor) {
+                                        $scope.lights[i].className  = $scope.offColor;
+                                    }
+                                    else {
+                                        $scope.lights[i].className = $scope.lights[i].on 
+                                                                   ? 'SIMRacingApps-Widget-ShiftLights-end' 
+                                                                   : $scope.offColor;
+                                    }
+                                }
+                            }, $scope.flashRate);
+                        }
+                    }
+                };
+            }]
+            , link: function($scope,$element,$attrs) {
+                $scope.maxSizePercent = ($scope.sraArgsMAXSIZEPERCENT || $attrs.sraArgsMaxSizePercent || $scope.maxSizePercent)  * 1.0;
+                $scope.flashRate      = ($scope.sraArgsFLASHRATE     || $attrs.sraArgsFlashRate       || $scope.flashRate)       * 1;
+                $scope.flashOnCritical= String($scope.sraArgsFLASHONCRITICAL ||$attrs.sraArgsFlashOnCritical || $scope.flashOnCritical) === "false" ? false : true;
+
+                $attrs.sraArgsData = "Car/REFERENCE/Gauge/Tachometer/ValueCurrent";
+
+                $scope.$watch("data.Car.REFERENCE.Gauge.Tachometer.ValueCurrent.Value",        $scope.updateColors);
+                $scope.$watch("data.Car.REFERENCE.Gauge.Tachometer.ValueCurrent.State",        $scope.updateColors);
+                $scope.$watch("data.Car.REFERENCE.Gauge.Tachometer.ValueCurrent.StatePercent", $scope.updateColors);
+
+                $rootScope.$on('sraResize', sraDispatcher.resize($scope,$element,self.defaultWidth,self.defaultHeight));
+
+           /**standard code that should be in every directive **/
+                $scope.names        = sraDispatcher.subscribe($scope,$attrs,self.defaultInterval); //register subscriptions and options to the dispatcher
+
+            }
+        };
+    }]);
+
+    return self;
+});
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Index</a></h2><h3>Modules</h3><ul><li><a href="module-SIMRacingApps.html">SIMRacingApps</a></li></ul><h3>apps</h3><ul><li><a href="CrewChief.html">CrewChief</a></li><li><a href="CrewChief-Large.html">CrewChief-Large</a></li><li><a href="Dash-BarGauges-DigitalOverlay.html">Dash-BarGauges-DigitalOverlay</a></li><li><a href="Dash-Gauges-Spek.html">Dash-Gauges-Spek</a></li><li><a href="Dash-StockCars-DigitalOverlay.html">Dash-StockCars-DigitalOverlay</a></li><li><a href="RaceAdministrator.html">RaceAdministrator</a></li><li><a href="Spectator.html">Spectator</a></li></ul><h3>filter</h3><ul><li><a href="module-SIMRacingApps.sraCeil.html">sraCeil</a></li><li><a href="module-SIMRacingApps.sraDebug.html">sraDebug</a></li><li><a href="module-SIMRacingApps.sraDecodeEntities.html">sraDecodeEntities</a></li><li><a href="module-SIMRacingApps.sraDuration.html">sraDuration</a></li><li><a href="module-SIMRacingApps.sraFloor.html">sraFloor</a></li><li><a href="module-SIMRacingApps.sraHex.html">sraHex</a></li><li><a href="module-SIMRacingApps.sraLPad.html">sraLPad</a></li><li><a href="module-SIMRacingApps.sraNumber.html">sraNumber</a></li><li><a href="module-SIMRacingApps.sraRound.html">sraRound</a></li><li><a href="module-SIMRacingApps.sraRPad.html">sraRPad</a></li></ul><h3>directive</h3><ul><li><a href="module-SIMRacingApps-sra-data.html">sra-data</a></li><li><a href="module-SIMRacingApps-sra-horizontal-align.html">sra-horizontal-align</a></li><li><a href="module-SIMRacingApps-sra-resize.html">sra-resize</a></li><li><a href="module-SIMRacingApps-sra-vertical-align.html">sra-vertical-align</a></li><li><a href="sra-analog-gauge.html">sra-analog-gauge</a></li><li><a href="sra-analog-gauge-spek-brake-pressure.html">sra-analog-gauge-spek-brake-pressure</a></li><li><a href="sra-analog-gauge-spek-fuel-level.html">sra-analog-gauge-spek-fuel-level</a></li><li><a href="sra-analog-gauge-spek-fuel-pressure.html">sra-analog-gauge-spek-fuel-pressure</a></li><li><a href="sra-analog-gauge-spek-oil-level.html">sra-analog-gauge-spek-oil-level</a></li><li><a href="sra-analog-gauge-spek-oil-pressure.html">sra-analog-gauge-spek-oil-pressure</a></li><li><a href="sra-analog-gauge-spek-oil-temp.html">sra-analog-gauge-spek-oil-temp</a></li><li><a href="sra-analog-gauge-spek-tachometer.html">sra-analog-gauge-spek-tachometer</a></li><li><a href="sra-analog-gauge-spek-voltage.html">sra-analog-gauge-spek-voltage</a></li><li><a href="sra-analog-gauge-spek-water-level.html">sra-analog-gauge-spek-water-level</a></li><li><a href="sra-analog-gauge-spek-water-pressure.html">sra-analog-gauge-spek-water-pressure</a></li><li><a href="sra-analog-gauge-spek-water-temp.html">sra-analog-gauge-spek-water-temp</a></li><li><a href="sra-bar-gauge.html">sra-bar-gauge</a></li><li><a href="sra-bar-gauge-brake-pressure.html">sra-bar-gauge-brake-pressure</a></li><li><a href="sra-bar-gauge-fuel-level.html">sra-bar-gauge-fuel-level</a></li><li><a href="sra-bar-gauge-fuel-pressure.html">sra-bar-gauge-fuel-pressure</a></li><li><a href="sra-bar-gauge-oil-level.html">sra-bar-gauge-oil-level</a></li><li><a href="sra-bar-gauge-oil-pressure.html">sra-bar-gauge-oil-pressure</a></li><li><a href="sra-bar-gauge-oil-temp.html">sra-bar-gauge-oil-temp</a></li><li><a href="sra-bar-gauge-tachometer.html">sra-bar-gauge-tachometer</a></li><li><a href="sra-bar-gauge-voltage.html">sra-bar-gauge-voltage</a></li><li><a href="sra-bar-gauge-water-level.html">sra-bar-gauge-water-level</a></li><li><a href="sra-bar-gauge-water-pressure.html">sra-bar-gauge-water-pressure</a></li><li><a href="sra-bar-gauge-water-temp.html">sra-bar-gauge-water-temp</a></li><li><a href="sra-car-controls.html">sra-car-controls</a></li><li><a href="sra-car-image.html">sra-car-image</a></li><li><a href="sra-car-number.html">sra-car-number</a></li><li><a href="sra-car-number-extended.html">sra-car-number-extended</a></li><li><a href="sra-car-selector.html">sra-car-selector</a></li><li><a href="sra-data-table.html">sra-data-table</a></li><li><a href="sra-driver-info.html">sra-driver-info</a></li><li><a href="sra-flags.html">sra-flags</a></li><li><a href="sra-fuel-tank.html">sra-fuel-tank</a></li><li><a href="sra-gear.html">sra-gear</a></li><li><a href="sra-lap-timing.html">sra-lap-timing</a></li><li><a href="sra-pedals.html">sra-pedals</a></li><li><a href="sra-pit-commander.html">sra-pit-commander</a></li><li><a href="sra-pit-road.html">sra-pit-road</a></li><li><a href="sra-radio-control.html">sra-radio-control</a></li><li><a href="sra-relative.html">sra-relative</a></li><li><a href="sra-shift-light.html">sra-shift-light</a></li><li><a href="sra-shift-lights.html">sra-shift-lights</a></li><li><a href="sra-standings.html">sra-standings</a></li><li><a href="sra-standings-top-10.html">sra-standings-top-10</a></li><li><a href="sra-standings-top-20.html">sra-standings-top-20</a></li><li><a href="sra-standings-top-35.html">sra-standings-top-35</a></li><li><a href="sra-steering-wheel.html">sra-steering-wheel</a></li><li><a href="sra-team-speak-talking.html">sra-team-speak-talking</a></li><li><a href="sra-template.html">sra-template</a></li><li><a href="sra-timing-delta.html">sra-timing-delta</a></li><li><a href="sra-tire.html">sra-tire</a></li><li><a href="sra-tire-measurements.html">sra-tire-measurements</a></li><li><a href="sra-track-map.html">sra-track-map</a></li><li><a href="sra-track-map-car.html">sra-track-map-car</a></li><li><a href="sra-track-map-finish-line.html">sra-track-map-finish-line</a></li><li><a href="sra-weather-info.html">sra-weather-info</a></li><li><a href="sra-wind-gauge.html">sra-wind-gauge</a></li></ul><h3>controller</h3><ul><li><a href="module-SIMRacingApps-sraController.html">sraController</a></li></ul><h3>factory</h3><ul><li><a href="module-SIMRacingApps-sraDispatcher.html">sraDispatcher</a></li></ul><h3>Global</h3><ul><li><a href="global.html#SIMRacingAppsRequireConfig">SIMRacingAppsRequireConfig</a></li></ul>
+</nav>
+
+<br clear="both">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.2</a> 
+    using <a href="https://github.com/allenhwkim/angular-jsdoc">Angular-JSDoc template </a> 
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+<script>
+  // scroll to the current document navigation
+  var href=window.location.href.match(/\/([^\/]+$)/)[1];
+  if (currentNav = document.querySelector("nav a[href='"+href+"']"))
+    currentNav.scrollIntoView(true);
+  // scroll to the top of the document
+  if (window.location.hash == "")
+    document.querySelector("body").scrollIntoView(true);
+  // adjust the width of main section by navigation width
+  // var navWidth = document.querySelector('nav').getBoundingClientRect().width;
+  // var mainWidth = document.querySelector('#main').getBoundingClientRect().width;
+  // document.querySelector('#main').style.width = (mainWidth - navWidth)+'px';
+</script>
+</body>
+</html>

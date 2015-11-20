@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: widgets/FuelTank/FuelTank.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: widgets/FuelTank/FuelTank.js</h1>
+
+    
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>'use strict';
+/**
+ * This widget displays a virtual fuel tank/cell. 
+ * The blue represents the fuel level in the tank.
+ * The red represents what is needed or will be added to finish the race.
+ * The darkened checkered area represents the amount of fuel needed to finish the race. 
+ * If this area extends out of the blue area, then you will need to add fuel to finish.
+ * &lt;p>
+ * Clicking or Touching the blue area, will request the SIM fill up the tank on the next pit stop.
+ * Clicking when it says "Needed", will only add that amount on the next pit stop.
+ * Clicking when it says "Add" will actually remove the add command and not add any fuel on the next pit stop.
+ * Clicking in the green area will add fuel to the point where you clicked.
+ * &lt;p>
+ * Several fuel mileage calculations are also shown, such as, the number of laps remaining at the current fuel level.
+ * Also, the number of laps on a full tank, as well as alternate number of laps remaining based on a different number of laps to average.
+ * &lt;p>
+ * By default, fuel mileage is calculated based on the worst lap that was not a out lap or caution lap.
+ * This is indicated by the number of laps to average of zero(0).
+ * Also by default, the alternate calculation is based on the last 2 laps averaged. 
+ * Useful if saving fuel, you can see how far you can go if you continue to save at the same rate.
+ * Both of these can be changed using the parameters below.
+ * &lt;p>
+ * If the SIM supports it, this widget can send commands to the SIM to tell it what fuel level you want added on the next pit stop.
+ * By default, it does not send the commands. 
+ * Also, changing the amount of fuel to be added directly in the SIM, may not be reflected in this widget unless the SIM sends that data to us. 
+ * At the time this was written (June 2015), iRacing did not send that information. 
+ * This requires the you only make changes from the widget or the SIM and not both. 
+ * iRacing does support sending the command, so choose the widget to make changes and it will keep track of what it has sent to the SIM so it will know.
+ * &lt;p>
+ * Example:
+ * &lt;p>&lt;b>
+ * &amp;lt;sra-fuel-tank data-sra-args-laps-to-average=0 data-sra-args-alt-laps-to-average=2&amp;gt;&amp;lt;/sra-fuel-tank&amp;gt;&lt;br />
+ * &lt;/b>
+ * &lt;img src="../widgets/FuelTank/icon.png" />
+ * @ngdoc directive
+ * @name sra-fuel-tank
+ * @param {integer} data-sra-args-laps-to-average The number of laps to average all fuel calculations. Defaults to zero(0).
+ * @param {integer} data-sra-args-alt-laps-to-average The number of laps to average for the alternate fuel calculations. Default zero(2).
+ * @param {boolean} data-sra-args-s-i-m-controller If true, then this widget can send changes to the SIM. Defaults to false. 
+ * @param {integer} data-sra-args-interval The interval, in milliseconds, that this widget will update from the server. Default is 100.
+ * @author Jeffrey Gilliam
+ * @since 1.0
+ * @copyright Copyright (C) 2015 Jeffrey Gilliam
+ * @license Apache License 2.0
+ */
+define(['SIMRacingApps','css!widgets/FuelTank/FuelTank'],
+function(SIMRacingApps) {
+
+    var self = {
+        name:            "sraFuelTank",
+        url:             'FuelTank',
+        template:        'FuelTank.html',
+        defaultWidth:    300,
+        defaultHeight:   480,
+        defaultInterval: 100   //initialize with the default interval
+    };
+
+    self.module = angular.module('SIMRacingApps'); //get the main module
+
+    self.module.directive(self.name,
+           ['sraDispatcher', '$filter', '$rootScope',
+    function(sraDispatcher,   $filter,   $rootScope) {
+        return {
+            restrict:    'EA',
+            scope:       true,
+            templateUrl: sraDispatcher.getWidgetUrl(self.url) + '/' + self.template,
+            controller: [ '$scope', function($scope) {
+                $scope.directiveName   = self.name;
+                $scope.defaultWidth    = self.defaultWidth;
+                $scope.defaultHeight   = self.defaultHeight;
+                $scope.defaultInterval = self.defaultInterval;
+
+                //load translations, if you have any un-comment this
+                sraDispatcher.loadTranslations(sraDispatcher.getWidgetUrl(self.url),'text',function(path) {
+                   $scope.translations = sraDispatcher.getTranslation(path);
+                });
+
+                $scope.lapsToAverage=0; //default to worst lap
+                $scope.altLapsToAverage=2; //when saving, use last to laps
+                $scope.fuelLevelPercentage=0;
+                $scope.fuelLevelNextPercentage=0;
+                $scope.fuelLevelNeededPercentage=0;
+                $scope.fuelLevelToFinishPercentage=0;
+
+            }]
+            , link: function($scope,$element,$attrs) {
+
+                //copy arguments to our scope. First if using attribute, second tag, else default to something.
+                $attrs.sraArgsData = $attrs.sraArgsData || "";
+                $scope.value = $scope[self.name] = $scope['sraArgs'+self.name.toUpperCase()] || $attrs[self.name] || $attrs.sraArgsValue || "DefaultValue";
+                $scope.lapsToAverage = $scope.sraArgsLAPSTOAVERAGE || $attrs.sraArgsLapsToAverage || $scope.lapsToAverage;
+                $scope.altLapsToAverage = $scope.sraArgsALTLAPSTOAVERAGE || $attrs.sraArgsAltLapsToAverage || $scope.altLapsToAverage;
+                $scope.canControl = String($scope.sraArgsPITCOMMANDSSIMCONTROLLER || $attrs.sraArgsSIMController || $attrs.sraSIMController || "false") == "true";
+                $scope.controller = false;
+
+                /** your code goes here **/
+                if ($scope.canControl)
+                    $attrs.sraArgsData += ";Car/REFERENCE/HasAutomaticPitCommands";
+
+                $attrs.sraArgsData += ";Car/REFERENCE/Gauge/FuelLevel/ValueCurrent";
+                $attrs.sraArgsData += ";Car/REFERENCE/Gauge/FuelLevel/CapacityMaximum";
+                $attrs.sraArgsData += ";Car/REFERENCE/FuelLevelPerLap/"+$scope.lapsToAverage;
+                $attrs.sraArgsData += ";Session/LapsToGo";
+                $attrs.sraArgsData += ";Car/REFERENCE/FuelLaps/"+$scope.lapsToAverage;
+                $attrs.sraArgsData += ";Car/REFERENCE/FuelLaps/"+$scope.altLapsToAverage;
+                $attrs.sraArgsData += ";Car/REFERENCE/FuelLapsMaximum/"+$scope.lapsToAverage;
+                $attrs.sraArgsData += ";Car/REFERENCE/Gauge/FuelLevel/ValueNext";
+
+                $attrs.sraArgsData += ";Car/REFERENCE/FuelLevelToFinish/"+$scope.lapsToAverage;
+                $attrs.sraArgsData += ";Car/REFERENCE/FuelLevelNeeded/"+$scope.lapsToAverage;
+                $attrs.sraArgsData += ";Car/REFERENCE/FuelLevelPerLap/"+$scope.lapsToAverage;
+                $attrs.sraArgsData += ";Car/REFERENCE/Lap/COMPLETEDPERCENT";
+                $attrs.sraArgsData += ";Car/REFERENCE/Gauge/FuelLevel/CapacityIncrement";
+                $attrs.sraArgsData += ";Car/REFERENCE/Gauge/FuelLevel/ChangeFlag";
+                $attrs.sraArgsData += ";Car/REFERENCE/Status";
+
+                var elements = $element.find("div");
+                var tank = null;
+                for (var i=0; i &lt; elements.length;i++) {
+                    var element = angular.element(elements[i]);
+                    if (element.hasClass("SIMRacingApps-Widget-FuelTank-tank"))
+                        tank = element;
+                }
+
+                sraDispatcher.onClick($scope,tank,function(event) {
+                    if (!$scope.controller)
+                        return;
+
+                    var pct = ((event.offsetHeight - event.offsetY) / event.offsetHeight) * 100.0;
+                    var fuelLevelToAdd = $scope.data.Car.REFERENCE.Gauge.FuelLevel.ValueNext.Value;
+
+                    //if they clicked in the fuel area, toggle between full,none,auto
+                    if (pct &lt;= $scope.fuelLevelPercentage) {
+                        if ($scope.data.Car.REFERENCE.Gauge.FuelLevel.ChangeFlag.Value == 'Y')
+                            fuelLevelToAdd = 0;
+                        else
+                            fuelLevelToAdd = $scope.data.Car.REFERENCE.Gauge.FuelLevel.CapacityMaximum.Value;
+                    }
+                    else
+                    //if clicked in the needed area, toogle between needed and none
+                    if (pct &lt;= ($scope.fuelLevelPercentage + $scope.fuelLevelNeededPercentage)) {
+                        if ($scope.data.Car.REFERENCE.Gauge.FuelLevel.ChangeFlag.Value == 'Y')
+                            fuelLevelToAdd = 0;
+                        else
+                            fuelLevelToAdd  = $scope.data.Car.REFERENCE.Gauge.FuelLevel.CapacityMaximum.Value
+                                            * ($scope.fuelLevelNeededPercentage / 100.0);
+                    }
+                    else {
+                        //use the pct to calculate how much fuel to add that's above what you have
+                        fuelLevelToAdd  = $scope.data.Car.REFERENCE.Gauge.FuelLevel.CapacityMaximum.Value
+                                        * ((pct - $scope.fuelLevelPercentage) / 100.0);
+                    }
+
+                    if (fuelLevelToAdd == 0)
+                        sraDispatcher.sendCommand("Car/REFERENCE/Gauge/FuelLevel/setValueNext/0;Car/REFERENCE/Gauge/FuelLevel/setChangeFlag/N");
+                    else
+                        sraDispatcher.sendCommand("Car/REFERENCE/Gauge/FuelLevel/setValueNext/"+fuelLevelToAdd+";Car/REFERENCE/Gauge/FuelLevel/setChangeFlag/Y");
+                });
+
+                /**standard code that should be in every directive **/
+                $rootScope.$on('sraResize', sraDispatcher.resize($scope,$element,self.defaultWidth,self.defaultHeight));
+
+                //register with the dispatcher
+                $scope.names = sraDispatcher.subscribe($scope,$attrs,self.defaultInterval); //register subscriptions and options to the dispatcher
+
+                /**watches go here **/
+                $scope.$watch("data.Car.REFERENCE.HasAutomaticPitCommands.Value", function(value) {
+                    if (value == 'N')
+                        $scope.controller = false;
+                    else
+                    if (value == 'Y' &amp;&amp; $scope.canControl)
+                        $scope.controller = true;
+                });
+
+                $scope.$watch("data.Car.REFERENCE.Gauge.FuelLevel.ValueCurrent.Value",function(value) {
+                    $scope.fuelLevelPercentage = (value / $scope.data.Car.REFERENCE.Gauge.FuelLevel.CapacityMaximum.Value) * 100.0;
+//$scope.fuelLevelPercentage-=82;
+//$scope.data.Car.REFERENCE.Gauge.FuelLevel.ChangeFlag.Value = 'Y';
+                });
+                $scope.$watch("data.Car.REFERENCE.Gauge.FuelLevel.ValueNext.Value",function(value) {
+                    if ($scope.data.Car.REFERENCE.Gauge.FuelLevel.ChangeFlag.Value == 'Y')
+                        $scope.fuelLevelNextPercentage = (value / $scope.data.Car.REFERENCE.Gauge.FuelLevel.CapacityMaximum.Value) * 100.0;
+//$scope.fuelLevelNextPercentage=25;
+                });
+                $scope.$watch("data.Car.REFERENCE.Gauge.FuelLevel.ChangeFlag.Value",function(value) {
+                    if (value == 'Y') {
+                        $scope.fuelLevelNextPercentage = ($scope.data.Car.REFERENCE.Gauge.FuelLevel.ValueNext.Value / $scope.data.Car.REFERENCE.Gauge.FuelLevel.CapacityMaximum.Value) * 100.0;
+//$scope.fuelLevelNextPercentage=25;
+                    }
+                    else
+                        $scope.fuelLevelNextPercentage = 0.0;
+                });
+
+                $scope.$watch("data.Car.REFERENCE.FuelLevelNeeded['"+$scope.lapsToAverage+"'].Value",function(value) {
+                    $scope.fuelLevelNeededPercentage = (value / $scope.data.Car.REFERENCE.Gauge.FuelLevel.CapacityMaximum.Value) * 100.0;
+//$scope.fuelLevelNeededPercentage=10;
+                });
+                $scope.$watch("data.Car.REFERENCE.FuelLevelToFinish['"+$scope.lapsToAverage+"'].Value",function(value) {
+                    $scope.fuelLevelToFinishPercentage = ( value / $scope.data.Car.REFERENCE.Gauge.FuelLevel.CapacityMaximum.Value) * 100.0;
+//$scope.fuelLevelNeededPercentage=10;
+                });
+            }
+        };
+    }]);
+
+    return self;
+});
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Index</a></h2><h3>Modules</h3><ul><li><a href="module-SIMRacingApps.html">SIMRacingApps</a></li></ul><h3>apps</h3><ul><li><a href="CrewChief.html">CrewChief</a></li><li><a href="CrewChief-Large.html">CrewChief-Large</a></li><li><a href="Dash-BarGauges-DigitalOverlay.html">Dash-BarGauges-DigitalOverlay</a></li><li><a href="Dash-Gauges-Spek.html">Dash-Gauges-Spek</a></li><li><a href="Dash-StockCars-DigitalOverlay.html">Dash-StockCars-DigitalOverlay</a></li><li><a href="RaceAdministrator.html">RaceAdministrator</a></li><li><a href="Spectator.html">Spectator</a></li></ul><h3>filter</h3><ul><li><a href="module-SIMRacingApps.sraCeil.html">sraCeil</a></li><li><a href="module-SIMRacingApps.sraDebug.html">sraDebug</a></li><li><a href="module-SIMRacingApps.sraDecodeEntities.html">sraDecodeEntities</a></li><li><a href="module-SIMRacingApps.sraDuration.html">sraDuration</a></li><li><a href="module-SIMRacingApps.sraFloor.html">sraFloor</a></li><li><a href="module-SIMRacingApps.sraHex.html">sraHex</a></li><li><a href="module-SIMRacingApps.sraLPad.html">sraLPad</a></li><li><a href="module-SIMRacingApps.sraNumber.html">sraNumber</a></li><li><a href="module-SIMRacingApps.sraRound.html">sraRound</a></li><li><a href="module-SIMRacingApps.sraRPad.html">sraRPad</a></li></ul><h3>directive</h3><ul><li><a href="module-SIMRacingApps-sra-data.html">sra-data</a></li><li><a href="module-SIMRacingApps-sra-horizontal-align.html">sra-horizontal-align</a></li><li><a href="module-SIMRacingApps-sra-resize.html">sra-resize</a></li><li><a href="module-SIMRacingApps-sra-vertical-align.html">sra-vertical-align</a></li><li><a href="sra-analog-gauge.html">sra-analog-gauge</a></li><li><a href="sra-analog-gauge-spek-brake-pressure.html">sra-analog-gauge-spek-brake-pressure</a></li><li><a href="sra-analog-gauge-spek-fuel-level.html">sra-analog-gauge-spek-fuel-level</a></li><li><a href="sra-analog-gauge-spek-fuel-pressure.html">sra-analog-gauge-spek-fuel-pressure</a></li><li><a href="sra-analog-gauge-spek-oil-level.html">sra-analog-gauge-spek-oil-level</a></li><li><a href="sra-analog-gauge-spek-oil-pressure.html">sra-analog-gauge-spek-oil-pressure</a></li><li><a href="sra-analog-gauge-spek-oil-temp.html">sra-analog-gauge-spek-oil-temp</a></li><li><a href="sra-analog-gauge-spek-tachometer.html">sra-analog-gauge-spek-tachometer</a></li><li><a href="sra-analog-gauge-spek-voltage.html">sra-analog-gauge-spek-voltage</a></li><li><a href="sra-analog-gauge-spek-water-level.html">sra-analog-gauge-spek-water-level</a></li><li><a href="sra-analog-gauge-spek-water-pressure.html">sra-analog-gauge-spek-water-pressure</a></li><li><a href="sra-analog-gauge-spek-water-temp.html">sra-analog-gauge-spek-water-temp</a></li><li><a href="sra-bar-gauge.html">sra-bar-gauge</a></li><li><a href="sra-bar-gauge-brake-pressure.html">sra-bar-gauge-brake-pressure</a></li><li><a href="sra-bar-gauge-fuel-level.html">sra-bar-gauge-fuel-level</a></li><li><a href="sra-bar-gauge-fuel-pressure.html">sra-bar-gauge-fuel-pressure</a></li><li><a href="sra-bar-gauge-oil-level.html">sra-bar-gauge-oil-level</a></li><li><a href="sra-bar-gauge-oil-pressure.html">sra-bar-gauge-oil-pressure</a></li><li><a href="sra-bar-gauge-oil-temp.html">sra-bar-gauge-oil-temp</a></li><li><a href="sra-bar-gauge-tachometer.html">sra-bar-gauge-tachometer</a></li><li><a href="sra-bar-gauge-voltage.html">sra-bar-gauge-voltage</a></li><li><a href="sra-bar-gauge-water-level.html">sra-bar-gauge-water-level</a></li><li><a href="sra-bar-gauge-water-pressure.html">sra-bar-gauge-water-pressure</a></li><li><a href="sra-bar-gauge-water-temp.html">sra-bar-gauge-water-temp</a></li><li><a href="sra-car-controls.html">sra-car-controls</a></li><li><a href="sra-car-image.html">sra-car-image</a></li><li><a href="sra-car-number.html">sra-car-number</a></li><li><a href="sra-car-number-extended.html">sra-car-number-extended</a></li><li><a href="sra-car-selector.html">sra-car-selector</a></li><li><a href="sra-data-table.html">sra-data-table</a></li><li><a href="sra-driver-info.html">sra-driver-info</a></li><li><a href="sra-flags.html">sra-flags</a></li><li><a href="sra-fuel-tank.html">sra-fuel-tank</a></li><li><a href="sra-gear.html">sra-gear</a></li><li><a href="sra-lap-timing.html">sra-lap-timing</a></li><li><a href="sra-pedals.html">sra-pedals</a></li><li><a href="sra-pit-commander.html">sra-pit-commander</a></li><li><a href="sra-pit-road.html">sra-pit-road</a></li><li><a href="sra-radio-control.html">sra-radio-control</a></li><li><a href="sra-relative.html">sra-relative</a></li><li><a href="sra-shift-light.html">sra-shift-light</a></li><li><a href="sra-shift-lights.html">sra-shift-lights</a></li><li><a href="sra-standings.html">sra-standings</a></li><li><a href="sra-standings-top-10.html">sra-standings-top-10</a></li><li><a href="sra-standings-top-20.html">sra-standings-top-20</a></li><li><a href="sra-standings-top-35.html">sra-standings-top-35</a></li><li><a href="sra-steering-wheel.html">sra-steering-wheel</a></li><li><a href="sra-team-speak-talking.html">sra-team-speak-talking</a></li><li><a href="sra-template.html">sra-template</a></li><li><a href="sra-timing-delta.html">sra-timing-delta</a></li><li><a href="sra-tire.html">sra-tire</a></li><li><a href="sra-tire-measurements.html">sra-tire-measurements</a></li><li><a href="sra-track-map.html">sra-track-map</a></li><li><a href="sra-track-map-car.html">sra-track-map-car</a></li><li><a href="sra-track-map-finish-line.html">sra-track-map-finish-line</a></li><li><a href="sra-weather-info.html">sra-weather-info</a></li><li><a href="sra-wind-gauge.html">sra-wind-gauge</a></li></ul><h3>controller</h3><ul><li><a href="module-SIMRacingApps-sraController.html">sraController</a></li></ul><h3>factory</h3><ul><li><a href="module-SIMRacingApps-sraDispatcher.html">sraDispatcher</a></li></ul><h3>Global</h3><ul><li><a href="global.html#SIMRacingAppsRequireConfig">SIMRacingAppsRequireConfig</a></li></ul>
+</nav>
+
+<br clear="both">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.2</a> 
+    using <a href="https://github.com/allenhwkim/angular-jsdoc">Angular-JSDoc template </a> 
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+<script>
+  // scroll to the current document navigation
+  var href=window.location.href.match(/\/([^\/]+$)/)[1];
+  if (currentNav = document.querySelector("nav a[href='"+href+"']"))
+    currentNav.scrollIntoView(true);
+  // scroll to the top of the document
+  if (window.location.hash == "")
+    document.querySelector("body").scrollIntoView(true);
+  // adjust the width of main section by navigation width
+  // var navWidth = document.querySelector('nav').getBoundingClientRect().width;
+  // var mainWidth = document.querySelector('#main').getBoundingClientRect().width;
+  // document.querySelector('#main').style.width = (mainWidth - navWidth)+'px';
+</script>
+</body>
+</html>
