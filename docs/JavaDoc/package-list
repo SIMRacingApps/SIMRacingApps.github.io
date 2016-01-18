@@ -1,0 +1,12 @@
+com.SIMRacingApps
+com.SIMRacingApps.JComponents
+com.SIMRacingApps.SIMPluginCallbacks
+com.SIMRacingApps.SIMPluginCallbacks.MSPEC
+com.SIMRacingApps.SIMPluginCallbacks.Template
+com.SIMRacingApps.SIMPlugins.iRacing
+com.SIMRacingApps.SIMPlugins.iRacing.IODrivers
+com.SIMRacingApps.SIMPlugins.iRacing.SessionDataCache
+com.SIMRacingApps.SIMPlugins.iRacing.VarData
+com.SIMRacingApps.Util
+com.SIMRacingApps.Widgets
+com.SIMRacingApps.servlets

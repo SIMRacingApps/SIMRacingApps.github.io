@@ -3,28 +3,151 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Simracingapps.GitHub.io by SIMRacingApps</title>
+    <title>SIMRacingApps</title>
 
+    <link rel="icon" type="image/png" href="favicon.ico">
     <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/github-dark.css">
+    <link rel="stylesheet" href="stylesheets/dark.css">
     <script src="javascripts/scale.fix.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-
+      
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    
+      ga('create', 'UA-72478308-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+    
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+    <script>
+        window.onload = function() {
+	        var updateRequest = new XMLHttpRequest();
+	        updateRequest.onload = function(e) {
+	            var version = JSON.parse(updateRequest.responseText);
+	            console.log("version.json: " + JSON.stringify(version));
+	            document.getElementById("downloadversion").innerHTML = version.major
+	                                                                 + '.' + version.minor
+	                                                                 + '_' + version.build
+	        }
+	        updateRequest.open("GET",'version.json');
+	        updateRequest.send();
+	        
+	        var overwolf_updateRequest = new XMLHttpRequest();
+	        overwolf_updateRequest.onload = function(e) {
+	            var overwolf_version = JSON.parse(overwolf_updateRequest.responseText);
+	            console.log("overwolf_manifest.json: " + JSON.stringify(overwolf_version.meta.version));
+	            document.getElementById("overwolfversion").innerHTML = overwolf_version.meta.version;
+	        }
+	        updateRequest.open("GET",'overwolf_manifest.json');
+	        updateRequest.send();
+	
+	        var electron_updateRequest = new XMLHttpRequest();
+	        electron_updateRequest.onload = function(e) {
+	            var electron_version = JSON.parse(electron_updateRequest.responseText);
+	            console.log("electron_package.json: " + JSON.stringify(electron_version.version));
+	            document.getElementById("electronversion").innerHTML = electron_version.version;
+	        }
+	        updateRequest.open("GET",'electron_package.json');
+	        updateRequest.send();
+        }
+    </script>
   </head>
   <body>
+  
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5";
+    fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+    
     <div class="wrapper">
       <header>
+        <img src="SRA-Logo.png" />
         <h1>SIMRacingApps</h1>
       </header>
+      <img class="collage" src="Collage-851x315.png" />
       <section>
+        <h3>Welcome to SIMRacingApps<br />A FREE, Community Supported, Companion to Your Racing Games</h3>
         <h3>
-<a id="welcome-to-simracingapps" class="anchor" href="#welcome-to-simracingapps" aria-hidden="true"><span class="octicon octicon-link"></span></a>Welcome to SIMRacingApps</h3>
+            <h4>This is a public BETA release. Please report any issues on the <a target="_blank" href="https://github.com/SIMRacingApps/SIMRacingApps/issues">GitHub Issues Page</a> page.</h4>
+            <a target="_blank" href="http://www.github.com/SIMRacingApps/SIMRacingApps/releases/latest">Download Server<span id="downloadversion"></span></a>
+            , <a target="_blank" href="http://www.github.com/SIMRacingApps/SIMRacingAppsOverwolf">Overwolf-Apps <span id="overwolfversion"></span></a>
+            , <a target="_blank" href="http://www.github.com/SIMRacingApps/SIMRacingAppsElectron">Electron-Apps <span id="electronversion"></span></a>
+            <br /><br />
+            <a href="docs/JavaScriptDoc/index.html" target="_blank">Documentation</a>
+            , <a target="_blank" href="docs/documentation/SIMRacingApps_ReleaseNotes.txt">Release Notes</a>
+        <h3>
+		<hr />
+        <h2>What is SIMRacingApps?</h2><ul>
+		<li>It's a Web Server used to host browser based Apps that are accessible using any device with a modern HTML5 browser.</li>
+		<li>It comes with several Apps free out of the box.</li>
+		<li>It's a ReST interface for developers to access the SIM Data via an HTTP call.</li>
+		<li>It's a HTML5 platform for other developers to write Apps and Widgets and share them with you.</li>
+		<li>It's a Java SDK for developing your own Java Based Apps.</li>
+		<li>And it is free, no hidden fees, not a demo, full 100% functionality available, open source, released under the <a target="_blank" href="LICENSE.TXT">Apache License 2.0</a>.</li>
+		<li>Like us on FaceBook 
+		    <!-- a target="_blank" href="http://www.facebook.com/SIMRacingApps">SIMRacingApps</a --> 
+		    to keep up with new releases and tips and tricks.
+            <div class="fb-page" data-href="https://www.facebook.com/SIMRacingApps" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false" data-show-posts="false"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/SIMRacingApps"><a href="https://www.facebook.com/SIMRacingApps">SIMRacingApps</a></blockquote></div></div>		    
+            </li>
+		</ul>
+		<h2>Want to try it out? It's simple.</h2><h3>On the same computer where the simulator is running:</h3><ul>
+		<li>Download the latest version of SIMRacingAppsServer....exe and save it where you can find it later. It is not an installer.</li>
+		<li>Execute SIMRacingAppsServer....exe. </li>
+		<li>If you don't have Java 1.8 or better installed, it will direct you to the download page so you can install Java.
+		    After Java is installed, execute the SIMRacingAppsServer....exe again. 
+		</li>
+		<li>Leave this window open while racing. You can minimize it, but note the HTTP://... address in the title of this window first. You will use this address to connect to the server from the client.</li>
+		</ul>
+		<h3>Clients can connect from any device connected to your home network<br />(including the SIM computer):</h3><ul>
+		<li>Open a browser (Chrome, FireFox, IE10, EDGE, Safari) and enter the HTTP address of the server.</li>
+		<li>Click on one or more Apps or Widgets and start racing. Clicking the description will open the documentation for that App or Widget.</li>
+		<li>You can also use the Overwolf or Electron runtimes as a client as well. See the readme files in the download links.</li>
+		<li>For detailed documentation for a specific version, start that version's server and access the documentation from the main menu.</li>
+		</ul>
+		<h2>Supported Simulators</h2>
+		<ul>
+		  <li><a target="_blank" href="http://www.iracing.com">iRacing.com</a></li>
+          <li>...More to Come</li>
+		</ul>
+        <h2>Here is a partial list of the Apps and Widgets that are included.</h2><ul>
+        <li>CrewChief (Control your pit changes. Calculate fuel mileage, laps on tires, etc.)
+          <img src="docs/apps/CrewChief/icon.png" />
+        </li>
+        <li>TrackMap  (See where all the cars are overlaid on Satellite or Street Map images)
+          <img src="docs/widgets/TrackMap/icon.png" />
+        </li>
+        <li>Dashes    (with fully working analog and bar gauges like Tach, Water Temp, Oil Temp, etc.)
+          <img src="docs/apps/Dash-StockCars-DigitalOverlay/icon.png" />
+          <img src="docs/apps/Dash-BarGauges-DigitalOverlay/icon.png" />
+        </li>
+        <li>Standings (see pit time for all cars, best and last laps times, etc.)
+          <img src="docs/widgets/StandingsTop10/icon.png" />
+        </li>
+        <li>Relative  (see who is near you)
+          <img src="docs/widgets/Relative/icon.png" />
+        </li>
+        <li>RaceAdministrator (Makes those pesky admin commands a touch or click of the mouse)
+          <img src="docs/apps/RaceAdministrator/icon.png" />
+        </li>
+        <li>Spectator/Broadcaster (Puts lots of information at your finger tips on one page with selectable driver)
+          <img src="docs/apps/Spectator/icon.png" />
+        </li>
+        <li>And there are more. Install the server and access them from the main menu.</li>
+        </ul>
       </section>
-    </div>
+	</div>
     <footer>
+		<p><a target="_blank" href="COPYRIGHT.TXT">Copyright (C) 2015 Jeffrey Gilliam</a></p>
+		<p><a target="_blank" href="LICENSE.TXT">Apache License 2.0</a></p>
     </footer>
     <!--[if !IE]><script>fixScale(document);</script><![endif]-->
     

@@ -1,0 +1,186 @@
+{
+    "manifest_version":100,
+    "type":"WebApp",
+    "meta":{
+        "name":"SIMRacingAppsLauncher",
+        "version":"1.2.0",
+        "minimum-overwolf-version":"0.90.22",
+        "author":"Jeffrey Gilliam",
+        "icon":"IconMouseOver.png",
+        "icon_gray":"IconMouseNormal.png",
+        "description":"SIMRacingAppsLaucnher is a frontend menu for SIMRacingApps which is a real-time application server for SIM Racing Games. It requires the SIMRacingAppsServer to be running."
+    },
+    "permissions": ["GameInfo","Extensions"],
+    "data": {
+        "start_window":"SIMRacingAppsLauncher",
+        "windows":{
+            "SIMRacingAppsLauncher":{
+                    "file":"Files/SIMRacingAppsLauncher.html",
+                    "transparent":false,
+                    "resizable":true,
+                    "topmost":false,
+                    "size":{"width": 800, "height":700}
+            },
+            "AppWindow0": {
+                    "file":"Files/AppWindows/Appwindow0.html",
+                    "transparent":true,
+                    "resizable":true,
+                    "topmost":true,
+                    "in_game_only": true,
+                    "size":{"width": 800, "height": 480}
+            },
+            "AppWindow1": {
+                    "file":"Files/AppWindows/Appwindow1.html",
+                    "transparent":true,
+                    "resizable":true,
+                    "topmost":true,
+                    "in_game_only": true,
+                    "size":{"width": 800, "height": 480}
+            },
+            "AppWindow2": {
+                    "file":"Files/AppWindows/Appwindow2.html",
+                    "transparent":true,
+                    "resizable":true,
+                    "topmost":true,
+                    "in_game_only": true,
+                    "size":{"width": 800, "height": 480}
+            },
+            "AppWindow3": {
+                    "file":"Files/AppWindows/Appwindow3.html",
+                    "transparent":true,
+                    "resizable":true,
+                    "topmost":true,
+                    "in_game_only": true,
+                    "size":{"width": 800, "height": 480}
+            },
+            "AppWindow4": {
+                    "file":"Files/AppWindows/Appwindow4.html",
+                    "transparent":true,
+                    "resizable":true,
+                    "topmost":true,
+                    "in_game_only": true,
+                    "size":{"width": 800, "height": 480}
+            },
+            "AppWindow5": {
+                    "file":"Files/AppWindows/Appwindow5.html",
+                    "transparent":true,
+                    "resizable":true,
+                    "topmost":true,
+                    "in_game_only": true,
+                    "size":{"width": 800, "height": 480}
+            },
+            "AppWindow6": {
+                    "file":"Files/AppWindows/Appwindow6.html",
+                    "transparent":true,
+                    "resizable":true,
+                    "topmost":true,
+                    "in_game_only": true,
+                    "size":{"width": 800, "height": 480}
+            },
+            "AppWindow7": {
+                    "file":"Files/AppWindows/Appwindow7.html",
+                    "transparent":true,
+                    "resizable":true,
+                    "topmost":true,
+                    "in_game_only": true,
+                    "size":{"width": 800, "height": 480}
+            },
+            "AppWindow8": {
+                    "file":"Files/AppWindows/Appwindow8.html",
+                    "transparent":true,
+                    "resizable":true,
+                    "topmost":true,
+                    "in_game_only": true,
+                    "size":{"width": 800, "height": 480}
+            },
+            "AppWindow9": {
+                    "file":"Files/AppWindows/Appwindow9.html",
+                    "transparent":true,
+                    "resizable":true,
+                    "topmost":true,
+                    "in_game_only": true,
+                    "size":{"width": 800, "height": 480}
+            },
+            "AppWindow10": {
+                    "file":"Files/AppWindows/Appwindow10.html",
+                    "transparent":true,
+                    "resizable":true,
+                    "topmost":true,
+                    "in_game_only": true,
+                    "size":{"width": 800, "height": 480}
+            },
+            "AppWindow11": {
+                    "file":"Files/AppWindows/Appwindow11.html",
+                    "transparent":true,
+                    "resizable":true,
+                    "topmost":true,
+                    "in_game_only": true,
+                    "size":{"width": 800, "height": 480}
+            },
+            "AppWindow12": {
+                    "file":"Files/AppWindows/Appwindow12.html",
+                    "transparent":true,
+                    "resizable":true,
+                    "topmost":true,
+                    "in_game_only": true,
+                    "size":{"width": 800, "height": 480}
+            },
+            "AppWindow13": {
+                    "file":"Files/AppWindows/Appwindow13.html",
+                    "transparent":true,
+                    "resizable":true,
+                    "topmost":true,
+                    "in_game_only": true,
+                    "size":{"width": 800, "height": 480}
+            },
+            "AppWindow14": {
+                    "file":"Files/AppWindows/Appwindow14.html",
+                    "transparent":true,
+                    "resizable":true,
+                    "topmost":true,
+                    "in_game_only": true,
+                    "size":{"width": 800, "height": 480}
+            },
+            "AppWindow15": {
+                    "file":"Files/AppWindows/Appwindow15.html",
+                    "transparent":true,
+                    "resizable":true,
+                    "topmost":true,
+                    "in_game_only": true,
+                    "size":{"width": 800, "height": 480}
+            },
+            "AppWindow16": {
+                    "file":"Files/AppWindows/Appwindow16.html",
+                    "transparent":true,
+                    "resizable":true,
+                    "topmost":true,
+                    "in_game_only": true,
+                    "size":{"width": 800, "height": 480}
+            },
+            "AppWindow17": {
+                    "file":"Files/AppWindows/Appwindow17.html",
+                    "transparent":true,
+                    "resizable":true,
+                    "topmost":true,
+                    "in_game_only": true,
+                    "size":{"width": 800, "height": 480}
+            },
+            "AppWindow18": {
+                    "file":"Files/AppWindows/Appwindow18.html",
+                    "transparent":true,
+                    "resizable":true,
+                    "topmost":true,
+                    "in_game_only": true,
+                    "size":{"width": 800, "height": 480}
+            },
+            "AppWindow19": {
+                    "file":"Files/AppWindows/Appwindow19.html",
+                    "transparent":true,
+                    "resizable":true,
+                    "topmost":true,
+                    "in_game_only": true,
+                    "size":{"width": 800, "height": 480}
+            }
+        }
+    }
+}

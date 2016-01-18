@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Index</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Index</h1>
+
+    
+
+
+    
+
+
+    <h3> </h3>
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+    <section class="section-readme">
+        <article><h1>SIMRacingApps</h1><h2>HTML5 Based Apps and Widgets, ReST Web Server, Java SDK.</h2><p>=========================================================================================</p>
+<h2>What is SIMRacingApps?</h2><ul>
+<li>It's a Web Server used to host Apps and Widgets, accessible using any device with a modern browser.</li>
+<li>It comes with several Apps and Widgets free out of the box.</li>
+<li>It's a ReST interface for developers to access the SIM Data via an HTTP call.</li>
+<li>It's a HTML5 platform for other developers to write Apps and Widgets and share them with you.</li>
+<li>It's a Java SDK for developing your own Java Based Apps that can work with any supported SIM.</li>
+<li>And it is free, open source, released under the Apache 2.0 license.</li>
+<li>Like us on facebook <a href="http://www.facebook.com/SIMRacingApps">SIMRacingApps</a> to keep up with new releases and tips and tricks.</li>
+</ul>
+<h2>Here is a partial list of the Apps and Widgets that are included.</h2><ul>
+<li>CrewChief (Control your pit changes. Calculate fuel mileage, laps on tires, etc.)</li>
+<li>TrackMap  (See where all the cars are overlaid on Satellite or Street Map images)</li>
+<li>Dashes    (with fully working analog and bar gauges like Tach, Water Temp, Oil Temp, etc.)</li>
+<li>Standings (see pit time for all cars, best and last laps times, etc.)</li>
+<li>Relative  (see who is near you)</li>
+<li>RaceAdministrator (Makes those pesky admin commands a touch or click of the mouse)</li>
+<li>Spectator/Broadcaster (Puts lots of information at your finger tips on one page with selectable driver)</li>
+<li>And there are more. Install the server and access them from the main page.</li>
+</ul>
+<h2>Want to try it out? It's simple.</h2><h3>On the same computer where the simulator is running:</h3><ul>
+<li>Download the latest version of SIMRacingAppsServer....exe from <a href="http://www.github.com/SIMRacingApps/SIMRacingApps/releases/latest">here</a> and save it where you can find it later. It is not an installer.</li>
+<li>Execute SIMRacingAppsServer....exe. </li>
+<li>If you don't have Java 1.8 or better installed, it will direct you to the download page so you can install Java.</li>
+<li>Leave this window open while racing. You can minimize it, but note the HTTP://... address in the title of this window first. You will use the address to connect to the server from the client.</li>
+</ul>
+<h3>Clients can be from any device connected to your home network (including the SIM computer):</h3><ul>
+<li>Open the browser (Chrome, FireFox, IE10, EDGE, Safari) and enter the HTTP address of the server.</li>
+<li>Click on an App or Widget and start racing. Clicking the icon will get help for that App or Widget.</li>
+<li>In addition to using browsers, I have provided packages for using <a href="https://github.com/atom/electron">Atom/Electron</a> and <a href="http://www.overwolf.com">Overwolf Apps</a> platforms as clients for SIMRacingApps. Each platform has different features that might meet your specific needs. Refer to the readme files provided with each package to get a better idea on which one would be best for you.</li>
+<li>More documentation is also available from the main menu.</li>
+</ul>
+<h2>There is more...</h2><p>If you are a developer, you can develop your own Apps and Widgets.
+Detailed documentation is available from the main page.
+Full source is available on GitHub at <a href="http://www.github.com/SIMRacingApps/SIMRacingApps">SIMRacingApps</a>.
+By making the source available, I hope others will join in and help develop this farther. 
+Just fork the source, make your changes and submit a pull request.</p>
+<p>But, you do not have to be a Github expert to help out. 
+You can simply develop your App or Widget in your personal folder and SIMRacingApps will scan for it and add it to the main page.
+See below for details on creating your own App or Widget.
+You can also share your App or Widget by creating a .SRA file that can be uploaded from the main page using the form at the bottom of the page. .SRA files are simply .ZIP files renamed. They are intended to be uploaded on the main menu. Each file in the archive will be extracted to the users personal folder located at Documents/SIMRacingApps.</p>
+<p>The simulation data can be challenging to use.
+Therefore, I have created an API layer above the SIM data to make using the SIM data simpler. 
+This layer is available directly from the <a href="../JavaDoc/index.html">SIMRacingApps Java SDK</a> as well as the ReST Web Server.
+This layer is designed to be used with any simulator that we develop a plug-in for.
+This layer does many of the calculations that the simulator doesn't provide directly for you.
+But don't worry, if needed, the raw SIM data is available to you as well.
+For full API documentation, install the server, connect to the main page and scroll down to the documentation section.</p>
+<p>On the browser side, I have based this design on the <a href="http://angularjs.org">AngularJS</a> framework. 
+AngularJS framework supports the &quot;Single Page Application&quot; (SPA) design pattern.
+This is where only one page is fetched from the server and AJAX calls are used to retrieve smaller amounts of data from the server as needed.
+I provide an AngularJS service to call the SIMRacingApps sever and get the data and feed it to Angular $scope so directives can intercept the data and use it.
+The way AngularJS binds the DOM elements to JavaScript objects, makes it a perfect match for this type of application.</p>
+<p>In SIM Racing Apps, I have provided several predefined Widgets for building Apps.
+Widgets are Angular &quot;directives&quot;, which allows them to be placed in the HTML file using a declarative syntax. 
+Through a generic App called WidgetLoader, any widget can also be a stand alone App. 
+Multiple widgets are designed to be used together to form an app. </p>
+<p>An App is simply an HTML page that declares what Widgets you want to use as an HTML tag.
+Tags can have properties to control the Widget's behavior. 
+These are fully styleable using CSS, you can size and position these as needed.
+All widgets will resize themselves simply by providing &quot;width&quot; and &quot;font-size&quot; styles to the DOM element.
+For a step by step guide to build an application, see the <a href="../documentation/SIMRacingApps%20-%20Overview%20for%20Creating%20an%20App/default.html">SIMRacingApps - Overview for Creating an App</a> documentation.</p>
+<p>Widgets define an AngularJS Directive and must confirm to that specification.
+For a step by step guide to build a widget, see the <a href="../documentation/SIMRacingApps%20-%20Overview%20for%20Creating%20a%20Widget/default.html">SIMRacingApps - Overview for Creating a Widget</a> documentation.</p>
+<p>Below are the currently supported paths to the Generic SIM API. 
+Using this API your application will possibly run across all supported SIMs if the SIM exports the data your are using.
+Following the link will take you to the Java Documentation that this path is mapped to. 
+Here you will find details on how the path works and what options you have.
+For all the possible values supported for the carIdentifier, click <a href="../JavaDoc/com/SIMRacingApps/Session.html#getCar-java.lang.String-">here</a>.</p>
+<h2>Generic API paths supported by the server</h2><p><a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#getBearing-java.lang.String-"><code>/Car/(CARIDENTIFIER)/Bearing/(UOM)</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#getCautions--"><code>/Car/(CARIDENTIFIER)/Cautions</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#getClassColor--"><code>/Car/(CARIDENTIFIER)/ClassColor</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#getClassName--"><code>/Car/(CARIDENTIFIER)/ClassName</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#getColor--"><code>/Car/(CARIDENTIFIER)/Color</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#getColorNumber--"><code>/Car/(CARIDENTIFIER)/ColorNumber</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#getColorNumberBackground--"><code>/Car/(CARIDENTIFIER)/ColorNumberBackground</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#getColorNumberOutline--"><code>/Car/(CARIDENTIFIER)/ColorNumberOutline</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#getDescription--"><code>/Car/(CARIDENTIFIER)/Description</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#getDiscontinuality--"><code>/Car/(CARIDENTIFIER)/Discontinuality</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#getDriverClubName--"><code>/Car/(CARIDENTIFIER)/ClubName</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#getDriverDivisionName--"><code>/Car/(CARIDENTIFIER)/DriverDivisionName</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#getDriverInitials--"><code>/Car/(CARIDENTIFIER)/DriverInitials</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#getDriverLicenseColor--"><code>/Car/(CARIDENTIFIER)/DriverLicenseColor</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#getDriverLicenseColorText--"><code>/Car/(CARIDENTIFIER)/Driver/LicenseColorText</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#getDriverName--"><code>/Car/(CARIDENTIFIER)/DriverName</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#getDriverRating--"><code>/Car/(CARIDENTIFIER)/DriverRating</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#getFuelLaps-int-"><code>/Car/(CARIDENTIFIER)/FuelLaps/(LAPSTOAVERAGE)</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#getFuelLapsMaximum-int-"><code>/Car/(CARIDENTIFIER)/FuelLapsMaximum/(LAPSTOAVERAGE)</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#getFuelLevelAtStartFinish-java.lang.String-"><code>/Car/(CARIDENTIFIER)/FuelLevelAtStartFinish/(UOM)</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#getFuelLevelNeeded-int-double-java.lang.String-"><code>/Car/(CARIDENTIFIER)/FuelLevelNeeded/(LAPSTOAVERAGE)/(LAPS)/(UOM)</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#getFuelLevelPerLap-int-java.lang.String-"><code>/Car/(CARIDENTIFIER)/FuelLevelPerLap/(LAPSTOAVERAGE)/(UOM)</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#getFuelLevelToFinish-int-double-java.lang.String-"><code>/Car/(CARIDENTIFIER)/FuelLevelToFinish/(LAPSTOAVERAGE)/(LAPS)/(UOM)</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#getGauge-java.lang.String-"><code>/Car/(CARIDENTIFIER)/Gauge/(GAUGETYPE)</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#getHasAutomaticPitCommands--"><code>/Car/(CARIDENTIFIER)/HasAutomaticPitCommands</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#getId--"><code>/Car/(CARIDENTIFIER)/Id</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#getImageUrl--"><code>/Car/(CARIDENTIFIER)/ImageUrl</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#getIsEqual-java.lang.String-"><code>/Car/(CARIDENTIFIER)/IsEqual/(CARIDENTIFIER)</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#getIsFixedSetup--"><code>/Car/(CARIDENTIFIER)/IsFixedSetup</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#getIsOverSpeedLimit--"><code>/Car/(CARIDENTIFIER)/IsOverSpeedLimit</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#getIsSpectator--"><code>/Car/(CARIDENTIFIER)/IsSpectator</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#getIsUnderSpeedLimit--"><code>/Car/(CARIDENTIFIER)/IsUnderSpeedLimit</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#getLap-java.lang.String-"><code>/Car/(CARIDENTIFIER)/Lap/(LAPTYPE)</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#getLapInvalidFlags--"><code>/Car/(CARIDENTIFIER)/LapInvalidFlags</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#getLapsToGo--"><code>/Car/(CARIDENTIFIER)/LapsToGo</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#getLapTime-java.lang.String-"><code>/Car/(CARIDENTIFIER)/LapTime/(LAPTYPE)</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#getLapTimeDelta-java.lang.String-"><code>/Car/(CARIDENTIFIER)/LapTimeDelta/(LAPTYPE)</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#getLapTimeDeltaPercent-java.lang.String-"><code>/Car/(CARIDENTIFIER)/LapTimeDeltaPercent/(LAPTYPE)</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#getLapTimeDeltaReference-java.lang.String-"><code>/Car/(CARIDENTIFIER)/LapTimeDeltaReference/(LAPTYPE)</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#getLapTimeProjected--"><code>/Car/(CARIDENTIFIER)/LapTimeProjected</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#getLapTimes--"><code>/Car/(CARIDENTIFIER)/LapTimes</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#getLatitude-java.lang.String-"><code>/Car/(CARIDENTIFIER)/Latitude/(UOM)</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#getLongitude-java.lang.String-"><code>/Car/(CARIDENTIFIER)/Longitude/(UOM)</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#getManufacturerLogo--"><code>/Car/(CARIDENTIFIER)/ManufacturerLogo</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#getMergePoint--"><code>/Car/(CARIDENTIFIER)/MergePoint</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#getName--"><code>/Car/(CARIDENTIFIER)/</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#getNumber--"><code>/Car/(CARIDENTIFIER)/Number</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#getPitLocation--"><code>/Car/(CARIDENTIFIER)/PitLocation</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#getPitLocation--"><code>/Car/(CARIDENTIFIER)/PitSpeedLimit/(UOM)</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#getPitStopsRemaining-int-"><code>/Car/(CARIDENTIFIER)/PitStopsRemaining/{LAPSTOAVERAGE}</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#getPitTime--"><code>/Car/(CARIDENTIFIER)/PitTime</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#getPosition--"><code>/Car/(CARIDENTIFIER)/Position</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#getPositionClass--"><code>/Car/(CARIDENTIFIER)/PositionClass</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#getPositionClassDelta--"><code>/Car/(CARIDENTIFIER)/PositionClassDelta</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#getPositionClassQualifying--"><code>/Car/(CARIDENTIFIER)/PositionClassQualifying</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#getPositionDelta--"><code>/Car/(CARIDENTIFIER)/PositionDelta</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#getPositionQualifying--"><code>/Car/(CARIDENTIFIER)/PositionQualifying</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#getPositions--"><code>/Car/(CARIDENTIFIER)/Positions</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#getPositionsClass--"><code>/Car/(CARIDENTIFIER)/PositionsClass</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#getRadioChannel--"><code>/Car/(CARIDENTIFIER)/RadioChannel</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#getRadioChannelName--"><code>/Car/(CARIDENTIFIER)/RadioChannelName</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#getRepairTime--"><code>/Car/(CARIDENTIFIER)/RepairTime</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#getRepairTimeOptional--"><code>/Car/(CARIDENTIFIER)/RepairTimeOptional</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#getRPMPitRoadSpeed--"><code>/Car/(CARIDENTIFIER)/RPMPitRoadSpeed</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#getStatus--"><code>/Car/(CARIDENTIFIER)/Status</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#getStatusClass--"><code>/Car/(CARIDENTIFIER)/StatusClass</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#getTeamName--"><code>/Car/(CARIDENTIFIER)/TeamName</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#getWarnings--"><code>/Car/(CARIDENTIFIER)/Warnings</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#setAdminFlag-boolean-"><code>/Car/(CARIDENTIFIER)/setAdminFlag/(Y/N)</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#setBlackFlag-int-java.lang.String-"><code>/Car/(CARIDENTIFIER)/setBlackFlag/(SECONDS/LAPS)/(UOM)</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#setChat-java.lang.String-"><code>/Car/(CARIDENTIFIER)/setChat/(TEXT)</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#setChatFlag-boolean-"><code>/Car/(CARIDENTIFIER)/setChatFlag/(Y/N)</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#setClearPenaltiesFlag--"><code>/Car/(CARIDENTIFIER)/setClearPenaltiesFlag</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#setDisqualifyFlag--"><code>/Car/(CARIDENTIFIER)/setDisqualifyFlag</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#setEndOfLineFlag--"><code>/Car/(CARIDENTIFIER)/setEndOfLineFlag</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#setRemoveFlag--"><code>/Car/(CARIDENDIFIER)/setRemoveFlag</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#setRPMPitRoadSpeed-double-"><code>/Car/(CARIDENTIFIER)/setRPMPitRoadSpeed/(RPM)</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#setWaveAroundFlag--"><code>/Car/(CARIDENTIFIER)/setWaveAroundFlag</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Gauge.html#decrementValueNext-java.lang.String-"><code>/Car/(CARIDENTIFIER)/Gauge/(GAUGETYPE)/decrementValueNext/(UOM)</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Gauge.html#getCapacityIncrement-java.lang.String-"><code>/Car/(CARIDENTIFIER)/Gauge/(GAUGETYPE)/CapacityIncrement/(UOM)</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Gauge.html#getCapacityMaximum-java.lang.String-"><code>/Car/(CARIDENTIFIER)/Gauge/(GAUGETYPE)/CapacityMaximum/(UOM)</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Gauge.html#getCapacityMinimum-java.lang.String-"><code>/Car/(CARIDENTIFIER)/Gauge/(GAUGETYPE)/CapacityMinimum/(UOM)</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Gauge.html#getChangeFlag--"><code>/Car/(CARIDENTIFIER)/Gauge/(GAUGETYPE)/ChangeFlag</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Gauge.html#getDefaultUOM--"><code>/Car/(CARIDENTIFIER)/Gauge/(GAUGETYPE)/DefaultUOM</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Gauge.html#getIsChangeable--"><code>/Car/(CARIDENTIFIER)/Gauge/(GAUGETYPE)/IsChangeable</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Gauge.html#getIsDebug--"><code>/Car/(CARIDENTIFIER)/Gauge/(GAUGETYPE)/IsDebug</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Gauge.html#getIsDirty--"><code>/Car/(CARIDENTIFIER)/Gauge/(GAUGETYPE)/IsDirty</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Gauge.html#getIsFixed--"><code>/Car/(CARIDENTIFIER)/Gauge/(GAUGETYPE)/IsFixed</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Gauge.html#getLapChanged--"><code>/Car/(CARIDENTIFIER)/Gauge/(GAUGETYPE)/LapChanged</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Gauge.html#getLaps-int-"><code>/Car/(CARIDENTIFIER)/Gauge/(GAUGETYPE)/Laps/(CURRENTLAP)</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Gauge.html#getLapsHistorical--"><code>/Car/(CARIDENTIFIER)/Gauge/(GAUGETYPE)/LapsHistorical</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Gauge.html#getMajorIncrement-java.lang.String-"><code>/Car/(CARIDENTIFIER)/Gauge/(GAUGETYPE)/MajorIncrement/(UOM)</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Gauge.html#getMaximum-java.lang.String-"><code>/Car/(CARIDENTIFIER)/Gauge/(GAUGETYPE)/Maximum/(UOM)</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Gauge.html#getMinimum-java.lang.String-"><code>/Car/(CARIDENTIFIER)/Gauge/(GAUGETYPE)/Minimum/(UOM)</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Gauge.html#getMinorIncrement-java.lang.String-"><code>/Car/(CARIDENTIFIER)/Gauge/(GAUGETYPE)/MinorIncrement/(UOM)</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Gauge.html#getMultiplier--"><code>/Car/(CARIDENTIFIER)/Gauge/(GAUGETYPE)/Multiplier</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Gauge.html#getName--"><code>/Car/(CARIDENTIFIER)/Gauge/(GAUGETYPE)/Name</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Gauge.html#getOnResetChange--"><code>/Car/(CARIDENTIFIER)/Gauge/(GAUGETYPE)/OnResetChange</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Gauge.html#getStateRange-java.lang.String-"><code>/Car/(CARIDENTIFIER)/Gauge/(GAUGETYPE)/StateRange/(STATE)</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Gauge.html#getStates--"><code>/Car/(CARIDENTIFIER)/Gauge/(GAUGETYPE)/States</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Gauge.html#getType--"><code>/Car/(CARIDENTIFIER)/Gauge/(GAUGETYPE)/Type</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Gauge.html#getTypeName--"><code>/Car/(CARIDENTIFIER)/Gauge/(GAUGETYPE)/TypeName</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Gauge.html#getUOM--"><code>/Car/(CARIDENTIFIER)/Gauge/(GAUGETYPE)/UOM</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Gauge.html#getValueCurrent-java.lang.String-"><code>/Car/(CARIDENTIFIER)/Gauge/(GAUGETYPE)/ValueCurrent/(UOM)</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Gauge.html#getValueHistorical-java.lang.String-"><code>/Car/(CARIDENTIFIER)/Gauge/(GAUGETYPE)/ValueHistorical/(UOM)</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Gauge.html#getValueNext-java.lang.String-"><code>/Car/(CARIDENTIFIER)/Gauge/(GAUGETYPE)/ValueNext/(UOM)</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Gauge.html#incrementValueNext-java.lang.String-"><code>/Car/(CARIDENTIFIER)/Gauge/(GAUGETYPE)/incrementValueNext/(UOM)</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Gauge.html#setChangeFlag-java.lang.String-"><code>/Car/(CARIDENTIFIER)/Gauge/(GAUGETYPE)/setChangeFlag/(FLAG)</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Gauge.html#setIsDebug-boolean-"><code>/Car/(CARIDENTIFIER)/Gauge/(GAUGETYPE)/setIsDebug/(ISDEBUG)</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Gauge.html#setValueNext-java.lang.Double-java.lang.String-"><code>/Car/(CARIDENTIFIER)/Gauge/(GAUGETYPE)/setValueNext/(VALUE)/(UOM)</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Session.html#getCars--"><code>/Session/Cars</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Session.html#getCautionLaps--"><code>/Session/CautionLaps</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Session.html#getCautions--"><code>/Session/Cautions</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Session.html#getDataVersion--"><code>/Session/DataVersion</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Session.html#getDiffCars-java.lang.String-java.lang.String-"><code>/Session/DiffCars/(CARIDENTIFIER1)/(CARIDENTIFIER2)</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Session.html#getDiffCarsRelative-java.lang.String-java.lang.String-"><code>/Session/DiffCarsRelative/(CARIDENTIFIER1)/(CARIDENTIFIER2)</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Session.html#getFlags--"><code>/Session/Flags</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Session.html#getLap--"><code>/Session/Lap</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Session.html#getLaps--"><code>/Session/Laps/(SESSIONTYPE)</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Session.html#getLapsToGo--"><code>/Session/LapsToGo</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Session.html#getNumberOfCarClasses--"><code>/Session/NumberOfCarClasses</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Session.html#getRadioChannelActive--"><code>/Session/RadioChannelActive</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Session.html#getRadioChannelIsDeleteable-int-"><code>/Session/RadioChannelIsDeletable/(CHANNELNUMBER)</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Session.html#getRadioChannelIsListenOnly-int-"><code>/Session/RadioChannelIsListenOnly/(CHANNELNUMBER)</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Session.html#getRadioChannelIsMutable-int-"><code>/Session/RadioChannelIsMutable/(CHANNELNUMBER)</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Session.html#getRadioChannelIsMuted-int-"><code>/Session/RadioChannelIsMuted/(CHANNELNUMBER)</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Session.html#getRadioChannelIsScanable-int-"><code>/Session/RadioChannelIsScanable/(CHANNELNUMBER)</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Session.html#getRadioChannelName-int-"><code>/Session/RadioChannelName/(CHANNELNUMBER)</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Session.html#getRadioChannels--"><code>/Session/RadioChannels</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Session.html#getRadioScan--"><code>/Session/RadioScan</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Session.html#getReferenceCar--"><code>/Session/ReferenceCar</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Session.html#getStartTime--"><code>/Session/StartTime</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Session.html#getStrengthOfField--"><code>/Session/StrengthOfField</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Session.html#getTimeElapsed--"><code>/Session/TimeElapsed</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Session.html#getTimeRemaining--"><code>/Session/TimeRemaining</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Session.html#getType--"><code>/Session/Type</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Session.html#setAdvanceFlag--"><code>/Session/setAdvanceFlag</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Session.html#setCautionFlag--"><code>/Session/setCautionFlag</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Session.html#setChat-java.lang.String-"><code>/Session/setChat/(TEXT)</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Session.html#setChatFlag-boolean-"><code>/Session/setChatFlag/(Y/N)</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Session.html#setRadioChannel-int-"><code>/Session/setRadioChannel/(CHANNELNUMBER)</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Session.html#setRadioChannelDelete-int-"><code>/Session/setRadioChannelDelete/(CHANNELNUMBER)</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Session.html#setRadioChannelMute-int-boolean-"><code>/Session/setRadioChannelMute/(CHANNELNUMBER)/(Y/N)</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Session.html#setRadioChannelName-java.lang.String-"><code>/Session/setRadioChannelName/(CHANNELNAME)</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Session.html#setRadioScan-boolean-"><code>/Session/setRadioScan/(Y/N)</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Session.html#setReferenceCar-java.lang.String-"><code>/Session/setReferenceCar/(CARIDENTIFIER)</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Track.html#getBearing-java.lang.String-java.lang.Double-java.lang.String-"><code>/Track/Bearing/(LOCATION)/(PERCENTAGE)/(UOM)</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Track.html#getCategory--"><code>/Track/Category</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Track.html#getCity--"><code>/Track/City</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Track.html#getConfiguration--"><code>/Track/Configuration</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Track.html#getCountry--"><code>/Track/Country</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Track.html#getDescription--"><code>/Track/Description</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Track.html#getFinishLineRotation-java.lang.String-"><code>/Track/getFinishLineRotation/(UOM)</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Track.html#getImage--"><code>/Track/Image/(type)</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Track.html#getLatitude-java.lang.String-java.lang.Double-java.lang.String-"><code>/Track/Latitude/(LOCATION)/(PERCENTAGE)/(UOM)</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Track.html#getLength-java.lang.String-"><code>/Track/Length/(UOM)</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Track.html#getLongitude-java.lang.String-java.lang.Double-java.lang.String-"><code>/Track/Longitude/(LOCATION)/(PERCENTAGE)/(UOM)</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Track.html#getName--"><code>/Track/Name</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Track.html#getName--"><code>/Track/Path</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Track.html#getNorth-java.lang.String-"><code>/Track/North/(UOM)</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Track.html#getPitSpeedLimit-java.lang.String-"><code>/Track/PitSpeedLimit/(UOM)</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Track.html#getTemp-java.lang.String-"><code>/Track/Temp/(UOM)</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Track.html#getType--"><code>/Track/Type</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Track.html#getWeatherFogLevel--"><code>/Track/WeatherFogLevel</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Track.html#getWeatherRelativeHumidity--"><code>/Track/WeatherRelativeHumidity</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Track.html#getWeatherSkies--"><code>/Track/WeatherSkies</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Track.html#getWeatherTemp-java.lang.String-"><code>/Track/WeatherTemp/(UOM)</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Track.html#getWeatherWindDirection-java.lang.String-"><code>/Track/WeatherWindDirection/(UOM)</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Track.html#getWeatherWindSpeed-java.lang.String-"><code>/Track/WeatherWindSpeed/(UOM)</code></a><br />
+</p>
+<p><a href="../COPYRIGHT.TXT">Copyright (C) 2015 - 2016 Jeffrey Gilliam</a></p>
+<p><a href="../LICENSE.TXT">Apache License 2.0</a></p></article>
+    </section>
+
+
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Index</a></h2><h3>Modules</h3><ul><li><a href="module-SIMRacingApps.html">SIMRacingApps</a></li></ul><h3>apps</h3><ul><li><a href="CrewChief.html">CrewChief</a></li><li><a href="CrewChief-Large.html">CrewChief-Large</a></li><li><a href="Dash-BarGauges-DigitalOverlay.html">Dash-BarGauges-DigitalOverlay</a></li><li><a href="Dash-Gauges-Spek.html">Dash-Gauges-Spek</a></li><li><a href="Dash-Gauges-Spek-Horizontal.html">Dash-Gauges-Spek-Horizontal</a></li><li><a href="Dash-Minimum.html">Dash-Minimum</a></li><li><a href="Dash-Small.html">Dash-Small</a></li><li><a href="Dash-StockCars-DigitalOverlay.html">Dash-StockCars-DigitalOverlay</a></li><li><a href="RaceAdministrator.html">RaceAdministrator</a></li><li><a href="Spectator.html">Spectator</a></li></ul><h3>filter</h3><ul><li><a href="module-SIMRacingApps.sraCeil.html">sraCeil</a></li><li><a href="module-SIMRacingApps.sraDebug.html">sraDebug</a></li><li><a href="module-SIMRacingApps.sraDecodeEntities.html">sraDecodeEntities</a></li><li><a href="module-SIMRacingApps.sraDuration.html">sraDuration</a></li><li><a href="module-SIMRacingApps.sraFloor.html">sraFloor</a></li><li><a href="module-SIMRacingApps.sraHex.html">sraHex</a></li><li><a href="module-SIMRacingApps.sraLPad.html">sraLPad</a></li><li><a href="module-SIMRacingApps.sraNumber.html">sraNumber</a></li><li><a href="module-SIMRacingApps.sraRound.html">sraRound</a></li><li><a href="module-SIMRacingApps.sraRPad.html">sraRPad</a></li></ul><h3>directive</h3><ul><li><a href="module-SIMRacingApps-sra-data.html">sra-data</a></li><li><a href="module-SIMRacingApps-sra-horizontal-align.html">sra-horizontal-align</a></li><li><a href="module-SIMRacingApps-sra-resize.html">sra-resize</a></li><li><a href="module-SIMRacingApps-sra-vertical-align.html">sra-vertical-align</a></li><li><a href="sra-analog-gauge.html">sra-analog-gauge</a></li><li><a href="sra-analog-gauge-spek-brake-pressure.html">sra-analog-gauge-spek-brake-pressure</a></li><li><a href="sra-analog-gauge-spek-fuel-level.html">sra-analog-gauge-spek-fuel-level</a></li><li><a href="sra-analog-gauge-spek-fuel-pressure.html">sra-analog-gauge-spek-fuel-pressure</a></li><li><a href="sra-analog-gauge-spek-oil-level.html">sra-analog-gauge-spek-oil-level</a></li><li><a href="sra-analog-gauge-spek-oil-pressure.html">sra-analog-gauge-spek-oil-pressure</a></li><li><a href="sra-analog-gauge-spek-oil-temp.html">sra-analog-gauge-spek-oil-temp</a></li><li><a href="sra-analog-gauge-spek-tachometer.html">sra-analog-gauge-spek-tachometer</a></li><li><a href="sra-analog-gauge-spek-voltage.html">sra-analog-gauge-spek-voltage</a></li><li><a href="sra-analog-gauge-spek-water-level.html">sra-analog-gauge-spek-water-level</a></li><li><a href="sra-analog-gauge-spek-water-pressure.html">sra-analog-gauge-spek-water-pressure</a></li><li><a href="sra-analog-gauge-spek-water-temp.html">sra-analog-gauge-spek-water-temp</a></li><li><a href="sra-bar-gauge.html">sra-bar-gauge</a></li><li><a href="sra-bar-gauge-brake-pressure.html">sra-bar-gauge-brake-pressure</a></li><li><a href="sra-bar-gauge-fuel-level.html">sra-bar-gauge-fuel-level</a></li><li><a href="sra-bar-gauge-fuel-pressure.html">sra-bar-gauge-fuel-pressure</a></li><li><a href="sra-bar-gauge-oil-level.html">sra-bar-gauge-oil-level</a></li><li><a href="sra-bar-gauge-oil-pressure.html">sra-bar-gauge-oil-pressure</a></li><li><a href="sra-bar-gauge-oil-temp.html">sra-bar-gauge-oil-temp</a></li><li><a href="sra-bar-gauge-tachometer.html">sra-bar-gauge-tachometer</a></li><li><a href="sra-bar-gauge-voltage.html">sra-bar-gauge-voltage</a></li><li><a href="sra-bar-gauge-water-level.html">sra-bar-gauge-water-level</a></li><li><a href="sra-bar-gauge-water-pressure.html">sra-bar-gauge-water-pressure</a></li><li><a href="sra-bar-gauge-water-temp.html">sra-bar-gauge-water-temp</a></li><li><a href="sra-car-controls.html">sra-car-controls</a></li><li><a href="sra-car-image.html">sra-car-image</a></li><li><a href="sra-car-number.html">sra-car-number</a></li><li><a href="sra-car-number-extended.html">sra-car-number-extended</a></li><li><a href="sra-car-selector.html">sra-car-selector</a></li><li><a href="sra-data-table.html">sra-data-table</a></li><li><a href="sra-driver-info.html">sra-driver-info</a></li><li><a href="sra-flags.html">sra-flags</a></li><li><a href="sra-fuel-tank.html">sra-fuel-tank</a></li><li><a href="sra-gear.html">sra-gear</a></li><li><a href="sra-lap-timing.html">sra-lap-timing</a></li><li><a href="sra-pedals.html">sra-pedals</a></li><li><a href="sra-pit-commander.html">sra-pit-commander</a></li><li><a href="sra-pit-road.html">sra-pit-road</a></li><li><a href="sra-radio-control.html">sra-radio-control</a></li><li><a href="sra-relative.html">sra-relative</a></li><li><a href="sra-shift-light.html">sra-shift-light</a></li><li><a href="sra-shift-lights.html">sra-shift-lights</a></li><li><a href="sra-standings.html">sra-standings</a></li><li><a href="sra-standings-top-10.html">sra-standings-top-10</a></li><li><a href="sra-standings-top-20.html">sra-standings-top-20</a></li><li><a href="sra-standings-top-35.html">sra-standings-top-35</a></li><li><a href="sra-steering-wheel.html">sra-steering-wheel</a></li><li><a href="sra-team-speak-talking.html">sra-team-speak-talking</a></li><li><a href="sra-template.html">sra-template</a></li><li><a href="sra-timing-delta.html">sra-timing-delta</a></li><li><a href="sra-tire.html">sra-tire</a></li><li><a href="sra-tire-measurements.html">sra-tire-measurements</a></li><li><a href="sra-track-map.html">sra-track-map</a></li><li><a href="sra-track-map-car.html">sra-track-map-car</a></li><li><a href="sra-track-map-finish-line.html">sra-track-map-finish-line</a></li><li><a href="sra-weather-info.html">sra-weather-info</a></li><li><a href="sra-wind-gauge.html">sra-wind-gauge</a></li></ul><h3>controller</h3><ul><li><a href="module-SIMRacingApps-sraController.html">sraController</a></li></ul><h3>factory</h3><ul><li><a href="module-SIMRacingApps-sraDispatcher.html">sraDispatcher</a></li></ul><h3>Global</h3><ul><li><a href="global.html#SIMRacingAppsRequireConfig">SIMRacingAppsRequireConfig</a></li></ul>
+</nav>
+
+<br clear="both">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.2</a> 
+    using <a href="https://github.com/allenhwkim/angular-jsdoc">Angular-JSDoc template </a> 
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+<script>
+  // scroll to the current document navigation
+  var href=window.location.href.match(/\/([^\/]+$)/)[1];
+  if (currentNav = document.querySelector("nav a[href='"+href+"']"))
+    currentNav.scrollIntoView(true);
+  // scroll to the top of the document
+  if (window.location.hash == "")
+    document.querySelector("body").scrollIntoView(true);
+  // adjust the width of main section by navigation width
+  // var navWidth = document.querySelector('nav').getBoundingClientRect().width;
+  // var mainWidth = document.querySelector('#main').getBoundingClientRect().width;
+  // document.querySelector('#main').style.width = (mainWidth - navWidth)+'px';
+</script>
+</body>
+</html>

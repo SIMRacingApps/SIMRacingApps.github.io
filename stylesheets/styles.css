@@ -79,6 +79,10 @@ header h1 {
 header.without-description h1 {
   margin: 10px 0;
 }
+header img {
+  width: 6%;
+  float: left;
+}
 header p {
   margin: 0;
   color: #61778B;

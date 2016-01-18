@@ -1,0 +1,368 @@
+SIMRacingApps Release Notes
+---------------------------
+    To get the server running, simply execute the SIMRacingAppsServer...exe on the same computer that the Simulator is running on. 
+    If you do not have Java 1.8 or better installed, it will redirect you to the Java download page.
+    Then, enter the server address (found in the Title of the server window) in your browser from any device connected to the same network.
+    Please refer to the Quick Start Guide for more details and options for running the server.
+    
+    Java Updates:
+        I recommended turning off the automatic installation of updates for Java in the Control Panel, Java -> Update tab.
+        It has caused black screens when it updates while racing.
+        Instead, change it to notify you before downloading and change the time it checks to when you are not likely to be racing.
+        Also, on the Java -> Security tab, you can disable Java in the browser if you don't need it for any other website.
+        Please !!DO!! apply these updates, at a time that works best for you, to keep your system safe.
+    
+    Tip: If you are using an iOS device or Android, after launching an App from the main menu,
+         use the "Add to Home Screen" feature. Then close the browser and launch the app from the icon it created. 
+         Now it will run full screen just like any other app.
+         A similar feature is available in Chrome for Windows also. See "More Tools -> Add to taskbar" on their menu.   
+    
+    Tip: To enable TeamSpeak integration, you must enable the ClientQuery Plug-in in TeamSpeak -> Settings -> Plugins.
+         Currently, your car number is added to your alias and some of the Apps will show you who is talking on TeamSpeak.
+
+Version: 1.0_Build_BETA-2016.01.18
+    1.  Demoted Yellow,YellowWaving and Blue flags from the Session level to the Car level. 
+    2.  Fixed bug where the CarSelector was not working in the Spectator App.
+    3.  Overhauled the Overwolf-Apps. Added ability to have multiple configurations. 
+        I now provide a .opk file to install with instructions updated in the readme. 
+        Later I will submit this to the Overwolf Store for download.
+    4.  Added option to disable TeamSpeak from updating your nickname with your car number.
+        The new option is "-teamspeak-carnumber = true" for the command line or settings.txt.
+        Also, when not in a session, the car number is removed from your nickname if this option is true.
+    5.  Added ability to have multiple configurations to Electron-Apps.
+        The side effect of doing this is your previous settings could not be converted over. 
+        This was because not all of the settings were being saved in the storage folder. Now they are.
+        Go through the menu and select the LoadOnStartup option again and click the logo to refresh.
+    6.  Made the track on the TrackMap with no background darker.
+    7.  Added -mspec-eflag option to control MPEC's new 3 color light.
+        Changed the MPSPEC options to reflect what they do, not the light they turn on.
+        The original options will still be honored.
+            -mspec-red    is now -mspec-rpm
+            -mspec-yellow is now -mspec-yellowflag
+            -mspec-green  is now -mspec-greenflag
+            -msepc-blue   is now -mspec-blueflag
+    8.  Added new App called Dash-Minimum which is a condensed version of Dash-Small.
+    9.  Fix bug where the gauges would not change when loading iRacing with a car with different ranges.
+        Only happened between certain cars, but it is fixed now.
+    10. Split up the Spectator and Broadcaster App on the Menu.
+        Spectators cannot change the Reference Car. (Let your household members use this one while you're racing).
+        Broadcasters can change the Reference Car.
+    11. Relative and Standings Widgets, Display TeamName if in a Team Session, else Club.
+    12. Fixed the Chevrolet Corvette C7 increment for fuel. Was 1.3 gal, should have been 1 gal.
+    13. If the session is multiclass, then the background of the manufacturer logos will change to the classes color.
+        Also in the Track Map, the cars will have a ring around them that is the class color.
+        
+========== TODO List for Version 1.0 (Or defer them to 2.0?) ====================
+
+        - Chat Button Widget - User definable text macros and buttons.
+        - Move iRacing Club Names Map to .json file.
+        - Add ability for users to override any car profile setting in the settings.txt.
+        - Add ability to save favorites for the menu and let the user modify the properties.
+        - Document how to create a Server Side Plugin. For now look at the SIMRacingAppsSIMPluginTemplate project.
+        - Need to design how to back out a patch once the fix is delivered in the next version.
+        - Document how to translate to other languages all the text and get someone to translate (volunteers?)
+        - Translation support for the Main Menu Descriptions.
+
+========= Hardware Notes ================
+
+    Thought I would start a list of low end tablets that have been tested 
+    to have a very low lag when running the high FPS Apps and Widgets.
+    To compare, I looked at the Analog Gauges (specifically the Tach, shift lights, speed limit colors) side by side with the SIM. 
+    My goal is to recommend those that are responsive enough to react to when you can't see the SIM's gauges.
+    Note, some of these have very limited storage, so the thought process is you would just use them for this application.
+    Your experience could differ, so please experiment and send me you feedback. 
+    
+    I also tested using a USB to Ethernet adapter instead of WiFi and got rid of almost all the lag on the slower devices.
+    WiFi is the biggest culprit of lag.
+    Not all devices supports an adapter, so check for compatibility first. 
+    The adapter I tested can be found here, http://plugable.com/products/usb2-otge100.
+    The side affect was the adapter used the same port that charges the device.
+    So, having a fully charged battery before each race is critical. 
+
+    - Short-Circuit VM70 is not a tablet, but a 7 inch VGA display.
+      http://short-circuit.com/product/VM70.html
+      If you have an extra VGA port on your video card, this is the best option. Has no lag.
+      Touch Screen doesn't work on Windows. Drivers were designed for custom applications in cars.
+          
+    - WinBook from Microcenter.com (7 inch starting at $69) 
+      http://www.microcenter.com/product/439773/TW700_Tablet_-_Black
+      This is the low end 7 inch version, which I use (IE Edge) every day dedicated to SIMRacingApps only.
+      IE Edge is actually more responsive than Chrome on this tablet. On Win8 Edge also goes full screen by default.
+      I also have the TW801 8 inch version on Win10, which works well also except Edge doesn't have a full screen option.
+      
+    - Samsung Galaxy Tab 4 Quad Core or better (7 inch starting at $150)
+      http://www.newegg.com/Product/Product.aspx?Item=N82E16834131763
+      Reported by a BETA tester that primarily uses the CrewChief-Large and Dash-BarGauges Apps.
+      He says it works well on the 10.1 inch version ($280). He uses the "Stay Alive" app to keep it from sleeping.
+      Although, WiFi worked fine at my house with this device, my tester has significant lag. 
+      The USB to Ethernet adapter does work with this device.
+        
+    - AZPEN A700 (7 inch starting at $25) Was very slow on all tests. WiFi eventually died. I do not recommend.
+    
+    - AZPEN A745 (7 inch starting at $39)
+      http://www.microcenter.com/product/448360/A745_Tablet
+      Stock browser will not display SVG tags used by the gauges, needed to download Chrome.
+      This tablet has significant lag for the faster widgets like the Tach and PitRoad and ShiftLights.
+      Worked a lot better using a USB to Ethernet Adapter and turning off WiFi. 
+      Seems to be fine for Crew Chief and other Apps that don't need the fast refresh rates.
+
+****************** Previous Versions *************************
+
+1.0_Build_BETA-2015.12.26
+    1.  Added MSPEC option -mspec-rpm that does the same thing as -mspec-red.
+    2.  Creates a default settings.txt file in the Documents/SIMRacingApps folder on server startup.
+        Also added ability to edit the settings from the Main Menu by clicking the gear icon.
+    3.  Fixed the Indy TrackMap Images.
+    4.  Added Support for Overwolf Apps. You can download the overwolf-apps.sra to use them.
+    
+1.0_Build_BETA-2015.12.19
+    1.  Added Browse SIM Raw Data to the main menu.
+    2.  Added ability to override the shift light RPMs in the settings.txt file.
+        You can override by track, car, gear and engine power.
+        Track, Gear and Power are optional.
+        The format is as follows:
+            [{track}-]{car}-ShiftLightStart[-{gear}][-{power}] = rpm
+            [{track}-]{car}-ShiftLightShift[-{gear}][-{power}] = rpm
+            [{track}-]{car}-ShiftLightBlink[-{gear}][-{power}] = rpm
+        You must specify all 3 values (start,shift,blink) or they will be ignored.
+        Start is where the first light in a row of lights should come on.
+        Shift is where the last light will come on and should also be your shift point.
+        Blink is after Shift and it's where the light will blink.
+        {track} and {car} are the values the SIM returns. Spaces are converted to underscores. 
+        You should be able to find these values in the server output window.
+        Here is an example I used for testing with some bogus values:
+            stockcars_chevyss-ShiftLightStart = 6000
+            stockcars_chevyss-ShiftLightShift = 7000
+            stockcars_chevyss-ShiftLightBlink = 8000
+    4.  Received MSPEC Shift Light and tested. 
+        Port number is defined in the Documents\SIMRacingApps\settings.txt file or the command line.
+    5.  Up to date with the iRacing December 2015 Build.
+        a. Track Maps for Nurburgring, Southern National.
+        b. Car Profile for McLaren-Honda MP4-30.
+        c. Now can track PSI/kPa changes to Tires Setup before Pitting.
+        d. Now can display the Right Rear and Left Rear Wedge Adjustments.              
+    6.  Changed the Main Menu to load the App with the ICON instead of the name.
+    7.  Now you can run the Apps and Widgets using Atom/Electron instead of your browser.
+        Download the electron-apps.sra file and upload it to the server from the main menu.
+        There are instructions in the download folder.
+        It uses a startapps.bat with a list of apps. But it has other options as well.
+        It uses the names listed on the main menu.
+        This should replace the need to use Chrome Apps.
+    8.  Users can now add items to the main menu by creating a .json file in their Documents\SIMRacingApps\favorites folder.
+        The electron-apps will use these as well as .json files found in the electron-apps folder.
+        Here is an example. Create a file called "DriverInfo-ME.json" with the following contents.
+        {
+            "name":        "DriverInfo-ME",
+            "description": "Info on ME",
+            "doc":         "JavaScriptDoc/sra-driver-info.html",
+            "url":         "apps/WidgetLoader?widget=DriverInfo&",
+            "icon":        "widgets/DriverInfo/icon.png",
+            "width":       800,
+            "height":      480,
+            "args":        "CAR=ME&TITLE=ME"
+        }
+
+1.0_Build_BETA-2015.12.05
+    1.  Added new app Dash-Small for smaller devices.
+    2.  Added new app Dash-Gauges-Spek-Horizontal.
+    3.  Now all command line arguments can also be put in a settings.txt file in your Personal folder.
+        This allows you to run the server without having to create a shortcut to pass in the options as arguments.
+        Put one argument per line. Example(s):
+           level=FINE
+           log=MyLog 
+           mspec-red=3
+    4.  Added compatibility for Chrome's "Apps" desktop web application platform. 
+        iOS and Android have "Add to Home Screen" in their browsers, and now your Chrome Desktop does also. 
+        You can also add your App or Widget as a shortcut to Chrome's "Apps" Button.
+        Why, because this allows it to remember size and location of when it was last closed.
+        You can also write a .bat file to start several Apps all at once.
+        How to Step by Step:
+           A. Open the App or Widget from the main menu that you want to create a shortcut for.
+           B. Right Click on the title bar and select "Show as Tab".
+           C. Click Chrome's Menu button (3 horizontal bars) and go to "More Tools -> Add to taskbar".
+              Select the "Open as Window" check box, name it, and click "Add".
+           D. Click on Chrome's "Apps" button.
+           E. Now you can run the App or Widget from the chrome://apps page.
+           F. If you don't want to open Chrome to run an App, then Right Click on the icon to create a shortcut.
+              Shortcuts can be put on the Desktop, Start Menu, or Task Bar for you to run later.
+              Shortcuts can also be called from a .bat file and started all at once, including the server. 
+              Here's the syntax:
+                  start SIMRacingAppsServer....exe
+                  @rem give the server 10 seconds to get started, and a small sleep between each app
+                  @ping localhost -n 10 -w 1000 >nul
+                  start Name1.lnk
+                  @ping localhost -n 2 -w 1000 >nul
+                  start Name2.lnk
+                  @ping localhost -n 2 -w 1000 >nul
+    5.  Also updated the chrome-apps folder, which you can extract from the .exe file with 7-Zip.
+        There's a readme file explaining how to use them. They are basically the same as basic 
+        Chrome App, but with more controls. I can hide the title bar and make it stay on top.         
+    6.  Made the default ReST interface default output to be a "pretty" formatted string.
+        So, as a developer, I recommend you always specify an output format because "pretty" is slow.
+        For detailed documentation, go to http://localhost/SIMRacingApps/JavaDoc/com/SIMRacingApps/servlets/Data.html
+        Try these to see the difference:
+            http://localhost/SIMRacingApps/Data/Car/REFERENCE/Description
+            http://localhost/SIMRacingApps/Data/Car/REFERENCE/Description?output=json
+        You can also see all the data a particular SIM is outputting, but only recommended for debugging.
+        Here is an iRacing example:
+            http://localhost/SIMRacingApps/Data/iRacing
+            http://localhost/SIMRacingApps/Data/iRacing?output=json
+    
+1.0_Build_BETA-2015.11.23
+    1.  Updated the default fuel capacity and capacity increment to 4 decimal places. 
+        There were some rounding issues in a session that was 50% fuel.
+    2.  Fix an issue where the TimingDelta widget was hidden on the Dash-StockCars-DigitalOverlay App.
+    3.  For you technical folks, updated the JNA library from 4.0.0 to 4.2.1.
+    4.  Change the colors so you have to be on pit road to get a dimmer color.
+        When you are approaching the pits, you can still go back onto the track.
+        Helps to know for sure that the car is pitting, or at least driving down pit road.
+    5.  Changed Personal folder to be in the user's "My Documents\SIMRacingApps" folder instead of the user's home folder.
+    6.  Found duplicate resources in the exe file. Removed them, reducing size over 60MB :)
+    7.  Changed the Logo and Icon images to Gary Whitson's design. Thanks Gary.
+    8.  Made some changes to the MSPEC code to try and get it working before my own light gets here.
+
+1.0_Build_BETA-2015.11.16
+    1.  Added SHOWMAP option for TrackMap widget to show the background or not.
+        Also added TRACKMAPCARS option so you can select what cars to show.
+    2.  Standings Top 10,20,35 now highlights the fastest times in the BEST and LAST columns.
+        LAST only considers cars 2 laps down or less.
+    
+1.0_Build_BETA-2015.11.14
+    1.  Updated the CrewChief-Large App to include the RadioControl widget along with some rearranging of the existing widgets.
+    2.  Changed the StandingsTop20 and StandingsTop35 to show you at the bottom if you are not within range.
+    3.  Added a StandingsTop10 Widget, that will show you at the bottom if you are not in the top 10.
+    4.  Put the Fuel Tank widget on the main menu.
+        Added a checkered pattern to the fuel needed to finish background.
+        Now it should be more obvious that is what it is for.
+
+1.0_Build_BETA-2015.11.13
+    1.  Fixed the Street Stock Profile. A missing comma prevented it from loading the gauges.
+    2.  Changed the "LapsToGo" API call to factor in the remaining time in the session
+        and reduce it to the number of laps that can be run based on the leader's time in a race
+        and your time in other types of sessions. The fuel needed calculation now uses this value as well.
+    3.  Added support for the MSPEC Shift Light. You can get them here, http://shiftlight.com.au
+        Each light can be configured on a different comm port, so you have to tell me which port the light(s) is/are on.
+        Use the following arguments to enable the lights you have.
+           -mspec-red {portnumber}
+           -mspec-green {portnumber}
+           -mspec-blue {portnumber}
+           -mspec-yellow {portnumber}
+        Example: "SIMRacingAppsServer_1.0_Build_BETA-2015.11.13.exe" -mspec-red 3 -mspec-yellow 4
+                 You should right click, create short cut, and add these to the end of the "Target" field.
+                 Then use the shortcut to launch the server. Remember to update your shortcut when you download new versions.
+    4. Also added a ShiftLight widget for a virtual display of the a shift light. 
+       It only implements the "red" light with On/Off/Blink.
+    5. Added RadioControl widget for selecting the radio channel to talk on.
+       You can also delete channels, if allowed, such as the ones you have added.
+       I was going to add mute/unmute for each channel (if allowed), but iRacing has a bug and it doesn't work correctly.
+
+1.0_Build_BETA-2015.11.07
+    1.  Added support for Fuel in weight (kg or lb). The hpdarx01c and williamsfw31 both use weight.
+    2.  Added support for shift light ranges to be defined by car, track, gear, and engine power map.
+        Updated all car profiles that didn't match what iRacing was giving me using baseline setup at Texas. 
+        I didn't test all tracks, so report to me if the lights don't match iRacing and I'll update the profile for that car/track.
+
+1.0_Build_BETA-2015.11.02
+    1.  Added code to stop and wait for the user to press ENTER if a fatal error occurs starting the server.
+    2.  Moved the Car Selection grid in the Race Administrator to be it's own widget called CarSelector.
+        When used by itself, will change the REFERENCE car.
+    3.  Added a Perspective option to the WindGauge widget to rotate like a compass to the direction
+        of the car's bearing. Added this widget to the Dashes.
+    4.  Added new Spectator / Broadcaster App to show information you would want to know when you are just watching.
+        It displays a grid of car numbers that can be clicked to change the perspective to that car.
+        The perspective is global across all running apps on the same server.
+        So, if anyone else in your home is spectating while you're racing, they should not
+        change the prospective/reference car away from "ME".  
+    5.  Added CarImage widget to display an image of the car if the SIM supports sending it to me.
+        Currently iRacing will not display the current car number, so I turned it off for now.
+    6.  Now all cars found on iRacing has a profile. Many new gauges were created to support them.
+        Note: Cars with fuel in weight is not supported yet by the API.
+              Also, cars with real-time tire temps and pressures are not supported yet by the API.
+    
+1.0_Build_BETA-2015.10.27
+    1.  Added profiles for dallara, v8 super cars that were added to the base content on iRacing.
+        Crew Chief, PitCommander, added display of Front/Rear Wing adjustment gauges.
+    2.  Added AntiRoll(Front/Rear), WeightJacker, In Car gauges to dashes.
+    3.  Added support for "Add to Home Screen" option on iOS(Safari) and Andriod(Chrome) browsers.
+        After launching an App or Widget, select the "..." (Chrome) or "Box with Up Arrow" (Safari) and choose add to home screen.
+        Next time you can launch it from the home screen and it will run full screen.
+    4.  Added support for the SIM to tell me what unit of measure to use.
+        Implemented 3 new units of measures that can be used by the user as well, (NATIVE,METRIC,IMPERIAL).
+    5.  Added Class and Qualifying Positions to the Lap Timing, Standings and Relative Apps.
+    6.  Added Delta column for position changes on the StandingsTop20 and StandingsTop35 widgets.
+    
+1.0_Build_BETA-2015.10.14
+    1.  Added new App called Race Administrator that can send the admin commands when hosting a race.
+        Just click the command to make it active, then click the car numbers to send that command to.
+    2.  Added Manufacturer Logo's to several widgets.
+    3.  Added ability to upload a ZIP File for adding new Apps, Widgets or Patches that have been shared by the community.
+        The ZIP File will be extracted into your user directory, which defaults to %USERPROFILE%\SIMRacingApps.
+    4.  Added new ReST service called /SIMRacingApps/sendkeys. This follows the Visual Basic syntax of the SendKeys class.
+        Example to change the right front in iRacing: /SIMRacingApps/sendkeys/{ESCAPE}t{DELAY 100}rf{ENTER}
+        I recommend not using the service directly if you want your apps to work with other SIMs.
+    5.  Added several new methods to the generic API for sending admin commands to the SIM.
+        /Session/setAdvancedFlag, /Session/setChatFlag/(Y/N), /Session/setCautionFlag
+        /Car/(CARIDENTIFIER)/setChatFlag/(Y/N), setAdminFlag/(Y/N), setBlackFlag/(TIME)/(S/LAP), 
+        setDisqualifyFlag, setRemoveFlag, setWaveAroundFlag, setEndOfLineFlag, setClearPenaltiesFlag
+    6.  Added Fuel Tank widget to the Bar Gauges App.
+
+1.0_Build_BETA-2015.10.03
+    1.  Merged the Server Installation docs into the Getting Started Docs. There is no server installation.
+    2.  Added support for the new TrackTempCrew variable that will be released in Dec 2015 of iRacing.
+        It will be updated real-time throughout the race as an average of several points on the track.
+    3.  Added Super Late Model profile and new Brake Pressure Gauge to go with it.
+        You probably didn't know it was there, because it is near the floor in the middle of the car.
+    4.  Added a Bar Gauge widget for all gauges.
+    5.  Added a Shift Lights widget and the rev lights on the Analog Tachometer now show shift lights as well.
+    6.  Added a new Dash that uses then new Bar Gauge and Shift Lights widgets.
+    7.  Fixed Wind Direction bug where sometimes it would display the degrees instead of "E".
+    8.  You can now pass the "lang" argument to the main menu to override the browser language.
+        http://{IP}?lang=de
+        At this point, it will only control the formatting of numbers and dates. Nothing has been translated.
+    9.  Added a new App called Crew Chief Large for 8 inch or larger displays so more information can be displayed.
+        7 inch may be OK, but nothing smaller is readable.
+    10. Fixed iOS bug where the clickable items could not be clicked.
+
+1.0_Build_BETA-2015.09.23
+    1.  Added documentation on how to bypass the .exe and run java manually in the Server Installation documentation.
+    2.  Added -userpath command line option to allow user to change from the default of %USERPROFILE%\SIMRacingApps.
+        This would allow users to have multiple directories for live and development of their own Apps and Widgets.
+        This supports multiple directories separated with with a semi-colon, just like PATH does.
+    3.  Switched the internal Web Server from Tomcat to Jetty because it works better from the .exe
+        and Jetty has better documentation on how to get Web Sockets working in that mode.
+    4.  Added showPath option to the Track Map widget to draw the outline of the course.
+        This can be disabled with a URL parameter &SHOWPATH=false;
+    5.  Added all the profiles for track configurations along with some new API methods for track information. 
+    6.  Added all the profiles for cars I own. 
+        See list of cars above that need information about their gauges and telemetry outputs.
+    7.  Added support for gauge values, ABS, Traction Control, Front and Rear Wing, Left and Right Wedge.
+    8.  Added support for dynamic weather and track temp.
+    9.  Now uses the new Pit telemetry values to update the CrewChief App real-time when you make selections via the blackboxes.
+    10. Added new state to gauges called NOTAVAILABLE. Used it to hide values the car is not outputting on CrewChief and Dash Apps.
+    11. Added profile for X-Finity Toyota Camry.
+
+1.0_Build_BETA-2015.08.17
+---------------------
+    1. Change threading model to get better performance when a lot of clients are connected.
+    2. Fixed TeamSpeak Interface from crashing.
+    3. Changes to put everything in one EXE file. Accepts command line options, -port, -level, -log.
+       Also supports passing options to Java via an INI file created in the same folder as the EXE.
+       For example, to change the memory used, create a file with the same name as the EXE, but remove
+       the EXE and add ".l4j.ini". Then edit the file and add the following contents.
+         -Xms512m
+         -Xmx512m
+    4. Added support for users to create Apps and Widgets in their own "%USERPROFILE%\SIMRacingApps" folder.
+       This also means that to create or override a track or car model file, 
+       put them in "%USERPROFILES%\SIMRacingApps\com\SIMRacingApps\Tracks" 
+       and "%USERPROFILES%\SIMRacingApps\com\SIMRacingApps\Connectors\iRacing\Cars"
+       and restart the server.
+    5. Fix bug where incrementing/decrement tire pressure in open setups were not working.
+    
+1.0_Build_BETA-2015.07.24
+-------------------------
+    1. Initial Release
+    2. This version does not contain a profile for all cars, only the cars I use on a regular basis.
+       The default profile is based on the Class A Cup Car, then these profiles override the differences.
+       To see what cars have a profile, look in SRA_DIR\webapps\SIMRacingApps\WEB-INF\classes\com\SIMRacingApps\Connectors\iRacing\Cars.
+    3. This version does not have all the tracks and configurations modeled.
+       To see what tracks have been modeled, look in SRA_DIR\webapps\SIMRacingApps\WEB-INF\classes\com\SIMRacingApps\Tracks.
