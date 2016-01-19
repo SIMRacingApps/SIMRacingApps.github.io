@@ -43,8 +43,8 @@
 	            console.log("overwolf_manifest.json: " + JSON.stringify(overwolf_version.meta.version));
 	            document.getElementById("overwolfversion").innerHTML = overwolf_version.meta.version;
 	        }
-	        updateRequest.open("GET",'overwolf_manifest.json');
-	        updateRequest.send();
+	        overwolf_updateRequest.open("GET",'overwolf_manifest.json');
+	        overwolf_updateRequest.send();
 	
 	        var electron_updateRequest = new XMLHttpRequest();
 	        electron_updateRequest.onload = function(e) {
@@ -52,8 +52,8 @@
 	            console.log("electron_package.json: " + JSON.stringify(electron_version.version));
 	            document.getElementById("electronversion").innerHTML = electron_version.version;
 	        }
-	        updateRequest.open("GET",'electron_package.json');
-	        updateRequest.send();
+	        electron_updateRequest.open("GET",'electron_package.json');
+	        electron_updateRequest.send();
         }
     </script>
   </head>
