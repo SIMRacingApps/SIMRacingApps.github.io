@@ -15,12 +15,12 @@
 <li>Use the following options in the settings.txt file to enable the light(s). It can control up to 4 lights. Each light must be assigned to a different COMM port number. Use MPSEC's software to determine the COMM port for each light.</li>
 <ul>
 <li>-mspec-rpm = {commPortNumber}</li>
-<li>-mspec-green = {commPortNumber}</li>
-<li>-mspec-blue = {commPortNumber}</li>
-<li>-mspec-yellow = {commPortNumber}</li>
+<li>-mspec-greenflag = {commPortNumber}</li>
+<li>-mspec-blueflag = {commPortNumber}</li>
+<li>-mspec-yellowflag = {commPortNumber}</li>
+<li>-mspec-eflag = {commPortNumber}</li>
 </ul>
 <li>On the previous slide, follow the instructions to edit the settings.txt file and add these options to it. Then restart the server.</li>
-<li>The “rpm” option uses the RPMs, “green” the green flag, “blue” the blue flag, and “yellow” the caution flags from the SIM.</li>
 <li>You should not be running their software and the SIMRacingAppsServer...exe at the same time because both will be trying to control the same light. If not working, check the server window for log messages that may give you more information on the problem.</li>
 <li>To make it confusing, I cannot tell the actual color of the light in the software. So, you could use the -mspec-rpm option to turn on a yellow light by using the comm port number that the yellow light is assigned to.</li>
 <li>If the light is not using the correct RPM, report to me the Track, Car, Gear, and Engine Power Map and what the correct RPM should be. You can override the RPMs by adding entries to the settings.txt file. See the next slide.</li>
