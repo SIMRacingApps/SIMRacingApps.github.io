@@ -1,8 +1,46 @@
 SIMRacingApps Release Notes
 ---------------------------
+
+Version: 1.0_Build_BETA-2016.01.30
+    1.  Add new API call for Car/(CARIDENTIFIER)/IsBelowMinimumSpeed.
+        - Updated the Relative, Standings, DriverInfo Widgets to draw a red box around the driver's name.
+        - On the TrackMap widget, I put a black "X" on the car.
+        - The maximum lap time allowed is calculated by averaging the last 3 green flag laps 
+          of the leader multiplied by 110%.
+        - If a car's last 3 consecutive green flag laps since pitting are all above the maximum, 
+          then it is marked as below the minimum speed.
+        - The variables can be configured by entering the following values in the 
+          "Documents/SIMRacingApps/settings.txt" file.
+           minimum-speed-laps         = 3
+           minimum-speed-laps-leader  = 3
+           minimum-speed-percentage   = 110
+    2.  Created a StandandingsTop43 Widget and updated the Spectator/Broadcaster App to use it.
+    3.  Team Events, fixed issue where the PitCommands were going out even if you were not in the car.
+        Also, when you got in the car, it would reset everything to your requests instead of the previous
+        drivers requests. In my case, my app.ini, was set to start with nothing selected.
+    4.  Multi-class, all Apps that show "Behind" calculations, now base that off of the leader for your class.
+        Previously, it as based on the overall leader. I also added the class color as the background.
+    5.  FuelTank widget got a face lift. Now all of the values in the table can be turned off individually.
+        See the next new feature, favorites.
+    6.  Favorites: A new section on the menu called "favorites".
+        - At some point, I will add the ability to save and modify a favorite from the menu.
+          But for this release, I have created a sample favorite that you can download from releases page.
+        - Upload this file to your instance of SIMRacingApps through the main menu.
+          This will create a file in "Documents/SIMRacingApps/favorites/MyFuelTank.json" that you can edit.
+        - You can copy this file and modify it to make other favorites.
+        - To find the options a Widget supports, see the documentation for that widget.
+          It will list the parameters. If they are in the format of "data-sra-args-some-option",
+          to add that option to the favorite, put it in the "args" variable by stripping off "data-sra-args-"
+          and remove any remaining hyphens. The result would be "&SOMEOPTION=value".
+          Don't worry, I will make a user friendly interface for favorites at some point.
+    
+----------------------------------------------------------------------------------------------------------------------------------
+---                                                Configuration Tips                                                          ---
+----------------------------------------------------------------------------------------------------------------------------------
     To get the server running, simply execute the SIMRacingAppsServer...exe on the same computer that the Simulator is running on. 
     If you do not have Java 1.8 or better installed, it will redirect you to the Java download page.
-    Then, enter the server address (found in the Title of the server window) in your browser from any device connected to the same network.
+    Then, enter the server address (found in the Title of the server window) in your browser 
+    from any device connected to the same network.
     Please refer to the Quick Start Guide for more details and options for running the server.
     
     Java Updates:
@@ -12,56 +50,44 @@ SIMRacingApps Release Notes
         Also, on the Java -> Security tab, you can disable Java in the browser if you don't need it for any other website.
         Please !!DO!! apply these updates, at a time that works best for you, to keep your system safe.
     
-    Tip: If you are using an iOS device or Android, after launching an App from the main menu,
-         use the "Add to Home Screen" feature. Then close the browser and launch the app from the icon it created. 
-         Now it will run full screen just like any other app.
-         A similar feature is available in Chrome for Windows also. See "More Tools -> Add to taskbar" on their menu.   
-    
-    Tip: To enable TeamSpeak integration, you must enable the ClientQuery Plug-in in TeamSpeak -> Settings -> Plugins.
-         Currently, your car number is added to your alias and some of the Apps will show you who is talking on TeamSpeak.
-
-Version: 1.0_Build_BETA-2016.01.18
-    1.  Demoted Yellow,YellowWaving and Blue flags from the Session level to the Car level. 
-    2.  Fixed bug where the CarSelector was not working in the Spectator App.
-    3.  Overhauled the Overwolf-Apps. Added ability to have multiple configurations. 
-        I now provide a .opk file to install with instructions updated in the readme. 
-        Later I will submit this to the Overwolf Store for download.
-    4.  Added option to disable TeamSpeak from updating your nickname with your car number.
-        The new option is "-teamspeak-carnumber = true" for the command line or settings.txt.
-        Also, when not in a session, the car number is removed from your nickname if this option is true.
-    5.  Added ability to have multiple configurations to Electron-Apps.
-        The side effect of doing this is your previous settings could not be converted over. 
-        This was because not all of the settings were being saved in the storage folder. Now they are.
-        Go through the menu and select the LoadOnStartup option again and click the logo to refresh.
-    6.  Made the track on the TrackMap with no background darker.
-    7.  Added -mspec-eflag option to control MPEC's new 3 color light.
-        Changed the MPSPEC options to reflect what they do, not the light they turn on.
-        The original options will still be honored.
-            -mspec-red    is now -mspec-rpm
-            -mspec-yellow is now -mspec-yellowflag
-            -mspec-green  is now -mspec-greenflag
-            -msepc-blue   is now -mspec-blueflag
-    8.  Added new App called Dash-Minimum which is a condensed version of Dash-Small.
-    9.  Fix bug where the gauges would not change when loading iRacing with a car with different ranges.
-        Only happened between certain cars, but it is fixed now.
-    10. Split up the Spectator and Broadcaster App on the Menu.
-        Spectators cannot change the Reference Car. (Let your household members use this one while you're racing).
-        Broadcasters can change the Reference Car.
-    11. Relative and Standings Widgets, Display TeamName if in a Team Session, else Club.
-    12. Fixed the Chevrolet Corvette C7 increment for fuel. Was 1.3 gal, should have been 1 gal.
-    13. If the session is multiclass, then the background of the manufacturer logos will change to the classes color.
-        Also in the Track Map, the cars will have a ring around them that is the class color.
+    Address already in use: bind Port: 80:
+        When you start the server, if another process is already using port 80, you will get
+        an error in that window that says it cannot bind to port 80. 
+        In that case, if you do not want to stop the offending process
+        from running, then you can change the port SIMRacingApps uses by editing the "Documents/SIMRacingApps/settings.txt"
+        file. I recommend port 8080 or whatever your favorite number is. It doesn't matter as long as nothing else uses it.
         
+    Add to Home Screen Tip: 
+        If you are using an iOS device or Android, after launching an App from the main menu,
+        use the "Add to Home Screen" feature. Then close the browser and launch the app from the icon it created. 
+        Now it will run full screen just like any other app.
+        A similar feature is available in Chrome for Windows also. See "More Tools -> Add to taskbar" on their menu.   
+    
+    Enable TeamSpeak Integration Tip:
+        To enable TeamSpeak integration, you must enable the ClientQuery Plug-in in the TeamSpeak Software -> Settings -> Plugins.
+        Currently, your car number is added to your alias and some of the Apps will show you who is talking on TeamSpeak.
+        
+    Electron Client:
+        To install or update Electron Launcher, download the .SRA file's latest version 
+        from http://github.com/SIMRacgingApps/SIMRacingAppsElectron/releases/latest.
+        Then, start the SIMRacingAppsServer.exe, connect to the manu menu from a browser, and upload the .SRA file.
+        Refer to the Electron's readme file for more information.
+        
+    Overwolf Client:
+        To install or update Overwolf Launcher, download the .OPK file's latest version 
+        from http://github.com/SIMRacgingApps/SIMRacingAppsOverwolf/releases/latest.
+        Then, refer to the instructions in the readme file to install this file into Overwolf.
+
 ========== TODO List for Version 1.0 (Or defer them to 2.0?) ====================
 
         - Chat Button Widget - User definable text macros and buttons.
         - Move iRacing Club Names Map to .json file.
         - Add ability for users to override any car profile setting in the settings.txt.
         - Add ability to save favorites for the menu and let the user modify the properties.
-        - Document how to create a Server Side Plugin. For now look at the SIMRacingAppsSIMPluginTemplate project.
         - Need to design how to back out a patch once the fix is delivered in the next version.
         - Document how to translate to other languages all the text and get someone to translate (volunteers?)
         - Translation support for the Main Menu Descriptions.
+        - Redesign the Gauge class.
 
 ========= Hardware Notes ================
 
@@ -105,9 +131,42 @@ Version: 1.0_Build_BETA-2016.01.18
       This tablet has significant lag for the faster widgets like the Tach and PitRoad and ShiftLights.
       Worked a lot better using a USB to Ethernet Adapter and turning off WiFi. 
       Seems to be fine for Crew Chief and other Apps that don't need the fast refresh rates.
+      Loading time was 35 seconds over WiFi for the Dash-Small App, 10 seconds the second time I ran it.
 
 ****************** Previous Versions *************************
 
+1.0_Build_BETA-2016.01.18
+    1.  Demoted Yellow,YellowWaving and Blue flags from the Session level to the Car level. 
+    2.  Fixed bug where the CarSelector was not working in the Spectator App.
+    3.  Overhauled the Overwolf-Apps. Added ability to have multiple configurations. 
+        I now provide a .opk file to install with instructions updated in the readme. 
+        Later I will submit this to the Overwolf Store for download.
+    4.  Added option to disable TeamSpeak from updating your nickname with your car number.
+        The new option is "-teamspeak-carnumber = true" for the command line or settings.txt.
+        Also, when not in a session, the car number is removed from your nickname if this option is true.
+    5.  Added ability to have multiple configurations to Electron-Apps.
+        The side effect of doing this is your previous settings could not be converted over. 
+        This was because not all of the settings were being saved in the storage folder. Now they are.
+        Go through the menu and select the LoadOnStartup option again and click the logo to refresh.
+    6.  Made the track on the TrackMap with no background darker.
+    7.  Added -mspec-eflag option to control MPEC's new 3 color light.
+        Changed the MPSPEC options to reflect what they do, not the light they turn on.
+        The original options will still be honored.
+            -mspec-red    is now -mspec-rpm
+            -mspec-yellow is now -mspec-yellowflag
+            -mspec-green  is now -mspec-greenflag
+            -msepc-blue   is now -mspec-blueflag
+    8.  Added new App called Dash-Minimum which is a condensed version of Dash-Small.
+    9.  Fix bug where the gauges would not change when loading iRacing with a car with different ranges.
+        Only happened between certain cars, but it is fixed now.
+    10. Split up the Spectator and Broadcaster App on the Menu.
+        Spectators cannot change the Reference Car. (Let your household members use this one while you're racing).
+        Broadcasters can change the Reference Car.
+    11. Relative and Standings Widgets, Display TeamName if in a Team Session, else Club.
+    12. Fixed the Chevrolet Corvette C7 increment for fuel. Was 1.3 gal, should have been 1 gal.
+    13. If the session is multiclass, then the background of the manufacturer logos will change to the classes color.
+        Also in the Track Map, the cars will have a ring around them that is the class color.
+        
 1.0_Build_BETA-2015.12.26
     1.  Added MSPEC option -mspec-rpm that does the same thing as -mspec-red.
     2.  Creates a default settings.txt file in the Documents/SIMRacingApps folder on server startup.

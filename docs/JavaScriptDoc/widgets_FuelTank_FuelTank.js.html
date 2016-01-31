@@ -64,7 +64,16 @@
  * @param {integer} data-sra-args-laps-to-average The number of laps to average all fuel calculations. Defaults to zero(0).
  * @param {integer} data-sra-args-alt-laps-to-average The number of laps to average for the alternate fuel calculations. Default zero(2).
  * @param {boolean} data-sra-args-show-alt-laps-to-average Hides the the Alternate Laps column. Default (false).
- * @param {boolean} data-sra-args-s-i-m-controller If true, then this widget can send changes to the SIM. Defaults to false. 
+ * @param {boolean} data-sra-args-s-i-m-controller If true, then this widget can send changes to the SIM. Defaults to false.
+ * @param {boolean} data-sra-args-show-table If true, then the table of values will be shown. Default (true).
+ * @param {boolean} data-sra-args-show-to-go-laps If true, then the Laps To Go value will be shown. Default (true).
+ * @param {boolean} data-sra-args-show-in-tank-laps If true, then the Laps remaining in the tank will be shown. Default (true).
+ * @param {boolean} data-sra-args-show-per-tank-laps If true, then the number of laps for a full tank will be shown. Default (true).
+ * @param {boolean} data-sra-args-show-to-finish If true, then the amount of fuel needed to finish is shown. Default (true).
+ * @param {boolean} data-sra-args-show-in-tank If true, then the amount of fuel in the tank is shown. Default (true).
+ * @param {boolean} data-sra-args-show-needed If true, then the amount of fuel you need to add to be able to finish is shown. Default (true).   
+ * @param {boolean} data-sra-args-show-adding If true, then the actual amount of fuel you can add based on what you have asked the SIM to add will be shown. Default (true).
+ * @param {boolean} data-sra-args-show-pit-stops If true, then the number of stops to finish is shown. Default (true).
  * @param {integer} data-sra-args-interval The interval, in milliseconds, that this widget will update from the server. Default is 100.
  * @author Jeffrey Gilliam
  * @since 1.0
@@ -104,31 +113,41 @@ function(SIMRacingApps) {
                    $scope.translations = sraDispatcher.getTranslation(path);
                 });
 
-                $scope.lapsToAverage=0; //default to worst lap
-                $scope.altLapsToAverage=2; //when saving, use last to laps
-                $scope.showAltLapsToAverage=true;
-                $scope.lapsInTank=0;
-                $scope.altLapsInTank=0;
-                $scope.lapsToGo=0;
-                $scope.classIsEnough="SIMRacingApps-Widget-FuelTank-enoughToFinish"; //enoughToFinish, enoughAddedToFinish, notEnoughToFinish
-                $scope.classIsEnoughAdding="SIMRacingApps-Widget-FuelTank-enoughToFinish-adding"; //enoughToFinish-adding, enoughAddedToFinish-adding, notEnoughToFinish-adding
-                $scope.classIsAltEnough="SIMRacingApps-Widget-FuelTank-enoughToFinish"; //enoughToFinish, enoughAddedToFinish, notEnoughToFinish
+                $scope.controller           = false;
+                $scope.showTable            = true;
+                $scope.lapsToAverage        = 0; //default to worst lap
+                $scope.altLapsToAverage     = 2; //when saving, use last to laps
+                $scope.showAltLapsToAverage = true;
+                $scope.showToGoLaps         = true;
+                $scope.showInTankLaps       = true;
+                $scope.showPerTankLaps      = true;
+                $scope.showToFinish         = true;
+                $scope.showInTank           = true;
+                $scope.showNeeded           = true;
+                $scope.showAdding           = true;
+                $scope.showPitStops         = true;
+                $scope.lapsInTank           = 0;
+                $scope.altLapsInTank        = 0;
+                $scope.lapsToGo             = 0;
+                $scope.classIsEnough        = "SIMRacingApps-Widget-FuelTank-enoughToFinish"; //enoughToFinish, enoughAddedToFinish, notEnoughToFinish
+                $scope.classIsEnoughAdding  = "SIMRacingApps-Widget-FuelTank-enoughToFinish-adding"; //enoughToFinish-adding, enoughAddedToFinish-adding, notEnoughToFinish-adding
+                $scope.classIsAltEnough     = "SIMRacingApps-Widget-FuelTank-enoughToFinish"; //enoughToFinish, enoughAddedToFinish, notEnoughToFinish
                 $scope.classIsAltEnoughAdding="SIMRacingApps-Widget-FuelTank-enoughToFinish-adding"; //enoughToFinish-adding, enoughAddedToFinish-adding, notEnoughToFinish-adding
-                $scope.fuelLevelToFinish=0.0;
-                $scope.altFuelLevelToFinish=0.0;
+                $scope.fuelLevelToFinish    = 0.0;
+                $scope.altFuelLevelToFinish = 0.0;
                 
-                $scope.fuelLevelPercentage=0;
-                $scope.fuelLevelNextPercentage=0;
-                $scope.fuelLevelNeededPercentage=0;
-                $scope.fuelLevelToFinishPercentage=0;
+                $scope.fuelLevelPercentage          = 0;
+                $scope.fuelLevelNextPercentage      = 0;
+                $scope.fuelLevelNeededPercentage    = 0;
+                $scope.fuelLevelToFinishPercentage  = 0;
                 
                 $scope.update = function() {
-                    var fuelLevel                       = $scope.data.Car.REFERENCE.Gauge.FuelLevel.ValueCurrent.Value;
-                    var perLap                          = $scope.data.Car.REFERENCE.FuelLevelPerLap[$scope.lapsToAverage].Value;
-                    var altPerLap                       = $scope.data.Car.REFERENCE.FuelLevelPerLap[$scope.altLapsToAverage].Value;
-                    var percentage                      = $scope.data.Car.REFERENCE.Lap.COMPLETEDPERCENT.Value / 100.0;
-                    var adding                          = $scope.data.Car.REFERENCE.Gauge.FuelLevel.ValueNext.Value;
-                    var fuelChecked                     = $scope.data.Car.REFERENCE.Gauge.FuelLevel.ChangeFlag.Value == 'Y';
+                    var fuelLevel   = $scope.data.Car.REFERENCE.Gauge.FuelLevel.ValueCurrent.Value;
+                    var perLap      = $scope.data.Car.REFERENCE.FuelLevelPerLap[$scope.lapsToAverage].Value;
+                    var altPerLap   = $scope.data.Car.REFERENCE.FuelLevelPerLap[$scope.altLapsToAverage].Value;
+                    var percentage  = $scope.data.Car.REFERENCE.Lap.COMPLETEDPERCENT.Value / 100.0;
+                    var adding      = $scope.data.Car.REFERENCE.Gauge.FuelLevel.ValueNext.Value;
+                    var fuelChecked = $scope.data.Car.REFERENCE.Gauge.FuelLevel.ChangeFlag.Value == 'Y';
 
                     //unless we've completed one lap, don't use the percentage
                     //Eliminates the weird numbers you get at the start of the race.
@@ -152,19 +171,19 @@ function(SIMRacingApps) {
                     $scope.fuelLevelToFinishPercentage  = ($scope.fuelLevelToFinish / $scope.data.Car.REFERENCE.Gauge.FuelLevel.CapacityMaximum.Value) * 100.0;
                     
                     if (fuelChecked) {
-                        $scope.fuelLevelNextPercentage = (adding / $scope.data.Car.REFERENCE.Gauge.FuelLevel.CapacityMaximum.Value) * 100.0;
+                        $scope.fuelLevelNextPercentage = ($scope.fuelLevelAdding / $scope.data.Car.REFERENCE.Gauge.FuelLevel.CapacityMaximum.Value) * 100.0;
                     }
                     else {
                         $scope.fuelLevelNextPercentage = 0.0;
                     }
                     
-                    if (adding > 0.0 &amp;&amp; fuelChecked) {
+                    if ($scope.fuelLevelAdding > 0.0) {
                         if ($scope.fuelLevelNeeded &lt;= 0.0 ) {
                             $scope.classIsEnough       = "SIMRacingApps-Widget-FuelTank-enoughToFinish"; //enoughToFinish, enoughAddedToFinish, notEnoughToFinish
                             $scope.classIsEnoughAdding = "SIMRacingApps-Widget-FuelTank-enoughToFinish-adding"; //enoughToFinish-adding, enoughAddedToFinish-adding, notEnoughToFinish-adding
                         }
                         else
-                        if (adding >= $scope.fuelLevelNeeded) {
+                        if ($scope.fuelLevelAdding >= $scope.fuelLevelNeeded) {
                             $scope.classIsEnough       = "SIMRacingApps-Widget-FuelTank-enoughAddedToFinish"; //enoughToFinish, enoughAddedToFinish, notEnoughToFinish
                             $scope.classIsEnoughAdding = "SIMRacingApps-Widget-FuelTank-enoughAddedToFinish-adding"; //enoughToFinish-adding, enoughAddedToFinish-adding, notEnoughToFinish-adding
                         }
@@ -178,7 +197,7 @@ function(SIMRacingApps) {
                             $scope.classIsAltEnoughAdding = "SIMRacingApps-Widget-FuelTank-enoughToFinish-adding"; //enoughToFinish-adding, enoughAddedToFinish-adding, notEnoughToFinish-adding
                         }
                         else
-                        if (adding >= $scope.altFuelLevelNeeded) {
+                        if ($scope.fuelLevelAdding >= $scope.altFuelLevelNeeded) {
                             $scope.classIsAltEnough       = "SIMRacingApps-Widget-FuelTank-enoughAddedToFinish"; //enoughToFinish, enoughAddedToFinish, notEnoughToFinish
                             $scope.classIsAltEnoughAdding = "SIMRacingApps-Widget-FuelTank-enoughAddedToFinish-adding"; //enoughToFinish-adding, enoughAddedToFinish-adding, notEnoughToFinish-adding
                         }
@@ -222,18 +241,24 @@ function(SIMRacingApps) {
 
                 //copy arguments to our scope. First if using attribute, second tag, else default to something.
                 $attrs.sraArgsData = $attrs.sraArgsData || "";
-                $scope.value = $scope[self.name] = $scope['sraArgs'+self.name.toUpperCase()] || $attrs[self.name] || $attrs.sraArgsValue || "DefaultValue";
-                $scope.lapsToAverage = $scope.sraArgsLAPSTOAVERAGE || $attrs.sraArgsLapsToAverage || $scope.lapsToAverage;
-                $scope.altLapsToAverage = $scope.sraArgsALTLAPSTOAVERAGE || $attrs.sraArgsAltLapsToAverage || $scope.altLapsToAverage;
-                $scope.showAltLapsToAverage = typeof($scope.sraArgsSHOWALTLAPSTOAVERAGE) != 'undefined' 
-                                            ? String($scope.sraArgsSHOWALTLAPSTOAVERAGE).toLowerCase() == "true"
-                                            : ( typeof($attrs.sraArgsShowAltLapsToAverage) != 'undefined' 
-                                              ? String($attrs.sraArgsShowAltLapsToAverage).toLowerCase() == "true"
-                                              : $scope.showAltLapsToAverage);
-                $scope.canControl = String($scope.sraArgsPITCOMMANDSSIMCONTROLLER || $attrs.sraArgsSIMController || $attrs.sraSIMController || "false") == "true";
-                $scope.controller = false;
-
+                $scope.value = 
+                $scope[self.name] = sraDispatcher.getTruthy($scope.sraArgsVALUE, $attrs[self.name], $attrs.sraArgsValue, "DefaultValue");
+                
                 /** your code goes here **/
+                $scope.canControl           = sraDispatcher.getBoolean($scope.sraArgsPITCOMMANDSSIMCONTROLLER, $attrs.sraArgsSIMController, $attrs.sraSIMController, "false");
+                $scope.lapsToAverage        = sraDispatcher.getTruthy( $scope.sraArgsLAPSTOAVERAGE, $attrs.sraArgsLapsToAverage, $scope.lapsToAverage);
+                $scope.altLapsToAverage     = sraDispatcher.getTruthy( $scope.sraArgsALTLAPSTOAVERAGE, $attrs.sraArgsAltLapsToAverage, $scope.altLapsToAverage);
+                $scope.showTable            = sraDispatcher.getBoolean($scope.sraArgsSHOWTABLE, $attrs.sraArgsShowTable, $scope.showTable);
+                $scope.showAltLapsToAverage = sraDispatcher.getBoolean($scope.sraArgsSHOWALTLAPSTOAVERAGE, $attrs.sraArgsShowAltLapsToAverage, $scope.showAltLapsToAverage);
+                $scope.showToGoLaps         = sraDispatcher.getBoolean($scope.sraArgsSHOWTOGOLAPS,$attrs.sraArgsShowToGoLaps,$scope.showToGoLaps);
+                $scope.showInTankLaps       = sraDispatcher.getBoolean($scope.sraArgsSHOWINTANKLAPS,$attrs.sraArgsShowInTankLaps,$scope.showInTankLaps);
+                $scope.showPerTankLaps      = sraDispatcher.getBoolean($scope.sraArgsSHOWPERTANKLAPS,$attrs.sraArgsShowPerTankLaps,$scope.showPerTankLaps);
+                $scope.showToFinish         = sraDispatcher.getBoolean($scope.sraArgsSHOWTOFINISH,$attrs.sraArgsShowToFinish,$scope.showToFinish);
+                $scope.showInTank           = sraDispatcher.getBoolean($scope.sraArgsSHOWINTANK,$attrs.sraArgsShowInTank,$scope.showInTank);
+                $scope.showNeeded           = sraDispatcher.getBoolean($scope.sraArgsSHOWNEEDED,$attrs.sraArgsShowNeeded,$scope.showNeeded);
+                $scope.showAdding           = sraDispatcher.getBoolean($scope.sraArgsSHOWADDING,$attrs.sraArgsShowAdding,$scope.showAdding);
+                $scope.showPitStops         = sraDispatcher.getBoolean($scope.sraArgsSHOWPITSTOPS,$attrs.sraArgsShowPitStops,$scope.showPitStops);
+                
                 if ($scope.canControl)
                     $attrs.sraArgsData += ";Car/REFERENCE/HasAutomaticPitCommands";
 
@@ -299,7 +324,7 @@ function(SIMRacingApps) {
 
                     if (fuelLevelToAdd == 0)
                         sraDispatcher.sendCommand("Car/REFERENCE/Gauge/FuelLevel/setValueNext/0;Car/REFERENCE/Gauge/FuelLevel/setChangeFlag/N");
-                    else
+                    else 
                         sraDispatcher.sendCommand("Car/REFERENCE/Gauge/FuelLevel/setValueNext/"+fuelLevelToAdd+";Car/REFERENCE/Gauge/FuelLevel/setChangeFlag/Y");
                 });
 
@@ -369,7 +394,7 @@ function(SIMRacingApps) {
 </div>
 
 <nav>
-    <h2><a href="index.html">Index</a></h2><h3>Modules</h3><ul><li><a href="module-SIMRacingApps.html">SIMRacingApps</a></li></ul><h3>apps</h3><ul><li><a href="CrewChief.html">CrewChief</a></li><li><a href="CrewChief-Large.html">CrewChief-Large</a></li><li><a href="Dash-BarGauges-DigitalOverlay.html">Dash-BarGauges-DigitalOverlay</a></li><li><a href="Dash-Gauges-Spek.html">Dash-Gauges-Spek</a></li><li><a href="Dash-Gauges-Spek-Horizontal.html">Dash-Gauges-Spek-Horizontal</a></li><li><a href="Dash-Minimum.html">Dash-Minimum</a></li><li><a href="Dash-Small.html">Dash-Small</a></li><li><a href="Dash-StockCars-DigitalOverlay.html">Dash-StockCars-DigitalOverlay</a></li><li><a href="RaceAdministrator.html">RaceAdministrator</a></li><li><a href="Spectator.html">Spectator</a></li></ul><h3>filter</h3><ul><li><a href="module-SIMRacingApps.sraCeil.html">sraCeil</a></li><li><a href="module-SIMRacingApps.sraDebug.html">sraDebug</a></li><li><a href="module-SIMRacingApps.sraDecodeEntities.html">sraDecodeEntities</a></li><li><a href="module-SIMRacingApps.sraDuration.html">sraDuration</a></li><li><a href="module-SIMRacingApps.sraFloor.html">sraFloor</a></li><li><a href="module-SIMRacingApps.sraHex.html">sraHex</a></li><li><a href="module-SIMRacingApps.sraLPad.html">sraLPad</a></li><li><a href="module-SIMRacingApps.sraNumber.html">sraNumber</a></li><li><a href="module-SIMRacingApps.sraRound.html">sraRound</a></li><li><a href="module-SIMRacingApps.sraRPad.html">sraRPad</a></li></ul><h3>directive</h3><ul><li><a href="module-SIMRacingApps-sra-data.html">sra-data</a></li><li><a href="module-SIMRacingApps-sra-horizontal-align.html">sra-horizontal-align</a></li><li><a href="module-SIMRacingApps-sra-resize.html">sra-resize</a></li><li><a href="module-SIMRacingApps-sra-vertical-align.html">sra-vertical-align</a></li><li><a href="sra-analog-gauge.html">sra-analog-gauge</a></li><li><a href="sra-analog-gauge-spek-brake-pressure.html">sra-analog-gauge-spek-brake-pressure</a></li><li><a href="sra-analog-gauge-spek-fuel-level.html">sra-analog-gauge-spek-fuel-level</a></li><li><a href="sra-analog-gauge-spek-fuel-pressure.html">sra-analog-gauge-spek-fuel-pressure</a></li><li><a href="sra-analog-gauge-spek-oil-level.html">sra-analog-gauge-spek-oil-level</a></li><li><a href="sra-analog-gauge-spek-oil-pressure.html">sra-analog-gauge-spek-oil-pressure</a></li><li><a href="sra-analog-gauge-spek-oil-temp.html">sra-analog-gauge-spek-oil-temp</a></li><li><a href="sra-analog-gauge-spek-tachometer.html">sra-analog-gauge-spek-tachometer</a></li><li><a href="sra-analog-gauge-spek-voltage.html">sra-analog-gauge-spek-voltage</a></li><li><a href="sra-analog-gauge-spek-water-level.html">sra-analog-gauge-spek-water-level</a></li><li><a href="sra-analog-gauge-spek-water-pressure.html">sra-analog-gauge-spek-water-pressure</a></li><li><a href="sra-analog-gauge-spek-water-temp.html">sra-analog-gauge-spek-water-temp</a></li><li><a href="sra-bar-gauge.html">sra-bar-gauge</a></li><li><a href="sra-bar-gauge-brake-pressure.html">sra-bar-gauge-brake-pressure</a></li><li><a href="sra-bar-gauge-fuel-level.html">sra-bar-gauge-fuel-level</a></li><li><a href="sra-bar-gauge-fuel-pressure.html">sra-bar-gauge-fuel-pressure</a></li><li><a href="sra-bar-gauge-oil-level.html">sra-bar-gauge-oil-level</a></li><li><a href="sra-bar-gauge-oil-pressure.html">sra-bar-gauge-oil-pressure</a></li><li><a href="sra-bar-gauge-oil-temp.html">sra-bar-gauge-oil-temp</a></li><li><a href="sra-bar-gauge-tachometer.html">sra-bar-gauge-tachometer</a></li><li><a href="sra-bar-gauge-voltage.html">sra-bar-gauge-voltage</a></li><li><a href="sra-bar-gauge-water-level.html">sra-bar-gauge-water-level</a></li><li><a href="sra-bar-gauge-water-pressure.html">sra-bar-gauge-water-pressure</a></li><li><a href="sra-bar-gauge-water-temp.html">sra-bar-gauge-water-temp</a></li><li><a href="sra-car-controls.html">sra-car-controls</a></li><li><a href="sra-car-image.html">sra-car-image</a></li><li><a href="sra-car-number.html">sra-car-number</a></li><li><a href="sra-car-number-extended.html">sra-car-number-extended</a></li><li><a href="sra-car-selector.html">sra-car-selector</a></li><li><a href="sra-data-table.html">sra-data-table</a></li><li><a href="sra-driver-info.html">sra-driver-info</a></li><li><a href="sra-flags.html">sra-flags</a></li><li><a href="sra-fuel-tank.html">sra-fuel-tank</a></li><li><a href="sra-gear.html">sra-gear</a></li><li><a href="sra-lap-timing.html">sra-lap-timing</a></li><li><a href="sra-pedals.html">sra-pedals</a></li><li><a href="sra-pit-commander.html">sra-pit-commander</a></li><li><a href="sra-pit-road.html">sra-pit-road</a></li><li><a href="sra-radio-control.html">sra-radio-control</a></li><li><a href="sra-relative.html">sra-relative</a></li><li><a href="sra-shift-light.html">sra-shift-light</a></li><li><a href="sra-shift-lights.html">sra-shift-lights</a></li><li><a href="sra-standings.html">sra-standings</a></li><li><a href="sra-standings-top-10.html">sra-standings-top-10</a></li><li><a href="sra-standings-top-20.html">sra-standings-top-20</a></li><li><a href="sra-standings-top-35.html">sra-standings-top-35</a></li><li><a href="sra-steering-wheel.html">sra-steering-wheel</a></li><li><a href="sra-team-speak-talking.html">sra-team-speak-talking</a></li><li><a href="sra-template.html">sra-template</a></li><li><a href="sra-timing-delta.html">sra-timing-delta</a></li><li><a href="sra-tire.html">sra-tire</a></li><li><a href="sra-tire-measurements.html">sra-tire-measurements</a></li><li><a href="sra-track-map.html">sra-track-map</a></li><li><a href="sra-track-map-car.html">sra-track-map-car</a></li><li><a href="sra-track-map-finish-line.html">sra-track-map-finish-line</a></li><li><a href="sra-weather-info.html">sra-weather-info</a></li><li><a href="sra-wind-gauge.html">sra-wind-gauge</a></li></ul><h3>controller</h3><ul><li><a href="module-SIMRacingApps-sraController.html">sraController</a></li></ul><h3>factory</h3><ul><li><a href="module-SIMRacingApps-sraDispatcher.html">sraDispatcher</a></li></ul><h3>Global</h3><ul><li><a href="global.html#SIMRacingAppsRequireConfig">SIMRacingAppsRequireConfig</a></li></ul>
+    <h2><a href="index.html">Index</a></h2><h3>Modules</h3><ul><li><a href="module-SIMRacingApps.html">SIMRacingApps</a></li></ul><h3>apps</h3><ul><li><a href="CrewChief.html">CrewChief</a></li><li><a href="CrewChief-Large.html">CrewChief-Large</a></li><li><a href="Dash-BarGauges-DigitalOverlay.html">Dash-BarGauges-DigitalOverlay</a></li><li><a href="Dash-Gauges-Spek.html">Dash-Gauges-Spek</a></li><li><a href="Dash-Gauges-Spek-Horizontal.html">Dash-Gauges-Spek-Horizontal</a></li><li><a href="Dash-Minimum.html">Dash-Minimum</a></li><li><a href="Dash-Small.html">Dash-Small</a></li><li><a href="Dash-StockCars-DigitalOverlay.html">Dash-StockCars-DigitalOverlay</a></li><li><a href="RaceAdministrator.html">RaceAdministrator</a></li><li><a href="Spectator.html">Spectator</a></li></ul><h3>filter</h3><ul><li><a href="module-SIMRacingApps.sraCeil.html">sraCeil</a></li><li><a href="module-SIMRacingApps.sraDebug.html">sraDebug</a></li><li><a href="module-SIMRacingApps.sraDecodeEntities.html">sraDecodeEntities</a></li><li><a href="module-SIMRacingApps.sraDuration.html">sraDuration</a></li><li><a href="module-SIMRacingApps.sraFloor.html">sraFloor</a></li><li><a href="module-SIMRacingApps.sraHex.html">sraHex</a></li><li><a href="module-SIMRacingApps.sraLPad.html">sraLPad</a></li><li><a href="module-SIMRacingApps.sraNumber.html">sraNumber</a></li><li><a href="module-SIMRacingApps.sraRGB.html">sraRGB</a></li><li><a href="module-SIMRacingApps.sraRound.html">sraRound</a></li><li><a href="module-SIMRacingApps.sraRPad.html">sraRPad</a></li></ul><h3>directive</h3><ul><li><a href="module-SIMRacingApps-sra-data.html">sra-data</a></li><li><a href="module-SIMRacingApps-sra-horizontal-align.html">sra-horizontal-align</a></li><li><a href="module-SIMRacingApps-sra-resize.html">sra-resize</a></li><li><a href="module-SIMRacingApps-sra-vertical-align.html">sra-vertical-align</a></li><li><a href="sra-analog-gauge.html">sra-analog-gauge</a></li><li><a href="sra-analog-gauge-spek-brake-pressure.html">sra-analog-gauge-spek-brake-pressure</a></li><li><a href="sra-analog-gauge-spek-fuel-level.html">sra-analog-gauge-spek-fuel-level</a></li><li><a href="sra-analog-gauge-spek-fuel-pressure.html">sra-analog-gauge-spek-fuel-pressure</a></li><li><a href="sra-analog-gauge-spek-oil-level.html">sra-analog-gauge-spek-oil-level</a></li><li><a href="sra-analog-gauge-spek-oil-pressure.html">sra-analog-gauge-spek-oil-pressure</a></li><li><a href="sra-analog-gauge-spek-oil-temp.html">sra-analog-gauge-spek-oil-temp</a></li><li><a href="sra-analog-gauge-spek-tachometer.html">sra-analog-gauge-spek-tachometer</a></li><li><a href="sra-analog-gauge-spek-voltage.html">sra-analog-gauge-spek-voltage</a></li><li><a href="sra-analog-gauge-spek-water-level.html">sra-analog-gauge-spek-water-level</a></li><li><a href="sra-analog-gauge-spek-water-pressure.html">sra-analog-gauge-spek-water-pressure</a></li><li><a href="sra-analog-gauge-spek-water-temp.html">sra-analog-gauge-spek-water-temp</a></li><li><a href="sra-bar-gauge.html">sra-bar-gauge</a></li><li><a href="sra-bar-gauge-brake-pressure.html">sra-bar-gauge-brake-pressure</a></li><li><a href="sra-bar-gauge-fuel-level.html">sra-bar-gauge-fuel-level</a></li><li><a href="sra-bar-gauge-fuel-pressure.html">sra-bar-gauge-fuel-pressure</a></li><li><a href="sra-bar-gauge-oil-level.html">sra-bar-gauge-oil-level</a></li><li><a href="sra-bar-gauge-oil-pressure.html">sra-bar-gauge-oil-pressure</a></li><li><a href="sra-bar-gauge-oil-temp.html">sra-bar-gauge-oil-temp</a></li><li><a href="sra-bar-gauge-tachometer.html">sra-bar-gauge-tachometer</a></li><li><a href="sra-bar-gauge-voltage.html">sra-bar-gauge-voltage</a></li><li><a href="sra-bar-gauge-water-level.html">sra-bar-gauge-water-level</a></li><li><a href="sra-bar-gauge-water-pressure.html">sra-bar-gauge-water-pressure</a></li><li><a href="sra-bar-gauge-water-temp.html">sra-bar-gauge-water-temp</a></li><li><a href="sra-car-controls.html">sra-car-controls</a></li><li><a href="sra-car-image.html">sra-car-image</a></li><li><a href="sra-car-number.html">sra-car-number</a></li><li><a href="sra-car-number-extended.html">sra-car-number-extended</a></li><li><a href="sra-car-selector.html">sra-car-selector</a></li><li><a href="sra-data-table.html">sra-data-table</a></li><li><a href="sra-driver-info.html">sra-driver-info</a></li><li><a href="sra-flags.html">sra-flags</a></li><li><a href="sra-fuel-tank.html">sra-fuel-tank</a></li><li><a href="sra-gear.html">sra-gear</a></li><li><a href="sra-lap-timing.html">sra-lap-timing</a></li><li><a href="sra-pedals.html">sra-pedals</a></li><li><a href="sra-pit-commander.html">sra-pit-commander</a></li><li><a href="sra-pit-road.html">sra-pit-road</a></li><li><a href="sra-radio-control.html">sra-radio-control</a></li><li><a href="sra-relative.html">sra-relative</a></li><li><a href="sra-shift-light.html">sra-shift-light</a></li><li><a href="sra-shift-lights.html">sra-shift-lights</a></li><li><a href="sra-standings.html">sra-standings</a></li><li><a href="sra-standings-top-10.html">sra-standings-top-10</a></li><li><a href="sra-standings-top-20.html">sra-standings-top-20</a></li><li><a href="sra-standings-top-35.html">sra-standings-top-35</a></li><li><a href="sra-standings-top-43.html">sra-standings-top-43</a></li><li><a href="sra-steering-wheel.html">sra-steering-wheel</a></li><li><a href="sra-team-speak-talking.html">sra-team-speak-talking</a></li><li><a href="sra-template.html">sra-template</a></li><li><a href="sra-timing-delta.html">sra-timing-delta</a></li><li><a href="sra-tire.html">sra-tire</a></li><li><a href="sra-tire-measurements.html">sra-tire-measurements</a></li><li><a href="sra-track-map.html">sra-track-map</a></li><li><a href="sra-track-map-car.html">sra-track-map-car</a></li><li><a href="sra-track-map-finish-line.html">sra-track-map-finish-line</a></li><li><a href="sra-weather-info.html">sra-weather-info</a></li><li><a href="sra-wind-gauge.html">sra-wind-gauge</a></li></ul><h3>controller</h3><ul><li><a href="module-SIMRacingApps-sraController.html">sraController</a></li></ul><h3>factory</h3><ul><li><a href="module-SIMRacingApps-sraDispatcher.html">sraDispatcher</a></li></ul><h3>Global</h3><ul><li><a href="global.html#SIMRacingAppsCache">SIMRacingAppsCache</a></li></ul>
 </nav>
 
 <br clear="both">

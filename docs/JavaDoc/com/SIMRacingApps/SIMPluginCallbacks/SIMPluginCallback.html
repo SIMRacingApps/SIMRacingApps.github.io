@@ -134,7 +134,7 @@ implements <a href="../../../com/SIMRacingApps/SIMPlugin.Callback.html" title="i
  <pre>
     {pathToJDK}\bin\javac -cp "%USERPROFILE%"\Documents\SIMRacingApps\SIMRacingAppsServer_1.0_Build_BETA-2016.01.09.exe" *.java
  </pre>
- For testing, put the .class file(s) generated in the "Documents/SIMRacingApps/com/SIMRacingApps/SIMPluginCallbacs/{YourNameOrCompany}" folder.
+ For testing, put the .class file(s) generated in the "Documents\SIMRacingApps\com\SIMRacingApps\SIMPluginCallbacks\{YourNameOrCompany}" folder.
  Add the plugin classes to the settings.txt file's "simplugins" entry. Each plugin should be separated by a semicolon.
  The SIMRacingApps Server will load your plugin upon startup of the server.
  <pre>
@@ -142,11 +142,19 @@ implements <a href="../../../com/SIMRacingApps/SIMPlugin.Callback.html" title="i
     simplugins = YourNameOrCompany.YourPluginClass;Name1.DoSomething;Name2.DoneIt
  </pre>
 
+ When testing, if your plugin is already built into the SIMRacingAppsServer, 
+ you will have to alter the classpath to get your new .class files to load before the built in ones.
+ To do that, do not run the SIMRacingAppsServer.exe directly. 
+ Instead, use the following example command, on how to use it as a library and put your stuff first in the path.
+<pre>
+   {pathToJRE}\bin\java -cp "%USERPROFILE%"\Documents\SIMRacingApps\com\SIMRacingApps\SIMPluginCallbacks\{YourNameOrCompany}:%USERPROFILE%"\Documents\SIMRacingApps\SIMRacingAppsServer_1.0_Build_BETA-2016.01.09.exe" com.SIMRacingApps.Server
+</pre> 
+
  For distribution, create a jar file with your .class file(s).
  We are going to use a .sra extension instead of .jar for uploading to the SIMRacingApps Server through the menu. 
  <pre>
   Example:
-    jar cvf YourPlugin_v1.0.sra -C "%USERPROFILE%/Documents/SIMRacingApps" com/SIMRacingApps/SIMPluginCallbacks/{YourNameOrCompany}
+    jar cvf YourPlugin_v1.0.sra -C "%USERPROFILE%\Documents\SIMRacingApps" com/SIMRacingApps/SIMPluginCallbacks/{YourNameOrCompany}
  </pre>
  Distribute the .sra file with instructions to upload it to SIMRacingApps through the main menu.
  Also provide instructions on how to enable your pluging by adding it to the settings.txt plugins variable.
@@ -294,13 +302,12 @@ implements <a href="../../../com/SIMRacingApps/SIMPlugin.Callback.html" title="i
  You don't want your plugin to take more than a few milliseconds in the DataReady() method.
  <pre>
      //This example shows 2 ways to get data from the SIM, using a path or calling the method directly.
-     //Same as the ReST URL: http://{hostname}/SIMRacingApps/Data/Session/Flags?output=json
 
      super.DataReady(SIMPlugin,ips);
 
      Data d;
      d = m_SIMPlugin.getData("/Session/Flags");
-     d = m_SIMPlugin.getSession().getFlags();
+     d = m_SIMPlugin.getSession().getFlags();   
      //do something with the data
 
      return true;

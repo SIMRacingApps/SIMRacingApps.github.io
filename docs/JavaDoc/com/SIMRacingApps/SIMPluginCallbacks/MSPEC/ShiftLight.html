@@ -297,13 +297,12 @@ extends <a href="../../../../com/SIMRacingApps/SIMPluginCallbacks/SIMPluginCallb
  You don't want your plugin to take more than a few milliseconds in the DataReady() method.
  <pre>
      //This example shows 2 ways to get data from the SIM, using a path or calling the method directly.
-     //Same as the ReST URL: http://{hostname}/SIMRacingApps/Data/Session/Flags?output=json
 
      super.DataReady(SIMPlugin,ips);
 
      Data d;
      d = m_SIMPlugin.getData("/Session/Flags");
-     d = m_SIMPlugin.getSession().getFlags();
+     d = m_SIMPlugin.getSession().getFlags();   
      //do something with the data
 
      return true;

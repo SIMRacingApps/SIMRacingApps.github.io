@@ -650,11 +650,14 @@ extends java.lang.Object</pre>
  <dt>PACE, PACECAR, SAFETY, SAFETYCAR, P0</dt><dd>The pace car</dd>
  <dt>TRANSMITTING</dt><dd>The car that is currently talking</dd>
  <dt>LEADER, P1</dt><dd>The leader</dd>
+ <dt>LEADERCLASS, PC1</dt><dd>The leader of your class</dd>
+ <dt>LEADERxxx</dt><dd>The leader if the same class as xxx</dd>
  <dt>BEST</dt><dd>The car with the best lap for the entire session</dd>
  <dt>FASTEST</dt><dd>The car with the fastest last lap</dd>
  <dt>Ixx</dt><dd> The Car Id xx. Used internally to retrieve cars by Id.</dd>
  <dt>xxx, Nxxx</dt><dd>The car with this car number</dd>
  <dt>Pxx</dt><dd>The Car/Driver at position xx. Note: Position 0 should be the pace car in sessions that have a pace car</dd>
+ <dt>PCxx</dt><dd>The Car/Driver at position xx in your class. Note: Position 0 should be the pace car in sessions that have a pace car</dd>
  <dt>R-/+xx</dt><dd>The Car/Driver relative to REFERENCE by location in the session. Example: R-1 driver behind, R+1 driver ahead</dd>
  <dt>RL-/+xx</dt><dd>The Car/Driver relative to REFERENCE by location segregated by On Pit Road and On Track. Example: RL-1 driver behind, RL+1 driver ahead</dd>
  <dt>RP-/+xx</dt><dd>The Car/Driver relative to REFERENCE by position. Example: RP-1 driver behind, RP+1 driver ahead</dd>
@@ -749,7 +752,7 @@ extends java.lang.Object</pre>
  <p>PATH = <a href="../../com/SIMRacingApps/Session.html#getDiffCars-java.lang.String-java.lang.String-"><code>/Session/DiffCars/(CARIDENTIFIER1)/(CARIDENTIFIER2)</code></a></div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>carIdentifier1</code> - Car as defined by <a href="../../com/SIMRacingApps/Session.html#getCar-java.lang.String-"><code>getCar(String)</code></a>, default LEADER.</dd>
+<dd><code>carIdentifier1</code> - Car as defined by <a href="../../com/SIMRacingApps/Session.html#getCar-java.lang.String-"><code>getCar(String)</code></a>, default LEADERxxx.</dd>
 <dd><code>carIdentifier2</code> - Car as defined by <a href="../../com/SIMRacingApps/Session.html#getCar-java.lang.String-"><code>getCar(String)</code></a>, default REFERENCE.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>The difference in seconds or laps in a <a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps"><code>Data</code></a> container.</dd>
