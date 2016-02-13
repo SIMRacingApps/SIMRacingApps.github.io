@@ -1333,6 +1333,9 @@ extends java.lang.Object</pre>
 <pre>public&nbsp;<a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a>&nbsp;getTimeRemaining()</pre>
 <div class="block">If the current session has a time restriction, this returns the number of seconds remaining.
  
+ If there is no time restriction, then the time is estimated based on the leader's average lap times.
+ The UOM will be prefixed with a tilde(~) to indicate it is an approximate time.
+ 
  <p>PATH = <a href="../../com/SIMRacingApps/Session.html#getTimeRemaining--"><code>/Session/TimeRemaining</code></a></div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>

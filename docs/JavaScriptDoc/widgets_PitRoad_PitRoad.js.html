@@ -79,8 +79,12 @@ function(SIMRacingApps) {
                 });
 
                 /** your code goes here **/
+                $scope.sraPitCountDown = 10;
                 $scope.blinkState = "OFF";
                 $scope._blink     = null;
+                $scope.countDownClass = "SIMRacingApps-Widget-PitRoad-countdown-OFF";
+                $scope.countDown_blink = null;
+                
 
                 $scope.updateBlink = function() {
                     if ($scope.data.Car.REFERENCE.Status.Value.match(/PIT/)) {
@@ -117,6 +121,29 @@ function(SIMRacingApps) {
                     }
                 };
 
+                $scope.updateCountDown = function() {
+                    var timeToPitStall = Math.round($scope.data.Session.DiffCars.REFERENCE.PITSTALL.Value);
+                    
+                    if (timeToPitStall &lt;= $scope.sraPitCountDown &amp;&amp; timeToPitStall > 0) {
+                        if (!$scope.countDown_blink) {
+                            $scope.countDown_blink = $interval(function() {
+                                if ($scope.countDownClass == "SIMRacingApps-Widget-PitRoad-countdown-ON") {
+                                    $scope.countDownClass = "SIMRacingApps-Widget-PitRoad-countdown-OFF";
+                                }
+                                else {
+                                    $scope.countDownClass = "SIMRacingApps-Widget-PitRoad-countdown-ON";
+                                }
+                            }, 500);
+                        }
+                    }
+                    else {
+                        if ($scope.countDown_blink) {
+                            $interval.cancel($scope.countDown_blink);
+                            $scope.countDown_blink = null;
+                            $scope.countDownClass = "SIMRacingApps-Widget-PitRoad-countdown-OFF";
+                        }
+                    }
+                };
             }]
             , link: function($scope,$element,$attrs) {
                 //copy arguments to our scope. First if using attribute, second tag, else default to something.
@@ -125,9 +152,7 @@ function(SIMRacingApps) {
                 $scope[self.name] = sraDispatcher.getTruthy($scope.sraArgsVALUE, $attrs[self.name], $attrs.sraArgsValue, "DefaultValue");
 
                 /** your code goes here **/
-                $scope.sraPitCountdown = $scope.sraPITCOUNTDOWN || $attrs.sraPITCOUNTDOWN || $attrs.sraArgsPitCountdown || '-10.0';
-                if ($scope.sraPitCountdown > 0)  //must be negative
-                    $scope.sraPitCountdown *= -1;
+                $scope.sraPitCountdown = Math.abs(sraDispatcher.getTruthy($scope.sraPITCOUNTDOWN, $attrs.sraPITCOUNTDOWN, $attrs.sraArgsPitCountdown, $scope.sraPitCountDown) * 1);
 
                 /**standard code that should be in every directive **/
                 $rootScope.$on('sraResize', sraDispatcher.resize($scope,$element,self.defaultWidth,self.defaultHeight));
@@ -136,6 +161,8 @@ function(SIMRacingApps) {
                 $scope.names = sraDispatcher.subscribe($scope,$attrs,self.defaultInterval); //register subscriptions and options to the dispatcher
 
                 $scope.$watch("data.Car.REFERENCE.Gauge.Speedometer.ValueCurrent.Value",$scope.updateBlink);
+                
+                $scope.$watch("data.Session.DiffCars.REFERENCE.PITSTALL.Value", $scope.updateCountDown);
             }
         };
     }]);

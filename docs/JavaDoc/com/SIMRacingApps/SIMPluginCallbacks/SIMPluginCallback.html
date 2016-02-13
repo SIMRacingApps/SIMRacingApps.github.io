@@ -112,7 +112,7 @@ var activeTableTab = "activeTableTab";
 </dl>
 <dl>
 <dt>Direct Known Subclasses:</dt>
-<dd><a href="../../../com/SIMRacingApps/SIMPluginCallbacks/Template/MyPlugin.html" title="class in com.SIMRacingApps.SIMPluginCallbacks.Template">MyPlugin</a>, <a href="../../../com/SIMRacingApps/SIMPluginCallbacks/MSPEC/ShiftLight.html" title="class in com.SIMRacingApps.SIMPluginCallbacks.MSPEC">ShiftLight</a></dd>
+<dd><a href="../../../com/SIMRacingApps/SIMPluginCallbacks/Template/MyCallback.html" title="class in com.SIMRacingApps.SIMPluginCallbacks.Template">MyCallback</a>, <a href="../../../com/SIMRacingApps/SIMPluginCallbacks/Sounds/PitCountDown.html" title="class in com.SIMRacingApps.SIMPluginCallbacks.Sounds">PitCountDown</a>, <a href="../../../com/SIMRacingApps/SIMPluginCallbacks/MSPEC/ShiftLight.html" title="class in com.SIMRacingApps.SIMPluginCallbacks.MSPEC">ShiftLight</a></dd>
 </dl>
 <hr>
 <br>
@@ -122,11 +122,11 @@ implements <a href="../../../com/SIMRacingApps/SIMPlugin.Callback.html" title="i
 <div class="block">This class is the abstract base class for all SIMPluginCallback classes.
  By implementing this class, you can hook into the event loop and get data from the SIM.
 
- Here are the specifics of how to develop your plugin for the SIMRacingApps Server.
+ Here are the specifics of how to develop your plug-in for the SIMRacingApps Server.
  
  Create a new class com.SIMRacingApps.SIMCallbacks.{YourNameOrCompany}.{YourPluginClass} 
  in the com.SIMRacingApps.SIMCallbacks.{YourNameOrCompany} package that extends SIMPluginCallback.
- There is a Template plugin folder in the SIMPluginCallbacks folder that you can copy and rename.
+ There is a Template plug-in folder in the SIMPluginCallbacks folder that you can copy and rename.
 
  If you know Java, you will probably know how to compile your source code. 
  But just in case you don't, here's an example how. 
@@ -135,14 +135,14 @@ implements <a href="../../../com/SIMRacingApps/SIMPlugin.Callback.html" title="i
     {pathToJDK}\bin\javac -cp "%USERPROFILE%"\Documents\SIMRacingApps\SIMRacingAppsServer_1.0_Build_BETA-2016.01.09.exe" *.java
  </pre>
  For testing, put the .class file(s) generated in the "Documents\SIMRacingApps\com\SIMRacingApps\SIMPluginCallbacks\{YourNameOrCompany}" folder.
- Add the plugin classes to the settings.txt file's "simplugins" entry. Each plugin should be separated by a semicolon.
- The SIMRacingApps Server will load your plugin upon startup of the server.
+ Add the plug-in classes to the settings.txt file's "simplugins" entry. Each plug-in should be separated by a semicolon.
+ The SIMRacingApps Server will load your plug-in upon startup of the server.
  <pre>
  settings.txt
     simplugins = YourNameOrCompany.YourPluginClass;Name1.DoSomething;Name2.DoneIt
  </pre>
 
- When testing, if your plugin is already built into the SIMRacingAppsServer, 
+ When testing, if your plug-in is already built into the SIMRacingAppsServer, 
  you will have to alter the classpath to get your new .class files to load before the built in ones.
  To do that, do not run the SIMRacingAppsServer.exe directly. 
  Instead, use the following example command, on how to use it as a library and put your stuff first in the path.
@@ -157,11 +157,11 @@ implements <a href="../../../com/SIMRacingApps/SIMPlugin.Callback.html" title="i
     jar cvf YourPlugin_v1.0.sra -C "%USERPROFILE%\Documents\SIMRacingApps" com/SIMRacingApps/SIMPluginCallbacks/{YourNameOrCompany}
  </pre>
  Distribute the .sra file with instructions to upload it to SIMRacingApps through the main menu.
- Also provide instructions on how to enable your pluging by adding it to the settings.txt plugins variable.
+ Also provide instructions on how to enable your plug-in by adding it to the settings.txt plug-ins variable.
 
  For distribution with a Java App that uses the SIMRacingAppsServer.exe as a jar file, just add the .sra file to the classpath.
 
- If you would like your plugin distributed as part of SIMRacingApps, please send me a request to do so at support@simracingapps.com.</div>
+ If you would like your plug-in distributed as part of SIMRacingApps, please send me a request to do so at support@simracingapps.com.</div>
 <dl>
 <dt><span class="simpleTagLabel">Since:</span></dt>
 <dd>1.0</dd>

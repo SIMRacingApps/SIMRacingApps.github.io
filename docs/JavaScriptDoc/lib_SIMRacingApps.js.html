@@ -132,18 +132,27 @@ function(angular) {
      * @param  {boolean} showPositive If true, prefix the positive symbol, default false.
      * @param  {boolean} blankIfZero (Optional) true to return a blank if zero, default false.
      * @param  {boolean} showMinutes (Optional) true will always show minutes, even if less than 1 minute, default false.
+     * @param  {boolean} showApproximateOnly (Optional) true will only show the tilde(~) if the value is estimated, default false.
      * @return {String}  A string with the formatted as days:hours:minutes:seconds.milliseconds{UOM}.
      * @author Jeffrey Gilliam
      */
     app.sraDuration = function($filter,  $locale) {
-        return function(time,precision,showPositive,blankIfZero,showMinutes) {
+        return function(time,precision,showPositive,blankIfZero,showMinutes,showApproximateOnly) {
             var dur;
             var uom = "";
             var pre = precision;
+            
             if (time &amp;&amp; angular.isDefined(time.Value)) {
                 dur = time.Value;
                 uom = time.UOMAbbr;
                 pre = time.UOM == "lap" ? 0 : pre;
+                if (showApproximateOnly) {
+                    if (time.UOM.substring(0,1) == "~")
+                        uom = "~";
+                    else
+                        uom = "";
+                }
+                    
                 //if UOM is a lap, then just return the number not formatted as time.
                 if (time.UOM.toUpperCase() == "LAP")
                     return dur.toFixed(0)+uom;
@@ -258,16 +267,25 @@ function(angular) {
      * @param  {integer} decimals    (Optional) The number of decimal places to round to, default see Angular's number filter.
      * @param  {boolean} blankIfZero (Optional) true to return a blank if zero, default false.
      * @param  {boolean} showPositive (Optional) Set to true or a string to show when positive. Defaults to false.
+     * @param  {boolean} showThousandsSeparator (Optional) Set to true to show the thousands separator.
+     * @param  {boolean} showApproximateOnly (Optional) true will only show the tilde(~) if the value is estimated, default false.
      * @return {String}  The formatted number as a string.
      * @author Jeffrey Gilliam
      */
     app.sraNumber = function($filter,  $locale) {
-        return function(value,decimals,blankIfZero,showPositive) {
+        return function(value,decimals,blankIfZero,showPositive,showThousands,showApproximateOnly) {
             var v;
             var uom = "";
             if (value &amp;&amp; angular.isDefined(value.Value)) {
                 v = value.Value;
                 uom = value.UOMAbbr;
+
+                if (showApproximateOnly) {
+                    if (value.UOM.substring(0,1) == "~")
+                        uom = "~";
+                    else
+                        uom = "";
+                }
             }
             else
                 v = value;
@@ -278,7 +296,13 @@ function(angular) {
             if (isNaN(v) || (String(blankIfZero) === 'true' &amp;&amp; !v))
                 return "";
 
+            var separater = $filter('number')(1000,0)[1];
+            
             var ret = $filter('number')(v,decimals);
+            
+            if (!(typeof(showThousands) != 'undefined' &amp;&amp; String(showThousands) == 'true'))
+                ret = ret.replace(separater,"");
+            
             if (v >= 0.0 &amp;&amp; (String(showPositive) === 'true' || showPositive === '+'))
                 ret = '+' + String(ret);
             return ret + uom;
@@ -464,7 +488,8 @@ function(angular) {
 //if (name.substr(0,6) == 'CarLap')
 //    debugger;
                     //then break it down by each argument if there is more than one argument store as separate objects
-                    var args = name.split(/\//);
+                    //the leading slash is optional, so it must be removed if present.
+                    var args = (name.substring(0,1) == '/' ? name.substring(1) : name).split(/\//);
 //                    if (args.length > 1) {
                         var t = targetdata;
                         for (var arg=0; arg &lt; args.length; arg++) {
@@ -1066,10 +1091,10 @@ function(angular) {
                     return [];
 
                 var p_id       = $attrs.id ? $attrs.id : $scope.$id;
-                var p_name     = $attrs.sraArgsData         || $attrs.sraData   || "";
-                var p_format   = $attrs.sraArgsFormat       || $attrs.sraFormat || "";
-                var p_uom      = $attrs.sraArgsUom          || $attrs.sraUom    || "";
-                var p_lang     = $attrs.sraArgsLang         || $attrs.sraLang   || "";
+                var p_name     = $scope.sraArgsDATA   || $attrs.sraArgsData         || $attrs.sraData   || "";
+                var p_format   = $scope.sraArgsFORMAT || $attrs.sraArgsFormat       || $attrs.sraFormat || "";
+                var p_uom      = $scope.sraArgsUOM    || $attrs.sraArgsUom          || $attrs.sraUom    || "";
+                var p_lang     = $scope.sraArgsLANG   || $attrs.sraArgsLang         || $attrs.sraLang   || "";
                 var p_interval = ($scope.sraInterval = $scope.sraArgsINTERVAL || $attrs.sraArgsInterval || $attrs.sraInterval || defaultInterval) || 200;
 
                 //clean up the name and remove leading and trailing semi-colons

@@ -1079,6 +1079,9 @@ extends <a href="../../../../com/SIMRacingApps/Session.html" title="class in com
 <div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="../../../../com/SIMRacingApps/Session.html#getTimeRemaining--">Session</a></code></span></div>
 <div class="block">If the current session has a time restriction, this returns the number of seconds remaining.
  
+ If there is no time restriction, then the time is estimated based on the leader's average lap times.
+ The UOM will be prefixed with a tilde(~) to indicate it is an approximate time.
+ 
  <p>PATH = <a href="../../../../com/SIMRacingApps/Session.html#getTimeRemaining--"><code>/Session/TimeRemaining</code></a></div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>

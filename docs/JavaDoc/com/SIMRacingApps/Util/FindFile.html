@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":9,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":9,"i8":9,"i9":9,"i10":10};
+var methods = {"i0":10,"i1":9,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":9,"i10":9,"i11":9,"i12":10};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -176,48 +176,60 @@ extends java.lang.Object</pre>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/SIMRacingApps/Util/FindFile.html#finalize--">finalize</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i3" class="rowColor">
+<td class="colFirst"><code>java.io.InputStream</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/SIMRacingApps/Util/FindFile.html#getBufferedInputStream--">getBufferedInputStream</a></span>()</code>
+<div class="block">Returns the BufferedInputStream of the file.</div>
+</td>
+</tr>
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>java.io.File</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/SIMRacingApps/Util/FindFile.html#getFile--">getFile</a></span>()</code>
 <div class="block">Returns the java.io.File object for the file that was found.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/SIMRacingApps/Util/FindFile.html#getFileFound--">getFileFound</a></span>()</code>
 <div class="block">Returns the name of the file that was found including the path to where it was found.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>java.io.InputStream</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/SIMRacingApps/Util/FindFile.html#getInputStream--">getInputStream</a></span>()</code>
 <div class="block">Returns the InputStream of the file.</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>java.util.Map&lt;java.lang.String,java.lang.Object&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/SIMRacingApps/Util/FindFile.html#getJSON--">getJSON</a></span>()</code>
 <div class="block">Returns the contents of the file parsed as a JSON file as a Map&lt;String,Object&gt; type.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i8" class="altColor">
+<td class="colFirst"><code>java.net.URL</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/SIMRacingApps/Util/FindFile.html#getURL--">getURL</a></span>()</code>
+<div class="block">Returns a URL to the found file.</div>
+</td>
+</tr>
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/SIMRacingApps/Util/FindFile.html#getUserDocumentsPath--">getUserDocumentsPath</a></span>()</code>
 <div class="block">Returns the path to the users Documents location.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>static java.lang.String[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/SIMRacingApps/Util/FindFile.html#getUserPath--">getUserPath</a></span>()</code>
 <div class="block">Returns an array of the user's paths.</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>static void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/SIMRacingApps/Util/FindFile.html#setUserPath-java.lang.String-">setUserPath</a></span>(java.lang.String&nbsp;path)</code>
 <div class="block">Sets the user's paths by parsing the "path" argument for semicolon as a separator.</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/SIMRacingApps/Util/FindFile.html#toString--">toString</a></span>()</code>&nbsp;</td>
 </tr>
@@ -355,6 +367,34 @@ extends java.lang.Object</pre>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>The InputStream or null of not found</dd>
+</dl>
+</li>
+</ul>
+<a name="getBufferedInputStream--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getBufferedInputStream</h4>
+<pre>public&nbsp;java.io.InputStream&nbsp;getBufferedInputStream()</pre>
+<div class="block">Returns the BufferedInputStream of the file.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The BufferedInputStream or null of not found</dd>
+</dl>
+</li>
+</ul>
+<a name="getURL--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getURL</h4>
+<pre>public&nbsp;java.net.URL&nbsp;getURL()</pre>
+<div class="block">Returns a URL to the found file.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The URL to the file.</dd>
 </dl>
 </li>
 </ul>

@@ -1,39 +1,30 @@
 SIMRacingApps Release Notes
 ---------------------------
 
-Version: 1.0_Build_BETA-2016.01.30
-    1.  Add new API call for Car/(CARIDENTIFIER)/IsBelowMinimumSpeed.
-        - Updated the Relative, Standings, DriverInfo Widgets to draw a red box around the driver's name.
-        - On the TrackMap widget, I put a black "X" on the car.
-        - The maximum lap time allowed is calculated by averaging the last 3 green flag laps 
-          of the leader multiplied by 110%.
-        - If a car's last 3 consecutive green flag laps since pitting are all above the maximum, 
-          then it is marked as below the minimum speed.
-        - The variables can be configured by entering the following values in the 
-          "Documents/SIMRacingApps/settings.txt" file.
-           minimum-speed-laps         = 3
-           minimum-speed-laps-leader  = 3
-           minimum-speed-percentage   = 110
-    2.  Created a StandandingsTop43 Widget and updated the Spectator/Broadcaster App to use it.
-    3.  Team Events, fixed issue where the PitCommands were going out even if you were not in the car.
-        Also, when you got in the car, it would reset everything to your requests instead of the previous
-        drivers requests. In my case, my app.ini, was set to start with nothing selected.
-    4.  Multi-class, all Apps that show "Behind" calculations, now base that off of the leader for your class.
-        Previously, it as based on the overall leader. I also added the class color as the background.
-    5.  FuelTank widget got a face lift. Now all of the values in the table can be turned off individually.
-        See the next new feature, favorites.
-    6.  Favorites: A new section on the menu called "favorites".
-        - At some point, I will add the ability to save and modify a favorite from the menu.
-          But for this release, I have created a sample favorite that you can download from releases page.
-        - Upload this file to your instance of SIMRacingApps through the main menu.
-          This will create a file in "Documents/SIMRacingApps/favorites/MyFuelTank.json" that you can edit.
-        - You can copy this file and modify it to make other favorites.
-        - To find the options a Widget supports, see the documentation for that widget.
-          It will list the parameters. If they are in the format of "data-sra-args-some-option",
-          to add that option to the favorite, put it in the "args" variable by stripping off "data-sra-args-"
-          and remove any remaining hyphens. The result would be "&SOMEOPTION=value".
-          Don't worry, I will make a user friendly interface for favorites at some point.
-    
+Version: 1.0_Build_BETA-2016.02.13
+    1. PitRoad: Added visual blinking when within 10 seconds of your pit stall. Closes #1 issue.
+    2. Server: Added a audible count down to your pit stall.
+       This can be controlled with the following variables in the settings.txt or command line args.
+       You sound device names are printed out in the server window when it first starts up.
+      1. pit-count-down-device = A Sound Device Name
+      2. pit-count-down-volume = 1.0  #from 0 to 1
+      3. pit-count-down-start  = 5    #from 0 to 10
+      4. pit-count-down-play10 = Y
+      5. pit-count-down-play0  = Y
+      6. pit-count-down-pattern= {path to spotter pack}
+        1. # some known patterns to spotter packs. Your version may vary. Double backslashes are required.
+           # %d is the place holder for the number.
+        2. C:\\Program Files (x86)\\iRacing\\sound\\spcc\\JJ Spotter Pack v6.51\\n%d.wav
+        3. C:\\Program Files (x86)\\iRacing\\sound\\spcc\\Dale Jr Spotter Pack\\n%d_A1.wav
+    3. Added a global setting for sound in the settings.txt and command line args.
+      1. sound-device = A Sound Device Name
+      2. sound-volume = 1.0   #from 0 to 1
+    4. Fixed bug where the pit timer would reset if the car blinked out or was on the very edge of the pit stall.
+    5. Added ability to use the DataTable widget in a favorite.
+    6. Time Remaining, in a non-time bound session, is now estimated based on the leader's average laps.
+    7. Added a tilde(~) after Time Remaining and To Go Laps if they were estimated based on lap timing.
+       So if you are in a timed session with a limited number of laps, you can see which limit is driving the end of the race.
+
 ----------------------------------------------------------------------------------------------------------------------------------
 ---                                                Configuration Tips                                                          ---
 ----------------------------------------------------------------------------------------------------------------------------------
@@ -135,6 +126,39 @@ Version: 1.0_Build_BETA-2016.01.30
 
 ****************** Previous Versions *************************
 
+1.0_Build_BETA-2016.01.30
+    1.  Add new API call for Car/(CARIDENTIFIER)/IsBelowMinimumSpeed.
+        - Updated the Relative, Standings, DriverInfo Widgets to draw a red box around the driver's name.
+        - On the TrackMap widget, I put a black "X" on the car.
+        - The maximum lap time allowed is calculated by averaging the last 3 green flag laps 
+          of the leader multiplied by 110%.
+        - If a car's last 3 consecutive green flag laps since pitting are all above the maximum, 
+          then it is marked as below the minimum speed.
+        - The variables can be configured by entering the following values in the 
+          "Documents/SIMRacingApps/settings.txt" file.
+           minimum-speed-laps         = 3
+           minimum-speed-laps-leader  = 3
+           minimum-speed-percentage   = 110
+    2.  Created a StandandingsTop43 Widget and updated the Spectator/Broadcaster App to use it.
+    3.  Team Events, fixed issue where the PitCommands were going out even if you were not in the car.
+        Also, when you got in the car, it would reset everything to your requests instead of the previous
+        drivers requests. In my case, my app.ini, was set to start with nothing selected.
+    4.  Multi-class, all Apps that show "Behind" calculations, now base that off of the leader for your class.
+        Previously, it as based on the overall leader. I also added the class color as the background.
+    5.  FuelTank widget got a face lift. Now all of the values in the table can be turned off individually.
+        See the next new feature, favorites.
+    6.  Favorites: A new section on the menu called "favorites".
+        - At some point, I will add the ability to save and modify a favorite from the menu.
+          But for this release, I have created a sample favorite that you can download from releases page.
+        - Upload this file to your instance of SIMRacingApps through the main menu.
+          This will create a file in "Documents/SIMRacingApps/favorites/MyFuelTank.json" that you can edit.
+        - You can copy this file and modify it to make other favorites.
+        - To find the options a Widget supports, see the documentation for that widget.
+          It will list the parameters. If they are in the format of "data-sra-args-some-option",
+          to add that option to the favorite, put it in the "args" variable by stripping off "data-sra-args-"
+          and remove any remaining hyphens. The result would be "&SOMEOPTION=value".
+          Don't worry, I will make a user friendly interface for favorites at some point.
+    
 1.0_Build_BETA-2016.01.18
     1.  Demoted Yellow,YellowWaving and Blue flags from the Session level to the Car level. 
     2.  Fixed bug where the CarSelector was not working in the Spectator App.

@@ -50,7 +50,15 @@ MapQuest
     
 Atom/Electron
     MIT License - https://github.com/atom/electron/blob/master/LICENSE 
-    
+
+Sound
+    http://freesound.org        
+    http://creativecommons.org/publicdomain/zero/1.0/
+    Brian Yaczik - Pit Count Down
+
+Graphics
+    Gary Whitson - Logos
+        
 iRacing
     Information from the irsdk_defines.h are used and translated to the Java syntax.
     

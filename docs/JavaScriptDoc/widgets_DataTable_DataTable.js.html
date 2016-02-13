@@ -104,7 +104,7 @@ function(SIMRacingApps) {
         template:        'DataTable.html',
         defaultWidth:    800,
         defaultHeight:   480,
-        defaultInterval: 500   //initialize with the default interval
+        defaultInterval: 200   //initialize with the default interval
     };
 
     self.module = angular.module('SIMRacingApps'); //get the main module
@@ -137,6 +137,7 @@ function(SIMRacingApps) {
                 $scope.bodyClass   = "";
                 $scope.footer      = "";
                 $scope.footerClass = "";
+                $scope.tableFontSize=100.0;
 
                 $scope.updateClass = function(rowname,newValue,scope) {
                     scope.classes[rowname] = newValue;
@@ -163,51 +164,92 @@ function(SIMRacingApps) {
 
                 /** your code goes here **/
 
-                $scope.rowNames = ($attrs.sraArgsRowNames || "").split(/[;, ]/);
+                $scope.rowNames = ($scope.sraArgsROWNAMES || $attrs.sraArgsRowNames || "").split(/[;, ]/);
 
                 for (var row=0; row &lt; $scope.rowNames.length; row++) {
                     var rowname = $scope.rowNames[row];
                     var rowName = $scope.rowNames[row].substr(0,1).toUpperCase() + $scope.rowNames[row].substr(1).toLowerCase();
 
-                    var watchexp = $attrs['sraArgsRow'+rowName+'Class'];
+                    var watchexp = $scope['sraArgsROW'+rowName.toUpperCase()+'CLASS'];
+                    if (watchexp)
+                        watchexp = "'" + watchexp + "'";
+                    else
+                        watchexp = $attrs['sraArgsRow'+rowName+'Class'];
                     if (watchexp) {
                         $scope.rowsClass[rowname] = "";
                         $scope.$watch(watchexp, new Function('newValue','oldValue','$scope','$scope.updateRowClass("'+rowname+'",newValue,$scope);'));
                     }
-                    var watchexp = $attrs['sraArgsRow'+rowName+'Label'];
+                    
+                    watchexp = $scope['sraArgsROW'+rowName.toUpperCase()+'LABEL'];
+                    if (watchexp) {
+                        watchexp = "'" + watchexp + "'";
+                        $scope.tableFontSize = 500;                        
+                    }
+                    else
+                        watchexp = $attrs['sraArgsRow'+rowName+'Label'];
                     if (watchexp) {
                         $scope.labels[rowname] = "&amp;nbsp;";
                         $scope.$watch(watchexp, new Function('newValue','oldValue','$scope','$scope.updateLabel("'+rowname+'",newValue,$scope);'));
                     }
-                    var watchexp = $attrs['sraArgsRow'+rowName+'LabelClass'];
+                    
+                    watchexp = $scope['sraArgsROW'+rowName.toUpperCase()+'LABELCLASS'];
+                    if (watchexp)
+                        watchexp = "'" + watchexp + "'";
+                    else
+                        watchexp = $attrs['sraArgsRow'+rowName+'LabelClass'];
                     if (watchexp) {
                         $scope.labelsClass[rowname] = "";
                         $scope.$watch(watchexp, new Function('newValue','oldValue','$scope','$scope.updateLabelClass("'+rowname+'",newValue,$scope);'));
                     }
 
-                    watchexp = $attrs['sraArgsRowClass'];
+                    watchexp = $scope['sraArgsROWCLASS'];
+                    if (watchexp)
+                        watchexp = "'" + watchexp + "'";
+                    else
+                        watchexp = $attrs['sraArgsRowClass'];
                     if (watchexp) {
                         $scope.classes[rowname] = "";
                         $scope.$watch(watchexp, new Function('newValue','oldValue','$scope','$scope.updateClass("'+rowname+'",newValue,$scope);'));
                     }
-                    watchexp = $attrs['sraArgsRow'+rowName];
+                    
+                    watchexp = $scope['sraArgsROW'+rowName.toUpperCase()];
+                    if (watchexp) {
+                        $scope.tableFontSize = 500;                        
+                    }
+                    else
+                        watchexp = $attrs['sraArgsRow'+rowName];
                     if (watchexp) {
                         $scope.values[rowname] = "&amp;nbsp;";
                         $scope.$watch(watchexp, new Function('newValue','oldValue','$scope','$scope.updateValue("'+rowname+'",newValue,$scope);'));
                     }
-                    watchexp = $attrs['sraArgsRow'+rowName+'Value'];
+                    
+                    watchexp = $scope['sraArgsROW'+rowName.toUpperCase()+'VALUE'];
+                    if (watchexp) {
+                        $scope.tableFontSize = 500;                        
+                    }
+                    else
+                        watchexp = $attrs['sraArgsRow'+rowName+'Value'];
                     if (watchexp) {
                         $scope.values[rowname] = "&amp;nbsp;";
                         $scope.$watch(watchexp, new Function('newValue','oldValue','$scope','$scope.updateValue("'+rowname+'",newValue,$scope);'));
                     }
-                    watchexp = $attrs['sraArgsRow'+rowName+'ValueClass'];
+                    
+                    watchexp = $scope['sraArgsROW'+rowName.toUpperCase()+'VALUECLASS'];
+                    if (watchexp)
+                        watchexp = "'" + watchexp + "'";
+                    else
+                        watchexp = $attrs['sraArgsRow'+rowName+'ValueClass'];
                     if (watchexp) {
                         $scope.valuesClass[rowname] = "";
                         $scope.$watch(watchexp, new Function('newValue','oldValue','$scope','$scope.updateValueClass("'+rowname+'",newValue,$scope);'));
                     }
                 }
 
-                watchexp = $attrs.sraArgsClass;
+                watchexp = $scope['sraArgsCLASS'];
+                if (watchexp)
+                    watchexp = "'" + watchexp + "'";
+                else
+                    watchexp = $attrs.sraArgsClass;
                 if (watchexp) {
                     $scope.tableClass = "";
                     $scope.$watch(watchexp, function(newValue) {
@@ -215,7 +257,11 @@ function(SIMRacingApps) {
                     });
                 }
 
-                watchexp = $attrs.sraArgsHeader;
+                watchexp = $scope['sraArgsHEADER'];
+                if (watchexp)
+                    watchexp = "'" + watchexp + "'";
+                else
+                    watchexp = $attrs.sraArgsHeader;
                 if (watchexp) {
                     $scope.header = "&amp;nbsp;";
                     $scope.$watch(watchexp, function(newValue) {
@@ -223,7 +269,11 @@ function(SIMRacingApps) {
                     });
                 }
 
-                watchexp = $attrs.sraArgsHeaderClass;
+                watchexp = $scope['sraArgsHEADERCLASS'];
+                if (watchexp)
+                    watchexp = "'" + watchexp + "'";
+                else
+                    watchexp = $attrs.sraArgsHeaderClass;
                 if (watchexp) {
                     $scope.headerClass = "";
                     $scope.$watch(watchexp, function(newValue) {
@@ -231,7 +281,11 @@ function(SIMRacingApps) {
                     });
                 }
 
-                watchexp = $attrs.sraArgsBodyClass;
+                watchexp = $scope['sraArgsBODYCLASS'];
+                if (watchexp)
+                    watchexp = "'" + watchexp + "'";
+                else
+                    watchexp = $attrs.sraArgsBodyClass;
                 if (watchexp) {
                     $scope.bodyClass = "";
                     $scope.$watch(watchexp, function(newValue) {
@@ -239,14 +293,23 @@ function(SIMRacingApps) {
                     });
                 }
 
-                watchexp = $attrs.sraArgsFooter;
+                watchexp = $scope['sraArgsFOOTER'];
+                if (watchexp)
+                    watchexp = "'" + watchexp + "'";
+                else
+                    watchexp = $attrs.sraArgsFooter;
                 if (watchexp) {
                     $scope.footer = "&amp;nbsp;";
                     $scope.$watch(watchexp, function(newValue) {
                         $scope.footer = newValue;
                     });
                 }
-                watchexp = $attrs.sraArgsFooterClass;
+                
+                watchexp = $scope['sraArgsFOOTERCLASS'];
+                if (watchexp)
+                    watchexp = "'" + watchexp + "'";
+                else
+                    watchexp = $attrs.sraArgsFooterClass;
                 if (watchexp) {
                     $scope.footerClass = "";
                     $scope.$watch(watchexp, function(newValue) {
@@ -254,6 +317,8 @@ function(SIMRacingApps) {
                     });
                 }
 
+                $scope.tableFontSize = sraDispatcher.getTruthy($scope.sraArgsFONTSIZE,$attrs.sraArgsFontSize,$scope.tableFontSize) * 1;
+                
                 /**standard code that should be in every directive **/
                 $rootScope.$on('sraResize', sraDispatcher.resize($scope,$element,self.defaultWidth,self.defaultHeight));
                 //register with the dispatcher

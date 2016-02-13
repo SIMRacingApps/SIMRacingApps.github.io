@@ -129,6 +129,7 @@ function(SIMRacingApps) {
                 $scope.lapsInTank           = 0;
                 $scope.altLapsInTank        = 0;
                 $scope.lapsToGo             = 0;
+                $scope.lapsToGoUOM          = "lap";
                 $scope.classIsEnough        = "SIMRacingApps-Widget-FuelTank-enoughToFinish"; //enoughToFinish, enoughAddedToFinish, notEnoughToFinish
                 $scope.classIsEnoughAdding  = "SIMRacingApps-Widget-FuelTank-enoughToFinish-adding"; //enoughToFinish-adding, enoughAddedToFinish-adding, notEnoughToFinish-adding
                 $scope.classIsAltEnough     = "SIMRacingApps-Widget-FuelTank-enoughToFinish"; //enoughToFinish, enoughAddedToFinish, notEnoughToFinish
@@ -159,6 +160,7 @@ function(SIMRacingApps) {
                     $scope.fuelLapsRemaining            = $scope.data.Car.REFERENCE.FuelLaps[$scope.lapsToAverage].Value;
                     $scope.altFuelLapsRemaining         = $scope.data.Car.REFERENCE.FuelLaps[$scope.altLapsToAverage].Value;
                     $scope.lapsToGo                     = $scope.data.Car.REFERENCE.LapsToGo.Value - percentage;
+                    $scope.lapsToGoUOM                  = $scope.data.Car.REFERENCE.LapsToGo.UOM;
                     $scope.lapsInTank                   = $scope.fuelLapsRemaining;
                     $scope.altLapsInTank                = $scope.altFuelLapsRemaining;
                     $scope.lapsPerTank                  = $scope.data.Car.REFERENCE.Gauge.FuelLevel.CapacityMaximum.Value / perLap;
@@ -269,7 +271,6 @@ function(SIMRacingApps) {
                 $attrs.sraArgsData += ";Car/REFERENCE/PitStopsRemaining/"+$scope.lapsToAverage;
                 $attrs.sraArgsData += ";Car/REFERENCE/PitStopsRemaining/"+$scope.altLapsToAverage;
                 $attrs.sraArgsData += ";Car/REFERENCE/LapsToGo";
-                $attrs.sraArgsData += ";Session/LapsToGo";
                 $attrs.sraArgsData += ";Car/REFERENCE/FuelLaps/"+$scope.lapsToAverage;
                 $attrs.sraArgsData += ";Car/REFERENCE/FuelLaps/"+$scope.altLapsToAverage;
                 $attrs.sraArgsData += ";Car/REFERENCE/FuelLapsMaximum/"+$scope.lapsToAverage;
@@ -361,6 +362,10 @@ function(SIMRacingApps) {
                 });
 
                 $scope.$watch("data.Car.REFERENCE.Lap.COMPLETEDPERCENT.Value",function(value) {
+                    $scope.update();
+                });
+                
+                $scope.$watch("data.Car.REFERENCE.LapsToGo.Value",function(value) {
                     $scope.update();
                 });
                 

@@ -74,6 +74,8 @@ function(SIMRacingApps) {
                 $scope.defaultWidth    = self.defaultWidth;
                 $scope.defaultHeight   = self.defaultHeight;
                 $scope.defaultInterval = self.defaultInterval;
+                
+                $scope.sraInterval = $scope.defaultInterval;
 
                 sraDispatcher.loadTranslations(sraDispatcher.getWidgetUrl(self.url),'text',function(path) {
                     $scope.translations = sraDispatcher.getTranslation(path);
