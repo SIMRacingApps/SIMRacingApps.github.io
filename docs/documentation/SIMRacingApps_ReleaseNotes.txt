@@ -1,29 +1,29 @@
 SIMRacingApps Release Notes
 ---------------------------
 
-Version: 1.0_Build_BETA-2016.02.13
-    1. PitRoad: Added visual blinking when within 10 seconds of your pit stall. Closes #1 issue.
-    2. Server: Added a audible count down to your pit stall.
-       This can be controlled with the following variables in the settings.txt or command line args.
-       You sound device names are printed out in the server window when it first starts up.
-      1. pit-count-down-device = A Sound Device Name
-      2. pit-count-down-volume = 1.0  #from 0 to 1
-      3. pit-count-down-start  = 5    #from 0 to 10
-      4. pit-count-down-play10 = Y
-      5. pit-count-down-play0  = Y
-      6. pit-count-down-pattern= {path to spotter pack}
-        1. # some known patterns to spotter packs. Your version may vary. Double backslashes are required.
-           # %d is the place holder for the number.
-        2. C:\\Program Files (x86)\\iRacing\\sound\\spcc\\JJ Spotter Pack v6.51\\n%d.wav
-        3. C:\\Program Files (x86)\\iRacing\\sound\\spcc\\Dale Jr Spotter Pack\\n%d_A1.wav
-    3. Added a global setting for sound in the settings.txt and command line args.
-      1. sound-device = A Sound Device Name
-      2. sound-volume = 1.0   #from 0 to 1
-    4. Fixed bug where the pit timer would reset if the car blinked out or was on the very edge of the pit stall.
-    5. Added ability to use the DataTable widget in a favorite.
-    6. Time Remaining, in a non-time bound session, is now estimated based on the leader's average laps.
-    7. Added a tilde(~) after Time Remaining and To Go Laps if they were estimated based on lap timing.
-       So if you are in a timed session with a limited number of laps, you can see which limit is driving the end of the race.
+Version: 1.0_Build_BETA-2016.02.19
+    1.  Added Car/(CARIDENTIFIER)/DriverNameShort to the API.
+    2.  Added new customizable widget called StandingsBanner that mimics the banner seen on TV.
+        It is customizable with a StandingsBanner.json file placed in the "Documents/SIMRacingApps" folder.
+        The Image URLs are relative to this folder as well.
+        The sponsor files should use the aspect ratio of 4x1. 
+        The default window size calculates that to be 200x50 pixels.
+        Whatever the size, it will scale it to fit.
+        Also, any image format your browser supports can be used, such as, .jpg, etc.
+        Here is the format of the StandingsBanner.json file:
+        {
+            "title":            "DAYTONA 500",
+            "sponsorImageUrls": ["Sponsors/Sponsor1.png","Sponsors/Sponsor2.png"],
+            "sponsorSeconds":   [60,120]
+        }
+    3.  Fixed bug where the "sound-volume" setting did not work, 
+        if you did not specifically set the "pit-count-down-volume".
+        Now you will be able to control all the sounds with the master setting.
+    4.  Added new App called StreamingOverlay. 
+        It is a preconfigured overlay to be used with the CLR Browser Plug-in in OBS.
+        You can also run each widget individually from the CLR Browser,
+        just add the "&BACKGROUNDCOLOR=transparent" to the URL.
+        
 
 ----------------------------------------------------------------------------------------------------------------------------------
 ---                                                Configuration Tips                                                          ---
@@ -126,6 +126,30 @@ Version: 1.0_Build_BETA-2016.02.13
 
 ****************** Previous Versions *************************
 
+1.0_Build_BETA-2016.02.13
+    1. PitRoad: Added visual blinking when within 10 seconds of your pit stall. Closes #1 issue.
+    2. Server: Added a audible count down to your pit stall.
+       This can be controlled with the following variables in the settings.txt or command line args.
+       You sound device names are printed out in the server window when it first starts up.
+      1. pit-count-down-device = A Sound Device Name
+      2. pit-count-down-volume = 1.0  #from 0 to 1
+      3. pit-count-down-start  = 5    #from 0 to 10
+      4. pit-count-down-play10 = Y
+      5. pit-count-down-play0  = Y
+      6. pit-count-down-pattern= {path to spotter pack}
+        1. # some known patterns to spotter packs. Your version may vary. Double backslashes are required.
+           # %d is the place holder for the number.
+        2. C:\\Program Files (x86)\\iRacing\\sound\\spcc\\JJ Spotter Pack v6.51\\n%d.wav
+        3. C:\\Program Files (x86)\\iRacing\\sound\\spcc\\Dale Jr Spotter Pack v2.4\\n%d_A1.wav
+    3. Added a global setting for sound in the settings.txt and command line args.
+      1. sound-device = A Sound Device Name
+      2. sound-volume = 1.0   #from 0 to 1
+    4. Fixed bug where the pit timer would reset if the car blinked out or was on the very edge of the pit stall.
+    5. Added ability to use the DataTable widget in a favorite.
+    6. Time Remaining, in a non-time bound session, is now estimated based on the leader's average laps.
+    7. Added a tilde(~) after Time Remaining and To Go Laps if they were estimated based on lap timing.
+       So if you are in a timed session with a limited number of laps, you can see which limit is driving the end of the race.
+       
 1.0_Build_BETA-2016.01.30
     1.  Add new API call for Car/(CARIDENTIFIER)/IsBelowMinimumSpeed.
         - Updated the Relative, Standings, DriverInfo Widgets to draw a red box around the driver's name.

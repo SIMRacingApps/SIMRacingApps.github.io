@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: widgets/StandingsBanner/StandingsBanner.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: widgets/StandingsBanner/StandingsBanner.js</h1>
+
+    
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>'use strict';
+/**
+ * This widget displays a TV style banner showing the standings.
+ * Designed to be used as an overlay with OBS.
+ * 
+ * By default, the session type is displayed as the title.
+ * The default sponsor is SIMRacingApps.
+ * To change either, create a file called "StandingsBanner.json" in the "Documents/SIMRacingApps" folder 
+ * with the following entries.
+ * &lt;pre>
+ * {
+ *   "title":            "DAYTONA 500",
+ *   "sponsorImageUrls": ["Sponsors/Sponsor1.png","Sponsors/Sponsor2.png"],
+ *   "sponsorSeconds":   [60,120]
+ * }
+ * &lt;/pre>
+ * In the example, the sponsor logos is an array of files that are stored in the "Documents/SIMRacingApps/Sponsors" folder.
+ * The ratio of a sponsor file should be 4x1. The default window size calculates that to be 200x50 pixels, but it will scale up and down.
+ * Each sponsor can have their own display time using the seconds array.
+ * The first sponsor will be displayed for 60 seconds, the second for 120 seconds, then start over.
+ * You can add more sponsors and seconds to display as needed.
+ * &lt;p>
+ * Example:
+ * &lt;p>&lt;b>
+ * &amp;lt;sra-standings-banner&amp;gt;&amp;lt;/sra-standings-banner&amp;gt;&lt;br />
+ * &lt;/b>
+ * &lt;img src="../widgets/StandingsBanner/icon.png" alt="Image goes here"/>
+ * @ngdoc directive
+ * @name sra-standings-banner
+ * @param show-short-name Set to true to show the short name. Default is false.
+ * @param {integer} data-sra-args-interval The interval, in milliseconds, that this widget will update from the server. Default is 500.
+ * @author Jeffrey Gilliam
+ * @since 1.0
+ * @copyright Copyright (C) 2015 - 2016 Jeffrey Gilliam
+ * @license Apache License 2.0
+ */
+define(['SIMRacingApps'
+       ,'css!widgets/StandingsBanner/StandingsBanner'
+       ,'widgets/CarNumber/CarNumber'
+],function(SIMRacingApps) {
+
+    var self = {
+        name:            "sraStandingsBanner",
+        url:             'StandingsBanner',
+        template:        'StandingsBanner.html',
+        defaultWidth:    800,
+        defaultHeight:   106,
+        defaultInterval: 500   //initialize with the default interval
+    };
+
+    self.module = angular.module('SIMRacingApps'); //get the main module
+
+    self.module.directive(self.name,
+           ['sraDispatcher', '$filter', '$rootScope', '$timeout', '$http',
+    function(sraDispatcher,   $filter,   $rootScope,   $timeout,   $http) {
+        return {
+            restrict:    'EA',
+            scope:       true,
+            templateUrl: sraDispatcher.getWidgetUrl(self.url) + '/' + self.template,
+            controller: [ '$scope', function($scope) {
+                $scope.directiveName   = self.name;
+                $scope.defaultWidth    = self.defaultWidth;
+                $scope.defaultHeight   = self.defaultHeight;
+                $scope.defaultInterval = self.defaultInterval;
+
+                //load translations, if you have any comment out if you do not so it will not look for them
+                sraDispatcher.loadTranslations(sraDispatcher.getWidgetUrl(self.url),'text',function(path) {
+                    $scope.translations = sraDispatcher.getTranslation(path);
+                });
+
+                /** your code goes here **/
+
+                $scope.showShortName    = false;
+                $scope.flag             = "yellow"; //green, yellow, white, checkered, red
+                $scope.title            = "{title}";
+                $scope.sponsorImageUrl  = null;
+                $scope.sponsorImageUrls = ['SRA-Logo-with-URL.png'];
+                $scope.sponsorSeconds   = [60];
+                $scope.sponsorCurrent   = 0;
+                $scope.numberOfPages    = 3;
+                $scope.numberOfBoxes    = 3;
+                $scope.numberOfLines    = 4;    //This must match what's in the HTML table rows repeat
+                $scope.pageDelay        = 10000;
+                $scope.boxDelay         = 1000;
+                $scope.currentPage      = 0;
+                $scope.boxes            = [];
+                $scope.showBox          = [];
+                $scope.greenBoxes       = [];
+                $scope.showGreenBox     = [];
+                $scope.showLeaders      = false;
+                
+                for (var i=0; i &lt; ($scope.numberOfPages * $scope.numberOfBoxes); i++) {
+                    $scope.boxes.push(i);
+                    $scope.showBox.push(false);
+                    $scope.greenBoxes.push(i);
+                    $scope.showGreenBox.push(false);
+                }
+                
+                $http({
+                    method:  'GET',
+                    url:     '/SIMRacingApps/StandingsBanner.json',
+                    cache:   false,
+                    timeout: 5000,
+                    params: {
+                        cacheBuster:   Date.now()  //to help the browser to stop caching
+                    }
+                })
+                .success(function(data, status, headers, config) {
+                    console.log("StandingsBanner.json = "+JSON.stringify(data));
+                    $scope.title            = data.title            || "";
+                    $scope.sponsorImageUrls = data.sponsorImageUrls || ['SRA-Logo-with-URL.png'];
+                    $scope.sponsorSeconds   = data.sponsorSeconds   || [60];
+                    
+                    if ($scope.sponsorImageUrls.length > 0)
+                        $scope.sponsorImageUrl = $scope.sponsorImageUrls[$scope.sponsorCurrent]; 
+                });
+                
+                $scope.updateYellowPages = function() {
+                    $scope.prevPage = $scope.currentPage;
+                    
+                    //go to the next page
+                    if (++$scope.currentPage >= $scope.numberOfPages )
+                        $scope.currentPage = 0;
+                    
+                    //but only if there are drivers on that page
+                    if ((($scope.currentPage * $scope.numberOfLines * $scope.numberOfBoxes) + 1) > $scope.data.Session.Cars.Value
+                    ||  !$scope.data.Car['P'+(($scope.currentPage * $scope.numberOfLines * $scope.numberOfBoxes) + 1)].Number.Value
+                    )
+                        $scope.currentPage = 0;
+
+                    if ($scope.prevPage != $scope.currentPage) {
+                        for (var i=0; i &lt; $scope.numberOfBoxes; i++) {
+                            var updateShowBox = function(prevPage,currentPage,box) {
+                                $scope.showBox[(currentPage * $scope.numberOfBoxes) + box] = true;
+                                $scope.showBox[(prevPage    * $scope.numberOfBoxes) + box] = false;
+                            };
+                            //TODO: when we update to angular 1.4.1 or above, use new [pass] parameter
+                            $timeout(updateShowBox.bind(null,$scope.prevPage,$scope.currentPage,i),$scope.boxDelay * i);
+                        }
+                    }
+                    
+                    $scope.yellowTimer = $timeout($scope.updateYellowPages,$scope.pageDelay);
+                };
+
+                $scope.startYellowPages = function() {
+                    if ($scope.greenTimer) {
+                        $timeout.cancel($scope.greenTimer);
+                        $scope.greenTimer = null;
+                        $scope.showLeaders = false;
+                        for (var i=0; i &lt; $scope.showGreenBox.length; i++)
+                            $scope.showGreenBox[i] = false;
+                    }
+                    if (!$scope.yellowTimer) {
+                        $scope.currentPage = 0;
+                        
+                        //initially turn on the boxes on the first page
+                        for (var i=0; i &lt; $scope.numberOfBoxes; i++)
+                            $scope.showBox[i] = true;
+                        
+                        $scope.yellowTimer = $timeout($scope.updateYellowPages,$scope.pageDelay);
+                    }
+                };
+                
+                $scope.updateGreenPages = function() {
+                    $scope.prevPage = $scope.currentPage;
+                    
+                    //go to the next page
+                    if (++$scope.currentPage >= ($scope.numberOfPages * $scope.numberOfBoxes) )
+                        $scope.currentPage = 0;
+                    
+                    //but only if there are drivers on that page
+                    if ((($scope.currentPage * $scope.numberOfLines) + 4) > $scope.data.Session.Cars.Value
+                    ||  !$scope.data.Car['P'+(($scope.currentPage * $scope.numberOfLines) + 4)].Number.Value
+                    )
+                        $scope.currentPage = 0;
+
+                    if ($scope.prevPage != $scope.currentPage) {
+                        $scope.showGreenBox[$scope.currentPage] = true;
+                        $scope.showGreenBox[$scope.prevPage]    = false;
+                    }
+                    
+                    $scope.greenTimer = $timeout($scope.updateGreenPages,$scope.pageDelay / 2);
+                };
+
+                $scope.startGreenPages = function() {
+                    if ($scope.yellowTimer) {
+                        $timeout.cancel($scope.yellowTimer);
+                        $scope.yellowTimer = null;
+                        for (var i=0; i &lt; $scope.showBox.length; i++)
+                            $scope.showBox[i] = false;
+                    }
+                    if (!$scope.greenTimer) {
+                        $scope.currentPage = 0;
+                        
+                        //initially turn on the leaders and the first box
+                        $scope.showLeaders = true;
+                        $scope.showGreenBox[0] = true;
+                        
+                        $scope.greenTimer = $timeout($scope.updateGreenPages,$scope.pageDelay / 2);
+                    }
+                };
+                
+                $scope.updateSponsor = function() {
+                    var prevSponsor = $scope.sponsorCurrent;
+                    
+                    if (++$scope.sponsorCurrent >= $scope.sponsorImageUrls.length)
+                        $scope.sponsorCurrent = 0;
+                    
+                    $scope.sponsorImageUrl = $scope.sponsorImageUrls[$scope.sponsorCurrent];
+                    
+                    $timeout($scope.updateSponsor,($scope.sponsorCurrent &lt; $scope.sponsorSeconds.length ? $scope.sponsorSeconds[$scope.sponsorCurrent] : $scope.sponsorSeconds[0])*1000);
+                };
+                
+                $timeout($scope.updateSponsor,($scope.sponsorCurrent &lt; $scope.sponsorSeconds.length ? $scope.sponsorSeconds[$scope.sponsorCurrent] : $scope.sponsorSeconds[0])*1000);
+            }]
+            , link: function($scope,$element,$attrs) {
+                //copy arguments to our scope. First if using attribute, second tag, else default to something.
+                $attrs.sraArgsData = $attrs.sraArgsData || "";
+                $scope.value = 
+                $scope[self.name] = sraDispatcher.getTruthy($scope.sraArgsVALUE, $attrs[self.name], $attrs.sraArgsValue, "DefaultValue");
+                $scope.showShortName = sraDispatcher.getBoolean($scope.sraArgsSHOWSHORTNAME,$attrs.sraArgsShowShortName,$scope.showShortName);
+
+                /** your code goes here **/
+
+                /**standard code that should be in every directive **/
+                $rootScope.$on('sraResize', sraDispatcher.resize($scope,$element,self.defaultWidth,self.defaultHeight));
+
+                //register with the dispatcher
+                $scope.names = sraDispatcher.subscribe($scope,$attrs,self.defaultInterval); //register subscriptions and options to the dispatcher
+
+                /**watches go here **/
+                $scope.$watch("data.Session.Flags.Value",function(value,oldvalue) {
+                    console.log(value);
+                    if (value.indexOf(";CAUTION;") >= 0 || value.indexOf(";CAUTIONWAVING") >= 0) {
+                        $scope.flag = "yellow";
+                        $scope.startYellowPages();
+                    }
+                    else
+                    if (value.indexOf(";CHECKERED;") >= 0) {
+                        $scope.flag = "checkered";
+                        $scope.startGreenPages();
+                    }
+                    else
+                    if (value.indexOf(";WHITE;") >= 0) {
+                        $scope.flag = "white";
+                        $scope.startGreenPages();
+                    }
+                    else
+                    if (value.indexOf(";RED;") >= 0) {
+                        $scope.flag = "red";
+                        $scope.startYellowPages();
+                    }
+                    else {
+                        $scope.flag = "green";
+                        $scope.startGreenPages();
+                    }
+                });
+
+            }
+        };
+    }]);
+
+    return self;
+});
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Index</a></h2><h3>Modules</h3><ul><li><a href="module-SIMRacingApps.html">SIMRacingApps</a></li></ul><h3>apps</h3><ul><li><a href="CrewChief.html">CrewChief</a></li><li><a href="CrewChief-Large.html">CrewChief-Large</a></li><li><a href="Dash-BarGauges-DigitalOverlay.html">Dash-BarGauges-DigitalOverlay</a></li><li><a href="Dash-Gauges-Spek.html">Dash-Gauges-Spek</a></li><li><a href="Dash-Gauges-Spek-Horizontal.html">Dash-Gauges-Spek-Horizontal</a></li><li><a href="Dash-Minimum.html">Dash-Minimum</a></li><li><a href="Dash-Small.html">Dash-Small</a></li><li><a href="Dash-StockCars-DigitalOverlay.html">Dash-StockCars-DigitalOverlay</a></li><li><a href="RaceAdministrator.html">RaceAdministrator</a></li><li><a href="Spectator.html">Spectator</a></li><li><a href="StreamingOverlay.html">StreamingOverlay</a></li></ul><h3>filter</h3><ul><li><a href="module-SIMRacingApps.sraCeil.html">sraCeil</a></li><li><a href="module-SIMRacingApps.sraDebug.html">sraDebug</a></li><li><a href="module-SIMRacingApps.sraDecodeEntities.html">sraDecodeEntities</a></li><li><a href="module-SIMRacingApps.sraDuration.html">sraDuration</a></li><li><a href="module-SIMRacingApps.sraFloor.html">sraFloor</a></li><li><a href="module-SIMRacingApps.sraHex.html">sraHex</a></li><li><a href="module-SIMRacingApps.sraLPad.html">sraLPad</a></li><li><a href="module-SIMRacingApps.sraNumber.html">sraNumber</a></li><li><a href="module-SIMRacingApps.sraRGB.html">sraRGB</a></li><li><a href="module-SIMRacingApps.sraRound.html">sraRound</a></li><li><a href="module-SIMRacingApps.sraRPad.html">sraRPad</a></li></ul><h3>directive</h3><ul><li><a href="module-SIMRacingApps-sra-data.html">sra-data</a></li><li><a href="module-SIMRacingApps-sra-horizontal-align.html">sra-horizontal-align</a></li><li><a href="module-SIMRacingApps-sra-resize.html">sra-resize</a></li><li><a href="module-SIMRacingApps-sra-vertical-align.html">sra-vertical-align</a></li><li><a href="sra-analog-gauge.html">sra-analog-gauge</a></li><li><a href="sra-analog-gauge-spek-brake-pressure.html">sra-analog-gauge-spek-brake-pressure</a></li><li><a href="sra-analog-gauge-spek-fuel-level.html">sra-analog-gauge-spek-fuel-level</a></li><li><a href="sra-analog-gauge-spek-fuel-pressure.html">sra-analog-gauge-spek-fuel-pressure</a></li><li><a href="sra-analog-gauge-spek-oil-level.html">sra-analog-gauge-spek-oil-level</a></li><li><a href="sra-analog-gauge-spek-oil-pressure.html">sra-analog-gauge-spek-oil-pressure</a></li><li><a href="sra-analog-gauge-spek-oil-temp.html">sra-analog-gauge-spek-oil-temp</a></li><li><a href="sra-analog-gauge-spek-tachometer.html">sra-analog-gauge-spek-tachometer</a></li><li><a href="sra-analog-gauge-spek-voltage.html">sra-analog-gauge-spek-voltage</a></li><li><a href="sra-analog-gauge-spek-water-level.html">sra-analog-gauge-spek-water-level</a></li><li><a href="sra-analog-gauge-spek-water-pressure.html">sra-analog-gauge-spek-water-pressure</a></li><li><a href="sra-analog-gauge-spek-water-temp.html">sra-analog-gauge-spek-water-temp</a></li><li><a href="sra-bar-gauge.html">sra-bar-gauge</a></li><li><a href="sra-bar-gauge-brake-pressure.html">sra-bar-gauge-brake-pressure</a></li><li><a href="sra-bar-gauge-fuel-level.html">sra-bar-gauge-fuel-level</a></li><li><a href="sra-bar-gauge-fuel-pressure.html">sra-bar-gauge-fuel-pressure</a></li><li><a href="sra-bar-gauge-oil-level.html">sra-bar-gauge-oil-level</a></li><li><a href="sra-bar-gauge-oil-pressure.html">sra-bar-gauge-oil-pressure</a></li><li><a href="sra-bar-gauge-oil-temp.html">sra-bar-gauge-oil-temp</a></li><li><a href="sra-bar-gauge-tachometer.html">sra-bar-gauge-tachometer</a></li><li><a href="sra-bar-gauge-voltage.html">sra-bar-gauge-voltage</a></li><li><a href="sra-bar-gauge-water-level.html">sra-bar-gauge-water-level</a></li><li><a href="sra-bar-gauge-water-pressure.html">sra-bar-gauge-water-pressure</a></li><li><a href="sra-bar-gauge-water-temp.html">sra-bar-gauge-water-temp</a></li><li><a href="sra-car-controls.html">sra-car-controls</a></li><li><a href="sra-car-image.html">sra-car-image</a></li><li><a href="sra-car-number.html">sra-car-number</a></li><li><a href="sra-car-number-extended.html">sra-car-number-extended</a></li><li><a href="sra-car-selector.html">sra-car-selector</a></li><li><a href="sra-data-table.html">sra-data-table</a></li><li><a href="sra-driver-info.html">sra-driver-info</a></li><li><a href="sra-flags.html">sra-flags</a></li><li><a href="sra-fuel-tank.html">sra-fuel-tank</a></li><li><a href="sra-gear.html">sra-gear</a></li><li><a href="sra-lap-timing.html">sra-lap-timing</a></li><li><a href="sra-pedals.html">sra-pedals</a></li><li><a href="sra-pit-commander.html">sra-pit-commander</a></li><li><a href="sra-pit-road.html">sra-pit-road</a></li><li><a href="sra-radio-control.html">sra-radio-control</a></li><li><a href="sra-relative.html">sra-relative</a></li><li><a href="sra-relative-small.html">sra-relative-small</a></li><li><a href="sra-shift-light.html">sra-shift-light</a></li><li><a href="sra-shift-lights.html">sra-shift-lights</a></li><li><a href="sra-standings.html">sra-standings</a></li><li><a href="sra-standings-banner.html">sra-standings-banner</a></li><li><a href="sra-standings-top-10.html">sra-standings-top-10</a></li><li><a href="sra-standings-top-20.html">sra-standings-top-20</a></li><li><a href="sra-standings-top-35.html">sra-standings-top-35</a></li><li><a href="sra-standings-top-43.html">sra-standings-top-43</a></li><li><a href="sra-steering-wheel.html">sra-steering-wheel</a></li><li><a href="sra-team-speak-talking.html">sra-team-speak-talking</a></li><li><a href="sra-template.html">sra-template</a></li><li><a href="sra-timing-delta.html">sra-timing-delta</a></li><li><a href="sra-tire.html">sra-tire</a></li><li><a href="sra-tire-measurements.html">sra-tire-measurements</a></li><li><a href="sra-track-map.html">sra-track-map</a></li><li><a href="sra-track-map-car.html">sra-track-map-car</a></li><li><a href="sra-track-map-finish-line.html">sra-track-map-finish-line</a></li><li><a href="sra-weather-info.html">sra-weather-info</a></li><li><a href="sra-wind-gauge.html">sra-wind-gauge</a></li></ul><h3>controller</h3><ul><li><a href="module-SIMRacingApps-sraController.html">sraController</a></li></ul><h3>factory</h3><ul><li><a href="module-SIMRacingApps-sraDispatcher.html">sraDispatcher</a></li></ul><h3>Global</h3><ul><li><a href="global.html#SIMRacingAppsCache">SIMRacingAppsCache</a></li></ul>
+</nav>
+
+<br clear="both">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.2</a> 
+    using <a href="https://github.com/allenhwkim/angular-jsdoc">Angular-JSDoc template </a> 
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+<script>
+  // scroll to the current document navigation
+  var href=window.location.href.match(/\/([^\/]+$)/)[1];
+  if (currentNav = document.querySelector("nav a[href='"+href+"']"))
+    currentNav.scrollIntoView(true);
+  // scroll to the top of the document
+  if (window.location.hash == "")
+    document.querySelector("body").scrollIntoView(true);
+  // adjust the width of main section by navigation width
+  // var navWidth = document.querySelector('nav').getBoundingClientRect().width;
+  // var mainWidth = document.querySelector('#main').getBoundingClientRect().width;
+  // document.querySelector('#main').style.width = (mainWidth - navWidth)+'px';
+</script>
+</body>
+</html>
