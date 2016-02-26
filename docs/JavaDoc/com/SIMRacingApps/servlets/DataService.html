@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9,"i7":9,"i8":9,"i9":9,"i10":9,"i11":9};
+var methods = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9,"i7":9,"i8":9,"i9":9,"i10":9,"i11":9,"i12":9};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -189,45 +189,49 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i4" class="altColor">
 <td class="colFirst"><code>static <a href="../../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/SIMRacingApps/servlets/DataService.html#getSIMVersion--">getSIMVersion</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/SIMRacingApps/servlets/DataService.html#getRecord--">getRecord</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i5" class="rowColor">
+<td class="colFirst"><code>static <a href="../../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/SIMRacingApps/servlets/DataService.html#getSIMVersion--">getSIMVersion</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>static void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/SIMRacingApps/servlets/DataService.html#setEndingVersion-java.lang.String-">setEndingVersion</a></span>(java.lang.String&nbsp;endingVersion)</code>
 <div class="block">If playing back a recorded file, this sets the position to stop playing it at.</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>static void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/SIMRacingApps/servlets/DataService.html#setPlay-java.lang.String-">setPlay</a></span>(java.lang.String&nbsp;playfile)</code>
 <div class="block">Sets the file to use to play back a recorded session.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>static void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/SIMRacingApps/servlets/DataService.html#setRecord-java.lang.String-">setRecord</a></span>(java.lang.String&nbsp;recordfile)</code>
 <div class="block">Sets the file to record the session to.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>static void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/SIMRacingApps/servlets/DataService.html#setSIMname-java.lang.String-">setSIMname</a></span>(java.lang.String&nbsp;SIMName)</code>
 <div class="block">Sets the name of the SIM to connect to.</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>static void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/SIMRacingApps/servlets/DataService.html#setStartingVersion-java.lang.String-">setStartingVersion</a></span>(java.lang.String&nbsp;startingVersion)</code>
 <div class="block">If playing back a recorded file, this sets the position to start playing it at.</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>static void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/SIMRacingApps/servlets/DataService.html#start--">start</a></span>()</code>
 <div class="block">starts the background thread to wait for events from the SIM.</div>
 </td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>static void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/SIMRacingApps/servlets/DataService.html#stop--">stop</a></span>()</code>&nbsp;</td>
 </tr>
@@ -334,6 +338,15 @@ extends java.lang.Object</pre>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>playfile</code> - The filename to use.</dd>
 </dl>
+</li>
+</ul>
+<a name="getRecord--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getRecord</h4>
+<pre>public static&nbsp;<a href="../../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a>&nbsp;getRecord()</pre>
 </li>
 </ul>
 <a name="setRecord-java.lang.String-">

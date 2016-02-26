@@ -458,7 +458,8 @@ extends java.lang.Object</pre>
 <h4>setRecord</h4>
 <pre>public&nbsp;<a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a>&nbsp;setRecord(java.lang.String&nbsp;Filename)</pre>
 <div class="block">Sets the filename to record this session to.
- This must be a fully qualified absolute path to the file. Don't make any assumptions of the current directory.</div>
+ If it is not a fully qualified path to a file,
+ then it will be saved in the userpath/recordings folder.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>Filename</code> - The complete path to the file to record to.</dd>

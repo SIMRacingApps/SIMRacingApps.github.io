@@ -1,7 +1,59 @@
 SIMRacingApps Release Notes
 ---------------------------
 
-Version: 1.0_Build_BETA-2016.02.19
+Version: 1.0_Build_BETA-2016.02.25
+    1. Another fix to the Pit-Count-Down. Sometimes it would call the numbers out of order
+       when you sped up and slowed back down while it was counting.
+    2. Fixed bug where time in pit stall would go blank for all drivers.
+       When you rewind to look at the replay, when you go back live,
+       the iRacing session time would go backwards. I was initializing the cache in this condition. 
+       I added code to detect a new session a better way.
+    3. Fixed bug where I had broken the ability to record the sessions.
+    4. Increased max memory from 256mb to 512mb because when uploading updates, it needs to keep
+       it in memory before extracting it. Min memory is still 256mb, so if you don't need it, it
+       will not grow.
+
+------------------------------------------------------------------------------------------------------
+---                    Configuration Tips                                                          ---
+------------------------------------------------------------------------------------------------------
+    1. To get the server running, simply execute the SIMRacingAppsServer...exe 
+       on the same computer that the Simulator is running on.
+    2. If you do not have Java 1.8 or better installed, it will redirect you to the Java download page.
+       Please go to http://wiki.SIMRacingApps.com/Java-Update-Configuration 
+       for detailed instructions on how to configure the Java Automatic Updates.
+    3. Enter the server address (found in the Title Bar of the server window) in your browser 
+       from any device connected to the same network.
+    4. Please refer to the Quick Start Guide at http://quickstart.SIMRacingApps.com`
+       for more details and options for running the server.
+    
+    Electron Client:
+        To install or update Electron Launcher, download the .SRA file's latest version 
+        from http://electron.SIMRacingApps.com, start the SIMRacingAppsServer.exe,
+        connect to the manu menu from a browser and upload the .SRA file. 
+        Refer to the Electron's readme file for more information.
+        
+    Overwolf Client:
+        To install or update Overwolf Launcher, download the .OPK file's latest version 
+        from http://overwolf.SIMRacingApps.com, open Overwolf's Dock and load it. 
+        Refer to the instructions in the readme file to install this file into Overwolf.
+
+    Wiki:
+        There are many other recommendations on the SIMRacingApps Wiki at http://wiki.SIMRacingApps.com.
+
+========== TODO List for Version 1.0 (Or defer them to 2.0?) ====================
+    The complete TODO List can be found at http://issues.SIMRacingApps.com.
+     
+    - Chat Button Widget - User definable text macros and buttons.
+    - Add ability for users to override any car profile setting in the settings.txt.
+    - Add ability to save favorites for the menu and let the user modify the properties.
+    - Need to design how to back out a patch once the fix is delivered in the next version.
+    - Document how to translate to other languages all the text and get someone to translate (volunteers?)
+    - Translation support for the Main Menu Descriptions.
+    - Redesign the Gauge class.
+
+****************** Previous Versions *************************
+
+1.0_Build_BETA-2016.02.19
     1.  Added Car/(CARIDENTIFIER)/DriverNameShort to the API.
     2.  Added new customizable widget called StandingsBanner that mimics the banner seen on TV.
         It is customizable with a StandingsBanner.json file placed in the "Documents/SIMRacingApps" folder.
@@ -23,108 +75,6 @@ Version: 1.0_Build_BETA-2016.02.19
         It is a preconfigured overlay to be used with the CLR Browser Plug-in in OBS.
         You can also run each widget individually from the CLR Browser,
         just add the "&BACKGROUNDCOLOR=transparent" to the URL.
-        
-
-----------------------------------------------------------------------------------------------------------------------------------
----                                                Configuration Tips                                                          ---
-----------------------------------------------------------------------------------------------------------------------------------
-    To get the server running, simply execute the SIMRacingAppsServer...exe on the same computer that the Simulator is running on. 
-    If you do not have Java 1.8 or better installed, it will redirect you to the Java download page.
-    Then, enter the server address (found in the Title of the server window) in your browser 
-    from any device connected to the same network.
-    Please refer to the Quick Start Guide for more details and options for running the server.
-    
-    Java Updates:
-        I recommended turning off the automatic installation of updates for Java in the Control Panel, Java -> Update tab.
-        It has caused black screens when it updates while racing.
-        Instead, change it to notify you before downloading and change the time it checks to when you are not likely to be racing.
-        Also, on the Java -> Security tab, you can disable Java in the browser if you don't need it for any other website.
-        Please !!DO!! apply these updates, at a time that works best for you, to keep your system safe.
-    
-    Address already in use: bind Port: 80:
-        When you start the server, if another process is already using port 80, you will get
-        an error in that window that says it cannot bind to port 80. 
-        In that case, if you do not want to stop the offending process
-        from running, then you can change the port SIMRacingApps uses by editing the "Documents/SIMRacingApps/settings.txt"
-        file. I recommend port 8080 or whatever your favorite number is. It doesn't matter as long as nothing else uses it.
-        
-    Add to Home Screen Tip: 
-        If you are using an iOS device or Android, after launching an App from the main menu,
-        use the "Add to Home Screen" feature. Then close the browser and launch the app from the icon it created. 
-        Now it will run full screen just like any other app.
-        A similar feature is available in Chrome for Windows also. See "More Tools -> Add to taskbar" on their menu.   
-    
-    Enable TeamSpeak Integration Tip:
-        To enable TeamSpeak integration, you must enable the ClientQuery Plug-in in the TeamSpeak Software -> Settings -> Plugins.
-        Currently, your car number is added to your alias and some of the Apps will show you who is talking on TeamSpeak.
-        
-    Electron Client:
-        To install or update Electron Launcher, download the .SRA file's latest version 
-        from http://github.com/SIMRacgingApps/SIMRacingAppsElectron/releases/latest.
-        Then, start the SIMRacingAppsServer.exe, connect to the manu menu from a browser, and upload the .SRA file.
-        Refer to the Electron's readme file for more information.
-        
-    Overwolf Client:
-        To install or update Overwolf Launcher, download the .OPK file's latest version 
-        from http://github.com/SIMRacgingApps/SIMRacingAppsOverwolf/releases/latest.
-        Then, refer to the instructions in the readme file to install this file into Overwolf.
-
-========== TODO List for Version 1.0 (Or defer them to 2.0?) ====================
-
-        - Chat Button Widget - User definable text macros and buttons.
-        - Move iRacing Club Names Map to .json file.
-        - Add ability for users to override any car profile setting in the settings.txt.
-        - Add ability to save favorites for the menu and let the user modify the properties.
-        - Need to design how to back out a patch once the fix is delivered in the next version.
-        - Document how to translate to other languages all the text and get someone to translate (volunteers?)
-        - Translation support for the Main Menu Descriptions.
-        - Redesign the Gauge class.
-
-========= Hardware Notes ================
-
-    Thought I would start a list of low end tablets that have been tested 
-    to have a very low lag when running the high FPS Apps and Widgets.
-    To compare, I looked at the Analog Gauges (specifically the Tach, shift lights, speed limit colors) side by side with the SIM. 
-    My goal is to recommend those that are responsive enough to react to when you can't see the SIM's gauges.
-    Note, some of these have very limited storage, so the thought process is you would just use them for this application.
-    Your experience could differ, so please experiment and send me you feedback. 
-    
-    I also tested using a USB to Ethernet adapter instead of WiFi and got rid of almost all the lag on the slower devices.
-    WiFi is the biggest culprit of lag.
-    Not all devices supports an adapter, so check for compatibility first. 
-    The adapter I tested can be found here, http://plugable.com/products/usb2-otge100.
-    The side affect was the adapter used the same port that charges the device.
-    So, having a fully charged battery before each race is critical. 
-
-    - Short-Circuit VM70 is not a tablet, but a 7 inch VGA display.
-      http://short-circuit.com/product/VM70.html
-      If you have an extra VGA port on your video card, this is the best option. Has no lag.
-      Touch Screen doesn't work on Windows. Drivers were designed for custom applications in cars.
-          
-    - WinBook from Microcenter.com (7 inch starting at $69) 
-      http://www.microcenter.com/product/439773/TW700_Tablet_-_Black
-      This is the low end 7 inch version, which I use (IE Edge) every day dedicated to SIMRacingApps only.
-      IE Edge is actually more responsive than Chrome on this tablet. On Win8 Edge also goes full screen by default.
-      I also have the TW801 8 inch version on Win10, which works well also except Edge doesn't have a full screen option.
-      
-    - Samsung Galaxy Tab 4 Quad Core or better (7 inch starting at $150)
-      http://www.newegg.com/Product/Product.aspx?Item=N82E16834131763
-      Reported by a BETA tester that primarily uses the CrewChief-Large and Dash-BarGauges Apps.
-      He says it works well on the 10.1 inch version ($280). He uses the "Stay Alive" app to keep it from sleeping.
-      Although, WiFi worked fine at my house with this device, my tester has significant lag. 
-      The USB to Ethernet adapter does work with this device.
-        
-    - AZPEN A700 (7 inch starting at $25) Was very slow on all tests. WiFi eventually died. I do not recommend.
-    
-    - AZPEN A745 (7 inch starting at $39)
-      http://www.microcenter.com/product/448360/A745_Tablet
-      Stock browser will not display SVG tags used by the gauges, needed to download Chrome.
-      This tablet has significant lag for the faster widgets like the Tach and PitRoad and ShiftLights.
-      Worked a lot better using a USB to Ethernet Adapter and turning off WiFi. 
-      Seems to be fine for Crew Chief and other Apps that don't need the fast refresh rates.
-      Loading time was 35 seconds over WiFi for the Dash-Small App, 10 seconds the second time I ran it.
-
-****************** Previous Versions *************************
 
 1.0_Build_BETA-2016.02.13
     1. PitRoad: Added visual blinking when within 10 seconds of your pit stall. Closes #1 issue.

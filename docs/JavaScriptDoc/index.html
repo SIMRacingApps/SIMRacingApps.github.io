@@ -92,12 +92,12 @@ For full API documentation, install the server, connect to the main page and scr
 <p>On the browser side, I have based this design on the <a href="http://angularjs.org">AngularJS</a> framework. 
 AngularJS framework supports the &quot;Single Page Application&quot; (SPA) design pattern.
 This is where only one page is fetched from the server and AJAX calls are used to retrieve smaller amounts of data from the server as needed.
-I provide an AngularJS service to call the SIMRacingApps sever and get the data and feed it to Angular $scope so directives can intercept the data and use it.
+I provide an AngularJS service to call the SIMRacingApps server and get the data and feed it to Angular $scope.data variable so directives can bind or set watches on the data.
 The way AngularJS binds the DOM elements to JavaScript objects, makes it a perfect match for this type of application.</p>
-<p>In SIM Racing Apps, I have provided several predefined Widgets for building Apps.
+<p>In SIMRacingApps, I have provided several predefined Widgets for building Apps.
 Widgets are Angular &quot;directives&quot;, which allows them to be placed in the HTML file using a declarative syntax. 
 Through a generic App called WidgetLoader, any widget can also be a stand alone App. 
-Multiple widgets are designed to be used together to form an app. </p>
+Multiple widgets are designed to be used together to form an App. </p>
 <p>An App is simply an HTML page that declares what Widgets you want to use as an HTML tag.
 Tags can have properties to control the Widget's behavior. 
 These are fully styleable using CSS, you can size and position these as needed.
@@ -107,10 +107,16 @@ For a step by step guide to build an application, see the <a href="../documentat
 For a step by step guide to build a widget, see the <a href="../documentation/SIMRacingApps%20-%20Overview%20for%20Creating%20a%20Widget/default.html">SIMRacingApps - Overview for Creating a Widget</a> documentation.</p>
 <p>Below are the currently supported paths to the Generic SIM API. 
 Using this API your application will possibly run across all supported SIMs if the SIM exports the data your are using.
-Following the link will take you to the Java Documentation that this path is mapped to. 
+Following the links will take you to the Java Documentation that this path is mapped to. 
 Here you will find details on how the path works and what options you have.
-For all the possible values supported for the carIdentifier, click <a href="../JavaDoc/com/SIMRacingApps/Session.html#getCar-java.lang.String-">here</a>.</p>
-<h2>Generic API paths supported by the server</h2><p><a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#getBearing-java.lang.String-"><code>/Car/(CARIDENTIFIER)/Bearing/(UOM)</code></a><br />
+For all the possible values supported for the CARIDENTIFIER, click <a href="../JavaDoc/com/SIMRacingApps/Session.html#getCar-java.lang.String-">here</a>.</p>
+<h2>Generic API paths supported by the server</h2><p>To access the data via the server, prefix these URLs with your server's IP address, optional port number and the data path.</p>
+<p>Example(s): </p>
+<ol>
+<li>http://Your.Server.IP.Address:Port/SIMRacingApps/Data/...</li>
+<li>http://192.168.1.61:80/SIMRacingApps/Data/Track/Description</li>
+</ol>
+<p><a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#getBearing-java.lang.String-"><code>/Car/(CARIDENTIFIER)/Bearing/(UOM)</code></a><br />
 <a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#getCautions--"><code>/Car/(CARIDENTIFIER)/Cautions</code></a><br />
 <a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#getClassColor--"><code>/Car/(CARIDENTIFIER)/ClassColor</code></a><br />
 <a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#getClassName--"><code>/Car/(CARIDENTIFIER)/ClassName</code></a><br />
