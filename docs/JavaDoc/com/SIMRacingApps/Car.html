@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10,"i26":10,"i27":10,"i28":10,"i29":10,"i30":10,"i31":10,"i32":10,"i33":10,"i34":10,"i35":10,"i36":10,"i37":10,"i38":10,"i39":10,"i40":10,"i41":10,"i42":10,"i43":10,"i44":10,"i45":10,"i46":10,"i47":10,"i48":10,"i49":10,"i50":10,"i51":10,"i52":10,"i53":10,"i54":10,"i55":10,"i56":10,"i57":10,"i58":10,"i59":10,"i60":10,"i61":10,"i62":10,"i63":10,"i64":10,"i65":10,"i66":10,"i67":10,"i68":10,"i69":10,"i70":10,"i71":10,"i72":10,"i73":10,"i74":10,"i75":10,"i76":10,"i77":10,"i78":10,"i79":10,"i80":10,"i81":10,"i82":10,"i83":10,"i84":10,"i85":10,"i86":10,"i87":10,"i88":10,"i89":10,"i90":10,"i91":10,"i92":10,"i93":10,"i94":10,"i95":10,"i96":10,"i97":10,"i98":10,"i99":10,"i100":10,"i101":10,"i102":10,"i103":10,"i104":10,"i105":10,"i106":10,"i107":10,"i108":10,"i109":10,"i110":10,"i111":10,"i112":10,"i113":10,"i114":10,"i115":10,"i116":10,"i117":10,"i118":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10,"i26":10,"i27":10,"i28":10,"i29":10,"i30":10,"i31":10,"i32":10,"i33":10,"i34":10,"i35":10,"i36":10,"i37":10,"i38":10,"i39":10,"i40":10,"i41":10,"i42":10,"i43":10,"i44":10,"i45":10,"i46":10,"i47":10,"i48":10,"i49":10,"i50":10,"i51":10,"i52":10,"i53":10,"i54":10,"i55":10,"i56":10,"i57":10,"i58":10,"i59":10,"i60":10,"i61":10,"i62":10,"i63":10,"i64":10,"i65":10,"i66":10,"i67":10,"i68":10,"i69":10,"i70":10,"i71":10,"i72":10,"i73":10,"i74":10,"i75":10,"i76":10,"i77":10,"i78":10,"i79":10,"i80":10,"i81":10,"i82":10,"i83":10,"i84":10,"i85":10,"i86":10,"i87":10,"i88":10,"i89":10,"i90":10,"i91":10,"i92":10,"i93":10,"i94":10,"i95":10,"i96":10,"i97":10,"i98":10,"i99":10,"i100":10,"i101":10,"i102":10,"i103":10,"i104":10,"i105":10,"i106":10,"i107":10,"i108":10,"i109":10,"i110":10,"i111":10,"i112":10,"i113":10,"i114":10,"i115":10,"i116":10,"i117":10,"i118":10,"i119":10,"i120":10,"i121":10,"i122":10,"i123":10,"i124":10,"i125":10,"i126":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -151,6 +151,12 @@ extends java.lang.Object</pre>
 </td>
 </tr>
 <tr class="rowColor">
+<td class="colFirst"><code>static class&nbsp;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Car.Message.html" title="class in com.SIMRacingApps">Car.Message</a></span></code>
+<div class="block">This class enumerates the various messages that a SIM can raise that applies to a specific car.</div>
+</td>
+</tr>
+<tr class="altColor">
 <td class="colFirst"><code>static class&nbsp;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Car.Status.html" title="class in com.SIMRacingApps">Car.Status</a></span></code>
 <div class="block">Defines an enumerated String class for where the car is.</div>
@@ -479,397 +485,445 @@ extends java.lang.Object</pre>
 <tr id="i48" class="altColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Car.html#getIsBelowMinimumSpeed--">getIsBelowMinimumSpeed</a></span>()</code>
-<div class="block">This returns "Y" (true) if the car is below the minimum speed.</div>
+<div class="block">This returns (true) if the car is below the minimum speed.</div>
 </td>
 </tr>
 <tr id="i49" class="rowColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Car.html#getIsEqual--">getIsEqual</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Car.html#getIsBlackFlag--">getIsBlackFlag</a></span>()</code>
+<div class="block">Returns Y if the black flag has been waved for this car.</div>
+</td>
 </tr>
 <tr id="i50" class="altColor">
+<td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Car.html#getIsBlueFlag--">getIsBlueFlag</a></span>()</code>
+<div class="block">Returns Y if the blue flag has been waved for this car.</div>
+</td>
+</tr>
+<tr id="i51" class="rowColor">
+<td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Car.html#getIsDisqualifyFlag--">getIsDisqualifyFlag</a></span>()</code>
+<div class="block">Returns Y if the disqualify flag has been waved for this car.</div>
+</td>
+</tr>
+<tr id="i52" class="altColor">
+<td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Car.html#getIsEqual--">getIsEqual</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i53" class="rowColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Car.html#getIsEqual-java.lang.String-">getIsEqual</a></span>(java.lang.String&nbsp;carIdentifier)</code>
 <div class="block">Returns Y if the 2 cars refer to the same car</div>
 </td>
 </tr>
-<tr id="i51" class="rowColor">
+<tr id="i54" class="altColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Car.html#getIsFixedSetup--">getIsFixedSetup</a></span>()</code>
 <div class="block">Returns if the car is in a fixed setup session.</div>
 </td>
 </tr>
-<tr id="i52" class="altColor">
+<tr id="i55" class="rowColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Car.html#getIsOverSpeedLimit--">getIsOverSpeedLimit</a></span>()</code>
 <div class="block">Returns if the car is over the specified speed limit.</div>
 </td>
 </tr>
-<tr id="i53" class="rowColor">
+<tr id="i56" class="altColor">
+<td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Car.html#getIsPitSpeedLimiter--">getIsPitSpeedLimiter</a></span>()</code>
+<div class="block">Returns true if the car has the pit speed limiter on.</div>
+</td>
+</tr>
+<tr id="i57" class="rowColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Car.html#getIsSpectator--">getIsSpectator</a></span>()</code>
 <div class="block">Returns if the car is a spectator.</div>
 </td>
 </tr>
-<tr id="i54" class="altColor">
+<tr id="i58" class="altColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Car.html#getIsUnderSpeedLimit--">getIsUnderSpeedLimit</a></span>()</code>
 <div class="block">Returns if the car is under the specified speed limit.</div>
 </td>
 </tr>
-<tr id="i55" class="rowColor">
+<tr id="i59" class="rowColor">
+<td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Car.html#getIsYellowFlag--">getIsYellowFlag</a></span>()</code>
+<div class="block">Returns Y if the yellow flag has been waved for this car.</div>
+</td>
+</tr>
+<tr id="i60" class="altColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Car.html#getLap--">getLap</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i56" class="altColor">
+<tr id="i61" class="rowColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Car.html#getLap-java.lang.String-">getLap</a></span>(java.lang.String&nbsp;lapType)</code>
 <div class="block">Returns the lap based on the specified reference type.</div>
 </td>
 </tr>
-<tr id="i57" class="rowColor">
+<tr id="i62" class="altColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Car.html#getLapInvalidFlags--">getLapInvalidFlags</a></span>()</code>
 <div class="block">Returns the invalid status of each lap in in an array.</div>
 </td>
 </tr>
-<tr id="i58" class="altColor">
+<tr id="i63" class="rowColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Car.html#getLapsToGo--">getLapsToGo</a></span>()</code>
 <div class="block">Returns the number of laps this car has remaining.</div>
 </td>
 </tr>
-<tr id="i59" class="rowColor">
+<tr id="i64" class="altColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Car.html#getLapTime--">getLapTime</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i60" class="altColor">
+<tr id="i65" class="rowColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Car.html#getLapTime-java.lang.String-">getLapTime</a></span>(java.lang.String&nbsp;lapType)</code>
 <div class="block">Returns the time of the lap based on the specified reference type.</div>
 </td>
 </tr>
-<tr id="i61" class="rowColor">
+<tr id="i66" class="altColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Car.html#getLapTimeDelta--">getLapTimeDelta</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i62" class="altColor">
+<tr id="i67" class="rowColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Car.html#getLapTimeDelta-java.lang.String-">getLapTimeDelta</a></span>(java.lang.String&nbsp;lapType)</code>
 <div class="block">Returns the time delta of the lap based on the specified reference type.</div>
 </td>
 </tr>
-<tr id="i63" class="rowColor">
+<tr id="i68" class="altColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Car.html#getLapTimeDeltaPercent--">getLapTimeDeltaPercent</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i64" class="altColor">
+<tr id="i69" class="rowColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Car.html#getLapTimeDeltaPercent-java.lang.String-">getLapTimeDeltaPercent</a></span>(java.lang.String&nbsp;lapType)</code>
 <div class="block">Returns the time delta as a percentage of the lap based on the specified reference type.</div>
 </td>
 </tr>
-<tr id="i65" class="rowColor">
+<tr id="i70" class="altColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Car.html#getLapTimeDeltaReference--">getLapTimeDeltaReference</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i66" class="altColor">
+<tr id="i71" class="rowColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Car.html#getLapTimeDeltaReference-java.lang.String-">getLapTimeDeltaReference</a></span>(java.lang.String&nbsp;lapType)</code>
 <div class="block">Returns the time delta reference of the lap based on the specified reference type.</div>
 </td>
 </tr>
-<tr id="i67" class="rowColor">
+<tr id="i72" class="altColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Car.html#getLapTimeProjected--">getLapTimeProjected</a></span>()</code>
 <div class="block">Estimates what the current lap time will be based on your current speed against your previous lap time.</div>
 </td>
 </tr>
-<tr id="i68" class="altColor">
+<tr id="i73" class="rowColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Car.html#getLapTimes--">getLapTimes</a></span>()</code>
 <div class="block">Returns the lap time of each lap in in an array
  The array is indexed as zero based.</div>
 </td>
 </tr>
-<tr id="i69" class="rowColor">
+<tr id="i74" class="altColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Car.html#getLatitude--">getLatitude</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i70" class="altColor">
+<tr id="i75" class="rowColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Car.html#getLatitude-java.lang.String-">getLatitude</a></span>(java.lang.String&nbsp;UOM)</code>
 <div class="block">Returns the Latitude location of the car.</div>
 </td>
 </tr>
-<tr id="i71" class="rowColor">
+<tr id="i76" class="altColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Car.html#getLongitude--">getLongitude</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i72" class="altColor">
+<tr id="i77" class="rowColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Car.html#getLongitude-java.lang.String-">getLongitude</a></span>(java.lang.String&nbsp;UOM)</code>
 <div class="block">Returns the Longitude location of the car.</div>
 </td>
 </tr>
-<tr id="i73" class="rowColor">
+<tr id="i78" class="altColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Car.html#getManufacturerLogo--">getManufacturerLogo</a></span>()</code>
 <div class="block">Returns the filename of the manufacturer's logo for this car.</div>
 </td>
 </tr>
-<tr id="i74" class="altColor">
+<tr id="i79" class="rowColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Car.html#getMergePoint--">getMergePoint</a></span>()</code>
 <div class="block">Returns the merge point as a percentage from the start/finish line.</div>
 </td>
 </tr>
-<tr id="i75" class="rowColor">
+<tr id="i80" class="altColor">
+<td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Car.html#getMessages--">getMessages</a></span>()</code>
+<div class="block">Returns a string of a semicolon separate list of messages that are currently active for this car.</div>
+</td>
+</tr>
+<tr id="i81" class="rowColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Car.html#getName--">getName</a></span>()</code>
 <div class="block">Returns a name of the car as reported by the SIM.</div>
 </td>
 </tr>
-<tr id="i76" class="altColor">
+<tr id="i82" class="altColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Car.html#getNumber--">getNumber</a></span>()</code>
 <div class="block">Returns the number of the car.</div>
 </td>
 </tr>
-<tr id="i77" class="rowColor">
+<tr id="i83" class="rowColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Car.html#getPitLocation--">getPitLocation</a></span>()</code>
 <div class="block">Returns the pit location as a percentage from the start/finish line.</div>
 </td>
 </tr>
-<tr id="i78" class="altColor">
+<tr id="i84" class="altColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Car.html#getPitSpeedLimit--">getPitSpeedLimit</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i79" class="rowColor">
+<tr id="i85" class="rowColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Car.html#getPitSpeedLimit-java.lang.String-">getPitSpeedLimit</a></span>(java.lang.String&nbsp;UOM)</code>
 <div class="block">Returns the pit road speed limit in the car's unit of measure.</div>
 </td>
 </tr>
-<tr id="i80" class="altColor">
+<tr id="i86" class="altColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Car.html#getPitStopsRemaining--">getPitStopsRemaining</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i81" class="rowColor">
+<tr id="i87" class="rowColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Car.html#getPitStopsRemaining-int-">getPitStopsRemaining</a></span>(int&nbsp;lapstoaverage)</code>
 <div class="block">Returns the number of pit stops remaining based on fuel mileage.</div>
 </td>
 </tr>
-<tr id="i82" class="altColor">
+<tr id="i88" class="altColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Car.html#getPitStopsRemaining-java.lang.String-">getPitStopsRemaining</a></span>(java.lang.String&nbsp;laps)</code>&nbsp;</td>
 </tr>
-<tr id="i83" class="rowColor">
+<tr id="i89" class="rowColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Car.html#getPitTime--">getPitTime</a></span>()</code>
 <div class="block">Returns the amount of time the last pit stop took.</div>
 </td>
 </tr>
-<tr id="i84" class="altColor">
+<tr id="i90" class="altColor">
+<td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Car.html#getPitTimes--">getPitTimes</a></span>()</code>
+<div class="block">Returns the times this car pitted by lap.</div>
+</td>
+</tr>
+<tr id="i91" class="rowColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Car.html#getPosition--">getPosition</a></span>()</code>
 <div class="block">Returns the current position based on all cars in the session.</div>
 </td>
 </tr>
-<tr id="i85" class="rowColor">
+<tr id="i92" class="altColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Car.html#getPositionClass--">getPositionClass</a></span>()</code>
 <div class="block">Returns the current position based on the class the car is in.</div>
 </td>
 </tr>
-<tr id="i86" class="altColor">
+<tr id="i93" class="rowColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Car.html#getPositionClassDelta--">getPositionClassDelta</a></span>()</code>
 <div class="block">Returns the number of positions changed for your class.</div>
 </td>
 </tr>
-<tr id="i87" class="rowColor">
+<tr id="i94" class="altColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Car.html#getPositionClassQualifying--">getPositionClassQualifying</a></span>()</code>
 <div class="block">Returns the qualifying position based on other cars in this session for your class.</div>
 </td>
 </tr>
-<tr id="i88" class="altColor">
+<tr id="i95" class="rowColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Car.html#getPositionDelta--">getPositionDelta</a></span>()</code>
 <div class="block">Returns the number of positions changed.</div>
 </td>
 </tr>
-<tr id="i89" class="rowColor">
+<tr id="i96" class="altColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Car.html#getPositionQualifying--">getPositionQualifying</a></span>()</code>
 <div class="block">Returns the qualifying position based on other cars in this session.</div>
 </td>
 </tr>
-<tr id="i90" class="altColor">
+<tr id="i97" class="rowColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Car.html#getPositions--">getPositions</a></span>()</code>
 <div class="block">Returns the position at the end of each lap in in an array
  Positions start at 1, such that 1 is considered the leader, but the array is indexed as zero based.</div>
 </td>
 </tr>
-<tr id="i91" class="rowColor">
+<tr id="i98" class="altColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Car.html#getPositionsClass--">getPositionsClass</a></span>()</code>
 <div class="block">Returns the class position at the end of each lap in in an array
  Positions start at 1, such that 1 is considered the leader, but the array is indexed as zero based.</div>
 </td>
 </tr>
-<tr id="i92" class="altColor">
+<tr id="i99" class="rowColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Car.html#getRadioChannel--">getRadioChannel</a></span>()</code>
 <div class="block">Returns the radio channel number that this car is currently transmitting on.</div>
 </td>
 </tr>
-<tr id="i93" class="rowColor">
+<tr id="i100" class="altColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Car.html#getRadioChannelName--">getRadioChannelName</a></span>()</code>
 <div class="block">Returns the radio channel name that this car is currently transmitting on.</div>
 </td>
 </tr>
-<tr id="i94" class="altColor">
+<tr id="i101" class="rowColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Car.html#getRepairTime--">getRepairTime</a></span>()</code>
 <div class="block">Returns the amount of time required to repair the car.</div>
 </td>
 </tr>
-<tr id="i95" class="rowColor">
+<tr id="i102" class="altColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Car.html#getRepairTimeOptional--">getRepairTimeOptional</a></span>()</code>
 <div class="block">Returns the amount of time that is optional to repair the car.</div>
 </td>
 </tr>
-<tr id="i96" class="altColor">
+<tr id="i103" class="rowColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Car.html#getRPMPitRoadSpeed--">getRPMPitRoadSpeed</a></span>()</code>
 <div class="block">Returns the RPM for pit road speed while in 2nd gear</div>
 </td>
 </tr>
-<tr id="i97" class="rowColor">
+<tr id="i104" class="altColor">
+<td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Car.html#getStartFinishTimes--">getStartFinishTimes</a></span>()</code>
+<div class="block">Returns the times this car crossed the start/finish by lap.</div>
+</td>
+</tr>
+<tr id="i105" class="rowColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Car.html#getStatus--">getStatus</a></span>()</code>
 <div class="block">Returns the current status of the car as defined by <a href="../../com/SIMRacingApps/Car.Status.html" title="class in com.SIMRacingApps"><code>Car.Status</code></a></div>
 </td>
 </tr>
-<tr id="i98" class="altColor">
+<tr id="i106" class="altColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Car.html#getStatusClass--">getStatusClass</a></span>()</code>
 <div class="block">Returns the status of the car and the car identifier as one string.</div>
 </td>
 </tr>
-<tr id="i99" class="rowColor">
+<tr id="i107" class="rowColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Car.html#getTeamName--">getTeamName</a></span>()</code>
 <div class="block">Returns the team name if the current session has teams.</div>
 </td>
 </tr>
-<tr id="i100" class="altColor">
+<tr id="i108" class="altColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Car.html#getWarnings--">getWarnings</a></span>()</code>
 <div class="block">Returns a semicolon(;) separated list of engine warnings.</div>
 </td>
 </tr>
-<tr id="i101" class="rowColor">
+<tr id="i109" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Car.html#isME--">isME</a></span>()</code>
 <div class="block">A convenience function that returns true if the car is an instance of "ME".</div>
 </td>
 </tr>
-<tr id="i102" class="altColor">
+<tr id="i110" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Car.html#isValid--">isValid</a></span>()</code>
 <div class="block">Returns true if the car instance is actually in the session as defined by the SIM.</div>
 </td>
 </tr>
-<tr id="i103" class="rowColor">
+<tr id="i111" class="rowColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Car.html#setAdminFlag-boolean-">setAdminFlag</a></span>(boolean&nbsp;onOffFlag)</code>
 <div class="block">Sets this car/driver's admin status.</div>
 </td>
 </tr>
-<tr id="i104" class="altColor">
+<tr id="i112" class="altColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Car.html#setAdminFlag-java.lang.String-">setAdminFlag</a></span>(java.lang.String&nbsp;onOffFlag)</code>&nbsp;</td>
 </tr>
-<tr id="i105" class="rowColor">
+<tr id="i113" class="rowColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Car.html#setBlackFlag--">setBlackFlag</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i106" class="altColor">
+<tr id="i114" class="altColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Car.html#setBlackFlag-int-java.lang.String-">setBlackFlag</a></span>(int&nbsp;quantity,
             java.lang.String&nbsp;uom)</code>
 <div class="block">Sets a black flag for this car/driver.</div>
 </td>
 </tr>
-<tr id="i107" class="rowColor">
+<tr id="i115" class="rowColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Car.html#setBlackFlag-java.lang.String-">setBlackFlag</a></span>(java.lang.String&nbsp;quantity)</code>&nbsp;</td>
 </tr>
-<tr id="i108" class="altColor">
+<tr id="i116" class="altColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Car.html#setBlackFlag-java.lang.String-java.lang.String-">setBlackFlag</a></span>(java.lang.String&nbsp;quantity,
             java.lang.String&nbsp;uom)</code>&nbsp;</td>
 </tr>
-<tr id="i109" class="rowColor">
+<tr id="i117" class="rowColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Car.html#setChat-java.lang.String-">setChat</a></span>(java.lang.String&nbsp;text)</code>
 <div class="block">Sends the text string as a chat message to this driver.</div>
 </td>
 </tr>
-<tr id="i110" class="altColor">
+<tr id="i118" class="altColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Car.html#setChatFlag-boolean-">setChatFlag</a></span>(boolean&nbsp;onOffFlag)</code>
 <div class="block">Sets this car/driver's chat status.</div>
 </td>
 </tr>
-<tr id="i111" class="rowColor">
+<tr id="i119" class="rowColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Car.html#setChatFlag-java.lang.String-">setChatFlag</a></span>(java.lang.String&nbsp;onOffFlag)</code>&nbsp;</td>
 </tr>
-<tr id="i112" class="altColor">
+<tr id="i120" class="altColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Car.html#setClearPenaltiesFlag--">setClearPenaltiesFlag</a></span>()</code>
 <div class="block">Clear all penalties, DQ, EOL, Black Flags.</div>
 </td>
 </tr>
-<tr id="i113" class="rowColor">
+<tr id="i121" class="rowColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Car.html#setDisqualifyFlag--">setDisqualifyFlag</a></span>()</code>
 <div class="block">Disqualify this car but leave them in the session.</div>
 </td>
 </tr>
-<tr id="i114" class="altColor">
+<tr id="i122" class="altColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Car.html#setEndOfLineFlag--">setEndOfLineFlag</a></span>()</code>
 <div class="block">Send this car to the end of the pacing line.</div>
 </td>
 </tr>
-<tr id="i115" class="rowColor">
+<tr id="i123" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Car.html#setGauge-com.SIMRacingApps.Gauge-">setGauge</a></span>(<a href="../../com/SIMRacingApps/Gauge.html" title="class in com.SIMRacingApps">Gauge</a>&nbsp;gauge)</code>
 <div class="block">Assigns a gauge instance to this car.</div>
 </td>
 </tr>
-<tr id="i116" class="altColor">
+<tr id="i124" class="altColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Car.html#setRemoveFlag--">setRemoveFlag</a></span>()</code>
 <div class="block">Remove the user from the session.</div>
 </td>
 </tr>
-<tr id="i117" class="rowColor">
+<tr id="i125" class="rowColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Car.html#setRPMPitRoadSpeed-double-">setRPMPitRoadSpeed</a></span>(double&nbsp;rpm)</code>
 <div class="block">Sets the pit road speed as the RPMs in 2nd gear.</div>
 </td>
 </tr>
-<tr id="i118" class="altColor">
+<tr id="i126" class="altColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Car.html#setWaveAroundFlag--">setWaveAroundFlag</a></span>()</code>
 <div class="block">Wave this car around the pace car.</div>
@@ -1632,7 +1686,7 @@ extends java.lang.Object</pre>
  <p>PATH = <a href="../../com/SIMRacingApps/Car.html#getHasAutomaticPitCommands--"><code>/Car/(CARIDENTIFIER)/HasAutomaticPitCommands</code></a></div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>Y or N in a <a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps"><code>Data</code></a> container.</dd>
+<dd>true or false in a <a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps"><code>Data</code></a> container.</dd>
 </dl>
 </li>
 </ul>
@@ -1680,7 +1734,7 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>getIsBelowMinimumSpeed</h4>
 <pre>public&nbsp;<a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a>&nbsp;getIsBelowMinimumSpeed()</pre>
-<div class="block">This returns "Y" (true) if the car is below the minimum speed.
+<div class="block">This returns (true) if the car is below the minimum speed.
  The following variables can be set via the arguments if you do not agree with these defaults.
  <pre>
      -minimum-speed-laps         = 3
@@ -1693,8 +1747,8 @@ extends java.lang.Object</pre>
  
  After the car has completed at least the (minimum-speed-laps) since the last pit stop,
  and they are still on the track, each of the previous (minimum-speed-laps) are checked.
- If any of them are below the maximum lap time, then a "N" is returned to indicate the car is okay.
- So, if all of them are above the maximum lap time, a "Y" is returned to indicate the car is too slow. 
+ If any of them are below the maximum lap time, then false is returned to indicate the car is okay.
+ So, if all of them are above the maximum lap time, true is returned to indicate the car is too slow. 
  
  NASCAR's minimum is the Poll Speed or whatever is appropriate at that point in the race, multiplied by 110%. 
  So, to simulate "whatever is appropriate" automatically, the last (minimum-speed-laps-leader) laps of the leader is used.
@@ -1702,7 +1756,58 @@ extends java.lang.Object</pre>
  <p>PATH = <a href="../../com/SIMRacingApps/Car.html#getIsBelowMinimumSpeed--"><code>/Car/(CARIDENTIFIER)/IsBelowMinimumSpeed</code></a></div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>Y or N in a <a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps"><code>Data</code></a> container.</dd>
+<dd>true or false in a <a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps"><code>Data</code></a> container.</dd>
+</dl>
+</li>
+</ul>
+<a name="getIsBlackFlag--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getIsBlackFlag</h4>
+<pre>public&nbsp;<a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a>&nbsp;getIsBlackFlag()</pre>
+<div class="block">Returns Y if the black flag has been waved for this car.
+ This flag means come to the pits to serve a penality.
+ 
+ <p>PATH = <a href="../../com/SIMRacingApps/Car.html#getIsBlackFlag--"><code>/Car/(CARIDENTIFIER)/IsBlackFlag</code></a></div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true or false in a <a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps"><code>Data</code></a> container.</dd>
+</dl>
+</li>
+</ul>
+<a name="getIsBlueFlag--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getIsBlueFlag</h4>
+<pre>public&nbsp;<a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a>&nbsp;getIsBlueFlag()</pre>
+<div class="block">Returns Y if the blue flag has been waved for this car.
+ This flag means move out of the racing grove to give way to the leaders.
+ 
+ <p>PATH = <a href="../../com/SIMRacingApps/Car.html#getIsBlueFlag--"><code>/Car/(CARIDENTIFIER)/IsBlueFlag</code></a></div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true or false in a <a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps"><code>Data</code></a> container.</dd>
+</dl>
+</li>
+</ul>
+<a name="getIsDisqualifyFlag--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getIsDisqualifyFlag</h4>
+<pre>public&nbsp;<a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a>&nbsp;getIsDisqualifyFlag()</pre>
+<div class="block">Returns Y if the disqualify flag has been waved for this car.
+ This means you must exist the race.
+ 
+ <p>PATH = <a href="../../com/SIMRacingApps/Car.html#getIsDisqualifyFlag--"><code>/Car/(CARIDENTIFIER)/IsDisqualifyFlag</code></a></div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true or false in a <a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps"><code>Data</code></a> container.</dd>
 </dl>
 </li>
 </ul>
@@ -1720,7 +1825,7 @@ extends java.lang.Object</pre>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>carIdentifier</code> - (Optional) Car as defined by <a href="../../com/SIMRacingApps/Session.html#getCar-java.lang.String-"><code>Session.getCar(String)</code></a>. Default REFERENCE.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>Y or N in a <a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps"><code>Data</code></a> container.</dd>
+<dd>true or false in a <a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps"><code>Data</code></a> container.</dd>
 </dl>
 </li>
 </ul>
@@ -1745,7 +1850,7 @@ extends java.lang.Object</pre>
  <p>PATH = <a href="../../com/SIMRacingApps/Car.html#getIsFixedSetup--"><code>/Car/(CARIDENTIFIER)/IsFixedSetup</code></a></div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>Y or N in a <a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps"><code>Data</code></a> container.</dd>
+<dd>true or false in a <a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps"><code>Data</code></a> container.</dd>
 </dl>
 </li>
 </ul>
@@ -1761,12 +1866,28 @@ extends java.lang.Object</pre>
  <p>PATH = <a href="../../com/SIMRacingApps/Car.html#getIsOverSpeedLimit--"><code>/Car/(CARIDENTIFIER)/IsOverSpeedLimit</code></a></div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>Y or N in a <a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps"><code>Data</code></a> container.
+<dd>true or false in a <a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps"><code>Data</code></a> container.
          <dl>
          <dt><a href="../../com/SIMRacingApps/Data.html#getState-java.lang.String-"><code>Data.getState(java.lang.String)</code></a></dt>
          <dt>OVERLIMIT</dt><dd>Set if you will only get an End Of Line penalty for speeding</dd>
          <dt>WAYOVERLIMIT</dt><dd>Set if you will get a black flag for excessive speeding and have to serve a stop and go under green</dd>
          </dl></dd>
+</dl>
+</li>
+</ul>
+<a name="getIsPitSpeedLimiter--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getIsPitSpeedLimiter</h4>
+<pre>public&nbsp;<a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a>&nbsp;getIsPitSpeedLimiter()</pre>
+<div class="block">Returns true if the car has the pit speed limiter on.
+ 
+ <p>PATH = <a href="../../com/SIMRacingApps/Car.html#getIsPitSpeedLimiter--"><code>/Car/(CARIDENTIFIER)/IsPitSpeedLimiter</code></a></div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true or false in a <a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps"><code>Data</code></a> container.</dd>
 </dl>
 </li>
 </ul>
@@ -1782,7 +1903,7 @@ extends java.lang.Object</pre>
  <p>PATH = <a href="../../com/SIMRacingApps/Car.html#getIsSpectator--"><code>/Car/(CARIDENTIFIER)/IsSpectator</code></a></div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>Y or N in a <a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps"><code>Data</code></a> container.</dd>
+<dd>true or false in a <a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps"><code>Data</code></a> container.</dd>
 </dl>
 </li>
 </ul>
@@ -1798,11 +1919,29 @@ extends java.lang.Object</pre>
  <p>PATH = <a href="../../com/SIMRacingApps/Car.html#getIsUnderSpeedLimit--"><code>/Car/(CARIDENTIFIER)/IsUnderSpeedLimit</code></a></div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>Y or N in a <a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps"><code>Data</code></a> container.
+<dd>true or false in a <a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps"><code>Data</code></a> container.
          <dl>
          <dt><a href="../../com/SIMRacingApps/Data.html#getState-java.lang.String-"><code>Data.getState(java.lang.String)</code></a></dt>
          <dt>APPROACHINGLIMIT</dt><dd>Set if you just below the speed limit</dd>
          </dl></dd>
+</dl>
+</li>
+</ul>
+<a name="getIsYellowFlag--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getIsYellowFlag</h4>
+<pre>public&nbsp;<a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a>&nbsp;getIsYellowFlag()</pre>
+<div class="block">Returns Y if the yellow flag has been waved for this car.
+ This is not a full course caution flag. 
+ It is for a local issue near this car.
+ 
+ <p>PATH = <a href="../../com/SIMRacingApps/Car.html#getIsYellowFlag--"><code>/Car/(CARIDENTIFIER)/IsYellowFlag</code></a></div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true or false in a <a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps"><code>Data</code></a> container.</dd>
 </dl>
 </li>
 </ul>
@@ -2118,6 +2257,29 @@ extends java.lang.Object</pre>
 </dl>
 </li>
 </ul>
+<a name="getMessages--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getMessages</h4>
+<pre>public&nbsp;<a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a>&nbsp;getMessages()</pre>
+<div class="block">Returns a string of a semicolon separate list of messages that are currently active for this car.
+ It is possible to have multiple messages.
+ Each message will have a semicolon before and after it, even at the begin and end of the string.
+
+ Possible message values are determined by <a href="../../com/SIMRacingApps/Car.Message.html" title="class in com.SIMRacingApps"><code>Car.Message</code></a>.
+ You can display as is, or use it as an index to the the translation for a particular language.
+ <p>
+ For example: ";REPAIR;"
+ 
+ <p>PATH = <a href="../../com/SIMRacingApps/Car.html#getMessages--"><code>/Car/(CARIDENTIFIER)/Messages</code></a></div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>A list of messages in a <a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps"><code>Data</code></a> container.</dd>
+</dl>
+</li>
+</ul>
 <a name="getName--">
 <!--   -->
 </a>
@@ -2127,7 +2289,7 @@ extends java.lang.Object</pre>
 <pre>public&nbsp;<a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a>&nbsp;getName()</pre>
 <div class="block">Returns a name of the car as reported by the SIM.
  
- <p>PATH = <a href="../../com/SIMRacingApps/Car.html#getName--"><code>/Car/(CARIDENTIFIER)/</code></a></div>
+ <p>PATH = <a href="../../com/SIMRacingApps/Car.html#getName--"><code>/Car/(CARIDENTIFIER)/Name</code></a></div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>The name of the car in a <a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps"><code>Data</code></a> container.</dd>
@@ -2244,6 +2406,22 @@ extends java.lang.Object</pre>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>The pit stop time in a <a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps"><code>Data</code></a> container.</dd>
+</dl>
+</li>
+</ul>
+<a name="getPitTimes--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getPitTimes</h4>
+<pre>public&nbsp;<a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a>&nbsp;getPitTimes()</pre>
+<div class="block">Returns the times this car pitted by lap.
+ 
+ <p>PATH = <a href="../../com/SIMRacingApps/Car.html#getPitTimes--"><code>/Car/(CARIDENTIFIER)/PitTimes</code></a></div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>An array of times when the car pitted. Index by lap, zero based.</dd>
 </dl>
 </li>
 </ul>
@@ -2462,6 +2640,22 @@ extends java.lang.Object</pre>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>The RPM in a <a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps"><code>Data</code></a> container.</dd>
+</dl>
+</li>
+</ul>
+<a name="getStartFinishTimes--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getStartFinishTimes</h4>
+<pre>public&nbsp;<a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a>&nbsp;getStartFinishTimes()</pre>
+<div class="block">Returns the times this car crossed the start/finish by lap.
+ 
+ <p>PATH = <a href="../../com/SIMRacingApps/Car.html#getStartFinishTimes--"><code>/Car/(CARIDENTIFIER)/StartFinishTimes</code></a></div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>An array of times when the car passed the start/finish. Index by lap, zero based.</dd>
 </dl>
 </li>
 </ul>

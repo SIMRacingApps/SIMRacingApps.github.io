@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -186,25 +186,43 @@ extends <a href="../../../../com/SIMRacingApps/SIMPluginCallbacks/SIMPluginCallb
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/SIMRacingApps/SIMPluginCallbacks/Sounds/PitCountDown.html#DataReady-com.SIMRacingApps.SIMPlugin-java.lang.Integer-">DataReady</a></span>(<a href="../../../../com/SIMRacingApps/SIMPlugin.html" title="class in com.SIMRacingApps">SIMPlugin</a>&nbsp;SIMPlugin,
-         java.lang.Integer&nbsp;ips)</code>
-<div class="block">DataReady() is called every time the SIM has new data available.</div>
-</td>
-</tr>
-<tr id="i1" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/SIMRacingApps/SIMPluginCallbacks/Sounds/PitCountDown.html#destroy--">destroy</a></span>()</code>
 <div class="block">Called when the SIMPlugin is destroyed.</div>
 </td>
 </tr>
-<tr id="i2" class="altColor">
-<td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/SIMRacingApps/SIMPluginCallbacks/Sounds/PitCountDown.html#Waiting-com.SIMRacingApps.SIMPlugin-">Waiting</a></span>(<a href="../../../../com/SIMRacingApps/SIMPlugin.html" title="class in com.SIMRacingApps">SIMPlugin</a>&nbsp;SIMPlugin)</code>
-<div class="block">Waiting() is called every second if the SIM is not providing any data.</div>
+<tr id="i1" class="rowColor">
+<td class="colFirst"><code><a href="../../../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/SIMRacingApps/SIMPluginCallbacks/Sounds/PitCountDown.html#getVolume--">getVolume</a></span>()</code>
+<div class="block">Gets the volume as a percentage.</div>
 </td>
 </tr>
+<tr id="i2" class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/SIMRacingApps/SIMPluginCallbacks/Sounds/PitCountDown.html#ProcessData-com.SIMRacingApps.SIMPlugin-java.util.Map-">ProcessData</a></span>(<a href="../../../../com/SIMRacingApps/SIMPlugin.html" title="class in com.SIMRacingApps">SIMPlugin</a>&nbsp;SIMPlugin,
+           java.util.Map&lt;java.lang.String,<a href="../../../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a>&gt;&nbsp;data)</code>
+<div class="block">ProcessData is called from within the dedicated thread for this plug-in
+ every time there is data available in the queue it pops it off the queue and passes it to this method.</div>
+</td>
+</tr>
+<tr id="i3" class="rowColor">
+<td class="colFirst"><code><a href="../../../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/SIMRacingApps/SIMPluginCallbacks/Sounds/PitCountDown.html#setVolume-java.lang.Double-">setVolume</a></span>(java.lang.Double&nbsp;percentage)</code>
+<div class="block">Sets the volume as a percentage.</div>
+</td>
+</tr>
+<tr id="i4" class="altColor">
+<td class="colFirst"><code><a href="../../../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/SIMRacingApps/SIMPluginCallbacks/Sounds/PitCountDown.html#setVolume-java.lang.String-">setVolume</a></span>(java.lang.String&nbsp;percentage)</code>&nbsp;</td>
+</tr>
 </table>
+<ul class="blockList">
+<li class="blockList"><a name="methods.inherited.from.class.com.SIMRacingApps.SIMPluginCallbacks.SIMPluginCallback">
+<!--   -->
+</a>
+<h3>Methods inherited from class&nbsp;com.SIMRacingApps.SIMPluginCallbacks.<a href="../../../../com/SIMRacingApps/SIMPluginCallbacks/SIMPluginCallback.html" title="class in com.SIMRacingApps.SIMPluginCallbacks">SIMPluginCallback</a></h3>
+<code><a href="../../../../com/SIMRacingApps/SIMPluginCallbacks/SIMPluginCallback.html#DataReady-com.SIMRacingApps.SIMPlugin-java.lang.Integer-">DataReady</a>, <a href="../../../../com/SIMRacingApps/SIMPluginCallbacks/SIMPluginCallback.html#Waiting-com.SIMRacingApps.SIMPlugin-">Waiting</a></code></li>
+</ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.java.lang.Object">
 <!--   -->
@@ -267,45 +285,89 @@ extends <a href="../../../../com/SIMRacingApps/SIMPluginCallbacks/SIMPluginCallb
 </dl>
 </li>
 </ul>
-<a name="DataReady-com.SIMRacingApps.SIMPlugin-java.lang.Integer-">
+<a name="getVolume--">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>DataReady</h4>
-<pre>public&nbsp;boolean&nbsp;DataReady(<a href="../../../../com/SIMRacingApps/SIMPlugin.html" title="class in com.SIMRacingApps">SIMPlugin</a>&nbsp;SIMPlugin,
-                         java.lang.Integer&nbsp;ips)</pre>
-<div class="block">DataReady() is called every time the SIM has new data available.</div>
+<h4>getVolume</h4>
+<pre>public&nbsp;<a href="../../../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a>&nbsp;getVolume()</pre>
+<div class="block">Gets the volume as a percentage.
+ 
+ <p>PATH = <a href="../../../../com/SIMRacingApps/SIMPluginCallbacks/Sounds/PitCountDown.html#getVolume--"><code>/SIMPluginCallback/Sounds/PitCountDown/Volume</code></a></div>
 <dl>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../../com/SIMRacingApps/SIMPlugin.Callback.html#DataReady-com.SIMRacingApps.SIMPlugin-java.lang.Integer-">DataReady</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../com/SIMRacingApps/SIMPlugin.Callback.html" title="interface in com.SIMRacingApps">SIMPlugin.Callback</a></code></dd>
-<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code><a href="../../../../com/SIMRacingApps/SIMPluginCallbacks/SIMPluginCallback.html#DataReady-com.SIMRacingApps.SIMPlugin-java.lang.Integer-">DataReady</a></code>&nbsp;in class&nbsp;<code><a href="../../../../com/SIMRacingApps/SIMPluginCallbacks/SIMPluginCallback.html" title="class in com.SIMRacingApps.SIMPluginCallbacks">SIMPluginCallback</a></code></dd>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>SIMPlugin</code> - An instance of the current SIM.</dd>
-<dd><code>ips</code> - Iterations per second.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>true to stay alive, false to stop the server.</dd>
+<dd>The new volume percentage in a <a href="../../../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps"><code>Data</code></a> container.</dd>
 </dl>
 </li>
 </ul>
-<a name="Waiting-com.SIMRacingApps.SIMPlugin-">
+<a name="setVolume-java.lang.Double-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setVolume</h4>
+<pre>public&nbsp;<a href="../../../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a>&nbsp;setVolume(java.lang.Double&nbsp;percentage)</pre>
+<div class="block">Sets the volume as a percentage.
+ 
+ <p>PATH = <a href="../../../../com/SIMRacingApps/SIMPluginCallbacks/Sounds/PitCountDown.html#setVolume-java.lang.Double-"><code>/SIMPluginCallback/Sounds/PitCountDown/setVolume/(PERCENTAGE)</code></a></div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>percentage</code> - As string between 0 and 100, as double between 0 and 1.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The new volume percentage in a <a href="../../../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps"><code>Data</code></a> container.</dd>
+</dl>
+</li>
+</ul>
+<a name="setVolume-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setVolume</h4>
+<pre>public&nbsp;<a href="../../../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a>&nbsp;setVolume(java.lang.String&nbsp;percentage)</pre>
+</li>
+</ul>
+<a name="ProcessData-com.SIMRacingApps.SIMPlugin-java.util.Map-">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>Waiting</h4>
-<pre>public&nbsp;boolean&nbsp;Waiting(<a href="../../../../com/SIMRacingApps/SIMPlugin.html" title="class in com.SIMRacingApps">SIMPlugin</a>&nbsp;SIMPlugin)</pre>
-<div class="block">Waiting() is called every second if the SIM is not providing any data.</div>
+<h4>ProcessData</h4>
+<pre>public&nbsp;boolean&nbsp;ProcessData(<a href="../../../../com/SIMRacingApps/SIMPlugin.html" title="class in com.SIMRacingApps">SIMPlugin</a>&nbsp;SIMPlugin,
+                           java.util.Map&lt;java.lang.String,<a href="../../../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a>&gt;&nbsp;data)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="../../../../com/SIMRacingApps/SIMPluginCallbacks/SIMPluginCallback.html#ProcessData-com.SIMRacingApps.SIMPlugin-java.util.Map-">SIMPluginCallback</a></code></span></div>
+<div class="block">ProcessData is called from within the dedicated thread for this plug-in
+ every time there is data available in the queue it pops it off the queue and passes it to this method.
+ 
+ A should override this method to implement your plug-in's functionality.
+ If this method takes too long to process the data in the queue, you could miss data that the SIM is sending.
+ Design accordingly. There's no way to even guarantee that you will get every update from the SIM.
+ 
+ At this point in the design, ProcessData will get called on the same frequency as the SIM (typically 16ms). 
+ At some point, I may change it to only get called if the subscribed to data changes.
+ 
+ NOTE: If you find you need to use the SIMPlugin argument, inclose it in a synchronized block. 
+ You are in a separate thread, so this will block the main thread. Do not keep it locked very long.
+ <pre>
+     //When calling the SIMPlugin from this method, you must synchronize on it first. It is not thread safe.
+     Data d;
+     synchronized (SIMPlugin) {
+         //do not spend much time in here, we are blocking the main thread 
+         //Get the data and get out of the synchronized block 
+         d = SIMPlugin.getData("/Session/IsGreenFlag");
+         d = SIMPlugin.getSession().getIsGreenFlag();
+     }
+     //do something with the data
+ </pre></div>
 <dl>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../../com/SIMRacingApps/SIMPlugin.Callback.html#Waiting-com.SIMRacingApps.SIMPlugin-">Waiting</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../com/SIMRacingApps/SIMPlugin.Callback.html" title="interface in com.SIMRacingApps">SIMPlugin.Callback</a></code></dd>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code><a href="../../../../com/SIMRacingApps/SIMPluginCallbacks/SIMPluginCallback.html#Waiting-com.SIMRacingApps.SIMPlugin-">Waiting</a></code>&nbsp;in class&nbsp;<code><a href="../../../../com/SIMRacingApps/SIMPluginCallbacks/SIMPluginCallback.html" title="class in com.SIMRacingApps.SIMPluginCallbacks">SIMPluginCallback</a></code></dd>
+<dd><code><a href="../../../../com/SIMRacingApps/SIMPluginCallbacks/SIMPluginCallback.html#ProcessData-com.SIMRacingApps.SIMPlugin-java.util.Map-">ProcessData</a></code>&nbsp;in class&nbsp;<code><a href="../../../../com/SIMRacingApps/SIMPluginCallbacks/SIMPluginCallback.html" title="class in com.SIMRacingApps.SIMPluginCallbacks">SIMPluginCallback</a></code></dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>SIMPlugin</code> - An instance of the current SIM.</dd>
+<dd><code>SIMPlugin</code> - A reference to the SIMPlugin instance.</dd>
+<dd><code>data</code> - The Data objects added to the queue.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>true to stay alive, false to stop the server.</dd>
+<dd>true to keep the plug-in alive, false to kill it.</dd>
 </dl>
 </li>
 </ul>

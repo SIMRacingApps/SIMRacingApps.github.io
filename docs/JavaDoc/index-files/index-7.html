@@ -165,10 +165,16 @@
 </dd>
 <dt><span class="memberNameLink"><a href="../com/SIMRacingApps/SIMPlugins/iRacing/Header.html#getBufLen--">getBufLen()</a></span> - Method in class com.SIMRacingApps.SIMPlugins.iRacing.<a href="../com/SIMRacingApps/SIMPlugins/iRacing/Header.html" title="class in com.SIMRacingApps.SIMPlugins.iRacing">Header</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/SIMPlugins/iRacing/SessionDataCache/SessionDataCars.html#getByName-java.lang.String-">getByName(String)</a></span> - Method in class com.SIMRacingApps.SIMPlugins.iRacing.SessionDataCache.<a href="../com/SIMRacingApps/SIMPlugins/iRacing/SessionDataCache/SessionDataCars.html" title="class in com.SIMRacingApps.SIMPlugins.iRacing.SessionDataCache">SessionDataCars</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Windows.Pointer.html#getByteArray-long-int-">getByteArray(long, int)</a></span> - Method in class com.SIMRacingApps.<a href="../com/SIMRacingApps/Windows.Pointer.html" title="class in com.SIMRacingApps">Windows.Pointer</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Windows.Pointer.html#getByteBuffer-long-long-">getByteBuffer(long, long)</a></span> - Method in class com.SIMRacingApps.<a href="../com/SIMRacingApps/Windows.Pointer.html" title="class in com.SIMRacingApps">Windows.Pointer</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/SIMPlugin.html#getCallback-java.lang.String-">getCallback(String)</a></span> - Method in class com.SIMRacingApps.<a href="../com/SIMRacingApps/SIMPlugin.html" title="class in com.SIMRacingApps">SIMPlugin</a></dt>
+<dd>
+<div class="block">Returns an instance to a callback.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Gauge.html#getCapacityIncrement-java.lang.String-">getCapacityIncrement(String)</a></span> - Method in class com.SIMRacingApps.<a href="../com/SIMRacingApps/Gauge.html" title="class in com.SIMRacingApps">Gauge</a></dt>
 <dd>
 <div class="block">Returns the increment value that the gauge uses when you call <a href="../com/SIMRacingApps/Gauge.html#incrementValueNext-java.lang.String-"><code>Gauge.incrementValueNext(String)</code></a> 
@@ -468,12 +474,6 @@
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="../com/SIMRacingApps/SIMPlugins/iRacing/PitSvFlags.html#getFlag-java.lang.String-">getFlag(String)</a></span> - Static method in class com.SIMRacingApps.SIMPlugins.iRacing.<a href="../com/SIMRacingApps/SIMPlugins/iRacing/PitSvFlags.html" title="class in com.SIMRacingApps.SIMPlugins.iRacing">PitSvFlags</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Session.html#getFlags--">getFlags()</a></span> - Method in class com.SIMRacingApps.<a href="../com/SIMRacingApps/Session.html" title="class in com.SIMRacingApps">Session</a></dt>
-<dd>
-<div class="block">Returns a string of a semicolon separate list of flags that are currently active.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/SIMPlugins/iRacing/iRacingSession.html#getFlags--">getFlags()</a></span> - Method in class com.SIMRacingApps.SIMPlugins.iRacing.<a href="../com/SIMRacingApps/SIMPlugins/iRacing/iRacingSession.html" title="class in com.SIMRacingApps.SIMPlugins.iRacing">iRacingSession</a></dt>
-<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Data.html#getFloat-java.lang.String-">getFloat(String)</a></span> - Method in class com.SIMRacingApps.<a href="../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></dt>
 <dd>
 <div class="block">Returns the value as a float.</div>
@@ -622,12 +622,42 @@
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Car.html#getIsBelowMinimumSpeed--">getIsBelowMinimumSpeed()</a></span> - Method in class com.SIMRacingApps.<a href="../com/SIMRacingApps/Car.html" title="class in com.SIMRacingApps">Car</a></dt>
 <dd>
-<div class="block">This returns "Y" (true) if the car is below the minimum speed.</div>
+<div class="block">This returns (true) if the car is below the minimum speed.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Car.html#getIsBlackFlag--">getIsBlackFlag()</a></span> - Method in class com.SIMRacingApps.<a href="../com/SIMRacingApps/Car.html" title="class in com.SIMRacingApps">Car</a></dt>
+<dd>
+<div class="block">Returns Y if the black flag has been waved for this car.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/SIMPlugins/iRacing/iRacingCar.html#getIsBlackFlag--">getIsBlackFlag()</a></span> - Method in class com.SIMRacingApps.SIMPlugins.iRacing.<a href="../com/SIMRacingApps/SIMPlugins/iRacing/iRacingCar.html" title="class in com.SIMRacingApps.SIMPlugins.iRacing">iRacingCar</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Car.html#getIsBlueFlag--">getIsBlueFlag()</a></span> - Method in class com.SIMRacingApps.<a href="../com/SIMRacingApps/Car.html" title="class in com.SIMRacingApps">Car</a></dt>
+<dd>
+<div class="block">Returns Y if the blue flag has been waved for this car.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/SIMPlugins/iRacing/iRacingCar.html#getIsBlueFlag--">getIsBlueFlag()</a></span> - Method in class com.SIMRacingApps.SIMPlugins.iRacing.<a href="../com/SIMRacingApps/SIMPlugins/iRacing/iRacingCar.html" title="class in com.SIMRacingApps.SIMPlugins.iRacing">iRacingCar</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Session.html#getIsCautionFlag--">getIsCautionFlag()</a></span> - Method in class com.SIMRacingApps.<a href="../com/SIMRacingApps/Session.html" title="class in com.SIMRacingApps">Session</a></dt>
+<dd>
+<div class="block">Returns 'Y' if the caution flag is waving.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/SIMPlugins/iRacing/iRacingSession.html#getIsCautionFlag--">getIsCautionFlag()</a></span> - Method in class com.SIMRacingApps.SIMPlugins.iRacing.<a href="../com/SIMRacingApps/SIMPlugins/iRacing/iRacingSession.html" title="class in com.SIMRacingApps.SIMPlugins.iRacing">iRacingSession</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Gauge.html#getIsChangeable--">getIsChangeable()</a></span> - Method in class com.SIMRacingApps.<a href="../com/SIMRacingApps/Gauge.html" title="class in com.SIMRacingApps">Gauge</a></dt>
 <dd>
 <div class="block">Returns true if this gauge represents an object that can be replaced/changed at the next pit stop (i.e.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Session.html#getIsCheckeredFlag--">getIsCheckeredFlag()</a></span> - Method in class com.SIMRacingApps.<a href="../com/SIMRacingApps/Session.html" title="class in com.SIMRacingApps">Session</a></dt>
+<dd>
+<div class="block">Returns 'Y' if the checkered flag is waving.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/SIMPlugins/iRacing/iRacingSession.html#getIsCheckeredFlag--">getIsCheckeredFlag()</a></span> - Method in class com.SIMRacingApps.SIMPlugins.iRacing.<a href="../com/SIMRacingApps/SIMPlugins/iRacing/iRacingSession.html" title="class in com.SIMRacingApps.SIMPlugins.iRacing">iRacingSession</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Session.html#getIsCrossedFlag--">getIsCrossedFlag()</a></span> - Method in class com.SIMRacingApps.<a href="../com/SIMRacingApps/Session.html" title="class in com.SIMRacingApps">Session</a></dt>
+<dd>
+<div class="block">Returns 'Y' if the crossed flag is waving.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/SIMPlugins/iRacing/iRacingSession.html#getIsCrossedFlag--">getIsCrossedFlag()</a></span> - Method in class com.SIMRacingApps.SIMPlugins.iRacing.<a href="../com/SIMRacingApps/SIMPlugins/iRacing/iRacingSession.html" title="class in com.SIMRacingApps.SIMPlugins.iRacing">iRacingSession</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Gauge.html#getIsDebug--">getIsDebug()</a></span> - Method in class com.SIMRacingApps.<a href="../com/SIMRacingApps/Gauge.html" title="class in com.SIMRacingApps">Gauge</a></dt>
 <dd>
 <div class="block">Returns Y if this gauge is outputting debug information.</div>
@@ -636,6 +666,12 @@
 <dd>
 <div class="block">Returns Y if the next value of the gauge is different from the current value.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Car.html#getIsDisqualifyFlag--">getIsDisqualifyFlag()</a></span> - Method in class com.SIMRacingApps.<a href="../com/SIMRacingApps/Car.html" title="class in com.SIMRacingApps">Car</a></dt>
+<dd>
+<div class="block">Returns Y if the disqualify flag has been waved for this car.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/SIMPlugins/iRacing/iRacingCar.html#getIsDisqualifyFlag--">getIsDisqualifyFlag()</a></span> - Method in class com.SIMRacingApps.SIMPlugins.iRacing.<a href="../com/SIMRacingApps/SIMPlugins/iRacing/iRacingCar.html" title="class in com.SIMRacingApps.SIMPlugins.iRacing">iRacingCar</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Car.html#getIsEqual-java.lang.String-">getIsEqual(String)</a></span> - Method in class com.SIMRacingApps.<a href="../com/SIMRacingApps/Car.html" title="class in com.SIMRacingApps">Car</a></dt>
 <dd>
 <div class="block">Returns Y if the 2 cars refer to the same car</div>
@@ -653,10 +689,28 @@
 </dd>
 <dt><span class="memberNameLink"><a href="../com/SIMRacingApps/SIMPlugins/iRacing/iRacingCar.html#getIsFixedSetup--">getIsFixedSetup()</a></span> - Method in class com.SIMRacingApps.SIMPlugins.iRacing.<a href="../com/SIMRacingApps/SIMPlugins/iRacing/iRacingCar.html" title="class in com.SIMRacingApps.SIMPlugins.iRacing">iRacingCar</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Session.html#getIsGreenFlag--">getIsGreenFlag()</a></span> - Method in class com.SIMRacingApps.<a href="../com/SIMRacingApps/Session.html" title="class in com.SIMRacingApps">Session</a></dt>
+<dd>
+<div class="block">Returns 'Y' if the green flag is waving.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/SIMPlugins/iRacing/iRacingSession.html#getIsGreenFlag--">getIsGreenFlag()</a></span> - Method in class com.SIMRacingApps.SIMPlugins.iRacing.<a href="../com/SIMRacingApps/SIMPlugins/iRacing/iRacingSession.html" title="class in com.SIMRacingApps.SIMPlugins.iRacing">iRacingSession</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Car.html#getIsOverSpeedLimit--">getIsOverSpeedLimit()</a></span> - Method in class com.SIMRacingApps.<a href="../com/SIMRacingApps/Car.html" title="class in com.SIMRacingApps">Car</a></dt>
 <dd>
 <div class="block">Returns if the car is over the specified speed limit.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Car.html#getIsPitSpeedLimiter--">getIsPitSpeedLimiter()</a></span> - Method in class com.SIMRacingApps.<a href="../com/SIMRacingApps/Car.html" title="class in com.SIMRacingApps">Car</a></dt>
+<dd>
+<div class="block">Returns true if the car has the pit speed limiter on.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/SIMPlugins/iRacing/iRacingCar.html#getIsPitSpeedLimiter--">getIsPitSpeedLimiter()</a></span> - Method in class com.SIMRacingApps.SIMPlugins.iRacing.<a href="../com/SIMRacingApps/SIMPlugins/iRacing/iRacingCar.html" title="class in com.SIMRacingApps.SIMPlugins.iRacing">iRacingCar</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Session.html#getIsRedFlag--">getIsRedFlag()</a></span> - Method in class com.SIMRacingApps.<a href="../com/SIMRacingApps/Session.html" title="class in com.SIMRacingApps">Session</a></dt>
+<dd>
+<div class="block">Returns 'Y' if the red flag is waving.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/SIMPlugins/iRacing/iRacingSession.html#getIsRedFlag--">getIsRedFlag()</a></span> - Method in class com.SIMRacingApps.SIMPlugins.iRacing.<a href="../com/SIMRacingApps/SIMPlugins/iRacing/iRacingSession.html" title="class in com.SIMRacingApps.SIMPlugins.iRacing">iRacingSession</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Car.html#getIsSpectator--">getIsSpectator()</a></span> - Method in class com.SIMRacingApps.<a href="../com/SIMRacingApps/Car.html" title="class in com.SIMRacingApps">Car</a></dt>
 <dd>
 <div class="block">Returns if the car is a spectator.</div>
@@ -667,6 +721,18 @@
 <dd>
 <div class="block">Returns if the car is under the specified speed limit.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Session.html#getIsWhiteFlag--">getIsWhiteFlag()</a></span> - Method in class com.SIMRacingApps.<a href="../com/SIMRacingApps/Session.html" title="class in com.SIMRacingApps">Session</a></dt>
+<dd>
+<div class="block">Returns 'Y' if the white flag is waving.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/SIMPlugins/iRacing/iRacingSession.html#getIsWhiteFlag--">getIsWhiteFlag()</a></span> - Method in class com.SIMRacingApps.SIMPlugins.iRacing.<a href="../com/SIMRacingApps/SIMPlugins/iRacing/iRacingSession.html" title="class in com.SIMRacingApps.SIMPlugins.iRacing">iRacingSession</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Car.html#getIsYellowFlag--">getIsYellowFlag()</a></span> - Method in class com.SIMRacingApps.<a href="../com/SIMRacingApps/Car.html" title="class in com.SIMRacingApps">Car</a></dt>
+<dd>
+<div class="block">Returns Y if the yellow flag has been waved for this car.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/SIMPlugins/iRacing/iRacingCar.html#getIsYellowFlag--">getIsYellowFlag()</a></span> - Method in class com.SIMRacingApps.SIMPlugins.iRacing.<a href="../com/SIMRacingApps/SIMPlugins/iRacing/iRacingCar.html" title="class in com.SIMRacingApps.SIMPlugins.iRacing">iRacingCar</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="../com/SIMRacingApps/servlets/DataService.html#getJSON-java.lang.String-java.util.Map-">getJSON(String, Map&lt;String, Map&lt;String, Map&lt;String, Object&gt;&gt;&gt;)</a></span> - Static method in class com.SIMRacingApps.servlets.<a href="../com/SIMRacingApps/servlets/DataService.html" title="class in com.SIMRacingApps.servlets">DataService</a></dt>
 <dd>
 <div class="block">This method is called to subscribe to the data and return the results as a JSON string.</div>
@@ -892,6 +958,18 @@
 <dd>
 <div class="block">Returns the merging point as a percentage of where you are allowed to merge onto the track after when leaving the pits.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Car.html#getMessages--">getMessages()</a></span> - Method in class com.SIMRacingApps.<a href="../com/SIMRacingApps/Car.html" title="class in com.SIMRacingApps">Car</a></dt>
+<dd>
+<div class="block">Returns a string of a semicolon separate list of messages that are currently active for this car.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Session.html#getMessages--">getMessages()</a></span> - Method in class com.SIMRacingApps.<a href="../com/SIMRacingApps/Session.html" title="class in com.SIMRacingApps">Session</a></dt>
+<dd>
+<div class="block">Returns a string of a semicolon separate list of messages that are currently active.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/SIMPlugins/iRacing/iRacingCar.html#getMessages--">getMessages()</a></span> - Method in class com.SIMRacingApps.SIMPlugins.iRacing.<a href="../com/SIMRacingApps/SIMPlugins/iRacing/iRacingCar.html" title="class in com.SIMRacingApps.SIMPlugins.iRacing">iRacingCar</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/SIMPlugins/iRacing/iRacingSession.html#getMessages--">getMessages()</a></span> - Method in class com.SIMRacingApps.SIMPlugins.iRacing.<a href="../com/SIMRacingApps/SIMPlugins/iRacing/iRacingSession.html" title="class in com.SIMRacingApps.SIMPlugins.iRacing">iRacingSession</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Gauge.html#getMinimum-java.lang.String-">getMinimum(String)</a></span> - Method in class com.SIMRacingApps.<a href="../com/SIMRacingApps/Gauge.html" title="class in com.SIMRacingApps">Gauge</a></dt>
 <dd>
 <div class="block">Returns the minimum value of where this gauge should start with the first tick mark (i.e.</div>
@@ -962,6 +1040,8 @@
 <dd>
 <div class="block">Returns true if this gauge is changed on a reset.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/SIMPlugins/iRacing/SessionDataCache/SessionDataCars.html#getPaceCar--">getPaceCar()</a></span> - Method in class com.SIMRacingApps.SIMPlugins.iRacing.SessionDataCache.<a href="../com/SIMRacingApps/SIMPlugins/iRacing/SessionDataCache/SessionDataCars.html" title="class in com.SIMRacingApps.SIMPlugins.iRacing.SessionDataCache">SessionDataCars</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Track.html#getPath-java.lang.String-java.lang.String-">getPath(String, String)</a></span> - Method in class com.SIMRacingApps.<a href="../com/SIMRacingApps/Track.html" title="class in com.SIMRacingApps">Track</a></dt>
 <dd>
 <div class="block">Returns the path of the track's configuration.</div>
@@ -1005,6 +1085,12 @@
 <div class="block">Returns the amount of time the last pit stop took.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="../com/SIMRacingApps/SIMPlugins/iRacing/iRacingCar.html#getPitTime--">getPitTime()</a></span> - Method in class com.SIMRacingApps.SIMPlugins.iRacing.<a href="../com/SIMRacingApps/SIMPlugins/iRacing/iRacingCar.html" title="class in com.SIMRacingApps.SIMPlugins.iRacing">iRacingCar</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Car.html#getPitTimes--">getPitTimes()</a></span> - Method in class com.SIMRacingApps.<a href="../com/SIMRacingApps/Car.html" title="class in com.SIMRacingApps">Car</a></dt>
+<dd>
+<div class="block">Returns the times this car pitted by lap.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/SIMPlugins/iRacing/iRacingCar.html#getPitTimes--">getPitTimes()</a></span> - Method in class com.SIMRacingApps.SIMPlugins.iRacing.<a href="../com/SIMRacingApps/SIMPlugins/iRacing/iRacingCar.html" title="class in com.SIMRacingApps.SIMPlugins.iRacing">iRacingCar</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="../com/SIMRacingApps/SIMPlugin.html#getPlay--">getPlay()</a></span> - Method in class com.SIMRacingApps.<a href="../com/SIMRacingApps/SIMPlugin.html" title="class in com.SIMRacingApps">SIMPlugin</a></dt>
 <dd>
@@ -1249,6 +1335,12 @@
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="../com/SIMRacingApps/SIMPlugins/iRacing/SessionDataCache/SessionDataCars.html#getSOF--">getSOF()</a></span> - Method in class com.SIMRacingApps.SIMPlugins.iRacing.SessionDataCache.<a href="../com/SIMRacingApps/SIMPlugins/iRacing/SessionDataCache/SessionDataCars.html" title="class in com.SIMRacingApps.SIMPlugins.iRacing.SessionDataCache">SessionDataCars</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Car.html#getStartFinishTimes--">getStartFinishTimes()</a></span> - Method in class com.SIMRacingApps.<a href="../com/SIMRacingApps/Car.html" title="class in com.SIMRacingApps">Car</a></dt>
+<dd>
+<div class="block">Returns the times this car crossed the start/finish by lap.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/SIMPlugins/iRacing/iRacingCar.html#getStartFinishTimes--">getStartFinishTimes()</a></span> - Method in class com.SIMRacingApps.SIMPlugins.iRacing.<a href="../com/SIMRacingApps/SIMPlugins/iRacing/iRacingCar.html" title="class in com.SIMRacingApps.SIMPlugins.iRacing">iRacingCar</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Util/State.html#getStartingTime--">getStartingTime()</a></span> - Method in class com.SIMRacingApps.Util.<a href="../com/SIMRacingApps/Util/State.html" title="class in com.SIMRacingApps.Util">State</a></dt>
 <dd>
 <div class="block">Returns the starting time of the current state.</div>
@@ -1273,10 +1365,6 @@
 </dd>
 <dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Data.html#getState--">getState()</a></span> - Method in class com.SIMRacingApps.<a href="../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Gauge.html#getState--">getState()</a></span> - Method in class com.SIMRacingApps.<a href="../com/SIMRacingApps/Gauge.html" title="class in com.SIMRacingApps">Gauge</a></dt>
-<dd>
-<div class="block">Returns the State Name that matches the range based on the current value.</div>
-</dd>
 <dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Util/State.html#getState--">getState()</a></span> - Method in class com.SIMRacingApps.Util.<a href="../com/SIMRacingApps/Util/State.html" title="class in com.SIMRacingApps.Util">State</a></dt>
 <dd>
 <div class="block">Returns the current state.</div>
@@ -1289,10 +1377,6 @@
 </dd>
 <dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Data.html#getStatePercent--">getStatePercent()</a></span> - Method in class com.SIMRacingApps.<a href="../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Gauge.html#getStatePercent--">getStatePercent()</a></span> - Method in class com.SIMRacingApps.<a href="../com/SIMRacingApps/Gauge.html" title="class in com.SIMRacingApps">Gauge</a></dt>
-<dd>
-<div class="block">Returns a percentage that represents where the current value falls between the starting and ending value.</div>
-</dd>
 <dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Gauge.html#getStateRange-java.lang.String-">getStateRange(String)</a></span> - Method in class com.SIMRacingApps.<a href="../com/SIMRacingApps/Gauge.html" title="class in com.SIMRacingApps">Gauge</a></dt>
 <dd>
 <div class="block">Returns the state range of the requested state.</div>
@@ -1411,6 +1495,8 @@
  Each SIM will have to provide an override that does not return a null</div>
 </dd>
 <dt><span class="memberNameLink"><a href="../com/SIMRacingApps/SIMPlugins/iRacing/iRacingSession.html#getTrack--">getTrack()</a></span> - Method in class com.SIMRacingApps.SIMPlugins.iRacing.<a href="../com/SIMRacingApps/SIMPlugins/iRacing/iRacingSession.html" title="class in com.SIMRacingApps.SIMPlugins.iRacing">iRacingSession</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/SIMPlugins/iRacing/TrackSurface.html#getTrackSurface-com.SIMRacingApps.SIMPlugins.iRacing.IODrivers.IODriver-int-boolean-">getTrackSurface(IODriver, int, boolean)</a></span> - Static method in class com.SIMRacingApps.SIMPlugins.iRacing.<a href="../com/SIMRacingApps/SIMPlugins/iRacing/TrackSurface.html" title="class in com.SIMRacingApps.SIMPlugins.iRacing">TrackSurface</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Data.html#getType-java.lang.String-">getType(String)</a></span> - Method in class com.SIMRacingApps.<a href="../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></dt>
 <dd>
@@ -1594,6 +1680,14 @@
 <dd>
 <div class="block">Returns the version of the SIMRacingApps Plugin as a String in a printable format.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/SIMPluginCallbacks/Sounds/PitCountDown.html#getVolume--">getVolume()</a></span> - Method in class com.SIMRacingApps.SIMPluginCallbacks.Sounds.<a href="../com/SIMRacingApps/SIMPluginCallbacks/Sounds/PitCountDown.html" title="class in com.SIMRacingApps.SIMPluginCallbacks.Sounds">PitCountDown</a></dt>
+<dd>
+<div class="block">Gets the volume as a percentage.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Util/Sound.html#getVolume--">getVolume()</a></span> - Method in class com.SIMRacingApps.Util.<a href="../com/SIMRacingApps/Util/Sound.html" title="class in com.SIMRacingApps.Util">Sound</a></dt>
+<dd>
+<div class="block">Get the volume for this clip as a percentage of the volume range.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Car.html#getWarnings--">getWarnings()</a></span> - Method in class com.SIMRacingApps.<a href="../com/SIMRacingApps/Car.html" title="class in com.SIMRacingApps">Car</a></dt>
 <dd>
 <div class="block">Returns a semicolon(;) separated list of engine warnings.</div>
@@ -1646,11 +1740,9 @@
 <dd>
 <div class="block">Returns the word "Whispering" if the talker is whispering, blank if not.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Session.Flag.html#GREEN">GREEN</a></span> - Static variable in class com.SIMRacingApps.<a href="../com/SIMRacingApps/Session.Flag.html" title="class in com.SIMRacingApps">Session.Flag</a></dt>
-<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="../com/SIMRacingApps/SIMPlugins/iRacing/SessionFlags.html#green">green</a></span> - Static variable in class com.SIMRacingApps.SIMPlugins.iRacing.<a href="../com/SIMRacingApps/SIMPlugins/iRacing/SessionFlags.html" title="class in com.SIMRacingApps.SIMPlugins.iRacing">SessionFlags</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Session.Flag.html#GREENHELD">GREENHELD</a></span> - Static variable in class com.SIMRacingApps.<a href="../com/SIMRacingApps/Session.Flag.html" title="class in com.SIMRacingApps">Session.Flag</a></dt>
+<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Session.Message.html#GREENHELD">GREENHELD</a></span> - Static variable in class com.SIMRacingApps.<a href="../com/SIMRacingApps/Session.Message.html" title="class in com.SIMRacingApps">Session.Message</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="../com/SIMRacingApps/SIMPlugins/iRacing/SessionFlags.html#greenHeld">greenHeld</a></span> - Static variable in class com.SIMRacingApps.SIMPlugins.iRacing.<a href="../com/SIMRacingApps/SIMPlugins/iRacing/SessionFlags.html" title="class in com.SIMRacingApps.SIMPlugins.iRacing">SessionFlags</a></dt>
 <dd>&nbsp;</dd>

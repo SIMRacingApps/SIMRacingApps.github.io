@@ -1,18 +1,62 @@
 SIMRacingApps Release Notes
 ---------------------------
 
-Version: 1.0_Build_BETA-2016.02.25
-    1. Another fix to the Pit-Count-Down. Sometimes it would call the numbers out of order
-       when you sped up and slowed back down while it was counting.
-    2. Fixed bug where time in pit stall would go blank for all drivers.
-       When you rewind to look at the replay, when you go back live,
-       the iRacing session time would go backwards. I was initializing the cache in this condition. 
-       I added code to detect a new session a better way.
-    3. Fixed bug where I had broken the ability to record the sessions.
-    4. Increased max memory from 256mb to 512mb because when uploading updates, it needs to keep
-       it in memory before extracting it. Min memory is still 256mb, so if you don't need it, it
-       will not grow.
-
+Version: 1.0_Build_BETA-2016.03.24
+    1. Added ability for SIMPluginCallbacks to add to the ReST API.
+       For example, to set the volume after the server has started on the Sounds.PitCountDown plug-in use:
+       http://{Your.IP.Address}{:port}/SIMRacingApps/Data/SIMPluginCallback/Sounds/PitCountDown/setVolume/70
+    2. Updated AngularJS to 1.5.0
+    3. Updated Jetty to 9.3.7.v20160115
+    4. Added a Time Widget. You can display local time with or without the time zone. And there is a GMT variant.
+    5. Car TRANSMITTING lookup now checks TeamSpeak and matches based on the car number and nickname.
+       The number and name must match exactly. The number can be at the beginning or the end prefixed with a #.
+       If someone is talking in the SIM, it will take priority, then teamspeak.
+    6. New Car Models for March 2016 Build. iRacing got the shift lights all wrong. 
+       You will need to update to this version of SRA get the correct ones.
+       - Audi R8 LMS
+       - Formula Renault 2.0 
+       - Mazda MX5 Cup
+       - Mercedes AMG GT3
+    7. Added option to Relative widgets to show only cars either On Track or On Pit Road
+       depending on where you are.
+    8. Added 2 new DriverInfo widgets for the Position Ahead/Behind In Class.
+    9. Fixed position in the DriverInfo title to be by class.
+    10. Added new widget Messages. This widget can display up to 3 messages from the SIM.
+    11. Fix bug where estimated values, such as, laps to go, laps of fuel, time remaining, 
+        were using lap times from non-green flag laps. Mostly noticed near cautions.
+    12. Added code to turn off the Fast Repair check box after pitting by default. 
+        To leave the check box to what the SIM sets it to, add this to the settings.txt file.
+            gauge-fastrepairs-autoreset-off = false
+    13. Added support for setting the font size in the StandingsBanner widget.
+        Added "fontSize" attribute to the StandingsBanner.json file. 
+        {
+            "title":            "DAYTONA 500",
+            "fontSize":         "100%", 
+            "sponsorImageUrls": ["Sponsors/Sponsor1.png","Sponsors/Sponsor2.png"],
+            "sponsorSeconds":   [60,120]
+        }
+    14. Now turns off the Fast Repairs flag when you leave the pits, if you are using a PitControlled App.
+    15. Added the ability to disable a built in SIMPluginCallback by prefixing the name
+        in the settings.txt file with an exclimation point(!).
+        Example, this will not load the Sounds.PitCountDown plug-in.
+           simplugins = !Sounds.PitCountDown
+    16. Retired ATI for "/Session/Flags" and replaced with the following.
+    17. New API paths
+       /Session/IsGreenFlag
+       /Session/IsCautionFlag
+       /Session/IsCheckeredFlag
+       /Session/IsCrossedFlag
+       /Session/IsWhiteFlag
+       /Session/IsRedFlag
+       /Session/Messages
+       /Car/(CARIDENTIFIER)/IsBlackFlag
+       /Car/(CARIDENTIFIER)/IsBlueFlag
+       /Car/(CARIDENTIFIER)/IsDisqualifyFlag
+       /Car/(CARIDENTIFIER)/Messages
+       /Car/(CARIDENTIFIER)/PitTimes
+       /Car/(CARIDENTIFIER)/StartFinishTimes
+       /Car/(CARIDENTIFIER)/IsPitSpeedLimiter
+       
 ------------------------------------------------------------------------------------------------------
 ---                    Configuration Tips                                                          ---
 ------------------------------------------------------------------------------------------------------
@@ -52,6 +96,18 @@ Version: 1.0_Build_BETA-2016.02.25
     - Redesign the Gauge class.
 
 ****************** Previous Versions *************************
+
+1.0_Build_BETA-2016.02.25
+    1. Another fix to the Pit-Count-Down. Sometimes it would call the numbers out of order
+       when you sped up and slowed back down while it was counting.
+    2. Fixed bug where time in pit stall would go blank for all drivers.
+       When you rewind to look at the replay, when you go back live,
+       the iRacing session time would go backwards. I was initializing the cache in this condition. 
+       I added code to detect a new session a better way.
+    3. Fixed bug where I had broken the ability to record the sessions.
+    4. Increased max memory from 256mb to 512mb because when uploading updates, it needs to keep
+       it in memory before extracting it. Min memory is still 256mb, so if you don't need it, it
+       will not grow.
 
 1.0_Build_BETA-2016.02.19
     1.  Added Car/(CARIDENTIFIER)/DriverNameShort to the API.

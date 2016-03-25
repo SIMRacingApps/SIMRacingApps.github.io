@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":9,"i6":10,"i7":9,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":9,"i7":10,"i8":9,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -188,44 +188,50 @@ extends java.lang.Object</pre>
 </td>
 </tr>
 <tr id="i5" class="rowColor">
+<td class="colFirst"><code>double</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/SIMRacingApps/Util/Sound.html#getVolume--">getVolume</a></span>()</code>
+<div class="block">Get the volume for this clip as a percentage of the volume range.</div>
+</td>
+</tr>
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>static void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/SIMRacingApps/Util/Sound.html#loadMixers--">loadMixers</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/SIMRacingApps/Util/Sound.html#loop-int-">loop</a></span>(int&nbsp;count)</code>
 <div class="block">Plays the sound, count, times in the background.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>static void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/SIMRacingApps/Util/Sound.html#main-java.lang.String:A-">main</a></span>(java.lang.String[]&nbsp;args)</code>&nbsp;</td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/SIMRacingApps/Util/Sound.html#play--">play</a></span>()</code>
 <div class="block">Starts the sound playing in the background.</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/SIMRacingApps/Util/Sound.html#setBalance-double-">setBalance</a></span>(double&nbsp;percentage)</code>
 <div class="block">Sets the balance position as a percentage of left to right.</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/SIMRacingApps/Util/Sound.html#setMinTimeBetweenPlays-long-">setMinTimeBetweenPlays</a></span>(long&nbsp;milliseconds)</code>
 <div class="block">Sets the minimum time between plays in milliseconds</div>
 </td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/SIMRacingApps/Util/Sound.html#setVolume-double-">setVolume</a></span>(double&nbsp;percentage)</code>
-<div class="block">Set the volume for this clip as a percentage of the maximum volume.</div>
+<div class="block">Set the volume for this clip as a percentage of the volume range.</div>
 </td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/SIMRacingApps/Util/Sound.html#stop--">stop</a></span>()</code>
 <div class="block">Stops the currently playing sound.</div>
@@ -308,6 +314,20 @@ extends java.lang.Object</pre>
 </dl>
 </li>
 </ul>
+<a name="getVolume--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getVolume</h4>
+<pre>public&nbsp;double&nbsp;getVolume()</pre>
+<div class="block">Get the volume for this clip as a percentage of the volume range.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The volume as a percentage in the range between 0.0f to 1.0f</dd>
+</dl>
+</li>
+</ul>
 <a name="setVolume-double-">
 <!--   -->
 </a>
@@ -315,7 +335,7 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>setVolume</h4>
 <pre>public&nbsp;void&nbsp;setVolume(double&nbsp;percentage)</pre>
-<div class="block">Set the volume for this clip as a percentage of the maximum volume.</div>
+<div class="block">Set the volume for this clip as a percentage of the volume range.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>percentage</code> - The percentage in the range of 0.0f to 1.0f</dd>

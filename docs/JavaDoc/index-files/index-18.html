@@ -124,8 +124,6 @@
 </dd>
 <dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Server.html#Server--">Server()</a></span> - Constructor for class com.SIMRacingApps.<a href="../com/SIMRacingApps/Server.html" title="class in com.SIMRacingApps">Server</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Session.Flag.html#SERVICIBLE">SERVICIBLE</a></span> - Static variable in class com.SIMRacingApps.<a href="../com/SIMRacingApps/Session.Flag.html" title="class in com.SIMRacingApps">Session.Flag</a></dt>
-<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="../com/SIMRacingApps/SIMPlugins/iRacing/SessionFlags.html#servicible">servicible</a></span> - Static variable in class com.SIMRacingApps.SIMPlugins.iRacing.<a href="../com/SIMRacingApps/SIMPlugins/iRacing/SessionFlags.html" title="class in com.SIMRacingApps.SIMPlugins.iRacing">SessionFlags</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="../com/SIMRacingApps/Session.html" title="class in com.SIMRacingApps"><span class="typeNameLink">Session</span></a> - Class in <a href="../com/SIMRacingApps/package-summary.html">com.SIMRacingApps</a></dt>
@@ -138,9 +136,9 @@
 <dd>
 <div class="block">This class enumerates the various car identifiers.</div>
 </dd>
-<dt><a href="../com/SIMRacingApps/Session.Flag.html" title="class in com.SIMRacingApps"><span class="typeNameLink">Session.Flag</span></a> - Class in <a href="../com/SIMRacingApps/package-summary.html">com.SIMRacingApps</a></dt>
+<dt><a href="../com/SIMRacingApps/Session.Message.html" title="class in com.SIMRacingApps"><span class="typeNameLink">Session.Message</span></a> - Class in <a href="../com/SIMRacingApps/package-summary.html">com.SIMRacingApps</a></dt>
 <dd>
-<div class="block">This class enumerates the various flags that a SIM can raise.</div>
+<div class="block">This class enumerates the various messages that a SIM can raise that applies to all cars.</div>
 </dd>
 <dt><a href="../com/SIMRacingApps/Session.Type.html" title="class in com.SIMRacingApps"><span class="typeNameLink">Session.Type</span></a> - Class in <a href="../com/SIMRacingApps/package-summary.html">com.SIMRacingApps</a></dt>
 <dd>
@@ -286,10 +284,12 @@
 </dd>
 <dt><span class="memberNameLink"><a href="../com/SIMRacingApps/SIMPlugins/iRacing/iRacingSession.html#setCautionFlag--">setCautionFlag()</a></span> - Method in class com.SIMRacingApps.SIMPlugins.iRacing.<a href="../com/SIMRacingApps/SIMPlugins/iRacing/iRacingSession.html" title="class in com.SIMRacingApps.SIMPlugins.iRacing">iRacingSession</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Gauge.html#setChangeFlag-java.lang.String-">setChangeFlag(String)</a></span> - Method in class com.SIMRacingApps.<a href="../com/SIMRacingApps/Gauge.html" title="class in com.SIMRacingApps">Gauge</a></dt>
+<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Gauge.html#setChangeFlag-boolean-">setChangeFlag(boolean)</a></span> - Method in class com.SIMRacingApps.<a href="../com/SIMRacingApps/Gauge.html" title="class in com.SIMRacingApps">Gauge</a></dt>
 <dd>
 <div class="block">Sets the change flag for this gauge and all the gauges grouped with it.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Gauge.html#setChangeFlag-java.lang.String-">setChangeFlag(String)</a></span> - Method in class com.SIMRacingApps.<a href="../com/SIMRacingApps/Gauge.html" title="class in com.SIMRacingApps">Gauge</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Car.html#setChat-java.lang.String-">setChat(String)</a></span> - Method in class com.SIMRacingApps.<a href="../com/SIMRacingApps/Car.html" title="class in com.SIMRacingApps">Car</a></dt>
 <dd>
 <div class="block">Sends the text string as a chat message to this driver.</div>
@@ -595,6 +595,12 @@
 <dd>
 <div class="block">Changes to the specified state.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Util/State.html#setState-int-double-">setState(int, double)</a></span> - Method in class com.SIMRacingApps.Util.<a href="../com/SIMRacingApps/Util/State.html" title="class in com.SIMRacingApps.Util">State</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Util/State.html#setState-long-double-">setState(long, double)</a></span> - Method in class com.SIMRacingApps.Util.<a href="../com/SIMRacingApps/Util/State.html" title="class in com.SIMRacingApps.Util">State</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Util/State.html#setState-boolean-double-">setState(boolean, double)</a></span> - Method in class com.SIMRacingApps.Util.<a href="../com/SIMRacingApps/Util/State.html" title="class in com.SIMRacingApps.Util">State</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Util/State.html#setState-com.SIMRacingApps.Util.State-">setState(State)</a></span> - Method in class com.SIMRacingApps.Util.<a href="../com/SIMRacingApps/Util/State.html" title="class in com.SIMRacingApps.Util">State</a></dt>
 <dd>
 <div class="block">Changes to the specified state using the starting time of the last time the state was started.</div>
@@ -607,10 +613,12 @@
 </dd>
 <dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Data.html#setStatePercent-java.lang.Double-">setStatePercent(Double)</a></span> - Method in class com.SIMRacingApps.<a href="../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/SIMPlugin.html#setSync-java.lang.String-">setSync(String)</a></span> - Method in class com.SIMRacingApps.<a href="../com/SIMRacingApps/SIMPlugin.html" title="class in com.SIMRacingApps">SIMPlugin</a></dt>
+<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/SIMPlugin.html#setSync-boolean-">setSync(boolean)</a></span> - Method in class com.SIMRacingApps.<a href="../com/SIMRacingApps/SIMPlugin.html" title="class in com.SIMRacingApps">SIMPlugin</a></dt>
 <dd>
 <div class="block">Sets the the sync flag.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/SIMPlugin.html#setSynce-java.lang.String-">setSynce(String)</a></span> - Method in class com.SIMRacingApps.<a href="../com/SIMRacingApps/SIMPlugin.html" title="class in com.SIMRacingApps">SIMPlugin</a></dt>
+<dd>&nbsp;</dd>
 <dt><a href="../com/SIMRacingApps/servlets/settings.html" title="class in com.SIMRacingApps.servlets"><span class="typeNameLink">settings</span></a> - Class in <a href="../com/SIMRacingApps/servlets/package-summary.html">com.SIMRacingApps.servlets</a></dt>
 <dd>
 <div class="block">Implements the save settings servlet.</div>
@@ -663,9 +671,15 @@
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Gauge.html#setValueNext--">setValueNext()</a></span> - Method in class com.SIMRacingApps.<a href="../com/SIMRacingApps/Gauge.html" title="class in com.SIMRacingApps">Gauge</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/SIMPluginCallbacks/Sounds/PitCountDown.html#setVolume-java.lang.Double-">setVolume(Double)</a></span> - Method in class com.SIMRacingApps.SIMPluginCallbacks.Sounds.<a href="../com/SIMRacingApps/SIMPluginCallbacks/Sounds/PitCountDown.html" title="class in com.SIMRacingApps.SIMPluginCallbacks.Sounds">PitCountDown</a></dt>
+<dd>
+<div class="block">Sets the volume as a percentage.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/SIMPluginCallbacks/Sounds/PitCountDown.html#setVolume-java.lang.String-">setVolume(String)</a></span> - Method in class com.SIMRacingApps.SIMPluginCallbacks.Sounds.<a href="../com/SIMRacingApps/SIMPluginCallbacks/Sounds/PitCountDown.html" title="class in com.SIMRacingApps.SIMPluginCallbacks.Sounds">PitCountDown</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Util/Sound.html#setVolume-double-">setVolume(double)</a></span> - Method in class com.SIMRacingApps.Util.<a href="../com/SIMRacingApps/Util/Sound.html" title="class in com.SIMRacingApps.Util">Sound</a></dt>
 <dd>
-<div class="block">Set the volume for this clip as a percentage of the maximum volume.</div>
+<div class="block">Set the volume for this clip as a percentage of the volume range.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Car.html#setWaveAroundFlag--">setWaveAroundFlag()</a></span> - Method in class com.SIMRacingApps.<a href="../com/SIMRacingApps/Car.html" title="class in com.SIMRacingApps">Car</a></dt>
 <dd>
@@ -709,7 +723,7 @@
 <dd>
 <div class="block">This class is the abstract base class for all SIMPluginCallback classes.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/SIMPluginCallbacks/SIMPluginCallback.html#SIMPluginCallback-com.SIMRacingApps.SIMPlugin-">SIMPluginCallback(SIMPlugin)</a></span> - Constructor for class com.SIMRacingApps.SIMPluginCallbacks.<a href="../com/SIMRacingApps/SIMPluginCallbacks/SIMPluginCallback.html" title="class in com.SIMRacingApps.SIMPluginCallbacks">SIMPluginCallback</a></dt>
+<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/SIMPluginCallbacks/SIMPluginCallback.html#SIMPluginCallback-com.SIMRacingApps.SIMPlugin-java.lang.String-">SIMPluginCallback(SIMPlugin, String)</a></span> - Constructor for class com.SIMRacingApps.SIMPluginCallbacks.<a href="../com/SIMRacingApps/SIMPluginCallbacks/SIMPluginCallback.html" title="class in com.SIMRacingApps.SIMPluginCallbacks">SIMPluginCallback</a></dt>
 <dd>
 <div class="block">Constructor.</div>
 </dd>
@@ -751,21 +765,19 @@
 <dd>
 <div class="block">starts the background thread to wait for events from the SIM.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Session.Flag.html#STARTGO">STARTGO</a></span> - Static variable in class com.SIMRacingApps.<a href="../com/SIMRacingApps/Session.Flag.html" title="class in com.SIMRacingApps">Session.Flag</a></dt>
+<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Session.Message.html#STARTGO">STARTGO</a></span> - Static variable in class com.SIMRacingApps.<a href="../com/SIMRacingApps/Session.Message.html" title="class in com.SIMRacingApps">Session.Message</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="../com/SIMRacingApps/SIMPlugins/iRacing/SessionFlags.html#startGo">startGo</a></span> - Static variable in class com.SIMRacingApps.SIMPlugins.iRacing.<a href="../com/SIMRacingApps/SIMPlugins/iRacing/SessionFlags.html" title="class in com.SIMRacingApps.SIMPlugins.iRacing">SessionFlags</a></dt>
-<dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Session.Flag.html#STARTHIDDEN">STARTHIDDEN</a></span> - Static variable in class com.SIMRacingApps.<a href="../com/SIMRacingApps/Session.Flag.html" title="class in com.SIMRacingApps">Session.Flag</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="../com/SIMRacingApps/SIMPlugins/iRacing/SessionFlags.html#startHidden">startHidden</a></span> - Static variable in class com.SIMRacingApps.SIMPlugins.iRacing.<a href="../com/SIMRacingApps/SIMPlugins/iRacing/SessionFlags.html" title="class in com.SIMRacingApps.SIMPlugins.iRacing">SessionFlags</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="../com/SIMRacingApps/TeamSpeak.html#startListener--">startListener()</a></span> - Method in class com.SIMRacingApps.<a href="../com/SIMRacingApps/TeamSpeak.html" title="class in com.SIMRacingApps">TeamSpeak</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Session.Flag.html#STARTREADY">STARTREADY</a></span> - Static variable in class com.SIMRacingApps.<a href="../com/SIMRacingApps/Session.Flag.html" title="class in com.SIMRacingApps">Session.Flag</a></dt>
+<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Session.Message.html#STARTREADY">STARTREADY</a></span> - Static variable in class com.SIMRacingApps.<a href="../com/SIMRacingApps/Session.Message.html" title="class in com.SIMRacingApps">Session.Message</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="../com/SIMRacingApps/SIMPlugins/iRacing/SessionFlags.html#startReady">startReady</a></span> - Static variable in class com.SIMRacingApps.SIMPlugins.iRacing.<a href="../com/SIMRacingApps/SIMPlugins/iRacing/SessionFlags.html" title="class in com.SIMRacingApps.SIMPlugins.iRacing">SessionFlags</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Session.Flag.html#STARTSET">STARTSET</a></span> - Static variable in class com.SIMRacingApps.<a href="../com/SIMRacingApps/Session.Flag.html" title="class in com.SIMRacingApps">Session.Flag</a></dt>
+<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Session.Message.html#STARTSET">STARTSET</a></span> - Static variable in class com.SIMRacingApps.<a href="../com/SIMRacingApps/Session.Message.html" title="class in com.SIMRacingApps">Session.Message</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="../com/SIMRacingApps/SIMPlugins/iRacing/SessionFlags.html#startSet">startSet</a></span> - Static variable in class com.SIMRacingApps.SIMPlugins.iRacing.<a href="../com/SIMRacingApps/SIMPlugins/iRacing/SessionFlags.html" title="class in com.SIMRacingApps.SIMPlugins.iRacing">SessionFlags</a></dt>
 <dd>&nbsp;</dd>

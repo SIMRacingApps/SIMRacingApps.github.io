@@ -37,6 +37,7 @@
  * &lt;pre>
  * {
  *   "title":            "DAYTONA 500",
+ *   "fontSize":         "100%",
  *   "sponsorImageUrls": ["Sponsors/Sponsor1.png","Sponsors/Sponsor2.png"],
  *   "sponsorSeconds":   [60,120]
  * }
@@ -99,7 +100,8 @@ define(['SIMRacingApps'
 
                 $scope.showShortName    = false;
                 $scope.flag             = "yellow"; //green, yellow, white, checkered, red
-                $scope.title            = "{title}";
+                $scope.title            = "";
+                $scope.titleFontSize    = 100;
                 $scope.sponsorImageUrl  = null;
                 $scope.sponsorImageUrls = ['SRA-Logo-with-URL.png'];
                 $scope.sponsorSeconds   = [60];
@@ -137,6 +139,7 @@ define(['SIMRacingApps'
                     $scope.title            = data.title            || "";
                     $scope.sponsorImageUrls = data.sponsorImageUrls || ['SRA-Logo-with-URL.png'];
                     $scope.sponsorSeconds   = data.sponsorSeconds   || [60];
+                    $scope.titleFontSize    = data.fontSize         || "100%";
                     
                     if ($scope.sponsorImageUrls.length > 0)
                         $scope.sponsorImageUrl = $scope.sponsorImageUrls[$scope.sponsorCurrent]; 
@@ -157,12 +160,15 @@ define(['SIMRacingApps'
 
                     if ($scope.prevPage != $scope.currentPage) {
                         for (var i=0; i &lt; $scope.numberOfBoxes; i++) {
-                            var updateShowBox = function(prevPage,currentPage,box) {
+//                            var updateShowBox = function(prevPage,currentPage,box) {
+//                                $scope.showBox[(currentPage * $scope.numberOfBoxes) + box] = true;
+//                                $scope.showBox[(prevPage    * $scope.numberOfBoxes) + box] = false;
+//                            };
+//                            $timeout(updateShowBox.bind(null,$scope.prevPage,$scope.currentPage,i),$scope.boxDelay * i);
+                            $timeout( function(prevPage,currentPage,box) {
                                 $scope.showBox[(currentPage * $scope.numberOfBoxes) + box] = true;
                                 $scope.showBox[(prevPage    * $scope.numberOfBoxes) + box] = false;
-                            };
-                            //TODO: when we update to angular 1.4.1 or above, use new [pass] parameter
-                            $timeout(updateShowBox.bind(null,$scope.prevPage,$scope.currentPage,i),$scope.boxDelay * i);
+                            },$scope.boxDelay * i,true,$scope.prevPage,$scope.cuurentPage,box);
                         }
                     }
                     
@@ -173,10 +179,12 @@ define(['SIMRacingApps'
                     if ($scope.greenTimer) {
                         $timeout.cancel($scope.greenTimer);
                         $scope.greenTimer = null;
-                        $scope.showLeaders = false;
-                        for (var i=0; i &lt; $scope.showGreenBox.length; i++)
-                            $scope.showGreenBox[i] = false;
                     }
+                    
+                    $scope.showLeaders = false;
+                    for (var i=0; i &lt; $scope.showGreenBox.length; i++)
+                        $scope.showGreenBox[i] = false;
+                    
                     if (!$scope.yellowTimer) {
                         $scope.currentPage = 0;
                         
@@ -213,9 +221,9 @@ define(['SIMRacingApps'
                     if ($scope.yellowTimer) {
                         $timeout.cancel($scope.yellowTimer);
                         $scope.yellowTimer = null;
-                        for (var i=0; i &lt; $scope.showBox.length; i++)
-                            $scope.showBox[i] = false;
                     }
+                    for (var i=0; i &lt; $scope.showBox.length; i++)
+                        $scope.showBox[i] = false;
                     if (!$scope.greenTimer) {
                         $scope.currentPage = 0;
                         
@@ -224,6 +232,32 @@ define(['SIMRacingApps'
                         $scope.showGreenBox[0] = true;
                         
                         $scope.greenTimer = $timeout($scope.updateGreenPages,$scope.pageDelay / 2);
+                    }
+                };
+
+                $scope.updateFlag = function() {
+                    if ($scope.data.Session.IsCautionFlag.Value) {
+                        $scope.flag = "yellow";
+                        $scope.startYellowPages();
+                    }
+                    else
+                    if ($scope.data.Session.IsCheckeredFlag.Value) {
+                        $scope.flag = "checkered";
+                        $scope.startGreenPages();
+                    }
+                    else
+                    if ($scope.data.Session.IsWhiteFlag.Value) {
+                        $scope.flag = "white";
+                        $scope.startGreenPages();
+                    }
+                    else
+                    if ($scope.data.Session.IsRedFlag.Value) {
+                        $scope.flag = "red";
+                        $scope.startYellowPages();
+                    }
+                    else {
+                        $scope.flag = "green";
+                        $scope.startGreenPages();
                     }
                 };
                 
@@ -249,6 +283,17 @@ define(['SIMRacingApps'
 
                 /** your code goes here **/
 
+/**                
+//For testing, Since I don't have a yellow flag in my test file
+//I will simulate it here when I get the meat-ball.                
+$attrs.sraArgsData += ";Car/REFERENCE/Messages";
+$scope.$watch("data.Car.REFERENCE.Messages.Value",function(messages) {
+if (messages.indexOf(";REPAIR;") >= 0) {
+        $scope.data.Session.IsCautionFlag.Value = true;
+        $scope.updateFlag();
+    }
+});
+/**/
                 /**standard code that should be in every directive **/
                 $rootScope.$on('sraResize', sraDispatcher.resize($scope,$element,self.defaultWidth,self.defaultHeight));
 
@@ -256,33 +301,11 @@ define(['SIMRacingApps'
                 $scope.names = sraDispatcher.subscribe($scope,$attrs,self.defaultInterval); //register subscriptions and options to the dispatcher
 
                 /**watches go here **/
-                $scope.$watch("data.Session.Flags.Value",function(value,oldvalue) {
-                    console.log(value);
-                    if (value.indexOf(";CAUTION;") >= 0 || value.indexOf(";CAUTIONWAVING") >= 0) {
-                        $scope.flag = "yellow";
-                        $scope.startYellowPages();
-                    }
-                    else
-                    if (value.indexOf(";CHECKERED;") >= 0) {
-                        $scope.flag = "checkered";
-                        $scope.startGreenPages();
-                    }
-                    else
-                    if (value.indexOf(";WHITE;") >= 0) {
-                        $scope.flag = "white";
-                        $scope.startGreenPages();
-                    }
-                    else
-                    if (value.indexOf(";RED;") >= 0) {
-                        $scope.flag = "red";
-                        $scope.startYellowPages();
-                    }
-                    else {
-                        $scope.flag = "green";
-                        $scope.startGreenPages();
-                    }
-                });
-
+                $scope.$watch("data.Session.IsCautionFlag.Value",$scope.updateFlag);
+                $scope.$watch("data.Session.IsCheckeredFlag.Value",$scope.updateFlag);
+                $scope.$watch("data.Session.IsWhiteFlag.Value",$scope.updateFlag);
+                $scope.$watch("data.Session.IsRedFlag.Value",$scope.updateFlag);
+                $scope.$watch("data.Session.IsGreenFlag.Value",$scope.updateFlag);
             }
         };
     }]);
@@ -299,7 +322,7 @@ define(['SIMRacingApps'
 </div>
 
 <nav>
-    <h2><a href="index.html">Index</a></h2><h3>Modules</h3><ul><li><a href="module-SIMRacingApps.html">SIMRacingApps</a></li></ul><h3>apps</h3><ul><li><a href="CrewChief.html">CrewChief</a></li><li><a href="CrewChief-Large.html">CrewChief-Large</a></li><li><a href="Dash-BarGauges-DigitalOverlay.html">Dash-BarGauges-DigitalOverlay</a></li><li><a href="Dash-Gauges-Spek.html">Dash-Gauges-Spek</a></li><li><a href="Dash-Gauges-Spek-Horizontal.html">Dash-Gauges-Spek-Horizontal</a></li><li><a href="Dash-Minimum.html">Dash-Minimum</a></li><li><a href="Dash-Small.html">Dash-Small</a></li><li><a href="Dash-StockCars-DigitalOverlay.html">Dash-StockCars-DigitalOverlay</a></li><li><a href="RaceAdministrator.html">RaceAdministrator</a></li><li><a href="Spectator.html">Spectator</a></li><li><a href="StreamingOverlay.html">StreamingOverlay</a></li></ul><h3>filter</h3><ul><li><a href="module-SIMRacingApps.sraCeil.html">sraCeil</a></li><li><a href="module-SIMRacingApps.sraDebug.html">sraDebug</a></li><li><a href="module-SIMRacingApps.sraDecodeEntities.html">sraDecodeEntities</a></li><li><a href="module-SIMRacingApps.sraDuration.html">sraDuration</a></li><li><a href="module-SIMRacingApps.sraFloor.html">sraFloor</a></li><li><a href="module-SIMRacingApps.sraHex.html">sraHex</a></li><li><a href="module-SIMRacingApps.sraLPad.html">sraLPad</a></li><li><a href="module-SIMRacingApps.sraNumber.html">sraNumber</a></li><li><a href="module-SIMRacingApps.sraRGB.html">sraRGB</a></li><li><a href="module-SIMRacingApps.sraRound.html">sraRound</a></li><li><a href="module-SIMRacingApps.sraRPad.html">sraRPad</a></li></ul><h3>directive</h3><ul><li><a href="module-SIMRacingApps-sra-data.html">sra-data</a></li><li><a href="module-SIMRacingApps-sra-horizontal-align.html">sra-horizontal-align</a></li><li><a href="module-SIMRacingApps-sra-resize.html">sra-resize</a></li><li><a href="module-SIMRacingApps-sra-vertical-align.html">sra-vertical-align</a></li><li><a href="sra-analog-gauge.html">sra-analog-gauge</a></li><li><a href="sra-analog-gauge-spek-brake-pressure.html">sra-analog-gauge-spek-brake-pressure</a></li><li><a href="sra-analog-gauge-spek-fuel-level.html">sra-analog-gauge-spek-fuel-level</a></li><li><a href="sra-analog-gauge-spek-fuel-pressure.html">sra-analog-gauge-spek-fuel-pressure</a></li><li><a href="sra-analog-gauge-spek-oil-level.html">sra-analog-gauge-spek-oil-level</a></li><li><a href="sra-analog-gauge-spek-oil-pressure.html">sra-analog-gauge-spek-oil-pressure</a></li><li><a href="sra-analog-gauge-spek-oil-temp.html">sra-analog-gauge-spek-oil-temp</a></li><li><a href="sra-analog-gauge-spek-tachometer.html">sra-analog-gauge-spek-tachometer</a></li><li><a href="sra-analog-gauge-spek-voltage.html">sra-analog-gauge-spek-voltage</a></li><li><a href="sra-analog-gauge-spek-water-level.html">sra-analog-gauge-spek-water-level</a></li><li><a href="sra-analog-gauge-spek-water-pressure.html">sra-analog-gauge-spek-water-pressure</a></li><li><a href="sra-analog-gauge-spek-water-temp.html">sra-analog-gauge-spek-water-temp</a></li><li><a href="sra-bar-gauge.html">sra-bar-gauge</a></li><li><a href="sra-bar-gauge-brake-pressure.html">sra-bar-gauge-brake-pressure</a></li><li><a href="sra-bar-gauge-fuel-level.html">sra-bar-gauge-fuel-level</a></li><li><a href="sra-bar-gauge-fuel-pressure.html">sra-bar-gauge-fuel-pressure</a></li><li><a href="sra-bar-gauge-oil-level.html">sra-bar-gauge-oil-level</a></li><li><a href="sra-bar-gauge-oil-pressure.html">sra-bar-gauge-oil-pressure</a></li><li><a href="sra-bar-gauge-oil-temp.html">sra-bar-gauge-oil-temp</a></li><li><a href="sra-bar-gauge-tachometer.html">sra-bar-gauge-tachometer</a></li><li><a href="sra-bar-gauge-voltage.html">sra-bar-gauge-voltage</a></li><li><a href="sra-bar-gauge-water-level.html">sra-bar-gauge-water-level</a></li><li><a href="sra-bar-gauge-water-pressure.html">sra-bar-gauge-water-pressure</a></li><li><a href="sra-bar-gauge-water-temp.html">sra-bar-gauge-water-temp</a></li><li><a href="sra-car-controls.html">sra-car-controls</a></li><li><a href="sra-car-image.html">sra-car-image</a></li><li><a href="sra-car-number.html">sra-car-number</a></li><li><a href="sra-car-number-extended.html">sra-car-number-extended</a></li><li><a href="sra-car-selector.html">sra-car-selector</a></li><li><a href="sra-data-table.html">sra-data-table</a></li><li><a href="sra-driver-info.html">sra-driver-info</a></li><li><a href="sra-flags.html">sra-flags</a></li><li><a href="sra-fuel-tank.html">sra-fuel-tank</a></li><li><a href="sra-gear.html">sra-gear</a></li><li><a href="sra-lap-timing.html">sra-lap-timing</a></li><li><a href="sra-pedals.html">sra-pedals</a></li><li><a href="sra-pit-commander.html">sra-pit-commander</a></li><li><a href="sra-pit-road.html">sra-pit-road</a></li><li><a href="sra-radio-control.html">sra-radio-control</a></li><li><a href="sra-relative.html">sra-relative</a></li><li><a href="sra-relative-small.html">sra-relative-small</a></li><li><a href="sra-shift-light.html">sra-shift-light</a></li><li><a href="sra-shift-lights.html">sra-shift-lights</a></li><li><a href="sra-standings.html">sra-standings</a></li><li><a href="sra-standings-banner.html">sra-standings-banner</a></li><li><a href="sra-standings-top-10.html">sra-standings-top-10</a></li><li><a href="sra-standings-top-20.html">sra-standings-top-20</a></li><li><a href="sra-standings-top-35.html">sra-standings-top-35</a></li><li><a href="sra-standings-top-43.html">sra-standings-top-43</a></li><li><a href="sra-steering-wheel.html">sra-steering-wheel</a></li><li><a href="sra-team-speak-talking.html">sra-team-speak-talking</a></li><li><a href="sra-template.html">sra-template</a></li><li><a href="sra-timing-delta.html">sra-timing-delta</a></li><li><a href="sra-tire.html">sra-tire</a></li><li><a href="sra-tire-measurements.html">sra-tire-measurements</a></li><li><a href="sra-track-map.html">sra-track-map</a></li><li><a href="sra-track-map-car.html">sra-track-map-car</a></li><li><a href="sra-track-map-finish-line.html">sra-track-map-finish-line</a></li><li><a href="sra-weather-info.html">sra-weather-info</a></li><li><a href="sra-wind-gauge.html">sra-wind-gauge</a></li></ul><h3>controller</h3><ul><li><a href="module-SIMRacingApps-sraController.html">sraController</a></li></ul><h3>factory</h3><ul><li><a href="module-SIMRacingApps-sraDispatcher.html">sraDispatcher</a></li></ul><h3>Global</h3><ul><li><a href="global.html#SIMRacingAppsCache">SIMRacingAppsCache</a></li></ul>
+    <h2><a href="index.html">Index</a></h2><h3>Modules</h3><ul><li><a href="module-SIMRacingApps.html">SIMRacingApps</a></li></ul><h3>apps</h3><ul><li><a href="CrewChief.html">CrewChief</a></li><li><a href="CrewChief-Large.html">CrewChief-Large</a></li><li><a href="Dash-BarGauges-DigitalOverlay.html">Dash-BarGauges-DigitalOverlay</a></li><li><a href="Dash-Gauges-Spek.html">Dash-Gauges-Spek</a></li><li><a href="Dash-Gauges-Spek-Horizontal.html">Dash-Gauges-Spek-Horizontal</a></li><li><a href="Dash-Minimum.html">Dash-Minimum</a></li><li><a href="Dash-Small.html">Dash-Small</a></li><li><a href="Dash-StockCars-DigitalOverlay.html">Dash-StockCars-DigitalOverlay</a></li><li><a href="RaceAdministrator.html">RaceAdministrator</a></li><li><a href="Spectator.html">Spectator</a></li><li><a href="StreamingOverlay.html">StreamingOverlay</a></li></ul><h3>filter</h3><ul><li><a href="module-SIMRacingApps.sraCeil.html">sraCeil</a></li><li><a href="module-SIMRacingApps.sraDebug.html">sraDebug</a></li><li><a href="module-SIMRacingApps.sraDecodeEntities.html">sraDecodeEntities</a></li><li><a href="module-SIMRacingApps.sraDuration.html">sraDuration</a></li><li><a href="module-SIMRacingApps.sraFloor.html">sraFloor</a></li><li><a href="module-SIMRacingApps.sraHex.html">sraHex</a></li><li><a href="module-SIMRacingApps.sraLPad.html">sraLPad</a></li><li><a href="module-SIMRacingApps.sraNumber.html">sraNumber</a></li><li><a href="module-SIMRacingApps.sraRGB.html">sraRGB</a></li><li><a href="module-SIMRacingApps.sraRound.html">sraRound</a></li><li><a href="module-SIMRacingApps.sraRPad.html">sraRPad</a></li></ul><h3>directive</h3><ul><li><a href="module-SIMRacingApps-sra-data.html">sra-data</a></li><li><a href="module-SIMRacingApps-sra-horizontal-align.html">sra-horizontal-align</a></li><li><a href="module-SIMRacingApps-sra-resize.html">sra-resize</a></li><li><a href="module-SIMRacingApps-sra-vertical-align.html">sra-vertical-align</a></li><li><a href="sra-analog-gauge.html">sra-analog-gauge</a></li><li><a href="sra-analog-gauge-spek-brake-pressure.html">sra-analog-gauge-spek-brake-pressure</a></li><li><a href="sra-analog-gauge-spek-fuel-level.html">sra-analog-gauge-spek-fuel-level</a></li><li><a href="sra-analog-gauge-spek-fuel-pressure.html">sra-analog-gauge-spek-fuel-pressure</a></li><li><a href="sra-analog-gauge-spek-oil-level.html">sra-analog-gauge-spek-oil-level</a></li><li><a href="sra-analog-gauge-spek-oil-pressure.html">sra-analog-gauge-spek-oil-pressure</a></li><li><a href="sra-analog-gauge-spek-oil-temp.html">sra-analog-gauge-spek-oil-temp</a></li><li><a href="sra-analog-gauge-spek-tachometer.html">sra-analog-gauge-spek-tachometer</a></li><li><a href="sra-analog-gauge-spek-voltage.html">sra-analog-gauge-spek-voltage</a></li><li><a href="sra-analog-gauge-spek-water-level.html">sra-analog-gauge-spek-water-level</a></li><li><a href="sra-analog-gauge-spek-water-pressure.html">sra-analog-gauge-spek-water-pressure</a></li><li><a href="sra-analog-gauge-spek-water-temp.html">sra-analog-gauge-spek-water-temp</a></li><li><a href="sra-bar-gauge.html">sra-bar-gauge</a></li><li><a href="sra-bar-gauge-brake-pressure.html">sra-bar-gauge-brake-pressure</a></li><li><a href="sra-bar-gauge-fuel-level.html">sra-bar-gauge-fuel-level</a></li><li><a href="sra-bar-gauge-fuel-pressure.html">sra-bar-gauge-fuel-pressure</a></li><li><a href="sra-bar-gauge-oil-level.html">sra-bar-gauge-oil-level</a></li><li><a href="sra-bar-gauge-oil-pressure.html">sra-bar-gauge-oil-pressure</a></li><li><a href="sra-bar-gauge-oil-temp.html">sra-bar-gauge-oil-temp</a></li><li><a href="sra-bar-gauge-tachometer.html">sra-bar-gauge-tachometer</a></li><li><a href="sra-bar-gauge-voltage.html">sra-bar-gauge-voltage</a></li><li><a href="sra-bar-gauge-water-level.html">sra-bar-gauge-water-level</a></li><li><a href="sra-bar-gauge-water-pressure.html">sra-bar-gauge-water-pressure</a></li><li><a href="sra-bar-gauge-water-temp.html">sra-bar-gauge-water-temp</a></li><li><a href="sra-car-controls.html">sra-car-controls</a></li><li><a href="sra-car-image.html">sra-car-image</a></li><li><a href="sra-car-number.html">sra-car-number</a></li><li><a href="sra-car-number-extended.html">sra-car-number-extended</a></li><li><a href="sra-car-selector.html">sra-car-selector</a></li><li><a href="sra-data-table.html">sra-data-table</a></li><li><a href="sra-driver-info.html">sra-driver-info</a></li><li><a href="sra-flags.html">sra-flags</a></li><li><a href="sra-fuel-tank.html">sra-fuel-tank</a></li><li><a href="sra-gear.html">sra-gear</a></li><li><a href="sra-lap-timing.html">sra-lap-timing</a></li><li><a href="sra-messages.html">sra-messages</a></li><li><a href="sra-pedals.html">sra-pedals</a></li><li><a href="sra-pit-commander.html">sra-pit-commander</a></li><li><a href="sra-pit-road.html">sra-pit-road</a></li><li><a href="sra-radio-control.html">sra-radio-control</a></li><li><a href="sra-relative.html">sra-relative</a></li><li><a href="sra-relative13.html">sra-relative13</a></li><li><a href="sra-relative25.html">sra-relative25</a></li><li><a href="sra-relative-small.html">sra-relative-small</a></li><li><a href="sra-shift-light.html">sra-shift-light</a></li><li><a href="sra-shift-lights.html">sra-shift-lights</a></li><li><a href="sra-standings.html">sra-standings</a></li><li><a href="sra-standings-banner.html">sra-standings-banner</a></li><li><a href="sra-standings-top-10.html">sra-standings-top-10</a></li><li><a href="sra-standings-top-20.html">sra-standings-top-20</a></li><li><a href="sra-standings-top-35.html">sra-standings-top-35</a></li><li><a href="sra-standings-top-43.html">sra-standings-top-43</a></li><li><a href="sra-steering-wheel.html">sra-steering-wheel</a></li><li><a href="sra-team-speak-talking.html">sra-team-speak-talking</a></li><li><a href="sra-template.html">sra-template</a></li><li><a href="sra-time.html">sra-time</a></li><li><a href="sra-timing-delta.html">sra-timing-delta</a></li><li><a href="sra-tire.html">sra-tire</a></li><li><a href="sra-tire-measurements.html">sra-tire-measurements</a></li><li><a href="sra-track-map.html">sra-track-map</a></li><li><a href="sra-track-map-car.html">sra-track-map-car</a></li><li><a href="sra-track-map-finish-line.html">sra-track-map-finish-line</a></li><li><a href="sra-weather-info.html">sra-weather-info</a></li><li><a href="sra-wind-gauge.html">sra-wind-gauge</a></li></ul><h3>controller</h3><ul><li><a href="module-SIMRacingApps-sraController.html">sraController</a></li></ul><h3>factory</h3><ul><li><a href="module-SIMRacingApps-sraDispatcher.html">sraDispatcher</a></li></ul><h3>Global</h3><ul><li><a href="global.html#SIMRacingAppsCache">SIMRacingAppsCache</a></li></ul>
 </nav>
 
 <br clear="both">

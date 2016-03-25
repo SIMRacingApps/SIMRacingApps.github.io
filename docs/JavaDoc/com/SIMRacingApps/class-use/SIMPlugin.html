@@ -220,10 +220,18 @@
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><span class="typeNameLabel">SIMPluginCallback.</span><code><span class="memberNameLink"><a href="../../../com/SIMRacingApps/SIMPluginCallbacks/SIMPluginCallback.html#DataReady-com.SIMRacingApps.SIMPlugin-java.lang.Integer-">DataReady</a></span>(<a href="../../../com/SIMRacingApps/SIMPlugin.html" title="class in com.SIMRacingApps">SIMPlugin</a>&nbsp;SIMPlugin,
          java.lang.Integer&nbsp;ips)</code>
-<div class="block">This method is called everytime the SIM has new data available.</div>
+<div class="block">This method is called every time the SIM has new data available.</div>
 </td>
 </tr>
 <tr class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><span class="typeNameLabel">SIMPluginCallback.</span><code><span class="memberNameLink"><a href="../../../com/SIMRacingApps/SIMPluginCallbacks/SIMPluginCallback.html#ProcessData-com.SIMRacingApps.SIMPlugin-java.util.Map-">ProcessData</a></span>(<a href="../../../com/SIMRacingApps/SIMPlugin.html" title="class in com.SIMRacingApps">SIMPlugin</a>&nbsp;SIMPlugin,
+           java.util.Map&lt;java.lang.String,<a href="../../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a>&gt;&nbsp;data)</code>
+<div class="block">ProcessData is called from within the dedicated thread for this plug-in
+ every time there is data available in the queue it pops it off the queue and passes it to this method.</div>
+</td>
+</tr>
+<tr class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><span class="typeNameLabel">SIMPluginCallback.</span><code><span class="memberNameLink"><a href="../../../com/SIMRacingApps/SIMPluginCallbacks/SIMPluginCallback.html#Waiting-com.SIMRacingApps.SIMPlugin-">Waiting</a></span>(<a href="../../../com/SIMRacingApps/SIMPlugin.html" title="class in com.SIMRacingApps">SIMPlugin</a>&nbsp;SIMPlugin)</code>
 <div class="block">Waiting() is called every second if the SIM is not providing any data.</div>
@@ -238,7 +246,8 @@
 </tr>
 <tbody>
 <tr class="altColor">
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/SIMRacingApps/SIMPluginCallbacks/SIMPluginCallback.html#SIMPluginCallback-com.SIMRacingApps.SIMPlugin-">SIMPluginCallback</a></span>(<a href="../../../com/SIMRacingApps/SIMPlugin.html" title="class in com.SIMRacingApps">SIMPlugin</a>&nbsp;SIMPlugin)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/SIMRacingApps/SIMPluginCallbacks/SIMPluginCallback.html#SIMPluginCallback-com.SIMRacingApps.SIMPlugin-java.lang.String-">SIMPluginCallback</a></span>(<a href="../../../com/SIMRacingApps/SIMPlugin.html" title="class in com.SIMRacingApps">SIMPlugin</a>&nbsp;SIMPlugin,
+                 java.lang.String&nbsp;name)</code>
 <div class="block">Constructor.</div>
 </td>
 </tr>
@@ -258,12 +267,8 @@
 <tbody>
 <tr class="altColor">
 <td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><span class="typeNameLabel">ShiftLight.</span><code><span class="memberNameLink"><a href="../../../com/SIMRacingApps/SIMPluginCallbacks/MSPEC/ShiftLight.html#DataReady-com.SIMRacingApps.SIMPlugin-java.lang.Integer-">DataReady</a></span>(<a href="../../../com/SIMRacingApps/SIMPlugin.html" title="class in com.SIMRacingApps">SIMPlugin</a>&nbsp;plugin,
-         java.lang.Integer&nbsp;ips)</code>&nbsp;</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><span class="typeNameLabel">ShiftLight.</span><code><span class="memberNameLink"><a href="../../../com/SIMRacingApps/SIMPluginCallbacks/MSPEC/ShiftLight.html#Waiting-com.SIMRacingApps.SIMPlugin-">Waiting</a></span>(<a href="../../../com/SIMRacingApps/SIMPlugin.html" title="class in com.SIMRacingApps">SIMPlugin</a>&nbsp;plugin)</code>&nbsp;</td>
+<td class="colLast"><span class="typeNameLabel">ShiftLight.</span><code><span class="memberNameLink"><a href="../../../com/SIMRacingApps/SIMPluginCallbacks/MSPEC/ShiftLight.html#ProcessData-com.SIMRacingApps.SIMPlugin-java.util.Map-">ProcessData</a></span>(<a href="../../../com/SIMRacingApps/SIMPlugin.html" title="class in com.SIMRacingApps">SIMPlugin</a>&nbsp;SIMPlugin,
+           java.util.Map&lt;java.lang.String,<a href="../../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a>&gt;&nbsp;data)</code>&nbsp;</td>
 </tr>
 </tbody>
 </table>
@@ -292,16 +297,8 @@
 <tbody>
 <tr class="altColor">
 <td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><span class="typeNameLabel">PitCountDown.</span><code><span class="memberNameLink"><a href="../../../com/SIMRacingApps/SIMPluginCallbacks/Sounds/PitCountDown.html#DataReady-com.SIMRacingApps.SIMPlugin-java.lang.Integer-">DataReady</a></span>(<a href="../../../com/SIMRacingApps/SIMPlugin.html" title="class in com.SIMRacingApps">SIMPlugin</a>&nbsp;SIMPlugin,
-         java.lang.Integer&nbsp;ips)</code>
-<div class="block">DataReady() is called every time the SIM has new data available.</div>
-</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><span class="typeNameLabel">PitCountDown.</span><code><span class="memberNameLink"><a href="../../../com/SIMRacingApps/SIMPluginCallbacks/Sounds/PitCountDown.html#Waiting-com.SIMRacingApps.SIMPlugin-">Waiting</a></span>(<a href="../../../com/SIMRacingApps/SIMPlugin.html" title="class in com.SIMRacingApps">SIMPlugin</a>&nbsp;SIMPlugin)</code>
-<div class="block">Waiting() is called every second if the SIM is not providing any data.</div>
-</td>
+<td class="colLast"><span class="typeNameLabel">PitCountDown.</span><code><span class="memberNameLink"><a href="../../../com/SIMRacingApps/SIMPluginCallbacks/Sounds/PitCountDown.html#ProcessData-com.SIMRacingApps.SIMPlugin-java.util.Map-">ProcessData</a></span>(<a href="../../../com/SIMRacingApps/SIMPlugin.html" title="class in com.SIMRacingApps">SIMPlugin</a>&nbsp;SIMPlugin,
+           java.util.Map&lt;java.lang.String,<a href="../../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a>&gt;&nbsp;data)</code>&nbsp;</td>
 </tr>
 </tbody>
 </table>
@@ -332,15 +329,10 @@
 <tbody>
 <tr class="altColor">
 <td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><span class="typeNameLabel">MyCallback.</span><code><span class="memberNameLink"><a href="../../../com/SIMRacingApps/SIMPluginCallbacks/Template/MyCallback.html#DataReady-com.SIMRacingApps.SIMPlugin-java.lang.Integer-">DataReady</a></span>(<a href="../../../com/SIMRacingApps/SIMPlugin.html" title="class in com.SIMRacingApps">SIMPlugin</a>&nbsp;SIMPlugin,
-         java.lang.Integer&nbsp;ips)</code>
-<div class="block">DataReady() is called every time the SIM has new data available.</div>
-</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><span class="typeNameLabel">MyCallback.</span><code><span class="memberNameLink"><a href="../../../com/SIMRacingApps/SIMPluginCallbacks/Template/MyCallback.html#Waiting-com.SIMRacingApps.SIMPlugin-">Waiting</a></span>(<a href="../../../com/SIMRacingApps/SIMPlugin.html" title="class in com.SIMRacingApps">SIMPlugin</a>&nbsp;SIMPlugin)</code>
-<div class="block">Waiting() is called every second if the SIM is not providing any data.</div>
+<td class="colLast"><span class="typeNameLabel">MyCallback.</span><code><span class="memberNameLink"><a href="../../../com/SIMRacingApps/SIMPluginCallbacks/Template/MyCallback.html#ProcessData-com.SIMRacingApps.SIMPlugin-java.util.Map-">ProcessData</a></span>(<a href="../../../com/SIMRacingApps/SIMPlugin.html" title="class in com.SIMRacingApps">SIMPlugin</a>&nbsp;SIMPlugin,
+           java.util.Map&lt;java.lang.String,<a href="../../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a>&gt;&nbsp;data)</code>
+<div class="block">ProcessData is called from within the dedicated thread for this plug-in
+ every time there is data available in the queue it pops it off the queue and passes it to this method.</div>
 </td>
 </tr>
 </tbody>

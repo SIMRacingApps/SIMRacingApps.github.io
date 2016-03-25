@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10,"i26":10,"i27":10,"i28":10,"i29":10,"i30":10,"i31":10,"i32":10,"i33":10,"i34":10,"i35":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10,"i26":10,"i27":10,"i28":10,"i29":10,"i30":10,"i31":10,"i32":10,"i33":10,"i34":10,"i35":10,"i36":10,"i37":10,"i38":10,"i39":10,"i40":10,"i41":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -132,7 +132,7 @@ extends <a href="../../../../com/SIMRacingApps/Session.html" title="class in com
 <!--   -->
 </a>
 <h3>Nested classes/interfaces inherited from class&nbsp;com.SIMRacingApps.<a href="../../../../com/SIMRacingApps/Session.html" title="class in com.SIMRacingApps">Session</a></h3>
-<code><a href="../../../../com/SIMRacingApps/Session.CarIdentifiers.html" title="class in com.SIMRacingApps">Session.CarIdentifiers</a>, <a href="../../../../com/SIMRacingApps/Session.Flag.html" title="class in com.SIMRacingApps">Session.Flag</a>, <a href="../../../../com/SIMRacingApps/Session.Type.html" title="class in com.SIMRacingApps">Session.Type</a></code></li>
+<code><a href="../../../../com/SIMRacingApps/Session.CarIdentifiers.html" title="class in com.SIMRacingApps">Session.CarIdentifiers</a>, <a href="../../../../com/SIMRacingApps/Session.Message.html" title="class in com.SIMRacingApps">Session.Message</a>, <a href="../../../../com/SIMRacingApps/Session.Type.html" title="class in com.SIMRacingApps">Session.Type</a></code></li>
 </ul>
 </li>
 </ul>
@@ -212,90 +212,126 @@ extends <a href="../../../../com/SIMRacingApps/Session.html" title="class in com
 </tr>
 <tr id="i5" class="rowColor">
 <td class="colFirst"><code><a href="../../../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/SIMRacingApps/SIMPlugins/iRacing/iRacingSession.html#getFlags--">getFlags</a></span>()</code>
-<div class="block">Returns a string of a semicolon separate list of flags that are currently active.</div>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/SIMRacingApps/SIMPlugins/iRacing/iRacingSession.html#getIsCautionFlag--">getIsCautionFlag</a></span>()</code>
+<div class="block">Returns 'Y' if the caution flag is waving.</div>
 </td>
 </tr>
 <tr id="i6" class="altColor">
+<td class="colFirst"><code><a href="../../../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/SIMRacingApps/SIMPlugins/iRacing/iRacingSession.html#getIsCheckeredFlag--">getIsCheckeredFlag</a></span>()</code>
+<div class="block">Returns 'Y' if the checkered flag is waving.</div>
+</td>
+</tr>
+<tr id="i7" class="rowColor">
+<td class="colFirst"><code><a href="../../../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/SIMRacingApps/SIMPlugins/iRacing/iRacingSession.html#getIsCrossedFlag--">getIsCrossedFlag</a></span>()</code>
+<div class="block">Returns 'Y' if the crossed flag is waving.</div>
+</td>
+</tr>
+<tr id="i8" class="altColor">
+<td class="colFirst"><code><a href="../../../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/SIMRacingApps/SIMPlugins/iRacing/iRacingSession.html#getIsGreenFlag--">getIsGreenFlag</a></span>()</code>
+<div class="block">Returns 'Y' if the green flag is waving.</div>
+</td>
+</tr>
+<tr id="i9" class="rowColor">
+<td class="colFirst"><code><a href="../../../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/SIMRacingApps/SIMPlugins/iRacing/iRacingSession.html#getIsRedFlag--">getIsRedFlag</a></span>()</code>
+<div class="block">Returns 'Y' if the red flag is waving.</div>
+</td>
+</tr>
+<tr id="i10" class="altColor">
+<td class="colFirst"><code><a href="../../../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/SIMRacingApps/SIMPlugins/iRacing/iRacingSession.html#getIsWhiteFlag--">getIsWhiteFlag</a></span>()</code>
+<div class="block">Returns 'Y' if the white flag is waving.</div>
+</td>
+</tr>
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code><a href="../../../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/SIMRacingApps/SIMPlugins/iRacing/iRacingSession.html#getLap--">getLap</a></span>()</code>
 <div class="block">Returns the current lap of the race or REFERENCE car if in a different type of session.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code><a href="../../../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/SIMRacingApps/SIMPlugins/iRacing/iRacingSession.html#getLaps-java.lang.String-">getLaps</a></span>(java.lang.String&nbsp;sessionType)</code>
 <div class="block">Returns the total number of laps in the specified session.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code><a href="../../../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/SIMRacingApps/SIMPlugins/iRacing/iRacingSession.html#getLapsToGo--">getLapsToGo</a></span>()</code>
 <div class="block">Returns the number of laps to go in sessions that define a total number of laps
  See <a href="../../../../com/SIMRacingApps/Session.html#getLaps--"><code>Session.getLaps()</code></a></div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i14" class="altColor">
+<td class="colFirst"><code><a href="../../../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/SIMRacingApps/SIMPlugins/iRacing/iRacingSession.html#getMessages--">getMessages</a></span>()</code>
+<div class="block">Returns a string of a semicolon separate list of messages that are currently active.</div>
+</td>
+</tr>
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code><a href="../../../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/SIMRacingApps/SIMPlugins/iRacing/iRacingSession.html#getNumberOfCarClasses--">getNumberOfCarClasses</a></span>()</code>
 <div class="block">Returns the number of car classes.</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i16" class="altColor">
 <td class="colFirst"><code><a href="../../../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/SIMRacingApps/SIMPlugins/iRacing/iRacingSession.html#getRadioChannelActive--">getRadioChannelActive</a></span>()</code>
 <div class="block">Returns the active radio channel.</div>
 </td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i17" class="rowColor">
 <td class="colFirst"><code><a href="../../../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/SIMRacingApps/SIMPlugins/iRacing/iRacingSession.html#getRadioChannelIsDeleteable-int-">getRadioChannelIsDeleteable</a></span>(int&nbsp;channel)</code>
 <div class="block">Returns if the radio channel can be deleted.</div>
 </td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i18" class="altColor">
 <td class="colFirst"><code><a href="../../../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/SIMRacingApps/SIMPlugins/iRacing/iRacingSession.html#getRadioChannelIsListenOnly-int-">getRadioChannelIsListenOnly</a></span>(int&nbsp;channel)</code>
 <div class="block">Returns if the radio channel can only be listened to.</div>
 </td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i19" class="rowColor">
 <td class="colFirst"><code><a href="../../../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/SIMRacingApps/SIMPlugins/iRacing/iRacingSession.html#getRadioChannelIsMutable-int-">getRadioChannelIsMutable</a></span>(int&nbsp;channel)</code>
 <div class="block">Returns if the radio channel can be muted.</div>
 </td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i20" class="altColor">
 <td class="colFirst"><code><a href="../../../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/SIMRacingApps/SIMPlugins/iRacing/iRacingSession.html#getRadioChannelIsMuted-int-">getRadioChannelIsMuted</a></span>(int&nbsp;channel)</code>
 <div class="block">Returns if the radio channel is currently muted.</div>
 </td>
 </tr>
-<tr id="i15" class="rowColor">
+<tr id="i21" class="rowColor">
 <td class="colFirst"><code><a href="../../../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/SIMRacingApps/SIMPlugins/iRacing/iRacingSession.html#getRadioChannelIsScanable-int-">getRadioChannelIsScanable</a></span>(int&nbsp;channel)</code>
 <div class="block">Returns if the radio channel can be scanned.</div>
 </td>
 </tr>
-<tr id="i16" class="altColor">
+<tr id="i22" class="altColor">
 <td class="colFirst"><code><a href="../../../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/SIMRacingApps/SIMPlugins/iRacing/iRacingSession.html#getRadioChannelName-int-">getRadioChannelName</a></span>(int&nbsp;channel)</code>
 <div class="block">Returns the radio channel name.</div>
 </td>
 </tr>
-<tr id="i17" class="rowColor">
+<tr id="i23" class="rowColor">
 <td class="colFirst"><code><a href="../../../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/SIMRacingApps/SIMPlugins/iRacing/iRacingSession.html#getRadioChannels--">getRadioChannels</a></span>()</code>
 <div class="block">Returns the number of radio channels that is scannable by you.</div>
 </td>
 </tr>
-<tr id="i18" class="altColor">
+<tr id="i24" class="altColor">
 <td class="colFirst"><code><a href="../../../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/SIMRacingApps/SIMPlugins/iRacing/iRacingSession.html#getRadioScan--">getRadioScan</a></span>()</code>
 <div class="block">Returns the radio's scanning state</div>
 </td>
 </tr>
-<tr id="i19" class="rowColor">
+<tr id="i25" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/SIMRacingApps/SIMPlugins/iRacing/iRacingSession.html#getSendKeys-java.lang.String-java.lang.String-">getSendKeys</a></span>(java.lang.String&nbsp;group,
            java.lang.String&nbsp;command)</code>
@@ -303,97 +339,97 @@ extends <a href="../../../../com/SIMRacingApps/Session.html" title="class in com
  issue the command from the group.</div>
 </td>
 </tr>
-<tr id="i20" class="altColor">
+<tr id="i26" class="altColor">
 <td class="colFirst"><code><a href="../../../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/SIMRacingApps/SIMPlugins/iRacing/iRacingSession.html#getStartTime--">getStartTime</a></span>()</code>
 <div class="block">Returns the time the current session started as the number of seconds since Jan 1, 1970.</div>
 </td>
 </tr>
-<tr id="i21" class="rowColor">
+<tr id="i27" class="rowColor">
 <td class="colFirst"><code><a href="../../../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/SIMRacingApps/SIMPlugins/iRacing/iRacingSession.html#getStrengthOfField--">getStrengthOfField</a></span>()</code>
 <div class="block">Returns a String that is SIM specific that represents the strength of the field.</div>
 </td>
 </tr>
-<tr id="i22" class="altColor">
+<tr id="i28" class="altColor">
 <td class="colFirst"><code><a href="../../../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/SIMRacingApps/SIMPlugins/iRacing/iRacingSession.html#getTimeElapsed--">getTimeElapsed</a></span>()</code>
 <div class="block">Returns the number of seconds since the current session started.</div>
 </td>
 </tr>
-<tr id="i23" class="rowColor">
+<tr id="i29" class="rowColor">
 <td class="colFirst"><code><a href="../../../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/SIMRacingApps/SIMPlugins/iRacing/iRacingSession.html#getTimeRemaining--">getTimeRemaining</a></span>()</code>
 <div class="block">If the current session has a time restriction, this returns the number of seconds remaining.</div>
 </td>
 </tr>
-<tr id="i24" class="altColor">
+<tr id="i30" class="altColor">
 <td class="colFirst"><code><a href="../../../../com/SIMRacingApps/Track.html" title="class in com.SIMRacingApps">Track</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/SIMRacingApps/SIMPlugins/iRacing/iRacingSession.html#getTrack--">getTrack</a></span>()</code>
 <div class="block">Returns an instance to the Track in this session
  Each SIM will have to provide an override that does not return a null</div>
 </td>
 </tr>
-<tr id="i25" class="rowColor">
+<tr id="i31" class="rowColor">
 <td class="colFirst"><code><a href="../../../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/SIMRacingApps/SIMPlugins/iRacing/iRacingSession.html#getType--">getType</a></span>()</code>
 <div class="block">Returns the type of the current session as defined by <a href="../../../../com/SIMRacingApps/Session.Type.html" title="class in com.SIMRacingApps"><code>Session.Type</code></a></div>
 </td>
 </tr>
-<tr id="i26" class="altColor">
+<tr id="i32" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/SIMRacingApps/SIMPlugins/iRacing/iRacingSession.html#processData--">processData</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i27" class="rowColor">
+<tr id="i33" class="rowColor">
 <td class="colFirst"><code><a href="../../../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/SIMRacingApps/SIMPlugins/iRacing/iRacingSession.html#setAdvanceFlag--">setAdvanceFlag</a></span>()</code>
 <div class="block">Advance to next Session.</div>
 </td>
 </tr>
-<tr id="i28" class="altColor">
+<tr id="i34" class="altColor">
 <td class="colFirst"><code><a href="../../../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/SIMRacingApps/SIMPlugins/iRacing/iRacingSession.html#setCautionFlag--">setCautionFlag</a></span>()</code>
 <div class="block">Set Full Course Caution Flag on.</div>
 </td>
 </tr>
-<tr id="i29" class="rowColor">
+<tr id="i35" class="rowColor">
 <td class="colFirst"><code><a href="../../../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/SIMRacingApps/SIMPlugins/iRacing/iRacingSession.html#setChat-java.lang.String-">setChat</a></span>(java.lang.String&nbsp;text)</code>
 <div class="block">Sends the text string as a chat message to all drivers.</div>
 </td>
 </tr>
-<tr id="i30" class="altColor">
+<tr id="i36" class="altColor">
 <td class="colFirst"><code><a href="../../../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/SIMRacingApps/SIMPlugins/iRacing/iRacingSession.html#setChatFlag-boolean-">setChatFlag</a></span>(boolean&nbsp;onOffFlag)</code>
 <div class="block">Set Chat on or off for all drivers.</div>
 </td>
 </tr>
-<tr id="i31" class="rowColor">
+<tr id="i37" class="rowColor">
 <td class="colFirst"><code><a href="../../../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/SIMRacingApps/SIMPlugins/iRacing/iRacingSession.html#setRadioChannel-int-">setRadioChannel</a></span>(int&nbsp;channel)</code>
 <div class="block">Makes the specified radio channel the active channel to transmit on.</div>
 </td>
 </tr>
-<tr id="i32" class="altColor">
+<tr id="i38" class="altColor">
 <td class="colFirst"><code><a href="../../../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/SIMRacingApps/SIMPlugins/iRacing/iRacingSession.html#setRadioChannelDelete-int-">setRadioChannelDelete</a></span>(int&nbsp;channel)</code>
 <div class="block">Deletes the specified radio channel.</div>
 </td>
 </tr>
-<tr id="i33" class="rowColor">
+<tr id="i39" class="rowColor">
 <td class="colFirst"><code><a href="../../../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/SIMRacingApps/SIMPlugins/iRacing/iRacingSession.html#setRadioChannelMute-int-boolean-">setRadioChannelMute</a></span>(int&nbsp;channel,
                    boolean&nbsp;flag)</code>
 <div class="block">Mutes or Unmutes the specified radio channel.</div>
 </td>
 </tr>
-<tr id="i34" class="altColor">
+<tr id="i40" class="altColor">
 <td class="colFirst"><code><a href="../../../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/SIMRacingApps/SIMPlugins/iRacing/iRacingSession.html#setRadioChannelName-java.lang.String-">setRadioChannelName</a></span>(java.lang.String&nbsp;channelName)</code>
 <div class="block">Makes the specified radio channel the active channel to transmit on.</div>
 </td>
 </tr>
-<tr id="i35" class="rowColor">
+<tr id="i41" class="rowColor">
 <td class="colFirst"><code><a href="../../../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/SIMRacingApps/SIMPlugins/iRacing/iRacingSession.html#setRadioScan-boolean-">setRadioScan</a></span>(boolean&nbsp;flag)</code>
 <div class="block">Turns the scanning of the channels on and off, such that, you are only listening on the active channel.</div>
@@ -505,8 +541,8 @@ extends <a href="../../../../com/SIMRacingApps/Session.html" title="class in com
  <dl>
  <dt>ME</dt><dd>My Car/Driver information</dd>
  <dt>REFERENCE, R0, RL0, RP0 RPC0</dt><dd>Defaults to ME, but can be set by the user to any car</dd>
- <dt>PACE, PACECAR, SAFETY, SAFETYCAR, P0</dt><dd>The pace car</dd>
- <dt>TRANSMITTING</dt><dd>The car that is currently talking</dd>
+ <dt>PACE, PACECAR, SAFETY, SAFETYCAR, P0, PC0</dt><dd>The pace car</dd>
+ <dt>TRANSMITTING</dt><dd>The car that is currently talking in SIM or TeamSpeak</dd>
  <dt>LEADER, P1</dt><dd>The leader</dd>
  <dt>LEADERCLASS, PC1</dt><dd>The leader of your class</dd>
  <dt>LEADERxxx</dt><dd>The leader if the same class as xxx</dd>
@@ -604,26 +640,117 @@ extends <a href="../../../../com/SIMRacingApps/Session.html" title="class in com
 </dl>
 </li>
 </ul>
-<a name="getFlags--">
+<a name="getIsGreenFlag--">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>getFlags</h4>
-<pre>public&nbsp;<a href="../../../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a>&nbsp;getFlags()</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="../../../../com/SIMRacingApps/Session.html#getFlags--">Session</a></code></span></div>
-<div class="block">Returns a string of a semicolon separate list of flags that are currently active.
- Possible flag values are determined by <a href="../../../../com/SIMRacingApps/Session.Flag.html" title="class in com.SIMRacingApps"><code>Session.Flag</code></a>.
- Each flag will have a semicolon before and after it, even at the begin and end of the string.
- <p>
- For example: ";CAUTION;WHITE;"
+<h4>getIsGreenFlag</h4>
+<pre>public&nbsp;<a href="../../../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a>&nbsp;getIsGreenFlag()</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="../../../../com/SIMRacingApps/Session.html#getIsGreenFlag--">Session</a></code></span></div>
+<div class="block">Returns 'Y' if the green flag is waving.
  
- <p>PATH = <a href="../../../../com/SIMRacingApps/Session.html#getFlags--"><code>/Session/Flags</code></a></div>
+ <p>PATH = <a href="../../../../com/SIMRacingApps/Session.html#getIsGreenFlag--"><code>/Session/IsGreenFlag</code></a></div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code><a href="../../../../com/SIMRacingApps/Session.html#getFlags--">getFlags</a></code>&nbsp;in class&nbsp;<code><a href="../../../../com/SIMRacingApps/Session.html" title="class in com.SIMRacingApps">Session</a></code></dd>
+<dd><code><a href="../../../../com/SIMRacingApps/Session.html#getIsGreenFlag--">getIsGreenFlag</a></code>&nbsp;in class&nbsp;<code><a href="../../../../com/SIMRacingApps/Session.html" title="class in com.SIMRacingApps">Session</a></code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>A list of flags in a <a href="../../../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps"><code>Data</code></a> container.</dd>
+<dd>'Y' if the green flag is out in a <a href="../../../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps"><code>Data</code></a> container.</dd>
+</dl>
+</li>
+</ul>
+<a name="getIsCautionFlag--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getIsCautionFlag</h4>
+<pre>public&nbsp;<a href="../../../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a>&nbsp;getIsCautionFlag()</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="../../../../com/SIMRacingApps/Session.html#getIsCautionFlag--">Session</a></code></span></div>
+<div class="block">Returns 'Y' if the caution flag is waving.
+ 
+ <p>PATH = <a href="../../../../com/SIMRacingApps/Session.html#getIsCautionFlag--"><code>/Session/IsCautionFlag</code></a></div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../../../../com/SIMRacingApps/Session.html#getIsCautionFlag--">getIsCautionFlag</a></code>&nbsp;in class&nbsp;<code><a href="../../../../com/SIMRacingApps/Session.html" title="class in com.SIMRacingApps">Session</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>'Y' if the caution flag is out in a <a href="../../../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps"><code>Data</code></a> container.</dd>
+</dl>
+</li>
+</ul>
+<a name="getIsCheckeredFlag--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getIsCheckeredFlag</h4>
+<pre>public&nbsp;<a href="../../../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a>&nbsp;getIsCheckeredFlag()</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="../../../../com/SIMRacingApps/Session.html#getIsCheckeredFlag--">Session</a></code></span></div>
+<div class="block">Returns 'Y' if the checkered flag is waving.
+ 
+ <p>PATH = <a href="../../../../com/SIMRacingApps/Session.html#getIsCheckeredFlag--"><code>/Session/IsCheckeredFlag</code></a></div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../../../../com/SIMRacingApps/Session.html#getIsCheckeredFlag--">getIsCheckeredFlag</a></code>&nbsp;in class&nbsp;<code><a href="../../../../com/SIMRacingApps/Session.html" title="class in com.SIMRacingApps">Session</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>'Y' if the checkered flag is out in a <a href="../../../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps"><code>Data</code></a> container.</dd>
+</dl>
+</li>
+</ul>
+<a name="getIsCrossedFlag--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getIsCrossedFlag</h4>
+<pre>public&nbsp;<a href="../../../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a>&nbsp;getIsCrossedFlag()</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="../../../../com/SIMRacingApps/Session.html#getIsCrossedFlag--">Session</a></code></span></div>
+<div class="block">Returns 'Y' if the crossed flag is waving. This generally means the leader has passed the halfway point.
+ 
+ <p>PATH = <a href="../../../../com/SIMRacingApps/Session.html#getIsCrossedFlag--"><code>/Session/IsCrossedFlag</code></a></div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../../../../com/SIMRacingApps/Session.html#getIsCrossedFlag--">getIsCrossedFlag</a></code>&nbsp;in class&nbsp;<code><a href="../../../../com/SIMRacingApps/Session.html" title="class in com.SIMRacingApps">Session</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>'Y' if the crossed flag is out in a <a href="../../../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps"><code>Data</code></a> container.</dd>
+</dl>
+</li>
+</ul>
+<a name="getIsWhiteFlag--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getIsWhiteFlag</h4>
+<pre>public&nbsp;<a href="../../../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a>&nbsp;getIsWhiteFlag()</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="../../../../com/SIMRacingApps/Session.html#getIsWhiteFlag--">Session</a></code></span></div>
+<div class="block">Returns 'Y' if the white flag is waving.
+ 
+ <p>PATH = <a href="../../../../com/SIMRacingApps/Session.html#getIsWhiteFlag--"><code>/Session/IsWhiteFlag</code></a></div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../../../../com/SIMRacingApps/Session.html#getIsWhiteFlag--">getIsWhiteFlag</a></code>&nbsp;in class&nbsp;<code><a href="../../../../com/SIMRacingApps/Session.html" title="class in com.SIMRacingApps">Session</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>'Y' if the white flag is out in a <a href="../../../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps"><code>Data</code></a> container.</dd>
+</dl>
+</li>
+</ul>
+<a name="getIsRedFlag--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getIsRedFlag</h4>
+<pre>public&nbsp;<a href="../../../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a>&nbsp;getIsRedFlag()</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="../../../../com/SIMRacingApps/Session.html#getIsRedFlag--">Session</a></code></span></div>
+<div class="block">Returns 'Y' if the red flag is waving.
+ 
+ <p>PATH = <a href="../../../../com/SIMRacingApps/Session.html#getIsRedFlag--"><code>/Session/IsRedFlag</code></a></div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../../../../com/SIMRacingApps/Session.html#getIsRedFlag--">getIsRedFlag</a></code>&nbsp;in class&nbsp;<code><a href="../../../../com/SIMRacingApps/Session.html" title="class in com.SIMRacingApps">Session</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>'Y' if the green flag is out in a <a href="../../../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps"><code>Data</code></a> container.</dd>
 </dl>
 </li>
 </ul>
@@ -691,6 +818,32 @@ extends <a href="../../../../com/SIMRacingApps/Session.html" title="class in com
 <dd><code><a href="../../../../com/SIMRacingApps/Session.html#getLapsToGo--">getLapsToGo</a></code>&nbsp;in class&nbsp;<code><a href="../../../../com/SIMRacingApps/Session.html" title="class in com.SIMRacingApps">Session</a></code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>The number of laps to go in a <a href="../../../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps"><code>Data</code></a> container.</dd>
+</dl>
+</li>
+</ul>
+<a name="getMessages--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getMessages</h4>
+<pre>public&nbsp;<a href="../../../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a>&nbsp;getMessages()</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="../../../../com/SIMRacingApps/Session.html#getMessages--">Session</a></code></span></div>
+<div class="block">Returns a string of a semicolon separate list of messages that are currently active.
+ It is possible to have multiple messages.
+ Each message will have a semicolon before and after it, even at the begin and end of the string.
+
+ Possible message values are determined by <a href="../../../../com/SIMRacingApps/Session.Message.html" title="class in com.SIMRacingApps"><code>Session.Message</code></a>.
+ You can display as is, or use it as an index to the the translation for a particular language.
+ <p>
+ For example: ";ONELAPTOGREEN;"
+ 
+ <p>PATH = <a href="../../../../com/SIMRacingApps/Session.html#getMessages--"><code>/Session/Messages</code></a></div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../../../../com/SIMRacingApps/Session.html#getMessages--">getMessages</a></code>&nbsp;in class&nbsp;<code><a href="../../../../com/SIMRacingApps/Session.html" title="class in com.SIMRacingApps">Session</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>A list of messages in a <a href="../../../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps"><code>Data</code></a> container.</dd>
 </dl>
 </li>
 </ul>

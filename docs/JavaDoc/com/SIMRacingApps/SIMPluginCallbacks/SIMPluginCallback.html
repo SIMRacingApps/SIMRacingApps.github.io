@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -128,6 +128,12 @@ implements <a href="../../../com/SIMRacingApps/SIMPlugin.Callback.html" title="i
  in the com.SIMRacingApps.SIMCallbacks.{YourNameOrCompany} package that extends SIMPluginCallback.
  There is a Template plug-in folder in the SIMPluginCallbacks folder that you can copy and rename.
 
+ NOTE: Each subclass can define methods that return Data objects and if a  
+ Data Url maps to a method on the class, it will call it.
+
+ Example: /SIMRacingApps/SIMPluginCallback/Sounds/PitCountDown/setVolume/50
+ will call the setVolume method and pass it 50.
+
  If you know Java, you will probably know how to compile your source code. 
  But just in case you don't, here's an example how. 
  Of course, your specific server version may be different.
@@ -142,8 +148,8 @@ implements <a href="../../../com/SIMRacingApps/SIMPlugin.Callback.html" title="i
     simplugins = YourNameOrCompany.YourPluginClass;Name1.DoSomething;Name2.DoneIt
  </pre>
 
- When testing, if your plug-in is already built into the SIMRacingAppsServer, 
- you will have to alter the classpath to get your new .class files to load before the built in ones.
+ When testing, if the plug-in is already built into the SIMRacingAppsServer, 
+ you will have to alter the classpath to look for your new .class files to load before the built in ones.
  To do that, do not run the SIMRacingAppsServer.exe directly. 
  Instead, use the following example command, on how to use it as a library and put your stuff first in the path.
 <pre>
@@ -157,7 +163,7 @@ implements <a href="../../../com/SIMRacingApps/SIMPlugin.Callback.html" title="i
     jar cvf YourPlugin_v1.0.sra -C "%USERPROFILE%\Documents\SIMRacingApps" com/SIMRacingApps/SIMPluginCallbacks/{YourNameOrCompany}
  </pre>
  Distribute the .sra file with instructions to upload it to SIMRacingApps through the main menu.
- Also provide instructions on how to enable your plug-in by adding it to the settings.txt plug-ins variable.
+ Also provide instructions on how to enable your plug-in by adding it to the settings.txt-&gt;plugins variable.
 
  For distribution with a Java App that uses the SIMRacingAppsServer.exe as a jar file, just add the .sra file to the classpath.
 
@@ -190,7 +196,8 @@ implements <a href="../../../com/SIMRacingApps/SIMPlugin.Callback.html" title="i
 <th class="colOne" scope="col">Constructor and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../../../com/SIMRacingApps/SIMPluginCallbacks/SIMPluginCallback.html#SIMPluginCallback-com.SIMRacingApps.SIMPlugin-">SIMPluginCallback</a></span>(<a href="../../../com/SIMRacingApps/SIMPlugin.html" title="class in com.SIMRacingApps">SIMPlugin</a>&nbsp;SIMPlugin)</code>
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../com/SIMRacingApps/SIMPluginCallbacks/SIMPluginCallback.html#SIMPluginCallback-com.SIMRacingApps.SIMPlugin-java.lang.String-">SIMPluginCallback</a></span>(<a href="../../../com/SIMRacingApps/SIMPlugin.html" title="class in com.SIMRacingApps">SIMPlugin</a>&nbsp;SIMPlugin,
+                 java.lang.String&nbsp;name)</code>
 <div class="block">Constructor.</div>
 </td>
 </tr>
@@ -213,7 +220,7 @@ implements <a href="../../../com/SIMRacingApps/SIMPlugin.Callback.html" title="i
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/SIMRacingApps/SIMPluginCallbacks/SIMPluginCallback.html#DataReady-com.SIMRacingApps.SIMPlugin-java.lang.Integer-">DataReady</a></span>(<a href="../../../com/SIMRacingApps/SIMPlugin.html" title="class in com.SIMRacingApps">SIMPlugin</a>&nbsp;SIMPlugin,
          java.lang.Integer&nbsp;ips)</code>
-<div class="block">This method is called everytime the SIM has new data available.</div>
+<div class="block">This method is called every time the SIM has new data available.</div>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
@@ -223,6 +230,14 @@ implements <a href="../../../com/SIMRacingApps/SIMPlugin.Callback.html" title="i
 </td>
 </tr>
 <tr id="i2" class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/SIMRacingApps/SIMPluginCallbacks/SIMPluginCallback.html#ProcessData-com.SIMRacingApps.SIMPlugin-java.util.Map-">ProcessData</a></span>(<a href="../../../com/SIMRacingApps/SIMPlugin.html" title="class in com.SIMRacingApps">SIMPlugin</a>&nbsp;SIMPlugin,
+           java.util.Map&lt;java.lang.String,<a href="../../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a>&gt;&nbsp;data)</code>
+<div class="block">ProcessData is called from within the dedicated thread for this plug-in
+ every time there is data available in the queue it pops it off the queue and passes it to this method.</div>
+</td>
+</tr>
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/SIMRacingApps/SIMPluginCallbacks/SIMPluginCallback.html#Waiting-com.SIMRacingApps.SIMPlugin-">Waiting</a></span>(<a href="../../../com/SIMRacingApps/SIMPlugin.html" title="class in com.SIMRacingApps">SIMPlugin</a>&nbsp;SIMPlugin)</code>
 <div class="block">Waiting() is called every second if the SIM is not providing any data.</div>
@@ -250,23 +265,25 @@ implements <a href="../../../com/SIMRacingApps/SIMPlugin.Callback.html" title="i
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a name="SIMPluginCallback-com.SIMRacingApps.SIMPlugin-">
+<a name="SIMPluginCallback-com.SIMRacingApps.SIMPlugin-java.lang.String-">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>SIMPluginCallback</h4>
-<pre>public&nbsp;SIMPluginCallback(<a href="../../../com/SIMRacingApps/SIMPlugin.html" title="class in com.SIMRacingApps">SIMPlugin</a>&nbsp;SIMPlugin)
+<pre>public&nbsp;SIMPluginCallback(<a href="../../../com/SIMRacingApps/SIMPlugin.html" title="class in com.SIMRacingApps">SIMPlugin</a>&nbsp;SIMPlugin,
+                         java.lang.String&nbsp;name)
                   throws <a href="../../../com/SIMRacingApps/SIMPlugin.SIMPluginException.html" title="class in com.SIMRacingApps">SIMPlugin.SIMPluginException</a></pre>
 <div class="block">Constructor. Provides you with an instance of the SIM. 
  You will need to override this constructor with SIMPlugin as a parameter and call super(SIMPlugin).
 
- Use the constructor to initialize your plugin.</div>
+ Use the constructor to initialize your plug-in.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>SIMPlugin</code> - An instance of the current SIM.</dd>
+<dd><code>name</code> - The name of the plug-in so you can find it's thread in a debugger and show it in the logger messages.</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="../../../com/SIMRacingApps/SIMPlugin.SIMPluginException.html" title="class in com.SIMRacingApps">SIMPlugin.SIMPluginException</a></code> - If there's a problem constructing your plugin.</dd>
+<dd><code><a href="../../../com/SIMRacingApps/SIMPlugin.SIMPluginException.html" title="class in com.SIMRacingApps">SIMPlugin.SIMPluginException</a></code> - If there's a problem constructing your plug-in.</dd>
 </dl>
 </li>
 </ul>
@@ -286,7 +303,7 @@ implements <a href="../../../com/SIMRacingApps/SIMPlugin.Callback.html" title="i
 <h4>destroy</h4>
 <pre>public&nbsp;void&nbsp;destroy()</pre>
 <div class="block">Called when the SIMPlugin is destroyed.
- It's always best to call super.destroy() for future compatibility.</div>
+ If you override this method, be sure to call super.destroy() first.</div>
 </li>
 </ul>
 <a name="DataReady-com.SIMRacingApps.SIMPlugin-java.lang.Integer-">
@@ -297,34 +314,10 @@ implements <a href="../../../com/SIMRacingApps/SIMPlugin.Callback.html" title="i
 <h4>DataReady</h4>
 <pre>public&nbsp;boolean&nbsp;DataReady(<a href="../../../com/SIMRacingApps/SIMPlugin.html" title="class in com.SIMRacingApps">SIMPlugin</a>&nbsp;SIMPlugin,
                          java.lang.Integer&nbsp;ips)</pre>
-<div class="block">This method is called everytime the SIM has new data available.
- It will be called from the same thread as the main event loop, so be careful with performance.
- You don't want your plugin to take more than a few milliseconds in the DataReady() method.
- <pre>
-     //This example shows 2 ways to get data from the SIM, using a path or calling the method directly.
-
-     super.DataReady(SIMPlugin,ips);
-
-     Data d;
-     d = m_SIMPlugin.getData("/Session/Flags");
-     d = m_SIMPlugin.getSession().getFlags();   
-     //do something with the data
-
-     return true;
- </pre>
- You can always spawn your own thread(s) and send the data to them through a static variable, like a queue or some other IPC method.
- If you need to call the SIMPlugin from another thread, do not block the main thread too long.
- <pre>
-     //When calling the SIMPlugin from a thread, you must synchronize on it first. It is not thread safe.
-     Data d;
-     synchronized (SIMPlugin) {
-         //do not spend much time in here, we are blocking the main thread 
-         //Get the data and get out of the synchronized block 
-         d = m_SIMPlugin.getData("/Session/Flags");
-         d = m_SIMPlugin.getSession().getFlags();
-     }
-     //do something with the data
- </pre></div>
+<div class="block">This method is called every time the SIM has new data available.
+ By default this method push the data into the queue. You should not need to override this method.
+ It will not block if the queue is full. I do this so your plug-in gets data that is very close to real-time.
+ If it takes to look to process the queue, then you will simply get the next available data.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../com/SIMRacingApps/SIMPlugin.Callback.html#DataReady-com.SIMRacingApps.SIMPlugin-java.lang.Integer-">DataReady</a></code>&nbsp;in interface&nbsp;<code><a href="../../../com/SIMRacingApps/SIMPlugin.Callback.html" title="interface in com.SIMRacingApps">SIMPlugin.Callback</a></code></dd>
@@ -339,7 +332,7 @@ implements <a href="../../../com/SIMRacingApps/SIMPlugin.Callback.html" title="i
 <a name="Waiting-com.SIMRacingApps.SIMPlugin-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>Waiting</h4>
 <pre>public&nbsp;boolean&nbsp;Waiting(<a href="../../../com/SIMRacingApps/SIMPlugin.html" title="class in com.SIMRacingApps">SIMPlugin</a>&nbsp;SIMPlugin)</pre>
@@ -351,6 +344,46 @@ implements <a href="../../../com/SIMRacingApps/SIMPlugin.Callback.html" title="i
 <dd><code>SIMPlugin</code> - An instance of the current SIM.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>true to stay alive, false to stop the server.</dd>
+</dl>
+</li>
+</ul>
+<a name="ProcessData-com.SIMRacingApps.SIMPlugin-java.util.Map-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>ProcessData</h4>
+<pre>public&nbsp;boolean&nbsp;ProcessData(<a href="../../../com/SIMRacingApps/SIMPlugin.html" title="class in com.SIMRacingApps">SIMPlugin</a>&nbsp;SIMPlugin,
+                           java.util.Map&lt;java.lang.String,<a href="../../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a>&gt;&nbsp;data)</pre>
+<div class="block">ProcessData is called from within the dedicated thread for this plug-in
+ every time there is data available in the queue it pops it off the queue and passes it to this method.
+ 
+ A should override this method to implement your plug-in's functionality.
+ If this method takes too long to process the data in the queue, you could miss data that the SIM is sending.
+ Design accordingly. There's no way to even guarantee that you will get every update from the SIM.
+ 
+ At this point in the design, ProcessData will get called on the same frequency as the SIM (typically 16ms). 
+ At some point, I may change it to only get called if the subscribed to data changes.
+ 
+ NOTE: If you find you need to use the SIMPlugin argument, inclose it in a synchronized block. 
+ You are in a separate thread, so this will block the main thread. Do not keep it locked very long.
+ <pre>
+     //When calling the SIMPlugin from this method, you must synchronize on it first. It is not thread safe.
+     Data d;
+     synchronized (SIMPlugin) {
+         //do not spend much time in here, we are blocking the main thread 
+         //Get the data and get out of the synchronized block 
+         d = SIMPlugin.getData("/Session/IsGreenFlag");
+         d = SIMPlugin.getSession().getIsGreenFlag();
+     }
+     //do something with the data
+ </pre></div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>SIMPlugin</code> - A reference to the SIMPlugin instance.</dd>
+<dd><code>data</code> - The Data objects added to the queue.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true to keep the plug-in alive, false to kill it.</dd>
 </dl>
 </li>
 </ul>

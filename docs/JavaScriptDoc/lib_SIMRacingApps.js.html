@@ -498,6 +498,12 @@ function(angular) {
                             t = t[args[arg]];
                         }
                         self.extendDeep(t,data);
+						t.valueOf = function() {
+							return this.Value;
+						};
+						t.toString = function() {
+							return this.ValueFormatted;
+						};
 //                    }
                 },
                 processData: function(data) {
@@ -1025,17 +1031,21 @@ function(angular) {
                     
                     //TODO: fix ng-click doesn't work on the element. Workaround is to catch event on the body and simulate it.
                     $document[0].body.ontouchstart = $document[0].body.onclick = function(event) {
-                        console.log("onclick("+(event.offsetX || event.layerX)+","+(event.offsetY || event.layerY)+")");
+                        var x = event.x || event.clientX || event.offsetX || event.layerX;
+                        var y = event.y || event.clientY || event.offsetY || event.layerY;
+                        
+                        console.log("onclick("+x+","+y+")");
                         for (var i=0; i &lt; self.onClickQueue.length; i++) {
-                            var left   = self.offsetLeft(self.onClickQueue[i].element[0],0);
-                            var top    = self.offsetTop(self.onClickQueue[i].element[0],0);
-                            var width  = self.onClickQueue[i].element[0].offsetWidth;
-                            var height = self.onClickQueue[i].element[0].offsetHeight;
+                            var e = self.onClickQueue[i].element[0];
+                            var left   = self.offsetLeft(e,0);
+                            var top    = self.offsetTop(e,0);
+                            var width  = e.offsetWidth;
+                            var height = e.offsetHeight;
                             var myEvent = {
-                                    offsetWidth:  self.onClickQueue[i].element[0].offsetWidth,
-                                    offsetHeight: self.onClickQueue[i].element[0].offsetHeight,
-                                    offsetX: (event.offsetX || event.layerX) - left,
-                                    offsetY: (event.offsetY || event.layerY) - top
+                                    offsetWidth:  e.offsetWidth,
+                                    offsetHeight: e.offsetHeight,
+                                    offsetX: x - left,
+                                    offsetY: y - top
                                 };
 //$document[0].getElementById("FPS").innerHTML = "body.offset = "+myEvent.offsetX+","+myEvent.offsetY;
 //$document[0].getElementById("FPS").style.display = "block";
@@ -1182,7 +1192,7 @@ function(angular) {
                                 Name:         name,
                                 Format:       format,
                                 Value:        self._private.time,
-                                ValueFormatted: $filter('date')(self._private.time,'shortDate'),
+                                ValueFormatted: $filter('date')(self._private.time,format ? format : 'shortDate'),
                                 Type:         "DATE",
                                 UOM:          "date",
                                 UOMAbbr:      "date",
@@ -1199,7 +1209,7 @@ function(angular) {
                                 Name:         name,
                                 Format:       format,
                                 Value:        self._private.time,
-                                ValueFormatted: $filter('date')(self._private.time,'mediumTime'),
+                                ValueFormatted: $filter('date')(self._private.time,format ? format : 'mediumTime'),
                                 Type:         "DATE",
                                 UOM:          "date",
                                 UOMAbbr:      "date",
@@ -1439,8 +1449,6 @@ function(angular) {
            ['$scope', 'sraDispatcher', '$location',
     function($scope,   sraDispatcher, $location) {
 
-debugger;   //All .js files should be loaded by this point.
-
         var args = $location.search();
         for (var arg in args) {
             $scope['sraArgs'+arg.toUpperCase()] = args[arg];
@@ -1448,6 +1456,7 @@ debugger;   //All .js files should be loaded by this point.
         sraDispatcher.loadTranslations("/SIMRacingApps/lib","text",function(path) {
             sraDispatcher.translations = sraDispatcher.getTranslation(path);
         });
+debugger;   //All .js files should be loaded by this point.
     }]);
 
     /**
@@ -1695,13 +1704,14 @@ debugger;   //All .js files should be loaded by this point.
      */
     app.start = function(rootElement,defaultWidth,defaultHeight,defaultFontSize) {  var self=this;
 
-debugger;  //Before Angular has been initialized.
+//debugger;  //Before Angular has been initialized.
 
         var search = window.location.search;
         app.rootElement = rootElement;
 
         var widgetname = "";
         var widget = null;
+        var fontpercent = 100.0;
         var interval = null;
         var interfaceType = null;
         var referenceCar = null;
@@ -1711,7 +1721,7 @@ debugger;  //Before Angular has been initialized.
 
         fpsElement.css({display: "none"});
         rootElement.attr("data-ng-controller", "sraController");
-        rootElement.attr("data-sra-data",      "FPS;interval;date"); //make these available to all apps/widgets
+        rootElement.attr("data-sra-data",      "FPS;interval;date;time"); //make these available to all apps/widgets
 
         //TODO: can angular or JQuery do this for me?
         var i18n = 'i18n/angular-locale_';
@@ -1760,6 +1770,10 @@ debugger;  //Before Angular has been initialized.
                         interfaceType = s[1];
                     }
                     else
+                    if (s[0].toLowerCase() == "fontpercent") {
+                        fontpercent = s[1] * 1.0;
+                    }
+                    else
                     if (s[0].toLowerCase() == "backgroundcolor") {
                         rootElement.css("background","");
                         rootElement.css("backgroundColor", decodeURIComponent(s[1]));
@@ -1770,6 +1784,16 @@ debugger;  //Before Angular has been initialized.
                                 element.css("background","");
                                 element.css("backgroundColor", decodeURIComponent(s[1]));
                                 element.css("backgroundImage","url()");
+                            }
+                        });
+                    }
+                    else
+                    if (s[0].toLowerCase() == "color") {
+                        rootElement.css("color", decodeURIComponent(s[1]));
+                        angular.forEach(rootElement.find("div"), function(value) {
+                            var element = angular.element(value);
+                            if (element.hasClass("SIMRacingApps-App")) {
+                                element.css("color", decodeURIComponent(s[1]));
                             }
                         });
                     }
@@ -1840,7 +1864,7 @@ debugger;  //Before Angular has been initialized.
             function(i18n, SIMRacingApps, WidgetApp) {
                 app.defaultWidth    = WidgetApp.defaultWidth    || defaultWidth    || 800;
                 app.defaultHeight   = WidgetApp.defaultHeight   || defaultHeight   || 480;
-                app.defaultFontSize = WidgetApp.defaultFontSize || defaultFontSize || 16;
+                app.defaultFontSize = (WidgetApp.defaultFontSize || defaultFontSize || 16) * (fontpercent / 100.0);
 
                 if (app.zoom) {
                     rootElement.css({
@@ -1931,7 +1955,7 @@ ga('create', 'UA-72478308-1', 'auto');
 </div>
 
 <nav>
-    <h2><a href="index.html">Index</a></h2><h3>Modules</h3><ul><li><a href="module-SIMRacingApps.html">SIMRacingApps</a></li></ul><h3>apps</h3><ul><li><a href="CrewChief.html">CrewChief</a></li><li><a href="CrewChief-Large.html">CrewChief-Large</a></li><li><a href="Dash-BarGauges-DigitalOverlay.html">Dash-BarGauges-DigitalOverlay</a></li><li><a href="Dash-Gauges-Spek.html">Dash-Gauges-Spek</a></li><li><a href="Dash-Gauges-Spek-Horizontal.html">Dash-Gauges-Spek-Horizontal</a></li><li><a href="Dash-Minimum.html">Dash-Minimum</a></li><li><a href="Dash-Small.html">Dash-Small</a></li><li><a href="Dash-StockCars-DigitalOverlay.html">Dash-StockCars-DigitalOverlay</a></li><li><a href="RaceAdministrator.html">RaceAdministrator</a></li><li><a href="Spectator.html">Spectator</a></li><li><a href="StreamingOverlay.html">StreamingOverlay</a></li></ul><h3>filter</h3><ul><li><a href="module-SIMRacingApps.sraCeil.html">sraCeil</a></li><li><a href="module-SIMRacingApps.sraDebug.html">sraDebug</a></li><li><a href="module-SIMRacingApps.sraDecodeEntities.html">sraDecodeEntities</a></li><li><a href="module-SIMRacingApps.sraDuration.html">sraDuration</a></li><li><a href="module-SIMRacingApps.sraFloor.html">sraFloor</a></li><li><a href="module-SIMRacingApps.sraHex.html">sraHex</a></li><li><a href="module-SIMRacingApps.sraLPad.html">sraLPad</a></li><li><a href="module-SIMRacingApps.sraNumber.html">sraNumber</a></li><li><a href="module-SIMRacingApps.sraRGB.html">sraRGB</a></li><li><a href="module-SIMRacingApps.sraRound.html">sraRound</a></li><li><a href="module-SIMRacingApps.sraRPad.html">sraRPad</a></li></ul><h3>directive</h3><ul><li><a href="module-SIMRacingApps-sra-data.html">sra-data</a></li><li><a href="module-SIMRacingApps-sra-horizontal-align.html">sra-horizontal-align</a></li><li><a href="module-SIMRacingApps-sra-resize.html">sra-resize</a></li><li><a href="module-SIMRacingApps-sra-vertical-align.html">sra-vertical-align</a></li><li><a href="sra-analog-gauge.html">sra-analog-gauge</a></li><li><a href="sra-analog-gauge-spek-brake-pressure.html">sra-analog-gauge-spek-brake-pressure</a></li><li><a href="sra-analog-gauge-spek-fuel-level.html">sra-analog-gauge-spek-fuel-level</a></li><li><a href="sra-analog-gauge-spek-fuel-pressure.html">sra-analog-gauge-spek-fuel-pressure</a></li><li><a href="sra-analog-gauge-spek-oil-level.html">sra-analog-gauge-spek-oil-level</a></li><li><a href="sra-analog-gauge-spek-oil-pressure.html">sra-analog-gauge-spek-oil-pressure</a></li><li><a href="sra-analog-gauge-spek-oil-temp.html">sra-analog-gauge-spek-oil-temp</a></li><li><a href="sra-analog-gauge-spek-tachometer.html">sra-analog-gauge-spek-tachometer</a></li><li><a href="sra-analog-gauge-spek-voltage.html">sra-analog-gauge-spek-voltage</a></li><li><a href="sra-analog-gauge-spek-water-level.html">sra-analog-gauge-spek-water-level</a></li><li><a href="sra-analog-gauge-spek-water-pressure.html">sra-analog-gauge-spek-water-pressure</a></li><li><a href="sra-analog-gauge-spek-water-temp.html">sra-analog-gauge-spek-water-temp</a></li><li><a href="sra-bar-gauge.html">sra-bar-gauge</a></li><li><a href="sra-bar-gauge-brake-pressure.html">sra-bar-gauge-brake-pressure</a></li><li><a href="sra-bar-gauge-fuel-level.html">sra-bar-gauge-fuel-level</a></li><li><a href="sra-bar-gauge-fuel-pressure.html">sra-bar-gauge-fuel-pressure</a></li><li><a href="sra-bar-gauge-oil-level.html">sra-bar-gauge-oil-level</a></li><li><a href="sra-bar-gauge-oil-pressure.html">sra-bar-gauge-oil-pressure</a></li><li><a href="sra-bar-gauge-oil-temp.html">sra-bar-gauge-oil-temp</a></li><li><a href="sra-bar-gauge-tachometer.html">sra-bar-gauge-tachometer</a></li><li><a href="sra-bar-gauge-voltage.html">sra-bar-gauge-voltage</a></li><li><a href="sra-bar-gauge-water-level.html">sra-bar-gauge-water-level</a></li><li><a href="sra-bar-gauge-water-pressure.html">sra-bar-gauge-water-pressure</a></li><li><a href="sra-bar-gauge-water-temp.html">sra-bar-gauge-water-temp</a></li><li><a href="sra-car-controls.html">sra-car-controls</a></li><li><a href="sra-car-image.html">sra-car-image</a></li><li><a href="sra-car-number.html">sra-car-number</a></li><li><a href="sra-car-number-extended.html">sra-car-number-extended</a></li><li><a href="sra-car-selector.html">sra-car-selector</a></li><li><a href="sra-data-table.html">sra-data-table</a></li><li><a href="sra-driver-info.html">sra-driver-info</a></li><li><a href="sra-flags.html">sra-flags</a></li><li><a href="sra-fuel-tank.html">sra-fuel-tank</a></li><li><a href="sra-gear.html">sra-gear</a></li><li><a href="sra-lap-timing.html">sra-lap-timing</a></li><li><a href="sra-pedals.html">sra-pedals</a></li><li><a href="sra-pit-commander.html">sra-pit-commander</a></li><li><a href="sra-pit-road.html">sra-pit-road</a></li><li><a href="sra-radio-control.html">sra-radio-control</a></li><li><a href="sra-relative.html">sra-relative</a></li><li><a href="sra-relative-small.html">sra-relative-small</a></li><li><a href="sra-shift-light.html">sra-shift-light</a></li><li><a href="sra-shift-lights.html">sra-shift-lights</a></li><li><a href="sra-standings.html">sra-standings</a></li><li><a href="sra-standings-banner.html">sra-standings-banner</a></li><li><a href="sra-standings-top-10.html">sra-standings-top-10</a></li><li><a href="sra-standings-top-20.html">sra-standings-top-20</a></li><li><a href="sra-standings-top-35.html">sra-standings-top-35</a></li><li><a href="sra-standings-top-43.html">sra-standings-top-43</a></li><li><a href="sra-steering-wheel.html">sra-steering-wheel</a></li><li><a href="sra-team-speak-talking.html">sra-team-speak-talking</a></li><li><a href="sra-template.html">sra-template</a></li><li><a href="sra-timing-delta.html">sra-timing-delta</a></li><li><a href="sra-tire.html">sra-tire</a></li><li><a href="sra-tire-measurements.html">sra-tire-measurements</a></li><li><a href="sra-track-map.html">sra-track-map</a></li><li><a href="sra-track-map-car.html">sra-track-map-car</a></li><li><a href="sra-track-map-finish-line.html">sra-track-map-finish-line</a></li><li><a href="sra-weather-info.html">sra-weather-info</a></li><li><a href="sra-wind-gauge.html">sra-wind-gauge</a></li></ul><h3>controller</h3><ul><li><a href="module-SIMRacingApps-sraController.html">sraController</a></li></ul><h3>factory</h3><ul><li><a href="module-SIMRacingApps-sraDispatcher.html">sraDispatcher</a></li></ul><h3>Global</h3><ul><li><a href="global.html#SIMRacingAppsCache">SIMRacingAppsCache</a></li></ul>
+    <h2><a href="index.html">Index</a></h2><h3>Modules</h3><ul><li><a href="module-SIMRacingApps.html">SIMRacingApps</a></li></ul><h3>apps</h3><ul><li><a href="CrewChief.html">CrewChief</a></li><li><a href="CrewChief-Large.html">CrewChief-Large</a></li><li><a href="Dash-BarGauges-DigitalOverlay.html">Dash-BarGauges-DigitalOverlay</a></li><li><a href="Dash-Gauges-Spek.html">Dash-Gauges-Spek</a></li><li><a href="Dash-Gauges-Spek-Horizontal.html">Dash-Gauges-Spek-Horizontal</a></li><li><a href="Dash-Minimum.html">Dash-Minimum</a></li><li><a href="Dash-Small.html">Dash-Small</a></li><li><a href="Dash-StockCars-DigitalOverlay.html">Dash-StockCars-DigitalOverlay</a></li><li><a href="RaceAdministrator.html">RaceAdministrator</a></li><li><a href="Spectator.html">Spectator</a></li><li><a href="StreamingOverlay.html">StreamingOverlay</a></li></ul><h3>filter</h3><ul><li><a href="module-SIMRacingApps.sraCeil.html">sraCeil</a></li><li><a href="module-SIMRacingApps.sraDebug.html">sraDebug</a></li><li><a href="module-SIMRacingApps.sraDecodeEntities.html">sraDecodeEntities</a></li><li><a href="module-SIMRacingApps.sraDuration.html">sraDuration</a></li><li><a href="module-SIMRacingApps.sraFloor.html">sraFloor</a></li><li><a href="module-SIMRacingApps.sraHex.html">sraHex</a></li><li><a href="module-SIMRacingApps.sraLPad.html">sraLPad</a></li><li><a href="module-SIMRacingApps.sraNumber.html">sraNumber</a></li><li><a href="module-SIMRacingApps.sraRGB.html">sraRGB</a></li><li><a href="module-SIMRacingApps.sraRound.html">sraRound</a></li><li><a href="module-SIMRacingApps.sraRPad.html">sraRPad</a></li></ul><h3>directive</h3><ul><li><a href="module-SIMRacingApps-sra-data.html">sra-data</a></li><li><a href="module-SIMRacingApps-sra-horizontal-align.html">sra-horizontal-align</a></li><li><a href="module-SIMRacingApps-sra-resize.html">sra-resize</a></li><li><a href="module-SIMRacingApps-sra-vertical-align.html">sra-vertical-align</a></li><li><a href="sra-analog-gauge.html">sra-analog-gauge</a></li><li><a href="sra-analog-gauge-spek-brake-pressure.html">sra-analog-gauge-spek-brake-pressure</a></li><li><a href="sra-analog-gauge-spek-fuel-level.html">sra-analog-gauge-spek-fuel-level</a></li><li><a href="sra-analog-gauge-spek-fuel-pressure.html">sra-analog-gauge-spek-fuel-pressure</a></li><li><a href="sra-analog-gauge-spek-oil-level.html">sra-analog-gauge-spek-oil-level</a></li><li><a href="sra-analog-gauge-spek-oil-pressure.html">sra-analog-gauge-spek-oil-pressure</a></li><li><a href="sra-analog-gauge-spek-oil-temp.html">sra-analog-gauge-spek-oil-temp</a></li><li><a href="sra-analog-gauge-spek-tachometer.html">sra-analog-gauge-spek-tachometer</a></li><li><a href="sra-analog-gauge-spek-voltage.html">sra-analog-gauge-spek-voltage</a></li><li><a href="sra-analog-gauge-spek-water-level.html">sra-analog-gauge-spek-water-level</a></li><li><a href="sra-analog-gauge-spek-water-pressure.html">sra-analog-gauge-spek-water-pressure</a></li><li><a href="sra-analog-gauge-spek-water-temp.html">sra-analog-gauge-spek-water-temp</a></li><li><a href="sra-bar-gauge.html">sra-bar-gauge</a></li><li><a href="sra-bar-gauge-brake-pressure.html">sra-bar-gauge-brake-pressure</a></li><li><a href="sra-bar-gauge-fuel-level.html">sra-bar-gauge-fuel-level</a></li><li><a href="sra-bar-gauge-fuel-pressure.html">sra-bar-gauge-fuel-pressure</a></li><li><a href="sra-bar-gauge-oil-level.html">sra-bar-gauge-oil-level</a></li><li><a href="sra-bar-gauge-oil-pressure.html">sra-bar-gauge-oil-pressure</a></li><li><a href="sra-bar-gauge-oil-temp.html">sra-bar-gauge-oil-temp</a></li><li><a href="sra-bar-gauge-tachometer.html">sra-bar-gauge-tachometer</a></li><li><a href="sra-bar-gauge-voltage.html">sra-bar-gauge-voltage</a></li><li><a href="sra-bar-gauge-water-level.html">sra-bar-gauge-water-level</a></li><li><a href="sra-bar-gauge-water-pressure.html">sra-bar-gauge-water-pressure</a></li><li><a href="sra-bar-gauge-water-temp.html">sra-bar-gauge-water-temp</a></li><li><a href="sra-car-controls.html">sra-car-controls</a></li><li><a href="sra-car-image.html">sra-car-image</a></li><li><a href="sra-car-number.html">sra-car-number</a></li><li><a href="sra-car-number-extended.html">sra-car-number-extended</a></li><li><a href="sra-car-selector.html">sra-car-selector</a></li><li><a href="sra-data-table.html">sra-data-table</a></li><li><a href="sra-driver-info.html">sra-driver-info</a></li><li><a href="sra-flags.html">sra-flags</a></li><li><a href="sra-fuel-tank.html">sra-fuel-tank</a></li><li><a href="sra-gear.html">sra-gear</a></li><li><a href="sra-lap-timing.html">sra-lap-timing</a></li><li><a href="sra-messages.html">sra-messages</a></li><li><a href="sra-pedals.html">sra-pedals</a></li><li><a href="sra-pit-commander.html">sra-pit-commander</a></li><li><a href="sra-pit-road.html">sra-pit-road</a></li><li><a href="sra-radio-control.html">sra-radio-control</a></li><li><a href="sra-relative.html">sra-relative</a></li><li><a href="sra-relative13.html">sra-relative13</a></li><li><a href="sra-relative25.html">sra-relative25</a></li><li><a href="sra-relative-small.html">sra-relative-small</a></li><li><a href="sra-shift-light.html">sra-shift-light</a></li><li><a href="sra-shift-lights.html">sra-shift-lights</a></li><li><a href="sra-standings.html">sra-standings</a></li><li><a href="sra-standings-banner.html">sra-standings-banner</a></li><li><a href="sra-standings-top-10.html">sra-standings-top-10</a></li><li><a href="sra-standings-top-20.html">sra-standings-top-20</a></li><li><a href="sra-standings-top-35.html">sra-standings-top-35</a></li><li><a href="sra-standings-top-43.html">sra-standings-top-43</a></li><li><a href="sra-steering-wheel.html">sra-steering-wheel</a></li><li><a href="sra-team-speak-talking.html">sra-team-speak-talking</a></li><li><a href="sra-template.html">sra-template</a></li><li><a href="sra-time.html">sra-time</a></li><li><a href="sra-timing-delta.html">sra-timing-delta</a></li><li><a href="sra-tire.html">sra-tire</a></li><li><a href="sra-tire-measurements.html">sra-tire-measurements</a></li><li><a href="sra-track-map.html">sra-track-map</a></li><li><a href="sra-track-map-car.html">sra-track-map-car</a></li><li><a href="sra-track-map-finish-line.html">sra-track-map-finish-line</a></li><li><a href="sra-weather-info.html">sra-weather-info</a></li><li><a href="sra-wind-gauge.html">sra-wind-gauge</a></li></ul><h3>controller</h3><ul><li><a href="module-SIMRacingApps-sraController.html">sraController</a></li></ul><h3>factory</h3><ul><li><a href="module-SIMRacingApps-sraDispatcher.html">sraDispatcher</a></li></ul><h3>Global</h3><ul><li><a href="global.html#SIMRacingAppsCache">SIMRacingAppsCache</a></li></ul>
 </nav>
 
 <br clear="both">

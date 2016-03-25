@@ -104,20 +104,20 @@ define(['SIMRacingApps','css!widgets/PitCommander/PitCommander'
                 $scope.onClickWindshield = function(event) {
                     if (!$scope.controller)
                         return;
-                    if ($scope.data.Car.REFERENCE.Gauge.WindshieldTearoff.ChangeFlag.Value == 'Y')
-                        sraDispatcher.sendCommand("Car/REFERENCE/Gauge/WindshieldTearoff/setChangeFlag/N");
+                    if ($scope.data.Car.REFERENCE.Gauge.WindshieldTearoff.ChangeFlag.Value)
+                        sraDispatcher.sendCommand("Car/REFERENCE/Gauge/WindshieldTearoff/setChangeFlag/false");
                     else
-                        sraDispatcher.sendCommand("Car/REFERENCE/Gauge/WindshieldTearoff/setChangeFlag/Y");
+                        sraDispatcher.sendCommand("Car/REFERENCE/Gauge/WindshieldTearoff/setChangeFlag/true");
                     $scope.windshield = 'clicked';
                 };
 
                 $scope.onClickFastRepairs = function(event) {
                     if (!$scope.controller)
                         return;
-                    if ($scope.data.Car.REFERENCE.Gauge.FastRepairs.ChangeFlag.Value == 'Y')
-                        sraDispatcher.sendCommand("Car/REFERENCE/Gauge/FastRepairs/setChangeFlag/N");
+                    if ($scope.data.Car.REFERENCE.Gauge.FastRepairs.ChangeFlag.Value)
+                        sraDispatcher.sendCommand("Car/REFERENCE/Gauge/FastRepairs/setChangeFlag/false");
                     else
-                        sraDispatcher.sendCommand("Car/REFERENCE/Gauge/FastRepairs/setChangeFlag/Y");
+                        sraDispatcher.sendCommand("Car/REFERENCE/Gauge/FastRepairs/setChangeFlag/true");
                     $scope.fastrepairs = 'clicked';
                 };
 
@@ -132,62 +132,40 @@ define(['SIMRacingApps','css!widgets/PitCommander/PitCommander'
 
                     $scope.lefts  = $scope.leftsgas = $scope.rights = $scope.rightsgas = $scope.tires4 = $scope.tires4gas = $scope.windshield = $scope.fastrepairs = "normal";
 
-                    if ($scope.LF == 'Y' &amp;&amp; $scope.LR == 'Y') {
+                    if ($scope.LF &amp;&amp; $scope.LR) {
                         $scope.lefts = "selected";
-                        if ($scope.GAS == 'Y')
+                        if ($scope.GAS)
                             $scope.leftsgas = "selected";
                     }
-                    if ($scope.RF == 'Y' &amp;&amp; $scope.RR == 'Y') {
+                    if ($scope.RF &amp;&amp; $scope.RR) {
                         $scope.rights = "selected";
-                        if ($scope.GAS == 'Y')
+                        if ($scope.GAS)
                             $scope.rightsgas = "selected";
                     }
-                    if ($scope.LF == 'Y' &amp;&amp; $scope.LR == 'Y' &amp;&amp; $scope.RF == 'Y' &amp;&amp; $scope.RR == 'Y') {
+                    if ($scope.LF &amp;&amp; $scope.LR &amp;&amp; $scope.RF &amp;&amp; $scope.RR) {
                         $scope.tires4 = "selected";
-                        if ($scope.GAS == 'Y')
+                        if ($scope.GAS)
                             $scope.tires4gas = "selected";
                     }
-                    if ($scope.WS == 'Y')
+                    if ($scope.WS)
                         $scope.windshield = "selected";
                     
-                    if ($scope.FR == 'Y')
+                    if ($scope.FR)
                         $scope.fastrepairs = "selected";
 
-//                    $scope.setWindshield();
                 };
-
-//                $scope.setWindshield = function() {
-//                    if (!$scope.controller)
-//                        return;
-//
-//                    if ($scope.controller) {
-//                        if ($scope.LF        == 'Y'
-//                        ||  $scope.LR        == 'Y'
-//                        ||  $scope.RF        == 'Y'
-//                        ||  $scope.RR        == 'Y'
-//                        ||  $scope.GAS       == 'Y'
-//                        ) {
-//                            if ($scope.windshield != "selected")
-//                                sraDispatcher.sendCommand("Car/REFERENCE/Gauge/WindshieldTearoff/setChangeFlag/Y");
-//                        }
-//                        else {
-//                            if ($scope.windshield == "selected")
-//                                sraDispatcher.sendCommand("Car/REFERENCE/Gauge/WindshieldTearoff/setChangeFlag/N");
-//                        }
-//                    }
-//                };
 
                 $scope.onClickLefts = function(event) {
                     if (!$scope.controller)
                         return;
                     var command;
                     if ($scope.lefts == "selected") {
-                        command = "Car/REFERENCE/Gauge/TirePressureLF/setChangeFlag/N;Car/REFERENCE/Gauge/TirePressureLR/setChangeFlag/N";
-                        if ($scope.RF == 'N' &amp;&amp; $scope.RR == 'N' &amp;&amp; $scope.GAS == 'N')
-                            command += ";Car/REFERENCE/Gauge/WindshieldTearoff/setChangeFlag/N";
+                        command = "Car/REFERENCE/Gauge/TirePressureLF/setChangeFlag/false;Car/REFERENCE/Gauge/TirePressureLR/setChangeFlag/false";
+                        if (!$scope.RF &amp;&amp; !$scope.RR &amp;&amp; !$scope.GAS)
+                            command += ";Car/REFERENCE/Gauge/WindshieldTearoff/setChangeFlag/false";
                     }
                     else
-                        command = "Car/REFERENCE/Gauge/TirePressureLF/setChangeFlag/Y;Car/REFERENCE/Gauge/TirePressureLR/setChangeFlag/Y;Car/REFERENCE/Gauge/WindshieldTearoff/setChangeFlag/Y";
+                        command = "Car/REFERENCE/Gauge/TirePressureLF/setChangeFlag/true;Car/REFERENCE/Gauge/TirePressureLR/setChangeFlag/true;Car/REFERENCE/Gauge/WindshieldTearoff/setChangeFlag/true";
 
                     sraDispatcher.sendCommand(command);
                     $scope.lefts = "clicked";
@@ -199,12 +177,12 @@ define(['SIMRacingApps','css!widgets/PitCommander/PitCommander'
 
                     var command;
                     if ($scope.leftsgas == "selected") {
-                        command = "Car/REFERENCE/Gauge/TirePressureLF/setChangeFlag/N;Car/REFERENCE/Gauge/TirePressureLR/setChangeFlag/N;Car/REFERENCE/Gauge/FuelLevel/setValueNext/0;Car/REFERENCE/Gauge/FuelLevel/setChangeFlag/N";
-                        if ($scope.RF == 'N' &amp;&amp; $scope.RR == 'N')
-                            command += ";Car/REFERENCE/Gauge/WindshieldTearoff/setChangeFlag/N";
+                        command = "Car/REFERENCE/Gauge/TirePressureLF/setChangeFlag/false;Car/REFERENCE/Gauge/TirePressureLR/setChangeFlag/false;Car/REFERENCE/Gauge/FuelLevel/setValueNext/0;Car/REFERENCE/Gauge/FuelLevel/setChangeFlag/false";
+                        if (!$scope.RF &amp;&amp; !$scope.RR)
+                            command += ";Car/REFERENCE/Gauge/WindshieldTearoff/setChangeFlag/false";
                     }
                     else
-                        command = "Car/REFERENCE/Gauge/TirePressureLF/setChangeFlag/Y;Car/REFERENCE/Gauge/TirePressureLR/setChangeFlag/Y;Car/REFERENCE/Gauge/FuelLevel/setValueNext/"+MAX+";Car/REFERENCE/Gauge/WindshieldTearoff/setChangeFlag/Y";
+                        command = "Car/REFERENCE/Gauge/TirePressureLF/setChangeFlag/true;Car/REFERENCE/Gauge/TirePressureLR/setChangeFlag/true;Car/REFERENCE/Gauge/FuelLevel/setValueNext/"+MAX+";Car/REFERENCE/Gauge/WindshieldTearoff/setChangeFlag/true";
                     sraDispatcher.sendCommand(command);
                     $scope.leftsgas = "clicked";
                 };
@@ -213,12 +191,12 @@ define(['SIMRacingApps','css!widgets/PitCommander/PitCommander'
                         return;
                     var command;
                     if ($scope.rights == "selected") {
-                        command = "Car/REFERENCE/Gauge/TirePressureRF/setChangeFlag/N;Car/REFERENCE/Gauge/TirePressureRR/setChangeFlag/N";
-                        if ($scope.LF == 'N' &amp;&amp; $scope.LR == 'N' &amp;&amp; $scope.GAS == 'N')
-                            command += ";Car/REFERENCE/Gauge/WindshieldTearoff/setChangeFlag/N";
+                        command = "Car/REFERENCE/Gauge/TirePressureRF/setChangeFlag/false;Car/REFERENCE/Gauge/TirePressureRR/setChangeFlag/false";
+                        if (!$scope.LF &amp;&amp; !$scope.LR &amp;&amp; !$scope.GAS)
+                            command += ";Car/REFERENCE/Gauge/WindshieldTearoff/setChangeFlag/false";
                     }
                     else
-                        command = "Car/REFERENCE/Gauge/TirePressureRF/setChangeFlag/Y;Car/REFERENCE/Gauge/TirePressureRR/setChangeFlag/Y;Car/REFERENCE/Gauge/WindshieldTearoff/setChangeFlag/Y";
+                        command = "Car/REFERENCE/Gauge/TirePressureRF/setChangeFlag/true;Car/REFERENCE/Gauge/TirePressureRR/setChangeFlag/true;Car/REFERENCE/Gauge/WindshieldTearoff/setChangeFlag/true";
                     sraDispatcher.sendCommand(command);
                     $scope.rights = "clicked";
                 };
@@ -229,12 +207,12 @@ define(['SIMRacingApps','css!widgets/PitCommander/PitCommander'
 
                     var command;
                     if ($scope.rightsgas == "selected") {
-                        command = "Car/REFERENCE/Gauge/TirePressureRF/setChangeFlag/N;Car/REFERENCE/Gauge/TirePressureRR/setChangeFlag/N;Car/REFERENCE/Gauge/FuelLevel/setValueNext/0;Car/REFERENCE/Gauge/FuelLevel/setChangeFlag/N";
-                        if ($scope.LF == 'N' &amp;&amp; $scope.LR == 'N')
-                            command += ";Car/REFERENCE/Gauge/WindshieldTearoff/setChangeFlag/N";
+                        command = "Car/REFERENCE/Gauge/TirePressureRF/setChangeFlag/false;Car/REFERENCE/Gauge/TirePressureRR/setChangeFlag/false;Car/REFERENCE/Gauge/FuelLevel/setValueNext/0;Car/REFERENCE/Gauge/FuelLevel/setChangeFlag/false";
+                        if (!$scope.LF &amp;&amp; !$scope.LR)
+                            command += ";Car/REFERENCE/Gauge/WindshieldTearoff/setChangeFlag/false";
                     }
                     else
-                        command = "Car/REFERENCE/Gauge/TirePressureRF/setChangeFlag/Y;Car/REFERENCE/Gauge/TirePressureRR/setChangeFlag/Y;Car/REFERENCE/Gauge/FuelLevel/setValueNext/"+MAX+";Car/REFERENCE/Gauge/WindshieldTearoff/setChangeFlag/Y";
+                        command = "Car/REFERENCE/Gauge/TirePressureRF/setChangeFlag/true;Car/REFERENCE/Gauge/TirePressureRR/setChangeFlag/true;Car/REFERENCE/Gauge/FuelLevel/setValueNext/"+MAX+";Car/REFERENCE/Gauge/WindshieldTearoff/setChangeFlag/true";
                     sraDispatcher.sendCommand(command);
                     $scope.rightsgas = "clicked";
                 };
@@ -243,12 +221,12 @@ define(['SIMRacingApps','css!widgets/PitCommander/PitCommander'
                         return;
                     var command;
                     if ($scope.tires4 == "selected") {
-                        command = "Car/REFERENCE/Gauge/TirePressureLF/setChangeFlag/N;Car/REFERENCE/Gauge/TirePressureLR/setChangeFlag/N;Car/REFERENCE/Gauge/TirePressureRF/setChangeFlag/N;Car/REFERENCE/Gauge/TirePressureRR/setChangeFlag/N";
-                        if ($scope.GAS == 'N')
-                            command += ";Car/REFERENCE/Gauge/WindshieldTearoff/setChangeFlag/N";
+                        command = "Car/REFERENCE/Gauge/TirePressureLF/setChangeFlag/false;Car/REFERENCE/Gauge/TirePressureLR/setChangeFlag/false;Car/REFERENCE/Gauge/TirePressureRF/setChangeFlag/false;Car/REFERENCE/Gauge/TirePressureRR/setChangeFlag/false";
+                        if (!$scope.GAS)
+                            command += ";Car/REFERENCE/Gauge/WindshieldTearoff/setChangeFlag/false";
                     }
                     else
-                        command = "Car/REFERENCE/Gauge/TirePressureLF/setChangeFlag/Y;Car/REFERENCE/Gauge/TirePressureLR/setChangeFlag/Y;Car/REFERENCE/Gauge/TirePressureRF/setChangeFlag/Y;Car/REFERENCE/Gauge/TirePressureRR/setChangeFlag/Y;Car/REFERENCE/Gauge/WindshieldTearoff/setChangeFlag/Y";
+                        command = "Car/REFERENCE/Gauge/TirePressureLF/setChangeFlag/true;Car/REFERENCE/Gauge/TirePressureLR/setChangeFlag/true;Car/REFERENCE/Gauge/TirePressureRF/setChangeFlag/true;Car/REFERENCE/Gauge/TirePressureRR/setChangeFlag/true;Car/REFERENCE/Gauge/WindshieldTearoff/setChangeFlag/true";
                     sraDispatcher.sendCommand(command);
                     $scope.tires4 = "clicked";
                 };
@@ -259,9 +237,9 @@ define(['SIMRacingApps','css!widgets/PitCommander/PitCommander'
 
                     var command;
                     if ($scope.tires4gas == "selected")
-                        command = "Car/REFERENCE/Gauge/TirePressureLF/setChangeFlag/N;Car/REFERENCE/Gauge/TirePressureLR/setChangeFlag/N;Car/REFERENCE/Gauge/TirePressureRF/setChangeFlag/N;Car/REFERENCE/Gauge/TirePressureRR/setChangeFlag/N;Car/REFERENCE/Gauge/FuelLevel/setValueNext/0;Car/REFERENCE/Gauge/FuelLevel/setChangeFlag/N;Car/REFERENCE/Gauge/WindshieldTearoff/setChangeFlag/N";
+                        command = "Car/REFERENCE/Gauge/TirePressureLF/setChangeFlag/false;Car/REFERENCE/Gauge/TirePressureLR/setChangeFlag/false;Car/REFERENCE/Gauge/TirePressureRF/setChangeFlag/false;Car/REFERENCE/Gauge/TirePressureRR/setChangeFlag/false;Car/REFERENCE/Gauge/FuelLevel/setValueNext/0;Car/REFERENCE/Gauge/FuelLevel/setChangeFlag/false;Car/REFERENCE/Gauge/WindshieldTearoff/setChangeFlag/false";
                     else
-                        command = "Car/REFERENCE/Gauge/TirePressureLF/setChangeFlag/Y;Car/REFERENCE/Gauge/TirePressureLR/setChangeFlag/Y;Car/REFERENCE/Gauge/TirePressureRF/setChangeFlag/Y;Car/REFERENCE/Gauge/TirePressureRR/setChangeFlag/Y;Car/REFERENCE/Gauge/FuelLevel/setValueNext/"+MAX+";Car/REFERENCE/Gauge/WindshieldTearoff/setChangeFlag/Y";
+                        command = "Car/REFERENCE/Gauge/TirePressureLF/setChangeFlag/true;Car/REFERENCE/Gauge/TirePressureLR/setChangeFlag/true;Car/REFERENCE/Gauge/TirePressureRF/setChangeFlag/true;Car/REFERENCE/Gauge/TirePressureRR/setChangeFlag/true;Car/REFERENCE/Gauge/FuelLevel/setValueNext/"+MAX+";Car/REFERENCE/Gauge/WindshieldTearoff/setChangeFlag/true";
                     sraDispatcher.sendCommand(command);
                     $scope.tires4gas = "clicked";
                 };
@@ -325,10 +303,10 @@ define(['SIMRacingApps','css!widgets/PitCommander/PitCommander'
 
                 /** watches go here **/
                 $scope.$watch("data.Car.REFERENCE.HasAutomaticPitCommands.Value", function(value) {
-                    if (value == 'N')
+                    if (!value)
                         $scope.controller = false;
                     else
-                    if (value == 'Y' &amp;&amp; $scope.canControl)
+                    if (value &amp;&amp; $scope.canControl)
                         $scope.controller = true;
                 });
 
@@ -355,7 +333,7 @@ define(['SIMRacingApps','css!widgets/PitCommander/PitCommander'
 </div>
 
 <nav>
-    <h2><a href="index.html">Index</a></h2><h3>Modules</h3><ul><li><a href="module-SIMRacingApps.html">SIMRacingApps</a></li></ul><h3>apps</h3><ul><li><a href="CrewChief.html">CrewChief</a></li><li><a href="CrewChief-Large.html">CrewChief-Large</a></li><li><a href="Dash-BarGauges-DigitalOverlay.html">Dash-BarGauges-DigitalOverlay</a></li><li><a href="Dash-Gauges-Spek.html">Dash-Gauges-Spek</a></li><li><a href="Dash-Gauges-Spek-Horizontal.html">Dash-Gauges-Spek-Horizontal</a></li><li><a href="Dash-Minimum.html">Dash-Minimum</a></li><li><a href="Dash-Small.html">Dash-Small</a></li><li><a href="Dash-StockCars-DigitalOverlay.html">Dash-StockCars-DigitalOverlay</a></li><li><a href="RaceAdministrator.html">RaceAdministrator</a></li><li><a href="Spectator.html">Spectator</a></li><li><a href="StreamingOverlay.html">StreamingOverlay</a></li></ul><h3>filter</h3><ul><li><a href="module-SIMRacingApps.sraCeil.html">sraCeil</a></li><li><a href="module-SIMRacingApps.sraDebug.html">sraDebug</a></li><li><a href="module-SIMRacingApps.sraDecodeEntities.html">sraDecodeEntities</a></li><li><a href="module-SIMRacingApps.sraDuration.html">sraDuration</a></li><li><a href="module-SIMRacingApps.sraFloor.html">sraFloor</a></li><li><a href="module-SIMRacingApps.sraHex.html">sraHex</a></li><li><a href="module-SIMRacingApps.sraLPad.html">sraLPad</a></li><li><a href="module-SIMRacingApps.sraNumber.html">sraNumber</a></li><li><a href="module-SIMRacingApps.sraRGB.html">sraRGB</a></li><li><a href="module-SIMRacingApps.sraRound.html">sraRound</a></li><li><a href="module-SIMRacingApps.sraRPad.html">sraRPad</a></li></ul><h3>directive</h3><ul><li><a href="module-SIMRacingApps-sra-data.html">sra-data</a></li><li><a href="module-SIMRacingApps-sra-horizontal-align.html">sra-horizontal-align</a></li><li><a href="module-SIMRacingApps-sra-resize.html">sra-resize</a></li><li><a href="module-SIMRacingApps-sra-vertical-align.html">sra-vertical-align</a></li><li><a href="sra-analog-gauge.html">sra-analog-gauge</a></li><li><a href="sra-analog-gauge-spek-brake-pressure.html">sra-analog-gauge-spek-brake-pressure</a></li><li><a href="sra-analog-gauge-spek-fuel-level.html">sra-analog-gauge-spek-fuel-level</a></li><li><a href="sra-analog-gauge-spek-fuel-pressure.html">sra-analog-gauge-spek-fuel-pressure</a></li><li><a href="sra-analog-gauge-spek-oil-level.html">sra-analog-gauge-spek-oil-level</a></li><li><a href="sra-analog-gauge-spek-oil-pressure.html">sra-analog-gauge-spek-oil-pressure</a></li><li><a href="sra-analog-gauge-spek-oil-temp.html">sra-analog-gauge-spek-oil-temp</a></li><li><a href="sra-analog-gauge-spek-tachometer.html">sra-analog-gauge-spek-tachometer</a></li><li><a href="sra-analog-gauge-spek-voltage.html">sra-analog-gauge-spek-voltage</a></li><li><a href="sra-analog-gauge-spek-water-level.html">sra-analog-gauge-spek-water-level</a></li><li><a href="sra-analog-gauge-spek-water-pressure.html">sra-analog-gauge-spek-water-pressure</a></li><li><a href="sra-analog-gauge-spek-water-temp.html">sra-analog-gauge-spek-water-temp</a></li><li><a href="sra-bar-gauge.html">sra-bar-gauge</a></li><li><a href="sra-bar-gauge-brake-pressure.html">sra-bar-gauge-brake-pressure</a></li><li><a href="sra-bar-gauge-fuel-level.html">sra-bar-gauge-fuel-level</a></li><li><a href="sra-bar-gauge-fuel-pressure.html">sra-bar-gauge-fuel-pressure</a></li><li><a href="sra-bar-gauge-oil-level.html">sra-bar-gauge-oil-level</a></li><li><a href="sra-bar-gauge-oil-pressure.html">sra-bar-gauge-oil-pressure</a></li><li><a href="sra-bar-gauge-oil-temp.html">sra-bar-gauge-oil-temp</a></li><li><a href="sra-bar-gauge-tachometer.html">sra-bar-gauge-tachometer</a></li><li><a href="sra-bar-gauge-voltage.html">sra-bar-gauge-voltage</a></li><li><a href="sra-bar-gauge-water-level.html">sra-bar-gauge-water-level</a></li><li><a href="sra-bar-gauge-water-pressure.html">sra-bar-gauge-water-pressure</a></li><li><a href="sra-bar-gauge-water-temp.html">sra-bar-gauge-water-temp</a></li><li><a href="sra-car-controls.html">sra-car-controls</a></li><li><a href="sra-car-image.html">sra-car-image</a></li><li><a href="sra-car-number.html">sra-car-number</a></li><li><a href="sra-car-number-extended.html">sra-car-number-extended</a></li><li><a href="sra-car-selector.html">sra-car-selector</a></li><li><a href="sra-data-table.html">sra-data-table</a></li><li><a href="sra-driver-info.html">sra-driver-info</a></li><li><a href="sra-flags.html">sra-flags</a></li><li><a href="sra-fuel-tank.html">sra-fuel-tank</a></li><li><a href="sra-gear.html">sra-gear</a></li><li><a href="sra-lap-timing.html">sra-lap-timing</a></li><li><a href="sra-pedals.html">sra-pedals</a></li><li><a href="sra-pit-commander.html">sra-pit-commander</a></li><li><a href="sra-pit-road.html">sra-pit-road</a></li><li><a href="sra-radio-control.html">sra-radio-control</a></li><li><a href="sra-relative.html">sra-relative</a></li><li><a href="sra-relative-small.html">sra-relative-small</a></li><li><a href="sra-shift-light.html">sra-shift-light</a></li><li><a href="sra-shift-lights.html">sra-shift-lights</a></li><li><a href="sra-standings.html">sra-standings</a></li><li><a href="sra-standings-banner.html">sra-standings-banner</a></li><li><a href="sra-standings-top-10.html">sra-standings-top-10</a></li><li><a href="sra-standings-top-20.html">sra-standings-top-20</a></li><li><a href="sra-standings-top-35.html">sra-standings-top-35</a></li><li><a href="sra-standings-top-43.html">sra-standings-top-43</a></li><li><a href="sra-steering-wheel.html">sra-steering-wheel</a></li><li><a href="sra-team-speak-talking.html">sra-team-speak-talking</a></li><li><a href="sra-template.html">sra-template</a></li><li><a href="sra-timing-delta.html">sra-timing-delta</a></li><li><a href="sra-tire.html">sra-tire</a></li><li><a href="sra-tire-measurements.html">sra-tire-measurements</a></li><li><a href="sra-track-map.html">sra-track-map</a></li><li><a href="sra-track-map-car.html">sra-track-map-car</a></li><li><a href="sra-track-map-finish-line.html">sra-track-map-finish-line</a></li><li><a href="sra-weather-info.html">sra-weather-info</a></li><li><a href="sra-wind-gauge.html">sra-wind-gauge</a></li></ul><h3>controller</h3><ul><li><a href="module-SIMRacingApps-sraController.html">sraController</a></li></ul><h3>factory</h3><ul><li><a href="module-SIMRacingApps-sraDispatcher.html">sraDispatcher</a></li></ul><h3>Global</h3><ul><li><a href="global.html#SIMRacingAppsCache">SIMRacingAppsCache</a></li></ul>
+    <h2><a href="index.html">Index</a></h2><h3>Modules</h3><ul><li><a href="module-SIMRacingApps.html">SIMRacingApps</a></li></ul><h3>apps</h3><ul><li><a href="CrewChief.html">CrewChief</a></li><li><a href="CrewChief-Large.html">CrewChief-Large</a></li><li><a href="Dash-BarGauges-DigitalOverlay.html">Dash-BarGauges-DigitalOverlay</a></li><li><a href="Dash-Gauges-Spek.html">Dash-Gauges-Spek</a></li><li><a href="Dash-Gauges-Spek-Horizontal.html">Dash-Gauges-Spek-Horizontal</a></li><li><a href="Dash-Minimum.html">Dash-Minimum</a></li><li><a href="Dash-Small.html">Dash-Small</a></li><li><a href="Dash-StockCars-DigitalOverlay.html">Dash-StockCars-DigitalOverlay</a></li><li><a href="RaceAdministrator.html">RaceAdministrator</a></li><li><a href="Spectator.html">Spectator</a></li><li><a href="StreamingOverlay.html">StreamingOverlay</a></li></ul><h3>filter</h3><ul><li><a href="module-SIMRacingApps.sraCeil.html">sraCeil</a></li><li><a href="module-SIMRacingApps.sraDebug.html">sraDebug</a></li><li><a href="module-SIMRacingApps.sraDecodeEntities.html">sraDecodeEntities</a></li><li><a href="module-SIMRacingApps.sraDuration.html">sraDuration</a></li><li><a href="module-SIMRacingApps.sraFloor.html">sraFloor</a></li><li><a href="module-SIMRacingApps.sraHex.html">sraHex</a></li><li><a href="module-SIMRacingApps.sraLPad.html">sraLPad</a></li><li><a href="module-SIMRacingApps.sraNumber.html">sraNumber</a></li><li><a href="module-SIMRacingApps.sraRGB.html">sraRGB</a></li><li><a href="module-SIMRacingApps.sraRound.html">sraRound</a></li><li><a href="module-SIMRacingApps.sraRPad.html">sraRPad</a></li></ul><h3>directive</h3><ul><li><a href="module-SIMRacingApps-sra-data.html">sra-data</a></li><li><a href="module-SIMRacingApps-sra-horizontal-align.html">sra-horizontal-align</a></li><li><a href="module-SIMRacingApps-sra-resize.html">sra-resize</a></li><li><a href="module-SIMRacingApps-sra-vertical-align.html">sra-vertical-align</a></li><li><a href="sra-analog-gauge.html">sra-analog-gauge</a></li><li><a href="sra-analog-gauge-spek-brake-pressure.html">sra-analog-gauge-spek-brake-pressure</a></li><li><a href="sra-analog-gauge-spek-fuel-level.html">sra-analog-gauge-spek-fuel-level</a></li><li><a href="sra-analog-gauge-spek-fuel-pressure.html">sra-analog-gauge-spek-fuel-pressure</a></li><li><a href="sra-analog-gauge-spek-oil-level.html">sra-analog-gauge-spek-oil-level</a></li><li><a href="sra-analog-gauge-spek-oil-pressure.html">sra-analog-gauge-spek-oil-pressure</a></li><li><a href="sra-analog-gauge-spek-oil-temp.html">sra-analog-gauge-spek-oil-temp</a></li><li><a href="sra-analog-gauge-spek-tachometer.html">sra-analog-gauge-spek-tachometer</a></li><li><a href="sra-analog-gauge-spek-voltage.html">sra-analog-gauge-spek-voltage</a></li><li><a href="sra-analog-gauge-spek-water-level.html">sra-analog-gauge-spek-water-level</a></li><li><a href="sra-analog-gauge-spek-water-pressure.html">sra-analog-gauge-spek-water-pressure</a></li><li><a href="sra-analog-gauge-spek-water-temp.html">sra-analog-gauge-spek-water-temp</a></li><li><a href="sra-bar-gauge.html">sra-bar-gauge</a></li><li><a href="sra-bar-gauge-brake-pressure.html">sra-bar-gauge-brake-pressure</a></li><li><a href="sra-bar-gauge-fuel-level.html">sra-bar-gauge-fuel-level</a></li><li><a href="sra-bar-gauge-fuel-pressure.html">sra-bar-gauge-fuel-pressure</a></li><li><a href="sra-bar-gauge-oil-level.html">sra-bar-gauge-oil-level</a></li><li><a href="sra-bar-gauge-oil-pressure.html">sra-bar-gauge-oil-pressure</a></li><li><a href="sra-bar-gauge-oil-temp.html">sra-bar-gauge-oil-temp</a></li><li><a href="sra-bar-gauge-tachometer.html">sra-bar-gauge-tachometer</a></li><li><a href="sra-bar-gauge-voltage.html">sra-bar-gauge-voltage</a></li><li><a href="sra-bar-gauge-water-level.html">sra-bar-gauge-water-level</a></li><li><a href="sra-bar-gauge-water-pressure.html">sra-bar-gauge-water-pressure</a></li><li><a href="sra-bar-gauge-water-temp.html">sra-bar-gauge-water-temp</a></li><li><a href="sra-car-controls.html">sra-car-controls</a></li><li><a href="sra-car-image.html">sra-car-image</a></li><li><a href="sra-car-number.html">sra-car-number</a></li><li><a href="sra-car-number-extended.html">sra-car-number-extended</a></li><li><a href="sra-car-selector.html">sra-car-selector</a></li><li><a href="sra-data-table.html">sra-data-table</a></li><li><a href="sra-driver-info.html">sra-driver-info</a></li><li><a href="sra-flags.html">sra-flags</a></li><li><a href="sra-fuel-tank.html">sra-fuel-tank</a></li><li><a href="sra-gear.html">sra-gear</a></li><li><a href="sra-lap-timing.html">sra-lap-timing</a></li><li><a href="sra-messages.html">sra-messages</a></li><li><a href="sra-pedals.html">sra-pedals</a></li><li><a href="sra-pit-commander.html">sra-pit-commander</a></li><li><a href="sra-pit-road.html">sra-pit-road</a></li><li><a href="sra-radio-control.html">sra-radio-control</a></li><li><a href="sra-relative.html">sra-relative</a></li><li><a href="sra-relative13.html">sra-relative13</a></li><li><a href="sra-relative25.html">sra-relative25</a></li><li><a href="sra-relative-small.html">sra-relative-small</a></li><li><a href="sra-shift-light.html">sra-shift-light</a></li><li><a href="sra-shift-lights.html">sra-shift-lights</a></li><li><a href="sra-standings.html">sra-standings</a></li><li><a href="sra-standings-banner.html">sra-standings-banner</a></li><li><a href="sra-standings-top-10.html">sra-standings-top-10</a></li><li><a href="sra-standings-top-20.html">sra-standings-top-20</a></li><li><a href="sra-standings-top-35.html">sra-standings-top-35</a></li><li><a href="sra-standings-top-43.html">sra-standings-top-43</a></li><li><a href="sra-steering-wheel.html">sra-steering-wheel</a></li><li><a href="sra-team-speak-talking.html">sra-team-speak-talking</a></li><li><a href="sra-template.html">sra-template</a></li><li><a href="sra-time.html">sra-time</a></li><li><a href="sra-timing-delta.html">sra-timing-delta</a></li><li><a href="sra-tire.html">sra-tire</a></li><li><a href="sra-tire-measurements.html">sra-tire-measurements</a></li><li><a href="sra-track-map.html">sra-track-map</a></li><li><a href="sra-track-map-car.html">sra-track-map-car</a></li><li><a href="sra-track-map-finish-line.html">sra-track-map-finish-line</a></li><li><a href="sra-weather-info.html">sra-weather-info</a></li><li><a href="sra-wind-gauge.html">sra-wind-gauge</a></li></ul><h3>controller</h3><ul><li><a href="module-SIMRacingApps-sraController.html">sraController</a></li></ul><h3>factory</h3><ul><li><a href="module-SIMRacingApps-sraDispatcher.html">sraDispatcher</a></li></ul><h3>Global</h3><ul><li><a href="global.html#SIMRacingAppsCache">SIMRacingAppsCache</a></li></ul>
 </nav>
 
 <br clear="both">

@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":9,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10};
+var methods = {"i0":10,"i1":10,"i2":9,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -228,116 +228,138 @@ extends java.lang.Object</pre>
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/SIMPlugin.html#addCallback-java.lang.String-">addCallback</a></span>(java.lang.String&nbsp;name)</code>
+<div class="block">Creates a callback instance from the specified name</div>
+</td>
+</tr>
+<tr id="i1" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/SIMPlugin.html#close--">close</a></span>()</code>
 <div class="block">Closes the connection to the SIM and kills any threads it may have spawned.</div>
 </td>
 </tr>
-<tr id="i1" class="rowColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>static <a href="../../com/SIMRacingApps/SIMPlugin.html" title="class in com.SIMRacingApps">SIMPlugin</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/SIMPlugin.html#createSIMPlugin-java.lang.String-">createSIMPlugin</a></span>(java.lang.String&nbsp;SIM)</code>
 <div class="block">A static factory method for creating a SIM specific connector and returning it.</div>
 </td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
+<td class="colFirst"><code><a href="../../com/SIMRacingApps/SIMPluginCallbacks/SIMPluginCallback.html" title="class in com.SIMRacingApps.SIMPluginCallbacks">SIMPluginCallback</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/SIMPlugin.html#getCallback-java.lang.String-">getCallback</a></span>(java.lang.String&nbsp;name)</code>
+<div class="block">Returns an instance to a callback.</div>
+</td>
+</tr>
+<tr id="i4" class="altColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/SIMPlugin.html#getData-java.lang.String-">getData</a></span>(java.lang.String&nbsp;path)</code>
 <div class="block">Returns a value from the SIM.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/SIMPlugin.html#getEndingVersion--">getEndingVersion</a></span>()</code>
 <div class="block">Returns the Data Version of where the playing file should stop.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/SIMPlugin.html#getPlay--">getPlay</a></span>()</code>
 <div class="block">Returns the name of the currently playing recorded file.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/SIMPlugin.html#getRecord--">getRecord</a></span>()</code>
 <div class="block">Returns the name of the file being recorded.</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Session.html" title="class in com.SIMRacingApps">Session</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/SIMPlugin.html#getSession--">getSession</a></span>()</code>
 <div class="block">Returns an instance to the SIM's session.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/SIMPlugin.html#getSIMData-java.lang.String...-">getSIMData</a></span>(java.lang.String...&nbsp;args)</code>
 <div class="block">This gets called when the path specifies a specific SIM should return the data.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/SIMPlugin.html#getSIMName--">getSIMName</a></span>()</code>
 <div class="block">Returns the name of the SIM this connector is for.</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/SIMPlugin.html#getStartingVersion--">getStartingVersion</a></span>()</code>
 <div class="block">Returns the Data Version of where the playing file should start.</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/SIMPlugin.html#getSync--">getSync</a></span>()</code>
 <div class="block">Returns the sync flag.</div>
 </td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/SIMPlugin.html#getVersion--">getVersion</a></span>()</code>
 <div class="block">Returns the version of the SIMRacingApps Plugin as a String in a printable format.</div>
 </td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i14" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/SIMPlugin.html#removeCallback-java.lang.String-">removeCallback</a></span>(java.lang.String&nbsp;name)</code>
+<div class="block">Removes a callback.</div>
+</td>
+</tr>
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/SIMPlugin.html#run--">run</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i16" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/SIMPlugin.html#run-com.SIMRacingApps.SIMPlugin.Callback-">run</a></span>(<a href="../../com/SIMRacingApps/SIMPlugin.Callback.html" title="interface in com.SIMRacingApps">SIMPlugin.Callback</a>&nbsp;callback)</code>
 <div class="block">Starts the run loop that notifies the caller when data is available through the Callback class.</div>
 </td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i17" class="rowColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/SIMPlugin.html#setEndingVersion-java.lang.String-">setEndingVersion</a></span>(java.lang.String&nbsp;endingversion)</code>
 <div class="block">Sets the Data Version of where the playing file should stop.</div>
 </td>
 </tr>
-<tr id="i15" class="rowColor">
+<tr id="i18" class="altColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/SIMPlugin.html#setPlay-java.lang.String-">setPlay</a></span>(java.lang.String&nbsp;Filename)</code>
 <div class="block">Sets the filename to be played back.</div>
 </td>
 </tr>
-<tr id="i16" class="altColor">
+<tr id="i19" class="rowColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/SIMPlugin.html#setRecord-java.lang.String-">setRecord</a></span>(java.lang.String&nbsp;Filename)</code>
 <div class="block">Sets the filename to record this session to.</div>
 </td>
 </tr>
-<tr id="i17" class="rowColor">
+<tr id="i20" class="altColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/SIMPlugin.html#setStartingVersion-java.lang.String-">setStartingVersion</a></span>(java.lang.String&nbsp;startingversion)</code>
 <div class="block">Sets the Data Version of where the playing file should start.</div>
 </td>
 </tr>
-<tr id="i18" class="altColor">
+<tr id="i21" class="rowColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/SIMPlugin.html#setSync-java.lang.String-">setSync</a></span>(java.lang.String&nbsp;sync)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/SIMPlugin.html#setSync-boolean-">setSync</a></span>(boolean&nbsp;sync)</code>
 <div class="block">Sets the the sync flag.</div>
 </td>
+</tr>
+<tr id="i22" class="altColor">
+<td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/SIMPlugin.html#setSynce-java.lang.String-">setSynce</a></span>(java.lang.String&nbsp;sync)</code>&nbsp;</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -390,6 +412,53 @@ extends java.lang.Object</pre>
 <h4>close</h4>
 <pre>public&nbsp;void&nbsp;close()</pre>
 <div class="block">Closes the connection to the SIM and kills any threads it may have spawned.</div>
+</li>
+</ul>
+<a name="addCallback-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>addCallback</h4>
+<pre>public&nbsp;boolean&nbsp;addCallback(java.lang.String&nbsp;name)</pre>
+<div class="block">Creates a callback instance from the specified name</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>name</code> - The callback class name relative to com.SIMRacingApps.SIMPluginCallbacks.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true if callback was loaded, false if not.</dd>
+</dl>
+</li>
+</ul>
+<a name="getCallback-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getCallback</h4>
+<pre>public&nbsp;<a href="../../com/SIMRacingApps/SIMPluginCallbacks/SIMPluginCallback.html" title="class in com.SIMRacingApps.SIMPluginCallbacks">SIMPluginCallback</a>&nbsp;getCallback(java.lang.String&nbsp;name)</pre>
+<div class="block">Returns an instance to a callback. 
+ If the callback is not loaded, it returns null.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>name</code> - The callback name as it is named in the list of callbacks.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>an instance to the callback or null if not loaded.</dd>
+</dl>
+</li>
+</ul>
+<a name="removeCallback-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>removeCallback</h4>
+<pre>public&nbsp;void&nbsp;removeCallback(java.lang.String&nbsp;name)</pre>
+<div class="block">Removes a callback. If it is not loaded, silently ignores the call.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>name</code> - The callback name as it is named in the list of callbacks.</dd>
+</dl>
 </li>
 </ul>
 <a name="getSIMName--">
@@ -545,13 +614,13 @@ extends java.lang.Object</pre>
 </dl>
 </li>
 </ul>
-<a name="setSync-java.lang.String-">
+<a name="setSync-boolean-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>setSync</h4>
-<pre>public&nbsp;<a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a>&nbsp;setSync(java.lang.String&nbsp;sync)</pre>
+<pre>public&nbsp;<a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a>&nbsp;setSync(boolean&nbsp;sync)</pre>
 <div class="block">Sets the the sync flag. The sync flag is used to slow down the playing file to real-time. 
  Turn sync off, to read as fast as you can.</div>
 <dl>
@@ -560,6 +629,15 @@ extends java.lang.Object</pre>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>The sync flag in a <a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps"><code>Data</code></a> container.</dd>
 </dl>
+</li>
+</ul>
+<a name="setSynce-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setSynce</h4>
+<pre>public&nbsp;<a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a>&nbsp;setSynce(java.lang.String&nbsp;sync)</pre>
 </li>
 </ul>
 <a name="getData-java.lang.String-">
