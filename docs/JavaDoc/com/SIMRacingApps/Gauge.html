@@ -514,8 +514,9 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i54" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#reset-int-int-">reset</a></span>(int&nbsp;lap,
-     int&nbsp;app_ini_autoResetPitBox)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#reset-int-int-int-">reset</a></span>(int&nbsp;lap,
+     int&nbsp;app_ini_autoResetPitBox,
+     int&nbsp;app_ini_autoResetFastRepair)</code>
 <div class="block">Resets the gauge to it's default values.</div>
 </td>
 </tr>
@@ -1972,20 +1973,22 @@ extends java.lang.Object</pre>
 <pre>public&nbsp;<a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a>&nbsp;setValueNext()</pre>
 </li>
 </ul>
-<a name="reset-int-int-">
+<a name="reset-int-int-int-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>reset</h4>
 <pre>public&nbsp;void&nbsp;reset(int&nbsp;lap,
-                  int&nbsp;app_ini_autoResetPitBox)</pre>
+                  int&nbsp;app_ini_autoResetPitBox,
+                  int&nbsp;app_ini_autoResetFastRepair)</pre>
 <div class="block">Resets the gauge to it's default values.
  The app_ini_autoResetPitBox flag determines if the change flag will be set to Y or N to match it.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>lap</code> - The lap the reset occurred on.</dd>
-<dd><code>app_ini_autoResetPitBox</code> - Y to set the change flag to Y, N to not.</dd>
+<dd><code>app_ini_autoResetPitBox</code> - 1 to set the change flag to Y, 0 to not.</dd>
+<dd><code>app_ini_autoResetFastRepair</code> - 1 to set the change flag to Y, 0 to not.</dd>
 </dl>
 </li>
 </ul>

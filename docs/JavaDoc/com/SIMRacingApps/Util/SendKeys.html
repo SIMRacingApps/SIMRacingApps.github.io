@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":9,"i1":9,"i2":9,"i3":9};
+var methods = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -49,7 +49,7 @@ var activeTableTab = "activeTableTab";
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../com/SIMRacingApps/Util/FindFile.html" title="class in com.SIMRacingApps.Util"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../com/SIMRacingApps/Util/Sound.html" title="class in com.SIMRacingApps.Util"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../com/SIMRacingApps/Util/SendKeys.Driver.html" title="enum in com.SIMRacingApps.Util"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../index.html?com/SIMRacingApps/Util/SendKeys.html" target="_top">Frames</a></li>
@@ -73,7 +73,7 @@ var activeTableTab = "activeTableTab";
 <div>
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
-<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#nested.class.summary">Nested</a>&nbsp;|&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
 <li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
@@ -152,6 +152,25 @@ extends java.lang.Object</pre>
 <div class="summary">
 <ul class="blockList">
 <li class="blockList">
+<!-- ======== NESTED CLASS SUMMARY ======== -->
+<ul class="blockList">
+<li class="blockList"><a name="nested.class.summary">
+<!--   -->
+</a>
+<h3>Nested Class Summary</h3>
+<table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Nested Class Summary table, listing nested classes, and an explanation">
+<caption><span>Nested Classes</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colLast" scope="col">Class and Description</th>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static class&nbsp;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/SIMRacingApps/Util/SendKeys.Driver.html" title="enum in com.SIMRacingApps.Util">SendKeys.Driver</a></span></code>&nbsp;</td>
+</tr>
+</table>
+</li>
+</ul>
 <!-- ========== METHOD SUMMARY =========== -->
 <ul class="blockList">
 <li class="blockList"><a name="method.summary">
@@ -187,6 +206,16 @@ extends java.lang.Object</pre>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/SIMRacingApps/Util/SendKeys.html#setDelay-int-">setDelay</a></span>(int&nbsp;ms)</code>
 <div class="block">Sets the default delay.</div>
 </td>
+</tr>
+<tr id="i4" class="altColor">
+<td class="colFirst"><code>static void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/SIMRacingApps/Util/SendKeys.html#setDriver-com.SIMRacingApps.Util.SendKeys.Driver-">setDriver</a></span>(<a href="../../../com/SIMRacingApps/Util/SendKeys.Driver.html" title="enum in com.SIMRacingApps.Util">SendKeys.Driver</a>&nbsp;driver)</code>
+<div class="block">Sets the driver that sendkeys should use.</div>
+</td>
+</tr>
+<tr id="i5" class="rowColor">
+<td class="colFirst"><code>static void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/SIMRacingApps/Util/SendKeys.html#setWindowName-java.lang.String-">setWindowName</a></span>(java.lang.String&nbsp;name)</code>&nbsp;</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -240,6 +269,21 @@ extends java.lang.Object</pre>
 </dl>
 </li>
 </ul>
+<a name="setDriver-com.SIMRacingApps.Util.SendKeys.Driver-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setDriver</h4>
+<pre>public static&nbsp;void&nbsp;setDriver(<a href="../../../com/SIMRacingApps/Util/SendKeys.Driver.html" title="enum in com.SIMRacingApps.Util">SendKeys.Driver</a>&nbsp;driver)</pre>
+<div class="block">Sets the driver that sendkeys should use.
+ The choices are enumerated in the Driver enum (AWT,WINDOWS).</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>driver</code> - The type of driver to use, AWT or WINDOWS</dd>
+</dl>
+</li>
+</ul>
 <a name="delay-int-">
 <!--   -->
 </a>
@@ -252,6 +296,15 @@ extends java.lang.Object</pre>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>ms</code> - The number of milliseconds.</dd>
 </dl>
+</li>
+</ul>
+<a name="setWindowName-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setWindowName</h4>
+<pre>public static&nbsp;void&nbsp;setWindowName(java.lang.String&nbsp;name)</pre>
 </li>
 </ul>
 <a name="sendKeys-java.lang.String-">
@@ -299,7 +352,7 @@ extends java.lang.Object</pre>
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../com/SIMRacingApps/Util/FindFile.html" title="class in com.SIMRacingApps.Util"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../com/SIMRacingApps/Util/Sound.html" title="class in com.SIMRacingApps.Util"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../com/SIMRacingApps/Util/SendKeys.Driver.html" title="enum in com.SIMRacingApps.Util"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../index.html?com/SIMRacingApps/Util/SendKeys.html" target="_top">Frames</a></li>
@@ -323,7 +376,7 @@ extends java.lang.Object</pre>
 <div>
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
-<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#nested.class.summary">Nested</a>&nbsp;|&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
 <li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>

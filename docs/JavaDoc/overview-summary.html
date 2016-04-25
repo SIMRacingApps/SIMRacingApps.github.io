@@ -149,23 +149,25 @@
 <p>
 SIMRacingApps is designed to be used with many different Simulators by providing an API layer that translates between your client and the SIM.
 The core library is developed in Java, which can be used to create stand alone applications. 
-It uses an embeded version of the Jetty Java Application Server.
+It uses an embedded version of the Jetty Java Application Server.
 This provides a way to develop clients using any platform you wish as long as it can make HTTP calls to the server.
 For all of the provided applications, I use HTML5/JavaScript.
-These can be run in most browsers as well as JavaScript application runtimes, such as Electron and Overwolf. 
+These can be run in most browsers as well as JavaScript application run-times, such as Electron, Overwolf and OBS(CLR Broswer). 
 The possibilities are abundant. 
-<p>
-For Java, you can create stand alone applications that run on the same machine as the SIM client by simply including the SIMRacingApps....exe file in your classpath.
-Then by calling the provided dispatcher, you can subscribe to and then listen for events to get SIM data.
-This type of application can make use of extra monitors not being used by the SIM to display data.
-At the time of this writing, May 2015, there is no support for overlaying these applications on top of the SIM screens.
-You can start with my example Java App found in the project called, SIMRacingAppsJavaApp.
-It makes use of the AWT event system to deliver the data from the SIM to the widgets through property change listeners.
-See <a href="com/SIMRacingApps/JComponents/package-summary.html"><code>com.SIMRacingApps.JComponents</code></a> for more information.
 <p>
 For HTML5/JavaScript, Java Servlets were created for the Jetty Java Application server.
 This provides an interface to the SIM data through the HTTP protocol.
 Using HTML5, you have choice of many clients. You can simply use a browser. Most HTML5 compliant browsers can be used.
+<p>
+For Java, you can create stand alone applications that run on the same machine as the SIM client by simply including the SIMRacingApps....exe file in your classpath.
+Then by calling the provided dispatcher, you can subscribe to and then listen for events to get SIM data.
+You can start with my example Java App found in the project called, SIMRacingAppsJavaApp.
+It makes use of the AWT event system to deliver the data from the SIM to the widgets through property change listeners.
+See <a href="com/SIMRacingApps/JComponents/package-summary.html"><code>com.SIMRacingApps.JComponents</code></a> for more information.
+<p>
+If a full fledged Java Application may be overkill for your needs, then creating a server side SIM Plug-in Callback may be a better solution.
+Callbacks subscribe to data from the SIM and they get called when ever that data changes.
+See <a href="com/SIMRacingApps/SIMPluginCallbacks/SIMPluginCallback.html" title="class in com.SIMRacingApps.SIMPluginCallbacks"><code>SIMPluginCallback</code></a> for detailed documentation on building a Callback.
 <p>
 Copyright (C) 2015 - 2016 Jeffrey Gilliam
 Apache License 2.0</div>

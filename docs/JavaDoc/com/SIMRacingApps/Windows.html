@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9,"i7":9,"i8":9,"i9":9,"i10":9,"i11":9,"i12":9,"i13":9,"i14":9};
+var methods = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9,"i7":9,"i8":9,"i9":9,"i10":9,"i11":9,"i12":9,"i13":9,"i14":9,"i15":9,"i16":9};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -159,6 +159,12 @@ extends java.lang.Object</pre>
 <div class="block">Defines a wrapper for a Pointer to hide the JNA definition details</div>
 </td>
 </tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static class&nbsp;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Windows.Robot.html" title="class in com.SIMRacingApps">Windows.Robot</a></span></code>
+<div class="block">The Windows.Robot class is a subclass of the java.awt.Robot class.</div>
+</td>
+</tr>
 </table>
 </li>
 </ul>
@@ -233,12 +239,17 @@ extends java.lang.Object</pre>
 </td>
 </tr>
 <tr id="i3" class="rowColor">
+<td class="colFirst"><code>static void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Windows.html#keyPress-com.sun.jna.platform.win32.WinDef.HWND-int-">keyPress</a></span>(com.sun.jna.platform.win32.WinDef.HWND&nbsp;hWin,
+        int&nbsp;key)</code>&nbsp;</td>
+</tr>
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>static <a href="../../com/SIMRacingApps/Windows.Pointer.html" title="class in com.SIMRacingApps">Windows.Pointer</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Windows.html#mapViewOfFile-com.SIMRacingApps.Windows.Handle-">mapViewOfFile</a></span>(<a href="../../com/SIMRacingApps/Windows.Handle.html" title="class in com.SIMRacingApps">Windows.Handle</a>&nbsp;h)</code>
 <div class="block">Returns a Pointer to the memory where the file was mapped to.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>static <a href="../../com/SIMRacingApps/Windows.Handle.html" title="class in com.SIMRacingApps">Windows.Handle</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Windows.html#openCommPort-int-">openCommPort</a></span>(int&nbsp;portNumber)</code>
 <div class="block">Return a Handle to a COM port
@@ -248,64 +259,75 @@ extends java.lang.Object</pre>
  about how to use the Window serial port API.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>static <a href="../../com/SIMRacingApps/Windows.Handle.html" title="class in com.SIMRacingApps">Windows.Handle</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Windows.html#openEvent-java.lang.String-">openEvent</a></span>(java.lang.String&nbsp;eventName)</code>
 <div class="block">Returns a Handle to an Event.</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>static <a href="../../com/SIMRacingApps/Windows.Handle.html" title="class in com.SIMRacingApps">Windows.Handle</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Windows.html#openFileMapping-java.lang.String-">openFileMapping</a></span>(java.lang.String&nbsp;filename)</code>
 <div class="block">Returns a Handle to a memory mapped file.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i8" class="altColor">
+<td class="colFirst"><code>static void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Windows.html#postMessage-com.sun.jna.platform.win32.WinDef.HWND-com.SIMRacingApps.Windows.MsgId-int-int-">postMessage</a></span>(com.sun.jna.platform.win32.WinDef.HWND&nbsp;hWin,
+           <a href="../../com/SIMRacingApps/Windows.MsgId.html" title="class in com.SIMRacingApps">Windows.MsgId</a>&nbsp;id,
+           int&nbsp;wParam,
+           int&nbsp;lParam)</code>
+<div class="block">Sends a message to the specified window and does not wait on it to be received</div>
+</td>
+</tr>
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>static <a href="../../com/SIMRacingApps/Windows.MsgId.html" title="class in com.SIMRacingApps">Windows.MsgId</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Windows.html#registerWindowMessage-java.lang.String-">registerWindowMessage</a></span>(java.lang.String&nbsp;name)</code>
 <div class="block">Returns the MsgId of named message.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>static void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Windows.html#sendNotifyMessage-com.SIMRacingApps.Windows.MsgId-int-int-">sendNotifyMessage</a></span>(<a href="../../com/SIMRacingApps/Windows.MsgId.html" title="class in com.SIMRacingApps">Windows.MsgId</a>&nbsp;id,
                  int&nbsp;wParam,
                  int&nbsp;lParam)</code>
-<div class="block">Sends a message to anayone listening to the specified MsgId</div>
+<div class="block">Sends a message to anyone listening to the specified MsgId</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>static boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Windows.html#setCommPortDTR-com.SIMRacingApps.Windows.Handle-boolean-">setCommPortDTR</a></span>(<a href="../../com/SIMRacingApps/Windows.Handle.html" title="class in com.SIMRacingApps">Windows.Handle</a>&nbsp;hCommPort,
               boolean&nbsp;flag)</code>
 <div class="block">This method either sets or clears the DTR signal on the comm port.</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>static boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Windows.html#setCommPortRTS-com.SIMRacingApps.Windows.Handle-boolean-">setCommPortRTS</a></span>(<a href="../../com/SIMRacingApps/Windows.Handle.html" title="class in com.SIMRacingApps">Windows.Handle</a>&nbsp;hCommPort,
               boolean&nbsp;flag)</code>
 <div class="block">This method either sets or clears the RTS signal on the comm port.</div>
 </td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>static void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Windows.html#setConsoleTitle-java.lang.String-">setConsoleTitle</a></span>(java.lang.String&nbsp;title)</code>
 <div class="block">Sets the title of the console window.</div>
 </td>
 </tr>
-<tr id="i12" class="altColor">
-<td class="colFirst"><code>static void</code></td>
+<tr id="i14" class="altColor">
+<td class="colFirst"><code>static boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Windows.html#setForegroundWindow-java.lang.String-java.lang.String-">setForegroundWindow</a></span>(java.lang.String&nbsp;windowClass,
-                   java.lang.String&nbsp;windowTitle)</code>&nbsp;</td>
+                   java.lang.String&nbsp;windowTitle)</code>
+<div class="block">Finds the window with the given title and brings it to the foreground.</div>
+</td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code>static void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Windows.html#unmapViewOfFile-com.SIMRacingApps.Windows.Pointer-">unmapViewOfFile</a></span>(<a href="../../com/SIMRacingApps/Windows.Pointer.html" title="class in com.SIMRacingApps">Windows.Pointer</a>&nbsp;p)</code>
 <div class="block">Removes the memory pointer mapping.</div>
 </td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i16" class="altColor">
 <td class="colFirst"><code>static void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Windows.html#waitForSingleObject-com.SIMRacingApps.Windows.Handle-int-">waitForSingleObject</a></span>(<a href="../../com/SIMRacingApps/Windows.Handle.html" title="class in com.SIMRacingApps">Windows.Handle</a>&nbsp;h,
                    int&nbsp;timeout)</code>
@@ -419,6 +441,16 @@ extends java.lang.Object</pre>
 </dl>
 </li>
 </ul>
+<a name="keyPress-com.sun.jna.platform.win32.WinDef.HWND-int-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>keyPress</h4>
+<pre>public static&nbsp;void&nbsp;keyPress(com.sun.jna.platform.win32.WinDef.HWND&nbsp;hWin,
+                            int&nbsp;key)</pre>
+</li>
+</ul>
 <a name="mapViewOfFile-com.SIMRacingApps.Windows.Handle-">
 <!--   -->
 </a>
@@ -487,6 +519,26 @@ extends java.lang.Object</pre>
 </dl>
 </li>
 </ul>
+<a name="postMessage-com.sun.jna.platform.win32.WinDef.HWND-com.SIMRacingApps.Windows.MsgId-int-int-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>postMessage</h4>
+<pre>public static&nbsp;void&nbsp;postMessage(com.sun.jna.platform.win32.WinDef.HWND&nbsp;hWin,
+                               <a href="../../com/SIMRacingApps/Windows.MsgId.html" title="class in com.SIMRacingApps">Windows.MsgId</a>&nbsp;id,
+                               int&nbsp;wParam,
+                               int&nbsp;lParam)</pre>
+<div class="block">Sends a message to the specified window and does not wait on it to be received</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>hWin</code> - A handle to an existing window.</dd>
+<dd><code>id</code> - The MsgId to send to.</dd>
+<dd><code>wParam</code> - A 32 bit word.</dd>
+<dd><code>lParam</code> - A 64 bit word.</dd>
+</dl>
+</li>
+</ul>
 <a name="registerWindowMessage-java.lang.String-">
 <!--   -->
 </a>
@@ -512,7 +564,7 @@ extends java.lang.Object</pre>
 <pre>public static&nbsp;void&nbsp;sendNotifyMessage(<a href="../../com/SIMRacingApps/Windows.MsgId.html" title="class in com.SIMRacingApps">Windows.MsgId</a>&nbsp;id,
                                      int&nbsp;wParam,
                                      int&nbsp;lParam)</pre>
-<div class="block">Sends a message to anayone listening to the specified MsgId</div>
+<div class="block">Sends a message to anyone listening to the specified MsgId</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>id</code> - The MsgId to send to.</dd>
@@ -577,8 +629,17 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>setForegroundWindow</h4>
-<pre>public static&nbsp;void&nbsp;setForegroundWindow(java.lang.String&nbsp;windowClass,
-                                       java.lang.String&nbsp;windowTitle)</pre>
+<pre>public static&nbsp;boolean&nbsp;setForegroundWindow(java.lang.String&nbsp;windowClass,
+                                          java.lang.String&nbsp;windowTitle)</pre>
+<div class="block">Finds the window with the given title and brings it to the foreground.
+ If no window exists, then nothing changes.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>windowClass</code> - The window class or null</dd>
+<dd><code>windowTitle</code> - The window title or null</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true if success, false if not.</dd>
+</dl>
 </li>
 </ul>
 <a name="unmapViewOfFile-com.SIMRacingApps.Windows.Pointer-">

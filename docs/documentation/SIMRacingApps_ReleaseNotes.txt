@@ -1,7 +1,63 @@
 SIMRacingApps Release Notes
 ---------------------------
 
-Version: 1.0_Build_BETA-2016.03.24
+Version: 1.0_Build_BETA-2016.04.25
+    1. Removed the previous code that reset the fast repair option on pit exit for iRacing.
+       As of the March 30, 2016 patch from iRacing, this is controlled by setting 
+            Documents\iRacing\app.ini[Pit Service]autoResetFastRepair
+    2. Fixed issue with StandingsBanner widget where it would not page through
+       the field when under caution.
+    3. Added the Chat Widget with customizable buttons.
+       To customize, you add variables to your settings. See the documentation for Chat for details.
+          chat-row1-col1-name = /[CAR]<br />PASS LEFT
+          chat-row1-col1-text = /RL-1 [#[CARNUMBER]] Pass Left
+       NOTE: What is RL-1? That is the code for Relative 1 position behind.
+    4. Fixed Relative so it doesn't show the pace car if it is not on the track.
+    5. Added Car/(CARIDENTFIER)/NumberFont and Car/(CARIDENTFIER)/NumberSlant to the API.
+       Changed the CarNumber widget to use them. If the font is not installed on your system
+       it falls back to Arial. I will be investigating ways to bundle the fonts, if I can get 
+       permission to. 
+           
+------------------------------------------------------------------------------------------------------
+---                    Configuration Tips                                                          ---
+------------------------------------------------------------------------------------------------------
+    1. To get the server running, simply execute the SIMRacingAppsServer...exe 
+       on the same computer that the Simulator is running on.
+    2. If you do not have Java 1.8 or better installed, it will redirect you to the Java download page.
+       Please go to http://wiki.SIMRacingApps.com/Java-Update-Configuration 
+       for detailed instructions on how to configure the Java Automatic Updates.
+    3. Enter the server address (found in the Title Bar of the server window) in your browser 
+       from any device connected to the same network.
+    4. Please refer to the Quick Start Guide at http://quickstart.SIMRacingApps.com`
+       for more details and options for running the server.
+    
+    Electron Client:
+        To install or update Electron Launcher, download the .SRA file's latest version 
+        from http://electron.SIMRacingApps.com, start the SIMRacingAppsServer.exe,
+        connect to the manu menu from a browser and upload the .SRA file. 
+        Refer to the Electron's readme file for more information.
+        
+    Overwolf Client:
+        To install or update Overwolf Launcher, download the .OPK file's latest version 
+        from http://overwolf.SIMRacingApps.com, open Overwolf's Dock and load it. 
+        Refer to the instructions in the readme file to install this file into Overwolf.
+
+    Wiki:
+        There are many other recommendations on the SIMRacingApps Wiki at http://wiki.SIMRacingApps.com.
+
+========== TODO List for Version 1.0 (Or defer them to 2.0?) ====================
+    The complete TODO List can be found at http://issues.SIMRacingApps.com.
+     
+    - Add ability for users to override any car profile setting in the settings.txt.
+    - Add ability to save favorites for the menu and let the user modify the properties.
+    - Need to design how to back out a patch once the fix is delivered in the next version.
+    - Document how to translate to other languages all the text and get someone to translate (volunteers?)
+    - Translation support for the Main Menu Descriptions.
+    - Redesign the Gauge class.
+
+****************** Previous Versions *************************
+
+1.0_Build_BETA-2016.03.24
     1. Added ability for SIMPluginCallbacks to add to the ReST API.
        For example, to set the volume after the server has started on the Sounds.PitCountDown plug-in use:
        http://{Your.IP.Address}{:port}/SIMRacingApps/Data/SIMPluginCallback/Sounds/PitCountDown/setVolume/70
@@ -37,7 +93,7 @@ Version: 1.0_Build_BETA-2016.03.24
         }
     14. Now turns off the Fast Repairs flag when you leave the pits, if you are using a PitControlled App.
     15. Added the ability to disable a built in SIMPluginCallback by prefixing the name
-        in the settings.txt file with an exclimation point(!).
+        in the settings.txt file with an exclamation point(!).
         Example, this will not load the Sounds.PitCountDown plug-in.
            simplugins = !Sounds.PitCountDown
     16. Retired ATI for "/Session/Flags" and replaced with the following.
@@ -56,46 +112,6 @@ Version: 1.0_Build_BETA-2016.03.24
        /Car/(CARIDENTIFIER)/PitTimes
        /Car/(CARIDENTIFIER)/StartFinishTimes
        /Car/(CARIDENTIFIER)/IsPitSpeedLimiter
-       
-------------------------------------------------------------------------------------------------------
----                    Configuration Tips                                                          ---
-------------------------------------------------------------------------------------------------------
-    1. To get the server running, simply execute the SIMRacingAppsServer...exe 
-       on the same computer that the Simulator is running on.
-    2. If you do not have Java 1.8 or better installed, it will redirect you to the Java download page.
-       Please go to http://wiki.SIMRacingApps.com/Java-Update-Configuration 
-       for detailed instructions on how to configure the Java Automatic Updates.
-    3. Enter the server address (found in the Title Bar of the server window) in your browser 
-       from any device connected to the same network.
-    4. Please refer to the Quick Start Guide at http://quickstart.SIMRacingApps.com`
-       for more details and options for running the server.
-    
-    Electron Client:
-        To install or update Electron Launcher, download the .SRA file's latest version 
-        from http://electron.SIMRacingApps.com, start the SIMRacingAppsServer.exe,
-        connect to the manu menu from a browser and upload the .SRA file. 
-        Refer to the Electron's readme file for more information.
-        
-    Overwolf Client:
-        To install or update Overwolf Launcher, download the .OPK file's latest version 
-        from http://overwolf.SIMRacingApps.com, open Overwolf's Dock and load it. 
-        Refer to the instructions in the readme file to install this file into Overwolf.
-
-    Wiki:
-        There are many other recommendations on the SIMRacingApps Wiki at http://wiki.SIMRacingApps.com.
-
-========== TODO List for Version 1.0 (Or defer them to 2.0?) ====================
-    The complete TODO List can be found at http://issues.SIMRacingApps.com.
-     
-    - Chat Button Widget - User definable text macros and buttons.
-    - Add ability for users to override any car profile setting in the settings.txt.
-    - Add ability to save favorites for the menu and let the user modify the properties.
-    - Need to design how to back out a patch once the fix is delivered in the next version.
-    - Document how to translate to other languages all the text and get someone to translate (volunteers?)
-    - Translation support for the Main Menu Descriptions.
-    - Redesign the Gauge class.
-
-****************** Previous Versions *************************
 
 1.0_Build_BETA-2016.02.25
     1. Another fix to the Pit-Count-Down. Sometimes it would call the numbers out of order

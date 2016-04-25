@@ -1,185 +1,325 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <title>JSDoc: directive: sra-resize</title>
-
-    <script src="scripts/prettify/prettify.js"> </script>
-    <script src="scripts/prettify/lang-css.js"> </script>
-    <!--[if lt IE 9]>
-      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
-    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
-</head>
-
-<body>
-
-<div id="main">
-
-    <h1 class="page-title">directive: sra-resize</h1>
-
-    
-
-
-
-<section>
-
-<header>
-    <h2>
-        <span class="ancestors"><a href="module-SIMRacingApps.html">SIMRacingApps</a>~</span>
-    
-    sra-resize
-    </h2>
-    
-</header>
-
-<article>
-    <div class="container-overview">
-    
-
-    
-        
-<dt>
-    
-    
-    
-
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>This directive watches for window resize events and adjust the width and height of the parent element.
-If you used percentages for the sizing of all the children, then they will adjust accordingly as well.
-It is to be placed on the most outer element of the page that is not the body.</p>
+<!doctype html>
+<html>
+  <head>
+    <title>JSDoc: sra-resize</title>
+    <link type="text/css" rel="stylesheet" href="css/jsdoc-default.css">
+    <link href="css/prettify-tomorrow.css" type="text/css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,400,300,700" rel="stylesheet" type="text/css">
+    <link href="css/custom.css" type="text/css" rel="stylesheet">
+    <script src="js/prettify.js"></script>
+    <script src="js/angular.min.js"></script>
+  </head>
+  <body ng-app="">
+    <nav>
+      <h2><a href="index.html">Index</a></h2>
+      <ul class="module">
+        <!-- undefined -->
+        <h3>
+          <a href="" ng-click="moduleundefined = !moduleundefined">
+            module: undefined
+          </a>
+          <i ng-cloak="" ng-show="moduleundefined">+</i>
+        </h3>
+        <li id="undefined" ng-hide="moduleundefined">
+          <ul class="group">
+            <h3>
+              <a href="" ng-click="undefinedapps = !undefinedapps">
+                apps
+              </a>
+              <i ng-cloak="" ng-show="undefinedapps">+</i>
+            </h3>
+            <ul ng-hide="undefinedapps">
+              <li>
+                <a href="CrewChief.html">CrewChief</a>
+              </li><li>
+                <a href="CrewChief-Large.html">CrewChief-Large</a>
+              </li><li>
+                <a href="Dash-BarGauges-DigitalOverlay.html">Dash-BarGauges-DigitalOverlay</a>
+              </li><li>
+                <a href="Dash-Gauges-Spek.html">Dash-Gauges-Spek</a>
+              </li><li>
+                <a href="Dash-Gauges-Spek-Horizontal.html">Dash-Gauges-Spek-Horizontal</a>
+              </li><li>
+                <a href="Dash-Minimum.html">Dash-Minimum</a>
+              </li><li>
+                <a href="Dash-Small.html">Dash-Small</a>
+              </li><li>
+                <a href="Dash-StockCars-DigitalOverlay.html">Dash-StockCars-DigitalOverlay</a>
+              </li><li>
+                <a href="RaceAdministrator.html">RaceAdministrator</a>
+              </li><li>
+                <a href="Spectator.html">Spectator</a>
+              </li><li>
+                <a href="StreamingOverlay.html">StreamingOverlay</a>
+              </li>
+            </ul>
+          </ul><ul class="group">
+            <h3>
+              <a href="" ng-click="undefineddirective = !undefineddirective">
+                directive
+              </a>
+              <i ng-cloak="" ng-show="undefineddirective">+</i>
+            </h3>
+            <ul ng-hide="undefineddirective">
+              <li>
+                <a href="sra-analog-gauge.html">sra-analog-gauge</a>
+              </li><li>
+                <a href="sra-analog-gauge-spek-brake-pressure.html">sra-analog-gauge-spek-brake-pressure</a>
+              </li><li>
+                <a href="sra-analog-gauge-spek-fuel-level.html">sra-analog-gauge-spek-fuel-level</a>
+              </li><li>
+                <a href="sra-analog-gauge-spek-fuel-pressure.html">sra-analog-gauge-spek-fuel-pressure</a>
+              </li><li>
+                <a href="sra-analog-gauge-spek-oil-level.html">sra-analog-gauge-spek-oil-level</a>
+              </li><li>
+                <a href="sra-analog-gauge-spek-oil-pressure.html">sra-analog-gauge-spek-oil-pressure</a>
+              </li><li>
+                <a href="sra-analog-gauge-spek-oil-temp.html">sra-analog-gauge-spek-oil-temp</a>
+              </li><li>
+                <a href="sra-analog-gauge-spek-tachometer.html">sra-analog-gauge-spek-tachometer</a>
+              </li><li>
+                <a href="sra-analog-gauge-spek-voltage.html">sra-analog-gauge-spek-voltage</a>
+              </li><li>
+                <a href="sra-analog-gauge-spek-water-level.html">sra-analog-gauge-spek-water-level</a>
+              </li><li>
+                <a href="sra-analog-gauge-spek-water-pressure.html">sra-analog-gauge-spek-water-pressure</a>
+              </li><li>
+                <a href="sra-analog-gauge-spek-water-temp.html">sra-analog-gauge-spek-water-temp</a>
+              </li><li>
+                <a href="sra-bar-gauge.html">sra-bar-gauge</a>
+              </li><li>
+                <a href="sra-bar-gauge-brake-pressure.html">sra-bar-gauge-brake-pressure</a>
+              </li><li>
+                <a href="sra-bar-gauge-fuel-level.html">sra-bar-gauge-fuel-level</a>
+              </li><li>
+                <a href="sra-bar-gauge-fuel-pressure.html">sra-bar-gauge-fuel-pressure</a>
+              </li><li>
+                <a href="sra-bar-gauge-oil-level.html">sra-bar-gauge-oil-level</a>
+              </li><li>
+                <a href="sra-bar-gauge-oil-pressure.html">sra-bar-gauge-oil-pressure</a>
+              </li><li>
+                <a href="sra-bar-gauge-oil-temp.html">sra-bar-gauge-oil-temp</a>
+              </li><li>
+                <a href="sra-bar-gauge-tachometer.html">sra-bar-gauge-tachometer</a>
+              </li><li>
+                <a href="sra-bar-gauge-voltage.html">sra-bar-gauge-voltage</a>
+              </li><li>
+                <a href="sra-bar-gauge-water-level.html">sra-bar-gauge-water-level</a>
+              </li><li>
+                <a href="sra-bar-gauge-water-pressure.html">sra-bar-gauge-water-pressure</a>
+              </li><li>
+                <a href="sra-bar-gauge-water-temp.html">sra-bar-gauge-water-temp</a>
+              </li><li>
+                <a href="sra-car-controls.html">sra-car-controls</a>
+              </li><li>
+                <a href="sra-car-image.html">sra-car-image</a>
+              </li><li>
+                <a href="sra-car-number.html">sra-car-number</a>
+              </li><li>
+                <a href="sra-car-number-extended.html">sra-car-number-extended</a>
+              </li><li>
+                <a href="sra-car-selector.html">sra-car-selector</a>
+              </li><li>
+                <a href="sra-chat.html">sra-chat</a>
+              </li><li>
+                <a href="sra-data-table.html">sra-data-table</a>
+              </li><li>
+                <a href="sra-driver-info.html">sra-driver-info</a>
+              </li><li>
+                <a href="sra-flags.html">sra-flags</a>
+              </li><li>
+                <a href="sra-fuel-tank.html">sra-fuel-tank</a>
+              </li><li>
+                <a href="sra-gear.html">sra-gear</a>
+              </li><li>
+                <a href="sra-lap-timing.html">sra-lap-timing</a>
+              </li><li>
+                <a href="sra-messages.html">sra-messages</a>
+              </li><li>
+                <a href="sra-pedals.html">sra-pedals</a>
+              </li><li>
+                <a href="sra-pit-commander.html">sra-pit-commander</a>
+              </li><li>
+                <a href="sra-pit-road.html">sra-pit-road</a>
+              </li><li>
+                <a href="sra-radio-control.html">sra-radio-control</a>
+              </li><li>
+                <a href="sra-relative.html">sra-relative</a>
+              </li><li>
+                <a href="sra-relative13.html">sra-relative13</a>
+              </li><li>
+                <a href="sra-relative25.html">sra-relative25</a>
+              </li><li>
+                <a href="sra-relative-small.html">sra-relative-small</a>
+              </li><li>
+                <a href="sra-shift-light.html">sra-shift-light</a>
+              </li><li>
+                <a href="sra-shift-lights.html">sra-shift-lights</a>
+              </li><li>
+                <a href="sra-standings.html">sra-standings</a>
+              </li><li>
+                <a href="sra-standings-banner.html">sra-standings-banner</a>
+              </li><li>
+                <a href="sra-standings-top-10.html">sra-standings-top-10</a>
+              </li><li>
+                <a href="sra-standings-top-20.html">sra-standings-top-20</a>
+              </li><li>
+                <a href="sra-standings-top-35.html">sra-standings-top-35</a>
+              </li><li>
+                <a href="sra-standings-top-43.html">sra-standings-top-43</a>
+              </li><li>
+                <a href="sra-steering-wheel.html">sra-steering-wheel</a>
+              </li><li>
+                <a href="sra-team-speak-talking.html">sra-team-speak-talking</a>
+              </li><li>
+                <a href="sra-template.html">sra-template</a>
+              </li><li>
+                <a href="sra-time.html">sra-time</a>
+              </li><li>
+                <a href="sra-timing-delta.html">sra-timing-delta</a>
+              </li><li>
+                <a href="sra-tire.html">sra-tire</a>
+              </li><li>
+                <a href="sra-tire-measurements.html">sra-tire-measurements</a>
+              </li><li>
+                <a href="sra-track-map.html">sra-track-map</a>
+              </li><li>
+                <a href="sra-track-map-car.html">sra-track-map-car</a>
+              </li><li>
+                <a href="sra-track-map-finish-line.html">sra-track-map-finish-line</a>
+              </li><li>
+                <a href="sra-weather-info.html">sra-weather-info</a>
+              </li><li>
+                <a href="sra-wind-gauge.html">sra-wind-gauge</a>
+              </li>
+            </ul>
+          </ul>
+        </li>
+      </ul><ul class="module">
+        <!-- module_____acing_pps -->
+        <h3>
+          <a href="" ng-click="modulemodule_____acing_pps = !modulemodule_____acing_pps">
+            module: module:SIMRacingApps
+          </a>
+          <i ng-cloak="" ng-show="modulemodule_____acing_pps">+</i>
+        </h3>
+        <li id="module:SIMRacingApps" ng-hide="modulemodule_____acing_pps">
+          <ul class="group">
+            <h3>
+              <a href="" ng-click="module_____acing_ppsfilter = !module_____acing_ppsfilter">
+                filter
+              </a>
+              <i ng-cloak="" ng-show="module_____acing_ppsfilter">+</i>
+            </h3>
+            <ul ng-hide="module_____acing_ppsfilter">
+              <li>
+                <a href="module-SIMRacingApps.sraCeil.html">sraCeil</a>
+              </li><li>
+                <a href="module-SIMRacingApps.sraDebug.html">sraDebug</a>
+              </li><li>
+                <a href="module-SIMRacingApps.sraDecodeEntities.html">sraDecodeEntities</a>
+              </li><li>
+                <a href="module-SIMRacingApps.sraDuration.html">sraDuration</a>
+              </li><li>
+                <a href="module-SIMRacingApps.sraFloor.html">sraFloor</a>
+              </li><li>
+                <a href="module-SIMRacingApps.sraHex.html">sraHex</a>
+              </li><li>
+                <a href="module-SIMRacingApps.sraLPad.html">sraLPad</a>
+              </li><li>
+                <a href="module-SIMRacingApps.sraNumber.html">sraNumber</a>
+              </li><li>
+                <a href="module-SIMRacingApps.sraRGB.html">sraRGB</a>
+              </li><li>
+                <a href="module-SIMRacingApps.sraRound.html">sraRound</a>
+              </li><li>
+                <a href="module-SIMRacingApps.sraRPad.html">sraRPad</a>
+              </li>
+            </ul>
+          </ul><ul class="group">
+            <h3>
+              <a href="" ng-click="module_____acing_ppsdirective = !module_____acing_ppsdirective">
+                directive
+              </a>
+              <i ng-cloak="" ng-show="module_____acing_ppsdirective">+</i>
+            </h3>
+            <ul ng-hide="module_____acing_ppsdirective">
+              <li>
+                <a href="module-SIMRacingApps-sra-data.html">sra-data</a>
+              </li><li>
+                <a href="module-SIMRacingApps-sra-horizontal-align.html">sra-horizontal-align</a>
+              </li><li>
+                <a href="module-SIMRacingApps-sra-resize.html">sra-resize</a>
+              </li><li>
+                <a href="module-SIMRacingApps-sra-vertical-align.html">sra-vertical-align</a>
+              </li>
+            </ul>
+          </ul><ul class="group">
+            <h3>
+              <a href="" ng-click="module_____acing_ppscontroller = !module_____acing_ppscontroller">
+                controller
+              </a>
+              <i ng-cloak="" ng-show="module_____acing_ppscontroller">+</i>
+            </h3>
+            <ul ng-hide="module_____acing_ppscontroller">
+              <li>
+                <a href="module-SIMRacingApps-sraController.html">sraController</a>
+              </li>
+            </ul>
+          </ul><ul class="group">
+            <h3>
+              <a href="" ng-click="module_____acing_ppsfactory = !module_____acing_ppsfactory">
+                factory
+              </a>
+              <i ng-cloak="" ng-show="module_____acing_ppsfactory">+</i>
+            </h3>
+            <ul ng-hide="module_____acing_ppsfactory">
+              <li>
+                <a href="module-SIMRacingApps-sraDispatcher.html">sraDispatcher</a>
+              </li>
+            </ul>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+    <div id="content" class="page-wrap">
+      <h3 style="float:right; color:#ccc">
+        Angular directive
+      </h3>
+      <h1 class="title">
+        sra-resize
+        <a class="name-link signature-attributes" href="source/module:SIMRacingApps~sra-resize.html#line1575">source</a>
+      </h1>
+      <div id="main" class="big-container">
+        <!-- source code html -->
+        <!-- index.html -->
+        <!-- class files -->
+        <div>
+          <div><div class="container-overview">
+      <dt></dt>
+      <dd>
+        <div class="description">
+          This directive watches for window resize events and adjust the width and height of the parent element.If you used percentages for the sizing of all the children, then they will adjust accordingly as well.It is to be placed on the most outer element of the page that is not the body.
+        </div>
+        <div class="details"></div>
+      </dd>
     </div>
-    
-
-    
-
-    
-
-    
-
-    
-<dl class="details">
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-author">Author:</dt>
-    <dd class="tag-author">
-        <ul>
-            <li>Jeffrey Gilliam</li>
-        </ul>
-    </dd>
-    
-
-    
-
-    
-
-    
-
-    
-    <!-- commented out by Allen Kim
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lib_SIMRacingApps.js.html">lib/SIMRacingApps.js</a>, <a href="lib_SIMRacingApps.js.html#line1575">line 1575</a>
-    </li></ul></dd>
-    -->
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dd>
-
-    
+    <section>
+    </section></div>
+        </div>
+      </div>
+      <footer style="clear:both">
+        Documentation generated by
+        <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.2</a>
+        using
+        <a href="https://github.com/allenhwkim/angular-jsdoc">Angular-JSDoc template</a>
+      </footer>
     </div>
-
-    
-
-    
-
-    <!--
-    
-    -->
-
-    
-
-     
-
-    
-
-    
-
-    
-
-    
-
-    
-</article>
-
-</section>
-
-
-
-
-</div>
-
-<nav>
-    <h2><a href="index.html">Index</a></h2><h3>Modules</h3><ul><li><a href="module-SIMRacingApps.html">SIMRacingApps</a></li></ul><h3>apps</h3><ul><li><a href="CrewChief.html">CrewChief</a></li><li><a href="CrewChief-Large.html">CrewChief-Large</a></li><li><a href="Dash-BarGauges-DigitalOverlay.html">Dash-BarGauges-DigitalOverlay</a></li><li><a href="Dash-Gauges-Spek.html">Dash-Gauges-Spek</a></li><li><a href="Dash-Gauges-Spek-Horizontal.html">Dash-Gauges-Spek-Horizontal</a></li><li><a href="Dash-Minimum.html">Dash-Minimum</a></li><li><a href="Dash-Small.html">Dash-Small</a></li><li><a href="Dash-StockCars-DigitalOverlay.html">Dash-StockCars-DigitalOverlay</a></li><li><a href="RaceAdministrator.html">RaceAdministrator</a></li><li><a href="Spectator.html">Spectator</a></li><li><a href="StreamingOverlay.html">StreamingOverlay</a></li></ul><h3>filter</h3><ul><li><a href="module-SIMRacingApps.sraCeil.html">sraCeil</a></li><li><a href="module-SIMRacingApps.sraDebug.html">sraDebug</a></li><li><a href="module-SIMRacingApps.sraDecodeEntities.html">sraDecodeEntities</a></li><li><a href="module-SIMRacingApps.sraDuration.html">sraDuration</a></li><li><a href="module-SIMRacingApps.sraFloor.html">sraFloor</a></li><li><a href="module-SIMRacingApps.sraHex.html">sraHex</a></li><li><a href="module-SIMRacingApps.sraLPad.html">sraLPad</a></li><li><a href="module-SIMRacingApps.sraNumber.html">sraNumber</a></li><li><a href="module-SIMRacingApps.sraRGB.html">sraRGB</a></li><li><a href="module-SIMRacingApps.sraRound.html">sraRound</a></li><li><a href="module-SIMRacingApps.sraRPad.html">sraRPad</a></li></ul><h3>directive</h3><ul><li><a href="module-SIMRacingApps-sra-data.html">sra-data</a></li><li><a href="module-SIMRacingApps-sra-horizontal-align.html">sra-horizontal-align</a></li><li><a href="module-SIMRacingApps-sra-resize.html">sra-resize</a></li><li><a href="module-SIMRacingApps-sra-vertical-align.html">sra-vertical-align</a></li><li><a href="sra-analog-gauge.html">sra-analog-gauge</a></li><li><a href="sra-analog-gauge-spek-brake-pressure.html">sra-analog-gauge-spek-brake-pressure</a></li><li><a href="sra-analog-gauge-spek-fuel-level.html">sra-analog-gauge-spek-fuel-level</a></li><li><a href="sra-analog-gauge-spek-fuel-pressure.html">sra-analog-gauge-spek-fuel-pressure</a></li><li><a href="sra-analog-gauge-spek-oil-level.html">sra-analog-gauge-spek-oil-level</a></li><li><a href="sra-analog-gauge-spek-oil-pressure.html">sra-analog-gauge-spek-oil-pressure</a></li><li><a href="sra-analog-gauge-spek-oil-temp.html">sra-analog-gauge-spek-oil-temp</a></li><li><a href="sra-analog-gauge-spek-tachometer.html">sra-analog-gauge-spek-tachometer</a></li><li><a href="sra-analog-gauge-spek-voltage.html">sra-analog-gauge-spek-voltage</a></li><li><a href="sra-analog-gauge-spek-water-level.html">sra-analog-gauge-spek-water-level</a></li><li><a href="sra-analog-gauge-spek-water-pressure.html">sra-analog-gauge-spek-water-pressure</a></li><li><a href="sra-analog-gauge-spek-water-temp.html">sra-analog-gauge-spek-water-temp</a></li><li><a href="sra-bar-gauge.html">sra-bar-gauge</a></li><li><a href="sra-bar-gauge-brake-pressure.html">sra-bar-gauge-brake-pressure</a></li><li><a href="sra-bar-gauge-fuel-level.html">sra-bar-gauge-fuel-level</a></li><li><a href="sra-bar-gauge-fuel-pressure.html">sra-bar-gauge-fuel-pressure</a></li><li><a href="sra-bar-gauge-oil-level.html">sra-bar-gauge-oil-level</a></li><li><a href="sra-bar-gauge-oil-pressure.html">sra-bar-gauge-oil-pressure</a></li><li><a href="sra-bar-gauge-oil-temp.html">sra-bar-gauge-oil-temp</a></li><li><a href="sra-bar-gauge-tachometer.html">sra-bar-gauge-tachometer</a></li><li><a href="sra-bar-gauge-voltage.html">sra-bar-gauge-voltage</a></li><li><a href="sra-bar-gauge-water-level.html">sra-bar-gauge-water-level</a></li><li><a href="sra-bar-gauge-water-pressure.html">sra-bar-gauge-water-pressure</a></li><li><a href="sra-bar-gauge-water-temp.html">sra-bar-gauge-water-temp</a></li><li><a href="sra-car-controls.html">sra-car-controls</a></li><li><a href="sra-car-image.html">sra-car-image</a></li><li><a href="sra-car-number.html">sra-car-number</a></li><li><a href="sra-car-number-extended.html">sra-car-number-extended</a></li><li><a href="sra-car-selector.html">sra-car-selector</a></li><li><a href="sra-data-table.html">sra-data-table</a></li><li><a href="sra-driver-info.html">sra-driver-info</a></li><li><a href="sra-flags.html">sra-flags</a></li><li><a href="sra-fuel-tank.html">sra-fuel-tank</a></li><li><a href="sra-gear.html">sra-gear</a></li><li><a href="sra-lap-timing.html">sra-lap-timing</a></li><li><a href="sra-messages.html">sra-messages</a></li><li><a href="sra-pedals.html">sra-pedals</a></li><li><a href="sra-pit-commander.html">sra-pit-commander</a></li><li><a href="sra-pit-road.html">sra-pit-road</a></li><li><a href="sra-radio-control.html">sra-radio-control</a></li><li><a href="sra-relative.html">sra-relative</a></li><li><a href="sra-relative13.html">sra-relative13</a></li><li><a href="sra-relative25.html">sra-relative25</a></li><li><a href="sra-relative-small.html">sra-relative-small</a></li><li><a href="sra-shift-light.html">sra-shift-light</a></li><li><a href="sra-shift-lights.html">sra-shift-lights</a></li><li><a href="sra-standings.html">sra-standings</a></li><li><a href="sra-standings-banner.html">sra-standings-banner</a></li><li><a href="sra-standings-top-10.html">sra-standings-top-10</a></li><li><a href="sra-standings-top-20.html">sra-standings-top-20</a></li><li><a href="sra-standings-top-35.html">sra-standings-top-35</a></li><li><a href="sra-standings-top-43.html">sra-standings-top-43</a></li><li><a href="sra-steering-wheel.html">sra-steering-wheel</a></li><li><a href="sra-team-speak-talking.html">sra-team-speak-talking</a></li><li><a href="sra-template.html">sra-template</a></li><li><a href="sra-time.html">sra-time</a></li><li><a href="sra-timing-delta.html">sra-timing-delta</a></li><li><a href="sra-tire.html">sra-tire</a></li><li><a href="sra-tire-measurements.html">sra-tire-measurements</a></li><li><a href="sra-track-map.html">sra-track-map</a></li><li><a href="sra-track-map-car.html">sra-track-map-car</a></li><li><a href="sra-track-map-finish-line.html">sra-track-map-finish-line</a></li><li><a href="sra-weather-info.html">sra-weather-info</a></li><li><a href="sra-wind-gauge.html">sra-wind-gauge</a></li></ul><h3>controller</h3><ul><li><a href="module-SIMRacingApps-sraController.html">sraController</a></li></ul><h3>factory</h3><ul><li><a href="module-SIMRacingApps-sraDispatcher.html">sraDispatcher</a></li></ul><h3>Global</h3><ul><li><a href="global.html#SIMRacingAppsCache">SIMRacingAppsCache</a></li></ul>
-</nav>
-
-<br clear="both">
-
-<footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.2</a> 
-    using <a href="https://github.com/allenhwkim/angular-jsdoc">Angular-JSDoc template </a> 
-</footer>
-
-<script> prettyPrint(); </script>
-<script src="scripts/linenumber.js"> </script>
-<script>
-  // scroll to the current document navigation
-  var href=window.location.href.match(/\/([^\/]+$)/)[1];
-  if (currentNav = document.querySelector("nav a[href='"+href+"']"))
-    currentNav.scrollIntoView(true);
-  // scroll to the top of the document
-  if (window.location.hash == "")
-    document.querySelector("body").scrollIntoView(true);
-  // adjust the width of main section by navigation width
-  // var navWidth = document.querySelector('nav').getBoundingClientRect().width;
-  // var mainWidth = document.querySelector('#main').getBoundingClientRect().width;
-  // document.querySelector('#main').style.width = (mainWidth - navWidth)+'px';
-</script>
-</body>
+    <!--%= prettyJson %-->
+    <script>
+      prettyPrint();
+      var lineNo = window.location.hash.match(/#line([0-9]+)$/);
+      lineNo && document.querySelector("ol li:nth-child("+(lineNo[1])+")").scrollIntoView();
+    </script>
+  </body>
 </html>
