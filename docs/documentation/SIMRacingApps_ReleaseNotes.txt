@@ -1,22 +1,9 @@
 SIMRacingApps Release Notes
 ---------------------------
 
-Version: 1.0_Build_BETA-2016.04.25
-    1. Removed the previous code that reset the fast repair option on pit exit for iRacing.
-       As of the March 30, 2016 patch from iRacing, this is controlled by setting 
-            Documents\iRacing\app.ini[Pit Service]autoResetFastRepair
-    2. Fixed issue with StandingsBanner widget where it would not page through
-       the field when under caution.
-    3. Added the Chat Widget with customizable buttons.
-       To customize, you add variables to your settings. See the documentation for Chat for details.
-          chat-row1-col1-name = /[CAR]<br />PASS LEFT
-          chat-row1-col1-text = /RL-1 [#[CARNUMBER]] Pass Left
-       NOTE: What is RL-1? That is the code for Relative 1 position behind.
-    4. Fixed Relative so it doesn't show the pace car if it is not on the track.
-    5. Added Car/(CARIDENTFIER)/NumberFont and Car/(CARIDENTFIER)/NumberSlant to the API.
-       Changed the CarNumber widget to use them. If the font is not installed on your system
-       it falls back to Arial. I will be investigating ways to bundle the fonts, if I can get 
-       permission to. 
+Version: 1.0_Build_BETA-2016.05.01
+    1. Fixed formatting problem with the RaceAdministor App.
+    2. Fixed transparency for a few widgets. If you use a widget in an App, you must style the background.
            
 ------------------------------------------------------------------------------------------------------
 ---                    Configuration Tips                                                          ---
@@ -34,7 +21,7 @@ Version: 1.0_Build_BETA-2016.04.25
     Electron Client:
         To install or update Electron Launcher, download the .SRA file's latest version 
         from http://electron.SIMRacingApps.com, start the SIMRacingAppsServer.exe,
-        connect to the manu menu from a browser and upload the .SRA file. 
+        connect to the main menu from a browser and upload the .SRA file. 
         Refer to the Electron's readme file for more information.
         
     Overwolf Client:
@@ -56,6 +43,23 @@ Version: 1.0_Build_BETA-2016.04.25
     - Redesign the Gauge class.
 
 ****************** Previous Versions *************************
+
+1.0_Build_BETA-2016.04.25
+    1. Removed the previous code that reset the fast repair option on pit exit for iRacing.
+       As of the March 30, 2016 patch from iRacing, this is controlled by setting 
+            Documents\iRacing\app.ini[Pit Service]autoResetFastRepair
+    2. Fixed issue with StandingsBanner widget where it would not page through
+       the field when under caution.
+    3. Added the Chat Widget with customizable buttons.
+       To customize, you add variables to your settings. See the documentation for Chat for details.
+          chat-row1-col1-name = /[CAR]<br />PASS LEFT
+          chat-row1-col1-text = /RL-1 [#[CARNUMBER]] Pass Left
+       NOTE: What is RL-1? That is the code for Relative 1 position behind.
+    4. Fixed Relative so it doesn't show the pace car if it is not on the track.
+    5. Added Car/(CARIDENTFIER)/NumberFont and Car/(CARIDENTFIER)/NumberSlant to the API.
+       Changed the CarNumber widget to use them. If the font is not installed on your system
+       it falls back to Arial. I will be investigating ways to bundle the fonts, if I can get 
+       permission to. 
 
 1.0_Build_BETA-2016.03.24
     1. Added ability for SIMPluginCallbacks to add to the ReST API.
