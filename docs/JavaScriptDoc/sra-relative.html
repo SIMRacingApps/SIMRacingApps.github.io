@@ -134,6 +134,8 @@
               </li><li>
                 <a href="sra-lap-timing.html">sra-lap-timing</a>
               </li><li>
+                <a href="sra-laps-banner.html">sra-laps-banner</a>
+              </li><li>
                 <a href="sra-messages.html">sra-messages</a>
               </li><li>
                 <a href="sra-pedals.html">sra-pedals</a>
@@ -145,10 +147,6 @@
                 <a href="sra-radio-control.html">sra-radio-control</a>
               </li><li>
                 <a href="sra-relative.html">sra-relative</a>
-              </li><li>
-                <a href="sra-relative13.html">sra-relative13</a>
-              </li><li>
-                <a href="sra-relative25.html">sra-relative25</a>
               </li><li>
                 <a href="sra-relative-small.html">sra-relative-small</a>
               </li><li>
@@ -300,7 +298,7 @@
       <dt></dt>
       <dd>
         <div class="description">
-          This widget displays the cars that are physically close to you on the track.There are 2 times, how far behind the leader and how far they are from you at your current speed.The cars are color coded as Red(At least a lap ahead), Blue (At least a lap behind), White (Same lap as you), Cyan (Off track).A blink counter is shown before the Club Name.<p>Example:<p><b>&lt;sra-relative&gt;&lt;/sra-relative&gt;<br /></b><img src="../widgets/Relative/icon.png" />
+          This widget displays the cars that are physically close to you on the track, (optionally by class by default, the REFERENCE car's class).There are 2 times, how far behind the leader (of your class) and how far they are from you at your current speed.The cars are color coded as Red(At least a lap ahead), Blue (At least a lap behind), White (Same lap as you), Cyan (Off track).A blink counter is shown before the Club Name.<p>Example:<p><b>&lt;sra-relative&gt;&lt;/sra-relative&gt;<br /></b><img src="../widgets/Relative/icon.png" />
         </div>
         <div class="details"></div>
         <div>
@@ -311,6 +309,12 @@
             </thead>
             <tbody>
               <tr>
+                <td class="name" nowrap="">data-sra-args-class-filter</td>
+                <td class="type"><span class="param-type">
+                  boolean
+                </span></td>
+                <td class="description last">true, displays cars relative to your location. Default false.</td>
+              </tr><tr>
                 <td class="name" nowrap="">data-sra-args-by-location</td>
                 <td class="type"><span class="param-type">
                   boolean

@@ -1,8 +1,7 @@
 <!doctype html>
 <html>
   <head>
-    <base href="../">
-    <title>JSDoc: source : Relative25.js</title>
+    <title>JSDoc: sra-laps-banner</title>
     <link type="text/css" rel="stylesheet" href="css/jsdoc-default.css">
     <link href="css/prettify-tomorrow.css" type="text/css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,400,300,700" rel="stylesheet" type="text/css">
@@ -135,6 +134,8 @@
               </li><li>
                 <a href="sra-lap-timing.html">sra-lap-timing</a>
               </li><li>
+                <a href="sra-laps-banner.html">sra-laps-banner</a>
+              </li><li>
                 <a href="sra-messages.html">sra-messages</a>
               </li><li>
                 <a href="sra-pedals.html">sra-pedals</a>
@@ -146,10 +147,6 @@
                 <a href="sra-radio-control.html">sra-radio-control</a>
               </li><li>
                 <a href="sra-relative.html">sra-relative</a>
-              </li><li>
-                <a href="sra-relative13.html">sra-relative13</a>
-              </li><li>
-                <a href="sra-relative25.html">sra-relative25</a>
               </li><li>
                 <a href="sra-relative-small.html">sra-relative-small</a>
               </li><li>
@@ -284,16 +281,54 @@
       </ul>
     </nav>
     <div id="content" class="page-wrap">
+      <h3 style="float:right; color:#ccc">
+        Angular directive
+      </h3>
       <h1 class="title">
-        source : Relative25.js
+        sra-laps-banner
+        <a class="name-link signature-attributes" href="source/sra-laps-banner.html#line2">source</a>
+        <a class="name-link signature-attributes" href="templates\sraDispatcher.getWidgetUrl(self.url) + _ + self.template">template</a>
       </h1>
       <div id="main" class="big-container">
         <!-- source code html -->
-        <article>
-          <pre class="prettyprint source linenums"><code>'use strict';/** * This widget displays the 24 cars that are physically close to you on the track. * There are 2 times, how far behind the leader and how far they are from you at your current speed. * The cars are color coded as Red(At least a lap ahead), Blue (At least a lap behind), White (Same lap as you), Cyan (Off track). * A blink counter is shown before the Club Name. * &lt;p> * Example: * &lt;p>&lt;b> * &lt;sra-relative25&gt;&lt;/sra-relative25&gt;&lt;br /> * &lt;/b> * &lt;img src="../widgets/Relative25/icon.png" /> * @ngdoc directive * @name sra-relative25 * @param {boolean} data-sra-args-by-location true, displays cars relative to your location. Default false. * @param {integer} data-sra-args-interval The interval, in milliseconds, that this widget will update from the server. Default is 1000. * @author Jeffrey Gilliam * @since 1.0 * @copyright Copyright (C) 2015 - 2016 Jeffrey Gilliam * @license Apache License 2.0 */define(['SIMRacingApps','css!widgets/Relative25/Relative25','widgets/CarNumber/CarNumber'],function(SIMRacingApps) {    var self = {        name:            'sraRelative25',        url:             'Relative25',        template:        'Relative25.html',        defaultWidth:    760,        defaultHeight:   1150,        defaultInterval: 300, //initialize with the default interval        module:          angular.module('SIMRacingApps') //get the main module    };    self.module.directive(self.name,           ['sraDispatcher','$rootScope',    function(sraDispatcher,$rootScope) {        return {            restrict: 'EA',            scope: true,            templateUrl: sraDispatcher.getWidgetUrl(self.url) + '/' + self.template,            controller: ['$scope', function($scope) {                $scope.directiveName   = self.name;                $scope.defaultWidth    = self.defaultWidth;                $scope.defaultHeight   = self.defaultHeight;                $scope.defaultInterval = self.defaultInterval;                //load translations                sraDispatcher.loadTranslations(sraDispatcher.getWidgetUrl(self.url),'text',function(path) {                    $scope.translations = sraDispatcher.getTranslation(path);                });            }]            , link: function($scope,$element,$attrs) {                $scope.sraArgsBYLOCATION = sraDispatcher.getBoolean($scope.sraArgsBYLOCATION, $attrs.sraArgsByLocation, false);                /**standard code that should be in every directive **/                $rootScope.$on('sraResize', sraDispatcher.resize($scope,$element,self.defaultWidth,self.defaultHeight));                $scope.names = sraDispatcher.subscribe($scope,$attrs,self.defaultInterval); //register subscriptions and options to the dispatcher            }        };    }]);    return self;});</code></pre>
-        </article>
         <!-- index.html -->
         <!-- class files -->
+        <div>
+          <div><div class="container-overview">
+      <dt></dt>
+      <dd>
+        <div class="description">
+          This widget displays a TV style banner title and lap counter with sponsor images.By default, the session type is displayed as the title.The default sponsor is SIMRacingApps.To change either, create a file called "LapsBanner.json" in the "Documents/SIMRacingApps" folder with the following entries.<pre>{  "title":            "TALLADEGA 500",  "fontSize":         "100%",  "sponsorImageUrls": ["Sponsors/Sponsor1.png","Sponsors/Sponsor2.png"],  "sponsorSeconds":   [60,120]}</pre>In the example, the sponsor logos is an array of files that are stored in the "Documents/SIMRacingApps/Sponsors" folder.The ratio of a sponsor file should be 4x1. The default window size calculates that to be 200x50 pixels, but it will scale up and down.Each sponsor can have their own display time using the seconds array.The first sponsor will be displayed for 60 seconds, the second for 120 seconds, then start over.You can add more sponsors and seconds to display as needed.<p>Example:<p><b>&lt;sra-laps-banner&gt;&lt;/sra-laps-banner&gt;<br /></b><img src="../widgets/LapsBanner/icon.png" alt="Image goes here"/>
+        </div>
+        <div class="details"></div>
+        <div>
+          <h5>Dependencies:</h5>
+          <table class="params">
+            <thead>
+              <tr><th>Name</th><th>Type</th><th class="last">Description</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="name" nowrap="">data-sra-args-title-filename</td>
+                <td class="type"><span class="param-type">
+                  string
+                </span></td>
+                <td class="description last">The name of the file to read the title and sponsors from. Defaults to "LapsBanner".</td>
+              </tr><tr>
+                <td class="name" nowrap="">data-sra-args-interval</td>
+                <td class="type"><span class="param-type">
+                  integer
+                </span></td>
+                <td class="description last">The interval, in milliseconds, that this widget will update from the server. Default is 500.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </dd>
+    </div>
+    <section>
+    </section></div>
+        </div>
       </div>
       <footer style="clear:both">
         Documentation generated by

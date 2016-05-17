@@ -134,6 +134,8 @@
               </li><li>
                 <a href="sra-lap-timing.html">sra-lap-timing</a>
               </li><li>
+                <a href="sra-laps-banner.html">sra-laps-banner</a>
+              </li><li>
                 <a href="sra-messages.html">sra-messages</a>
               </li><li>
                 <a href="sra-pedals.html">sra-pedals</a>
@@ -145,10 +147,6 @@
                 <a href="sra-radio-control.html">sra-radio-control</a>
               </li><li>
                 <a href="sra-relative.html">sra-relative</a>
-              </li><li>
-                <a href="sra-relative13.html">sra-relative13</a>
-              </li><li>
-                <a href="sra-relative25.html">sra-relative25</a>
               </li><li>
                 <a href="sra-relative-small.html">sra-relative-small</a>
               </li><li>
@@ -300,7 +298,7 @@
       <dt></dt>
       <dd>
         <div class="description">
-          This widget is a generic implementation of the shift light bar. <p>Example:<p><b>&lt;sra-shift-lights&gt;&lt;/sra-shift-lights&gt;<br /></b><img src="../widgets/ShiftLights/icon.png" />
+          This widget is a generic implementation of the shift light bar.It shows progressive lights, green, yellow, red as approaching the shift point.It also shows the same lights as you are approaching pit road speed.<p>Example:<p><b>&lt;sra-shift-lights&gt;&lt;/sra-shift-lights&gt;<br /></b><img src="../widgets/ShiftLights/icon.png" />
         </div>
         <div class="details"></div>
         <div>
@@ -311,6 +309,12 @@
             </thead>
             <tbody>
               <tr>
+                <td class="name" nowrap="">sra-pit-speeding</td>
+                <td class="type"><span class="param-type">
+                  boolean
+                </span></td>
+                <td class="description last">If false, does not use the lights for pit road speed. Default is true.</td>
+              </tr><tr>
                 <td class="name" nowrap="">data-sra-args-flash-rate</td>
                 <td class="type"><span class="param-type">
                   milliseconds

@@ -1,9 +1,32 @@
 SIMRacingApps Release Notes
 ---------------------------
 
-Version: 1.0_Build_BETA-2016.05.01
-    1. Fixed formatting problem with the RaceAdministor App.
-    2. Fixed transparency for a few widgets. If you use a widget in an App, you must style the background.
+Version: 1.0_Build_BETA-2016.05.15
+    1. Added new Relative widgets that displays only the cars in your class.
+       Thanks to Mark Hargett at HPP Simulations for this enhancement. 
+       If you're not in a multi-class session, it will display all cars.
+    2. Added new widget called LapsBanner that includes just the left box from the StandingsBannder.
+       This can be customized separately from the Standings Banner if needed using LapsBanner.json.
+       Thanks to Robert Moyer Jr for this enhancement.
+    3. Changed how the volume works so that the "sound-volume" setting effects all other volumes relatively.
+       Before, the "sound-volume" was only used if the "pit-count-down-volume" was not set.
+       Now, if "sound-volume=.8" and "pit-count-down-volume=.5" the final volume will be .4
+       This will allow you to control the level of all sounds with the "sound-volume" setting and use the 
+       volume for each sound to balance the levels between each other.
+       If you have both of them set now, you will want to adjust them for this new logic.
+       I decided to make this change because it's the way a sound board works and I didn't want to get any grief :)
+       More sounds will be coming in the future.
+       Thanks to Robert Moyer Jr for this enhancement.
+    4. Added the ability to totally disable sound with the following entry in settings.txt.
+       The default is true.
+          sound = false
+    5. You can now stop the MSPEC Shift RPM Light from turning on when speeding on pit road.
+       Set the following variable in your settings.txt file. The default is true.
+          mspec-speeding = false
+    6. Added slow blink when Pit Limiter is on for MSPEC RPM Light, Tachs, and ShiftLights.
+    7. ShiftLight and ShiftLights widgets now turn on when speeding on pit road by default.
+       There is also a version without it on the menu.
+    8. Added new API call, /Session/ClassNames, to get all the car classes in the session.
            
 ------------------------------------------------------------------------------------------------------
 ---                    Configuration Tips                                                          ---
@@ -28,6 +51,13 @@ Version: 1.0_Build_BETA-2016.05.01
         To install or update Overwolf Launcher, download the .OPK file's latest version 
         from http://overwolf.SIMRacingApps.com, open Overwolf's Dock and load it. 
         Refer to the instructions in the readme file to install this file into Overwolf.
+        WARNING: 
+            THERE IS AN OVERWOLF BUG THAT CAUSES IT TO TAKE OVER YOUR USB INPUT DEVICES
+            WHENEVER YOU CLICK ON AN APP. THIS CAN CAUSE IT TO SHIFT DOWN, LOOSE FORCE FEEDBACK,
+            AND OTHER DISASTROUS THINGS. SO, DO NOT CLICK ON AN APP WHILE IN THE CAR.
+            If you do, go into the garage and come back out and it will reset your devices.
+            I have posted the issue to the forums. 
+            You can follow it [here](http://forums.overwolf.com/index.php?/topic/7106-clicking-on-app-overwolf-takes-over-usb-input-devices)
 
     Wiki:
         There are many other recommendations on the SIMRacingApps Wiki at http://wiki.SIMRacingApps.com.

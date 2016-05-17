@@ -189,13 +189,13 @@ extends java.lang.Object</pre>
 <tr class="rowColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Session.CarIdentifiers.html#POSITION_PREFIX">POSITION_PREFIX</a></span></code>
-<div class="block">Position, followed by the postion starting at 1</div>
+<div class="block">Position, followed by the position starting at 1</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Session.CarIdentifiers.html#POSITIONCLASS_PREFIX">POSITIONCLASS_PREFIX</a></span></code>
-<div class="block">Position of your class, followed by the postion starting at 1</div>
+<div class="block">Position of your class, followed by the position starting at 1</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -206,26 +206,38 @@ extends java.lang.Object</pre>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Session.CarIdentifiers.html#RELATIVE_CLASS_PREFIX">RELATIVE_CLASS_PREFIX</a></span></code>
+<div class="block">Relative in the reference car's class, followed by the number of cars from the reference car.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Session.CarIdentifiers.html#RELATIVE_LOCATION_CLASS_REPFIX">RELATIVE_LOCATION_CLASS_REPFIX</a></span></code>
+<div class="block">Relative by location (OnTrack or OnPitRoad) for the reference car's class, followed by the number of cars from the reference car.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Session.CarIdentifiers.html#RELATIVE_LOCATION_REPFIX">RELATIVE_LOCATION_REPFIX</a></span></code>
-<div class="block">Relative by location (OnTrack or OnPitRoad), followed by the number of cars from the refernce car.</div>
+<div class="block">Relative by location (OnTrack or OnPitRoad), followed by the number of cars from the reference car.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Session.CarIdentifiers.html#RELATIVE_POSITION_CLASS_PREFIX">RELATIVE_POSITION_CLASS_PREFIX</a></span></code>
-<div class="block">Relative by Position in Class, followed by the number of positions in the same class as the refernce car.</div>
+<div class="block">Relative by Position in Class, followed by the number of positions in the same class as the reference car.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Session.CarIdentifiers.html#RELATIVE_POSITION_PREFIX">RELATIVE_POSITION_PREFIX</a></span></code>
-<div class="block">Relative by Position, followed by the number of positions from the refernce car.</div>
+<div class="block">Relative by Position, followed by the number of positions from the reference car.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Session.CarIdentifiers.html#RELATIVE_PREFIX">RELATIVE_PREFIX</a></span></code>
-<div class="block">Relative, followed by the number of cars from the refernce car.</div>
+<div class="block">Relative, followed by the number of cars from the reference car.</div>
 </td>
 </tr>
 <tr class="altColor">
@@ -428,7 +440,7 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>POSITION_PREFIX</h4>
 <pre>public static final&nbsp;java.lang.String POSITION_PREFIX</pre>
-<div class="block">Position, followed by the postion starting at 1</div>
+<div class="block">Position, followed by the position starting at 1</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../constant-values.html#com.SIMRacingApps.Session.CarIdentifiers.POSITION_PREFIX">Constant Field Values</a></dd>
@@ -442,7 +454,7 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>POSITIONCLASS_PREFIX</h4>
 <pre>public static final&nbsp;java.lang.String POSITIONCLASS_PREFIX</pre>
-<div class="block">Position of your class, followed by the postion starting at 1</div>
+<div class="block">Position of your class, followed by the position starting at 1</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../constant-values.html#com.SIMRacingApps.Session.CarIdentifiers.POSITIONCLASS_PREFIX">Constant Field Values</a></dd>
@@ -456,10 +468,24 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>RELATIVE_PREFIX</h4>
 <pre>public static final&nbsp;java.lang.String RELATIVE_PREFIX</pre>
-<div class="block">Relative, followed by the number of cars from the refernce car. Can be positive or negative</div>
+<div class="block">Relative, followed by the number of cars from the reference car. Can be positive or negative</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../constant-values.html#com.SIMRacingApps.Session.CarIdentifiers.RELATIVE_PREFIX">Constant Field Values</a></dd>
+</dl>
+</li>
+</ul>
+<a name="RELATIVE_CLASS_PREFIX">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>RELATIVE_CLASS_PREFIX</h4>
+<pre>public static final&nbsp;java.lang.String RELATIVE_CLASS_PREFIX</pre>
+<div class="block">Relative in the reference car's class, followed by the number of cars from the reference car. Can be positive or negative</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../constant-values.html#com.SIMRacingApps.Session.CarIdentifiers.RELATIVE_CLASS_PREFIX">Constant Field Values</a></dd>
 </dl>
 </li>
 </ul>
@@ -470,10 +496,24 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>RELATIVE_LOCATION_REPFIX</h4>
 <pre>public static final&nbsp;java.lang.String RELATIVE_LOCATION_REPFIX</pre>
-<div class="block">Relative by location (OnTrack or OnPitRoad), followed by the number of cars from the refernce car. Can be positive or negative</div>
+<div class="block">Relative by location (OnTrack or OnPitRoad), followed by the number of cars from the reference car. Can be positive or negative</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../constant-values.html#com.SIMRacingApps.Session.CarIdentifiers.RELATIVE_LOCATION_REPFIX">Constant Field Values</a></dd>
+</dl>
+</li>
+</ul>
+<a name="RELATIVE_LOCATION_CLASS_REPFIX">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>RELATIVE_LOCATION_CLASS_REPFIX</h4>
+<pre>public static final&nbsp;java.lang.String RELATIVE_LOCATION_CLASS_REPFIX</pre>
+<div class="block">Relative by location (OnTrack or OnPitRoad) for the reference car's class, followed by the number of cars from the reference car. Can be positive or negative</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../constant-values.html#com.SIMRacingApps.Session.CarIdentifiers.RELATIVE_LOCATION_CLASS_REPFIX">Constant Field Values</a></dd>
 </dl>
 </li>
 </ul>
@@ -484,7 +524,7 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>RELATIVE_POSITION_PREFIX</h4>
 <pre>public static final&nbsp;java.lang.String RELATIVE_POSITION_PREFIX</pre>
-<div class="block">Relative by Position, followed by the number of positions from the refernce car. Can be positive or negative</div>
+<div class="block">Relative by Position, followed by the number of positions from the reference car. Can be positive or negative</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../constant-values.html#com.SIMRacingApps.Session.CarIdentifiers.RELATIVE_POSITION_PREFIX">Constant Field Values</a></dd>
@@ -498,7 +538,7 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>RELATIVE_POSITION_CLASS_PREFIX</h4>
 <pre>public static final&nbsp;java.lang.String RELATIVE_POSITION_CLASS_PREFIX</pre>
-<div class="block">Relative by Position in Class, followed by the number of positions in the same class as the refernce car. Can be positive or negative</div>
+<div class="block">Relative by Position in Class, followed by the number of positions in the same class as the reference car. Can be positive or negative</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../constant-values.html#com.SIMRacingApps.Session.CarIdentifiers.RELATIVE_POSITION_CLASS_PREFIX">Constant Field Values</a></dd>

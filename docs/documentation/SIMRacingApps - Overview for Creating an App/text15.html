@@ -14,10 +14,8 @@
 <ul>
 <li>The &quot;require()&quot; declaration, which lists the dependencies of your app. This will include &quot;angular&quot;, &quot;SIMRacingApps&quot;, and your default.css file as a minimum. It should also list all widgets your app uses.</li>
 <li>The &quot;controller&quot; for your app is used to initialize variables you are using in your default.html file and also to load the translation files.</li>
-<li>A call bootstrap the application as follows.</li>
-<ul>
-<li>SIMRacingApps.start(angular.element(document.body));</li>
-</ul>
+<li>A call bootstrap the application as follows, (element,width,height,font-size). These must match the values from the listing.json file.</li>
+<h2>           SIMRacingApps.start(angular.element(document.body),800,480,16);</h2>
 </ul>
 </ul>
 </body>

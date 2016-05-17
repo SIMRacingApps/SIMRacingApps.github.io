@@ -121,6 +121,15 @@ var activeTableTab = "activeTableTab";
 extends <a href="../../../../com/SIMRacingApps/SIMPluginCallbacks/SIMPluginCallback.html" title="class in com.SIMRacingApps.SIMPluginCallbacks">SIMPluginCallback</a></pre>
 <div class="block">This class implements the interface to the MSPEC Shift Light.
  <p>
+ Each light must have a unique port assigned to it in the settings.
+ For example: If your light is on COM3, then use
+ <pre> 
+     mspec-rpm = 3
+ </pre>
+ 
+ By default the light will come on when speeding. You can control
+ this with the "mspec-speeding = true or false" variable.
+ 
  This document was used as the reference to this implementation.
  <a href="http://www.silabs.com/Support%20Documents/TechnicalDocs/an197.pdf"></a></div>
 <dl>

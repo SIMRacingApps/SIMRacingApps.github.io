@@ -15,15 +15,16 @@
 <li>data-ng-bind=&quot;(data.Car.LEADER.Lap.Completed.Value | number:0)&quot;</li>
 </ul>
 <li>The statement above uses the Angular Filter called &quot;number&quot;. It takes one argument for the number of decimal places. It returns the number formatted according to the locale's required format, see Localization page. It's safer to place parentheses around these pipelines.</li>
-<li>SIMRacingApps provides additional filters as follows.</li>
+<li>SIMRacingApps provides additional filters as follows. There are more details in the JavaScript Documentation which can be accessed from the main menu.</li>
 <ul>
 <li>sraNumber - Same as &quot;number&quot;, but allows an entire Data object to be passed so the UOM can be appended.</li>
 <li>sraDuration - Formats a double in seconds to the D:HH:MM:SS.MMM format. Accepts a Data object as well.</li>
 <li>sraLPad, sraRPad - Pads the value either on left or the right.</li>
 <li>sraHex - Formats value as in hexadecimal.</li>
+<li>sraRGB – Formats the value suitable for assigning to a style attribute, like color;</li>
+<li>sraCeil, sraFloor, sraRound – Are simply wrappers for the same JavaScript functions.</li>
 <li>sraDebug - A pass-through filter with a debugger break point set.</li>
 </ul>
-<li><i><b>TODO: Put links for these to their JavaScriptDoc page.</b></i></li>
 </ul>
 </body>
 </html>
