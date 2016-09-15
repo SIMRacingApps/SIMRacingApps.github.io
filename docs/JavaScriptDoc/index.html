@@ -186,6 +186,8 @@
               </li><li>
                 <a href="sra-track-map-finish-line.html">sra-track-map-finish-line</a>
               </li><li>
+                <a href="sra-waiting-for-s-i-m.html">sra-waiting-for-s-i-m</a>
+              </li><li>
                 <a href="sra-weather-info.html">sra-weather-info</a>
               </li><li>
                 <a href="sra-wind-gauge.html">sra-wind-gauge</a>
@@ -364,8 +366,32 @@ For all the possible values supported for the CARIDENTIFIER, click <a href="../J
 <li>http://Your.Server.IP.Address:Port/SIMRacingApps/Data/...</li>
 <li>http://192.168.1.61:80/SIMRacingApps/Data/Track/Description</li>
 </ol>
+<p>Returns a JSON structure by default that looks like this:</p>
+<pre>
+{
+    "Type": "STRING",
+    "UOM": "",
+    "Format": "",
+    "StatePercent": "0.0",
+    "State": "NORMAL",
+    "Value": "Charlotte Motor Speedway",
+    "UOMAbbr": "",
+    "UOMDesc": "",
+    "Lang": "en",
+    "ValueFormatted": "Charlotte Motor Speedway",
+    "Name": "/Track/Description"
+}
+</pre>
+<p>You can also add the &quot;output&quot; parameter to the URL to just get the value you need. For example, this URL only returns the ValueFormatted. You can use &quot;localhost&quot; when your browser is running on the same computer as the server.</p>
+<ol>
+<li>http://localhost/SIMRacingApps/Data/Track/Description?output=valueformatted</li>
+</ol>
 <p><a target="_blank" href="../JavaDoc/com/SIMRacingApps/SIMPluginCallbacks/Sounds/PitCountDown.html#getVolume--"><code>/SIMPluginCallback/Sounds/PitCountDown/Volume</code></a><br />
 <a target="_blank" href="../JavaDoc/com/SIMRacingApps/SIMPluginCallbacks/Sounds/PitCountDown.html#setVolume-double-"><code>/SIMPluginCallback/Sounds/PitCountDown/setVolume/(PERCENTAGE)</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/SIMPluginCallbacks/Sounds/PitSpeedLimit.html#getVolume--"><code>/SIMPluginCallback/Sounds/PitSpeedLimit/Volume</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/SIMPluginCallbacks/Sounds/PitSpeedLimit.html#setVolume-double-"><code>/SIMPluginCallback/Sounds/PitSpeedLimit/setVolume/(PERCENTAGE)</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/SIMPluginCallbacks/Sounds/Shift.html#getVolume--"><code>/SIMPluginCallback/Sounds/Shift/Volume</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/SIMPluginCallbacks/Sounds/Shift.html#setVolume-double-"><code>/SIMPluginCallback/Sounds/Shift/setVolume/(PERCENTAGE)</code></a><br />
 <a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#getBearing-java.lang.String-"><code>/Car/(CARIDENTIFIER)/Bearing/(UOM)</code></a><br />
 <a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#getCautions--"><code>/Car/(CARIDENTIFIER)/Cautions</code></a><br />
 <a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#getClassColor--"><code>/Car/(CARIDENTIFIER)/ClassColor</code></a><br />
@@ -451,6 +477,7 @@ For all the possible values supported for the CARIDENTIFIER, click <a href="../J
 <a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#getWarnings--"><code>/Car/(CARIDENTIFIER)/Warnings</code></a><br />
 <a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#setAdminFlag-boolean-"><code>/Car/(CARIDENTIFIER)/setAdminFlag/(Y/N)</code></a><br />
 <a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#setBlackFlag-int-java.lang.String-"><code>/Car/(CARIDENTIFIER)/setBlackFlag/(SECONDS/LAPS)/(UOM)</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#setCamera-java.lang.String-java.lang.String-"><code>/Car/(CARIDENTIFIER)/setCamera/Group/Camera</code></a><br />
 <a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#setChat-java.lang.String-"><code>/Car/(CARIDENTIFIER)/setChat/(TEXT)</code></a><br />
 <a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#setChatFlag-boolean-"><code>/Car/(CARIDENTIFIER)/setChatFlag/(Y/N)</code></a><br />
 <a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#setClearPenaltiesFlag--"><code>/Car/(CARIDENTIFIER)/setClearPenaltiesFlag</code></a><br />
@@ -526,6 +553,7 @@ For all the possible values supported for the CARIDENTIFIER, click <a href="../J
 <a target="_blank" href="../JavaDoc/com/SIMRacingApps/Session.html#getTimeRemaining--"><code>/Session/TimeRemaining</code></a><br />
 <a target="_blank" href="../JavaDoc/com/SIMRacingApps/Session.html#getType--"><code>/Session/Type</code></a><br />
 <a target="_blank" href="../JavaDoc/com/SIMRacingApps/Session.html#setAdvanceFlag--"><code>/Session/setAdvanceFlag</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Session.html#setCamera-java.lang.String-java.lang.String-java.lang.String-"><code>/Session/setCamera/(CARIDENTIFIER)/Group/Camera</code></a><br />
 <a target="_blank" href="../JavaDoc/com/SIMRacingApps/Session.html#setCautionFlag--"><code>/Session/setCautionFlag</code></a><br />
 <a target="_blank" href="../JavaDoc/com/SIMRacingApps/Session.html#setChat-java.lang.String-"><code>/Session/setChat/(TEXT)</code></a><br />
 <a target="_blank" href="../JavaDoc/com/SIMRacingApps/Session.html#setChatFlag-boolean-"><code>/Session/setChatFlag/(Y/N)</code></a><br />

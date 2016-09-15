@@ -1,26 +1,112 @@
 SIMRacingApps Release Notes
 ---------------------------
+For a complete list of issues completed in this version goto 
+(https://github.com/SIMRacingApps/SIMRacingApps/milestone/1)
 
-Version: 1.0_Build_2016.07.07
-    1. This is the initial release of the SIMRacingApp's Suite.
-    2. As a first release, I only have it working with 1 SIM, iRacing.
-       Other SIM plug-ins will be developed at a future date.
-    3. Also, full International support is built in, but there are no translations as of yet. 
-       So, I'm looking for volunteers to translate the text to other languages.
-    4. BETA testing has been occurring over the last 9 months and I feel like the software is very stable.
-       But, nothing is perfect. Please use the issues list at http://issues.SIMRacingApps.com, to report
-       any problems. You will have to create a GitHub account to do so.
-    5. If you just have some questions, please join the SIMRacingApps group on FaceBook and post your
-       question there. It can be found at http://facebook.com/groups/SIMRacingApps.
+Version: 1.1_Build_2016.09.15
+       
+    1. Fixed #53 (http://issues.SIMRacingApps.com/53) where SRA would not pick the 
+       latest version of Java if the version number of Java was greater than 99. 
+       Oracle released versions 101 and 102 recently.
+       This only affects you if you have multiple version of Java installed at the same time.
+       You can also just uninstall the older version of Java.
+       
+    2. Fixed #54 (http://issues.SIMRacingApps.com/54) Pit Count Down plugin to not play when you
+       first enter the session. Also, not to play anything if it doesn't know where the pit stall is.
+       It was counting down to the start/finish line.
+       
+    3. Closed #48 (https://issues.SIMRacingApps.com/48) by Adding new Pit Speed Limit 
+       plugin to beep when you are speeding on pit road.
+       To disable this plugin, add "!Sounds.PitSpeedLimit" to the list of simplugins in the settings.txt.
+       The following variables can be put in your settings.txt file to customize it. 
+       
+       These are the defaults.
+           a. pit-speed-limit-device = {name of your sound device if not your default} 
+           b. pit-speed-limit-volume = 1
+           c. pit-speed-limit-beep-rate = 300
+           d. pit-speed-limit-beep-rate-excessive = 200
+           e. pit-speed-limit-clip = com/SIMRacingApps/SIMPluginCallbacks/Sounds/Clips/speeding_beep.wav
+           
+    4. Closed #59 (https://issues.SIMRacingApps.com/59)
+       Broadcaster, CarSelector, TrackMap: Option to change the camera to the selected car.
+       
+    5. Closed #60 (https://issues.SIMRacingApps.com/60)
+       TrackMap: Add number of cautions and laps to track info box
+       
+    6. I added a Voice Attack Profile to the release downloads.
+       This profile does not use keystrokes to control the SIM, it instead sends the commands directly
+       to the SIMRacingApps Server ReST ATI. Not only is this more robust, but the same commands will work with
+       any SIM supported by SIMRacingApps. Please feel free to download and modify the phrases to your own preferences.
+       You will need the registered version of Voice Attack ($10) to be able to import this profile.
+       For more information on Voice Attack, see (http://wiki.SIMRacingApps.com/How-to-use-Voice-Attack).
+       
+       Here is the full list of the commands (and aliases):
+       
+       1.  Add Fuel: Tops off the Fuel on the next pit
+       2.  Add Splash Of Fuel(Add Splash): Add just enough fuel to finish the race
+       3.  Ahead: Say who is ahead of you in your class
+       4.  Behind: Say who is behind you in your class
+       5.  Change Four Tires(All Tires, Change All Tires, Four Tires): Changes All 4 tires at next pit stop
+       6.  Change Left Sides(Change Lefts, Left Sides): Change Left Side Tires Only at the next pit stop
+       7.  Change Right Sides(Change Rights, Right Sides, Two Tires): Change Right Side Tires Only
+       8.  Fast Repair: Checks the Fast Repair box if you have any left.
+       9.  Fuel Level: Say your fuel level and how much you need to finish.
+       10. Full Service: Change all 4 tires and top off with fuel and tearoff
+       11. Incidents: Say how many incidents you have and the limit.
+       12. Lap Time: Say what your last lap time was
+       13. Laps In Tank(Fuel Laps, Laps Until Pit): Say how many laps you can go on fuel
+       14. Laps To Go: Say how many laps to go for the leader
+       15. Leader: Say who the leader is and how far ahead they are
+       16. No Fast Repair: Unchecks the Fast Repair Box.
+       17. No Fuel: Do not take any fuel on next pit
+       18. No Service: Do not take any service on next pit. Repairs only.
+       19. No Tires: Do not take any tires on next pit
+       20. Remove Tearoff(Change Tearoff): Remove wind shield tearoff on next pit
+       21. Start Flags: Watch for flags and tell me what they are
+       22. Start Gear Announcement: Announces each gear after you change into it
+       23. Start Leader Change: Tell me anytime the leader changes and how far they are ahead of me
+       24. Start SIMRacingApps: Start the SIMRacingApps server. Check the path
+       25. Start Spotter: Start the Spotter Tasks
+       26. Stop Spotter: Stop the Spotter tasks
+              
+    7. Closed #61 (https://issues.SIMRacingApps.com/61)
+       WaitingForSIM: Show a splash screen when SIM is not connected.
+       When the SIM connects, it hides itself.
+       You can provide your own image by saving a PNG file called 
+       "WaitingForSIM.png" in your "Documents/SIMRacingApps" folder.
+       The image will scale using an aspect ratio of 16x9.
+       Useful for streamers to put on top of their stream when they are not in a session.
+       Remember to add the "&BACKGROUNDCOLOR=transparent" parameter to the URL.
+
+    8. Closed #64 (https://issues.SIMRacingApps.com/64) by Adding new Sounds.Shift 
+       plugin to beep when you need to shift.
+       To disable this plugin, add "!Sounds.Shift" to the list of simplugins in the settings.txt.
+       The following variables can be put in your settings.txt file to customize it. 
+       
+       These are the defaults.
+           a. shift-device = {name of your sound device if not your default} 
+           b. shift-volume = 1
+           c. shift-clip = com/SIMRacingApps/SIMPluginCallbacks/Sounds/Clips/shift_beep.wav
+           
+    9. Removed support for Satellite views on the TrackMap. MapQuest changed their licensing such that
+       you cannot cache any of their data. To connect to it real-time, you must get a license key.
+       I don't think it's worth getting the real-time key, because some of the tracks do not exist anymore
+       and I'm not allowed to use the static image, because that requires caching it.
+       I will leave the legacy map images out there, but they will be no longer be accessible from the menu.
+       I will continue to support the Open Street Map views.
+       
+    10. Added support for iRacing's new track, Circuit des 24 Heures du Mans.
     
+    11. Added support for iRacing's new car, Audi 90 GTO.
+       
 ------------------------------------------------------------------------------------------------------
----                    Configuration Tips                                                          ---
+---                    Configuration Requirements                                                  ---
 ------------------------------------------------------------------------------------------------------
     1. To get the server running, simply execute the SIMRacingAppsServer...exe 
        on the same computer that the Simulator is running on.
     2. If you do not have Java 1.8 or better installed, it will redirect you to the Java download page.
-       NOTE: This page will install the 32-bit version of Java. The 64-bit is faster.
-       See https://github.com/SIMRacingApps/SIMRacingApps/wiki/Java-64-Bit-Installation.
+       NOTE: This page will install the 32-bit version of Java. The 64-bit version is faster.
+       See https://github.com/SIMRacingApps/SIMRacingApps/wiki/Java-64-Bit-Installation on how to find it.
        Also see http://wiki.SIMRacingApps.com/Java-Update-Configuration 
        for detailed instructions on how to configure Java's Automatic Updates so it doesn't interrupt your racing.
     3. Enter the server address (found in the Title Bar of the server window) in your browser 
@@ -63,3 +149,14 @@ Version: 1.0_Build_2016.07.07
         
 ****************** Previous Versions *************************
 
+1.0_Build_2016.07.07
+    1. This is the initial release of the SIMRacingApp's Suite.
+    2. As a first release, I only have it working with 1 SIM, iRacing.
+       Other SIM plug-ins will be developed at a future date.
+    3. Also, full International support is built in, but there are no translations as of yet. 
+       So, I'm looking for volunteers to translate the text to other languages.
+    4. BETA testing has been occurring over the last 9 months and I feel like the software is very stable.
+       But, nothing is perfect. Please use the issues list at http://issues.SIMRacingApps.com, to report
+       any problems. You will have to create a GitHub account to do so.
+    5. If you just have some questions, please join the SIMRacingApps group on FaceBook and post your
+       question there. It can be found at http://facebook.com/groups/SIMRacingApps.
