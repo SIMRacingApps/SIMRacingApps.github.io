@@ -1,0 +1,123 @@
+SIMRacingApps Release Notes
+---------------------------
+
+Version: 1.2_Build_BETA-2016.11.14
+    1. Fixed #75 where the camera was not selecting the correct car. 
+       Had to use the CarNumberRaw in the broadcast command, not the car index.
+    
+    For notes on previous BETA builds, see below.
+    
+------------------------------------------------------------------------------------------------------
+---                    Configuration Tips                                                          ---
+------------------------------------------------------------------------------------------------------
+    1. To get the server running, simply execute the SIMRacingAppsServer...exe 
+       on the same computer that the Simulator is running on.
+    2. If you do not have Java 1.8 or better installed, it will redirect you to the Java download page.
+       NOTE: This page will install the 32-bit version of Java. The 64-bit is faster.
+       See https://github.com/SIMRacingApps/SIMRacingApps/wiki/Java-64-Bit-Installation.
+       Also see http://wiki.SIMRacingApps.com/Java-Update-Configuration 
+       for detailed instructions on how to configure Java's Automatic Updates so it doesn't interrupt your racing.
+    3. Enter the server address (found in the Title Bar of the server window) in your browser 
+       from any device connected to the same local network.
+       Connecting from outside the local network is not supported and not recommended due to security concerns.
+    4. Please refer to the Quick Start Guide at http://quickstart.SIMRacingApps.com
+       for more details and options for running the server.
+    
+    Electron Client:
+        To install or update Electron Launcher, 
+        1. Download the .SRA file's latest version from http://electron.SIMRacingApps.com 
+        2. Make sure Electron is not running and start the SIMRacingAppsServer.exe
+        3. Connect to the main menu from a browser and upload the .SRA file
+        4. Refer to the Electron's readme file for more information
+        
+    Overwolf Client:
+        To install or update Overwolf Launcher, 
+        1. Download the .OPK file's latest version from http://overwolf.SIMRacingApps.com
+        2. Open Overwolf's Dock and load it from Settings -> Support -> Development Options -> Install
+           TODO: Submit the package to the Overwolf Store so it can be installed from there. 
+        3. Refer to the instructions in the readme file to install this file into Overwolf.
+        WARNING: 
+            THERE IS AN OVERWOLF BUG THAT CAUSES IT TO TAKE OVER YOUR USB INPUT DEVICES
+            WHENEVER YOU CLICK ON AN APP. THIS CAN CAUSE IT TO SHIFT DOWN, LOOSE FORCE FEEDBACK,
+            AND OTHER DISASTROUS THINGS. SO, DO NOT CLICK ON AN APP WHILE IN THE CAR.
+            If you do, go into the garage and come back out and it will reset your devices.
+            I have posted the issue to the forums. 
+            You can follow it [here](http://forums.overwolf.com/index.php?/topic/7106-clicking-on-app-overwolf-takes-over-usb-input-devices)
+
+    Wiki:
+        There are many other recommendations on the SIMRacingApps Wiki at http://wiki.SIMRacingApps.com.
+
+========== TODO List for Version 1.0 (Or defer them to 2.0?) ====================
+    The complete TODO List can be found at http://issues.SIMRacingApps.com.
+     
+    - Add ability for users to override any car profile setting in the settings.txt.
+    - Add ability to save favorites for the menu and let the user modify the properties.
+    - Need to design how to back out a patch once the fix is delivered in the next version.
+    - Document how to translate to other languages all the text and get someone to translate (volunteers?)
+    - Translation support for the Main Menu Descriptions.
+    - Redesign the Gauge class.
+
+****************** Previous Versions *************************
+
+1.2_Build_BETA-2016.10.16
+    1. Fixed issue where brake bias was not displaying the correct number
+       of decimal places when the value was negative.
+        
+1.2_Build_BETA-2016.10.09
+    1. Added "DataPublisher-Post-Log" variable to the settings so developers can 
+       see what's being transmitted and received. It defaults to false. 
+
+    2. In the DataPublisher output, some of the data had trailing spaces. I removed them.
+       I also set the Content-Type to "application/json; charset=UTF-8" on the POST request.
+       
+1.2_Build_BETA-2016.10.07
+    1. Removed my shift point overrides for the Nissan ZXT. iRacing fixed their numbers.
+    
+    2. Now displays the Brake Bias on the Brake Pressure gauges.
+    
+    3. Added an array of drivers in the session to the DataPublisher output.
+       See http://issues.SIMRacingApps.com/71 for details.
+       
+1.2_Build_BETA-2016.09.29
+    1. Closed #70 (http://issues.SIMRacingApps.com/70)
+       Closed #69 (http://issues.SIMRacingApps.com/69)
+       Closed #63 (http://issues.SIMRacingApps.com/63)
+       Sounds.PitCountDown,PitSpeedLimit,Shift to activate during live, not during replay.
+       A new settings.txt variables were created to override this, and they default to false.
+       settings.txt ->
+           pit-count-down-replay = false 
+           pit-speed-limit-replay = false
+           shift-replay = false 
+
+    2. Closed #71 (http://issues.SIMRacingApps.com/71)
+       Data Publisher Plugin: Send data to external server. 
+       See link to issue for specific details.
+       To have you data published to your league's web site,
+       you must know your league's id for the SIM and the URL to the server.
+       Your league admin will provide you with this information.
+       You can enter as many leagues as you want in the settings.txt file
+       and any time you are in one of these league's session, 
+       it will start transmitting your data.
+       A leagueId of "0" will publish all non-league sessions, even hosted.
+ 
+       By default, this is turned off. Enable it with these settings in your settings.txt file. 
+       The default interval is 5000 milliseconds, change that by adding
+       The URL must be set to your league's web site address that is setup to receive this data. 
+       
+          DataPublisher-Post = Y
+          DataPublisher-Post-Interval-{leagueId} = 10000
+          DataPublisher-Post-URL-{leagueId} = http://{YourLeaguesWebSite}/{pathToData}
+
+       New API calls added:
+           /Car/(CARIDENTIFIER)/MaxTires
+           /Car/(CARIDENTIFIER)/(GAUGE)/Count
+           /Session/Id
+           /Session/LeagueId
+           
+    3. Closed #72 (http://issues.SIMRacingApps.com/72)
+       Closed #49 (http://issues.SIMRacingApps.com/49)
+       VoiceAttack: Allow users to define the port and host
+       New command "Startup" was created with 2 new variables, SRA_Host and SRA_Port.
+       Edit this command and change these if needed.
+       Also, the profile not automatically executes the "Startup" command on load.
+       Added new spotter command to announce pit road speed when entering and exiting pits.
