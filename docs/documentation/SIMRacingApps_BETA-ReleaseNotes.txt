@@ -1,9 +1,15 @@
 SIMRacingApps Release Notes
+Copyright (C) 2015 - 2017 Jeffrey Gilliam
 ---------------------------
 
-Version: 1.2_Build_BETA-2016.12.26
-    1. Fixed #80 (http://issues.SIMRacingApps.com/80)
-       Excessive CPU being using when idle.
+Version: 1.2_Build_BETA-2017.01.08
+    1. Added profile for the new Safety car. 
+       Mainly so the manufacture's logo will be right.
+    2. Added Fuel Tank Size to the Fuel Tank Widget.
+    3. Closed #81 (https://github.com/SIMRacingApps/SIMRacingApps/issues/81)
+       Allow Clients to be able to discover the server.
+       The URL is now broadcasted on port 28888.
+       There is a sample client posted to GitHub at (https://github.com/SIMRacingApps/SIMRacingAppsURLClientTest)
 
     For notes on previous BETA builds, see below.
     
@@ -49,15 +55,19 @@ Version: 1.2_Build_BETA-2016.12.26
 
 ****************** Previous Versions *************************
 
+1.2_Build_BETA-2016.12.26
+    1. Fixed #80 (https://github.com/SIMRacingApps/SIMRacingApps/issues/80)
+       Excessive CPU being using when idle.
+       
 1.2_Build_BETA-2016.12.17
-    1. Fixed #76 (http://issues.SIMRacingApps.com/76)
+    1. Fixed #76 (https://github.com/SIMRacingApps/SIMRacingApps/issues/76)
        where the volume settings were not working.
-    2. Fixed #78 (http://issues.SIMRacingApps.com/78)
+    2. Fixed #78 (https://github.com/SIMRacingApps/SIMRacingApps/issues/78)
        In Voice Attack Profile, Blue flag in multi class identifies drivers in same class only.
        I changed it to call out the immediate car behind you.
 
 1.2_Build_BETA-2016.11.14
-    1. Fixed #75 (http://issues.SIMRacingApps.com/75)
+    1. Fixed #75 (https://github.com/SIMRacingApps/SIMRacingApps/issues/75)
        where the camera was not selecting the correct car. 
        Had to use the CarNumberRaw in the broadcast command, not the car index.
        
@@ -78,12 +88,12 @@ Version: 1.2_Build_BETA-2016.12.26
     2. Now displays the Brake Bias on the Brake Pressure gauges.
     
     3. Added an array of drivers in the session to the DataPublisher output.
-       See http://issues.SIMRacingApps.com/71 for details.
+       See https://github.com/SIMRacingApps/SIMRacingApps/issues/71 for details.
        
 1.2_Build_BETA-2016.09.29
-    1. Closed #70 (http://issues.SIMRacingApps.com/70)
-       Closed #69 (http://issues.SIMRacingApps.com/69)
-       Closed #63 (http://issues.SIMRacingApps.com/63)
+    1. Closed #70 (https://github.com/SIMRacingApps/SIMRacingApps/issues/70)
+       Closed #69 (https://github.com/SIMRacingApps/SIMRacingApps/issues/69)
+       Closed #63 (https://github.com/SIMRacingApps/SIMRacingApps/issues/63)
        Sounds.PitCountDown,PitSpeedLimit,Shift to activate during live, not during replay.
        A new settings.txt variables were created to override this, and they default to false.
        settings.txt ->
@@ -91,7 +101,7 @@ Version: 1.2_Build_BETA-2016.12.26
            pit-speed-limit-replay = false
            shift-replay = false 
 
-    2. Closed #71 (http://issues.SIMRacingApps.com/71)
+    2. Closed #71 (https://github.com/SIMRacingApps/SIMRacingApps/issues/71)
        Data Publisher Plugin: Send data to external server. 
        See link to issue for specific details.
        To have you data published to your league's web site,
@@ -116,8 +126,8 @@ Version: 1.2_Build_BETA-2016.12.26
            /Session/Id
            /Session/LeagueId
            
-    3. Closed #72 (http://issues.SIMRacingApps.com/72)
-       Closed #49 (http://issues.SIMRacingApps.com/49)
+    3. Closed #72 (https://github.com/SIMRacingApps/SIMRacingApps/issues/72)
+       Closed #49 (https://github.com/SIMRacingApps/SIMRacingApps/issues/49)
        VoiceAttack: Allow users to define the port and host
        New command "Startup" was created with 2 new variables, SRA_Host and SRA_Port.
        Edit this command and change these if needed.
