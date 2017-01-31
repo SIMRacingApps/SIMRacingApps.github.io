@@ -37,6 +37,18 @@
 	        updateRequest.open("GET",'version.json');
 	        updateRequest.send();
 	        
+            var BETAupdateRequest = new XMLHttpRequest();
+            BETAupdateRequest.onload = function(e) {
+                var BETAversion = JSON.parse(BETAupdateRequest.responseText);
+                console.log("BETA-version.json: " + JSON.stringify(BETAversion));
+                console.log("BETA-version.json: " + JSON.stringify(BETAversion));
+                document.getElementById("downloadBETAversion").innerHTML = BETAversion.major
+                                                                     + '.' + BETAversion.minor
+                                                                     + '_' + BETAversion.build
+            }
+            BETAupdateRequest.open("GET",'BETA-version.json');
+            BETAupdateRequest.send();
+            
 	        var overwolf_updateRequest = new XMLHttpRequest();
 	        overwolf_updateRequest.onload = function(e) {
 	            var overwolf_version = JSON.parse(overwolf_updateRequest.responseText);
@@ -75,36 +87,43 @@
       </header>
       <img class="collage" src="Collage-851x315.png" />
       <section>
-        <h3>Welcome to <b>S</b>IM<b>R</b>acing<b>A</b>pps<br />A FREE, Community Supported, Companion to Your Racing Games</h3>
+        <h3>Welcome to <b>S</b>IM<b>R</b>acing<b>A</b>pps</h3>
+        <h3>A FREE, Community Supported, Companion to Your Racing Games</h3>
+        <h4>Built for SIM Racers, League Administrators, Streamers and Broadcasters.</h4>
         <a href="http://facebook.SIMRacingApps.com" target="_blank">SIMRacingApps Page on FaceBook</a>
         <div class="fb-like" data-href="https://www.facebook.com/SIMRacingApps" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
-        <h3>
-            <h4>Please report any issues on the <a target="_blank" href="https://github.com/SIMRacingApps/SIMRacingApps/issues">Issues Page</a> page. 
-                Also, you can request to join the <a target="_blank" href="http://www.facebook.com/groups/SIMRacingApps">SIMRacingApps Group</a> on FaceBook, 
-                where you can post questions and participate in the discussions. 
+            <h4>Support can be found by requesting to join the <a target="_blank" href="http://www.facebook.com/groups/SIMRacingApps">SIMRacingApps Group</a> on FaceBook, 
+                where you can post questions, participate in the discussions and get notifications on updates. 
                 User contributed Apps and Widgets can be found in the "Files" section of the group. 
                 <b><i>Disclaimer, I cannot support nor be held responsible for any User Contributions posted to the Files section.</i></b></h4>
-            <h3>You can also go to the <a target="_blank" href="https://github.com/SIMRacingApps/SIMRacingApps/wiki">SIMRacingApps Wiki</a> for solutions to common problems</h3>
+            <h3>You can also go to the <a target="_blank" href="https://github.com/SIMRacingApps/SIMRacingApps/wiki">SIMRacingApps Wiki</a> for solutions to common problems. 
+            Please log any bugs or enhancement requests on the <a target="_blank" href="https://github.com/SIMRacingApps/SIMRacingApps/issues">Issues Page</a> page on GitHub.</h3>
             <h2>Downloads</h2>
             <a target="_blank" href="https://github.com/SIMRacingApps/SIMRacingApps/releases/latest">[SIMRacingAppsServer<span id="downloadversion"></span>]</a>
-            , <a target="_blank" href="https://github.com/SIMRacingApps/SIMRacingAppsOverwolf/blob/master/README.md">[Overwolf-Apps <span id="overwolfversion"></span>]</a>
             , <a target="_blank" href="https://github.com/SIMRacingApps/SIMRacingAppsElectron/blob/master/README.md">[Electron-Apps <span id="electronversion"></span>]</a>
+            , <a target="_blank" href="https://github.com/SIMRacingApps/SIMRacingAppsOverwolf/blob/master/README.md">[Overwolf-Apps <span id="overwolfversion"></span>]</a>
             <br /><br />
             <h2>Documentation</h2>
             <a href="docs/documentation/SIMRacingApps%20-%20Quick%20Start%20Guide/SIMRacingApps%20-%20Quick%20Start%20Guide.pdf" target="_blank">[Quick Start Guide]</a>,
+            <a target="_blank" href="docs/documentation/SIMRacingApps_ReleaseNotes.txt">[Release Notes]</a>
             <a href="docs/JavaScriptDoc/index.html" target="_blank">[ReST API / JavaScript]</a>,
             <a href="docs/JavaDoc/index.html" target="_blank">[JavaDoc]</a>,
-            <a target="_blank" href="docs/documentation/SIMRacingApps_ReleaseNotes.txt">[Release Notes]</a>
             <a target="_blank" href="https://github.com/SIMRacingApps/SIMRacingApps/wiki">[Wiki]</a>
-        <h3>
+            <br /><br />
+            <h2>BETA Downloads for those on the bleeding edge.</h2>
+            <a target="_blank" href="https://github.com/SIMRacingApps/SIMRacingApps/releases">[SIMRacingAppsServer BETA<span id="downloadBETAversion"></span>]</a>
+            , <a target="_blank" href="docs/documentation/SIMRacingApps_BETA-ReleaseNotes.txt">[BETA Release Notes]</a>
+            <br /><br />
+            Please post questions about the BETA version in the <a target="_blank" href="http://www.facebook.com/groups/SIMRacingAppsBETA">SIMRacingApps BETA Group</a> on FaceBook.
+            <br /><br />
 		<hr />
         <h2>What is SIMRacingApps?</h2><ul>
 		<li>It's a Web Server used to host browser based Apps that are accessible using any device with a modern HTML5 browser.</li>
-		<li>The popular Atom/Electron and Overwolf platforms are supported as clients that can manage your configurations.</li>
-		<li>It comes with over 50 Apps and Widgets, free, out of the box. See below for the most popular ones.</li>
+        <li>It comes with over <b>50 Apps and Widgets</b>, free, out of the box. See below for the most popular ones.</li>
+		<li>The popular Atom/Electron and Overwolf client platforms are supported. They can manage different configurations.</li>
 		<li>It has a hardware plug-in interface, for Shift Lights, Sound, Arduino, Raspberry Pi or anything else you can think of.</li>
-		<li>It's a ReST interface for developers to access the SIM Data via an HTTP call.</li>
-		<li>There's a Voice Attack Profile on the download's page that uses ReST to control the SIM.</li>
+		<li>It's a ReST interface for developers to access the SIM Data via an HTTP call from anywhere on your network.</li>
+		<li>There's a Voice Attack Profile on the download's page that uses the ReST API to control the SIM.</li>
 		<li>It's adds various sounds when speeding, when to shift, and count down to pit stall.</li> 
 		<li>It's a HTML5 platform for other developers to write Apps and Widgets and share them with you.</li>
 		<li>It's a Java SDK for developing your own Java Based Apps.</li>
@@ -131,20 +150,29 @@
             I have a Wiki page with instructions <a target="_blank" href="https://github.com/SIMRacingApps/SIMRacingApps/wiki/Java-64-Bit-Installation">here</a>.
 		    After Java is installed, execute the SIMRacingAppsServer....exe again. 
 		</li>
-		<li>Leave the server window open while racing. You can minimize it, but note the HTTP://... address in the title of this window first. You will use this address to connect to the server from the client.</li>
+		<li>Leave the server window open while racing. You can minimize it, but note the HTTP://... address in the title of this window first. You will use this address to connect to the server from the browser or client(s).</li>
 		</ul>
 		<h3>Clients can connect from any device connected to your home network<br />
     (including the SIM computer):</h3>
     <ul>
-		<li>Open a browser (Chrome, FireFox, IE10, EDGE, Safari) and enter the HTTP address of the server. 
-		    On phones and tablets, you can add the App to your home screen to get a full screen experience.</li>
+		<li>Open a browser from your computer, phone or tablet (Chrome, FireFox, IE10, EDGE, Safari) and enter the HTTP address of the server. 
+		    On phones and tablets, you can 
+		    <a target="_blank" href="https://github.com/SIMRacingApps/SIMRacingApps/wiki/Add-to-Home-Screen-on-iOS-or-Andriod">add the App to your home screen</a> to get a full screen experience.
+		</li>
 		<li>Click on one or more Apps or Widgets and start racing. Clicking the description will open the documentation for that App or Widget.</li>
-		<li>You can also use the <b>Overwolf</b> or <b>Electron</b> runtimes as a client as well. These clients are <b>experimental</b> and may not work with your system. Some problems may need to be reported directly to them. See the readme files in the download links above for compatibility details.</li>
+		<li>You can also use the 
+		    <b><a target="_blank" href="https://github.com/SIMRacingApps/SIMRacingAppsElectron/blob/master/README.md">[Electron]</a></b> 
+		    or 
+		    <b><a target="_blank" href="https://github.com/SIMRacingApps/SIMRacingAppsOverwolf/blob/master/README.md">[Overwolf]</a></b> 
+		    runtimes as a client as well. These clients are <b>experimental</b> and may not work with your system. Some problems may need to be reported directly to them. Electron is more stable than Overwolf, but see the readme files in the download links above for compatibility details.</li>
+		<li>You can also embed URLs to an App or Widget in streaming tools like 
+		    <b><a target="_blank" href="https://obsproject.com">[Open Broadcasting Software (OBS)]</a></b>.
+		    Click <a target="_blank" href="https://github.com/SIMRacingApps/SIMRacingApps/wiki/How-use-setup-OBS-(Open-Broadcaster-Software)-to-overlay-Apps">here</a> for details on how to configure OBS.
 		<li>For detailed documentation for a specific version, start that version's server and access the documentation from the main menu.</li>
 		</ul>
 		<h2>Supported Simulators</h2>
 		<ul>
-		  <li><a target="_blank" href="http://www.iracing.com">iRacing.com</a></li>
+		  <li><a target="_blank" href="http://www.iracing.com">iRacing.com</a> since 1.0</li>
           <li>...More to Come</li>
 		</ul>
         <h2>Here is a partial list of the Apps and Widgets that are included.</h2>
@@ -182,7 +210,7 @@
       </section>
 	</div>
     <footer>
-		<p><a target="_blank" href="COPYRIGHT.TXT">Copyright (C) 2015 - 2016 Jeffrey Gilliam</a></p>
+		<p><a target="_blank" href="COPYRIGHT.TXT">Copyright (C) 2015 - 2017 Jeffrey Gilliam</a></p>
 		<p><a target="_blank" href="LICENSE.TXT">Apache License 2.0</a></p>
     </footer>
     <!--[if !IE]><script>fixScale(document);</script><![endif]-->
