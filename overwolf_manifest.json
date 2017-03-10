@@ -3,12 +3,12 @@
     "type":"WebApp",
     "meta":{
         "name":"SIMRacingAppsLauncher",
-        "version":"1.5.1",
+        "version":"1.5.3",
         "minimum-overwolf-version":"0.90.22",
         "author":"Jeffrey Gilliam",
         "icon":"IconMouseOver.png",
         "icon_gray":"IconMouseNormal.png",
-        "description":"SIMRacingAppsLaucnher is a frontend menu for SIMRacingApps which is a real-time application server for SIM Racing Games. It requires the SIMRacingAppsServer to be running."
+        "description":"SIMRacingAppsLauncher is a frontend menu for SIMRacingApps which is a real-time application server for SIM Racing Games. It requires the SIMRacingAppsServer from http://SIMRacingApps.com to be running."
     },
     "permissions": ["GameInfo","Extensions"],
     "data": {
