@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9,"i7":9,"i8":9,"i9":9,"i10":9,"i11":9,"i12":9,"i13":9,"i14":9,"i15":9};
+var methods = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9,"i7":9,"i8":9,"i9":9,"i10":9,"i11":9,"i12":9,"i13":9,"i14":9,"i15":9,"i16":9};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -117,7 +117,7 @@ extends java.lang.Object</pre>
 <dt><span class="simpleTagLabel">Author:</span></dt>
 <dd>Jeffrey Gilliam</dd>
 <dt><span class="simpleTagLabel">Copyright:</span></dt>
-<dd>Copyright (C) 2015 - 2016 Jeffrey Gilliam</dd>
+<dd>Copyright (C) 2015 - 2017 Jeffrey Gilliam</dd>
 <dt><span class="simpleTagLabel">License:</span></dt>
 <dd>Apache License 2.0</dd>
 </dl>
@@ -191,29 +191,33 @@ extends java.lang.Object</pre>
 </td>
 </tr>
 <tr id="i5" class="rowColor">
+<td class="colFirst"><code>static java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Server.html#getLog--">getLog</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>static int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Server.html#getPort--">getPort</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>static void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Server.html#logArgs--">logArgs</a></span>()</code>
 <div class="block">This method sends all the arguments to the log.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>static java.util.logging.Logger</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Server.html#logger--">logger</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>static void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Server.html#logStackTrace-java.lang.Exception-">logStackTrace</a></span>(java.lang.Exception&nbsp;exception)</code>&nbsp;</td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>static void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Server.html#logStackTrace-java.util.logging.Level-java.lang.Exception-">logStackTrace</a></span>(java.util.logging.Level&nbsp;level,
              java.lang.Exception&nbsp;exception)</code>&nbsp;</td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>static void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Server.html#logStackTrace-java.util.logging.Level-java.lang.String-java.lang.Exception-">logStackTrace</a></span>(java.util.logging.Level&nbsp;level,
              java.lang.String&nbsp;message,
@@ -221,13 +225,13 @@ extends java.lang.Object</pre>
 <div class="block">This method should be used to log the entire stack trace to the log file.</div>
 </td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>static void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Server.html#logStackTrace-java.util.logging.Level-java.lang.String-java.lang.StackTraceElement:A-">logStackTrace</a></span>(java.util.logging.Level&nbsp;level,
              java.lang.String&nbsp;message,
              java.lang.StackTraceElement[]&nbsp;trace)</code>&nbsp;</td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>static void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Server.html#logStackTrace-java.util.logging.Level-java.lang.String-java.lang.Throwable-">logStackTrace</a></span>(java.util.logging.Level&nbsp;level,
              java.lang.String&nbsp;message,
@@ -235,19 +239,19 @@ extends java.lang.Object</pre>
 <div class="block">This method should be used to log the entire stack trace to the log file.</div>
 </td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>static void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Server.html#main-java.lang.String:A-">main</a></span>(java.lang.String[]&nbsp;args)</code>
 <div class="block">This is the main static method that Java will used to startup the server.</div>
 </td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code>static void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Server.html#parseArgs-java.lang.String:A-">parseArgs</a></span>(java.lang.String[]&nbsp;args)</code>
 <div class="block">This routine will parse for all args an put them in a map to be recalled from anywhere via any of the getArg()s methods.</div>
 </td>
 </tr>
-<tr id="i15" class="rowColor">
+<tr id="i16" class="altColor">
 <td class="colFirst"><code>static void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Server.html#setLog-java.lang.String-">setLog</a></span>(java.lang.String&nbsp;logname)</code>&nbsp;</td>
 </tr>
@@ -290,6 +294,15 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Method Detail</h3>
+<a name="getLog--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getLog</h4>
+<pre>public static&nbsp;java.lang.String&nbsp;getLog()</pre>
+</li>
+</ul>
 <a name="setLog-java.lang.String-">
 <!--   -->
 </a>
@@ -520,9 +533,12 @@ extends java.lang.Object</pre>
  -userpath {userPath}, A path where where users can add their own widgets and apps.
                        It can be a list of directories separated by a semi-colon, just like the PATH environment variable. 
                        All paths must be absolute paths,
-                       Defaults to "%USERPROFILE%\SIMRacingApps".
+                       Defaults to "%USERPROFILE%\Documents\SIMRacingApps".
  <p>
- -sendkeysdelay {milliseconds}, changes the delay sendkeys uses. Default is 32ms</div>
+ -sendkeysdelay {milliseconds}, changes the delay sendkeys uses. Default is 32ms
+ <p>
+ -ip {IpAddress}, When users are connected to more than one network, this option forces
+                  the server to bind to the specified address instead of the first one.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>args</code> - command line arguments</dd>

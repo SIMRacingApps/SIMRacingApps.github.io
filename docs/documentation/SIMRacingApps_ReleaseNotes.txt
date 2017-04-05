@@ -1,21 +1,217 @@
 SIMRacingApps Release Notes
+Copyright (C) 2015 - 2017 Jeffrey Gilliam
 ---------------------------
 For a complete list of issues completed in this version goto 
-(https://github.com/SIMRacingApps/SIMRacingApps/milestone/1)
+(https://github.com/SIMRacingApps/SIMRacingApps/milestone/4)
 
-Version: 1.1_Build_2016.09.15
+In addition to the Server changes listed here, I have also released new versions 
+of Electron and Overwolf. Download them from
+    http://Electron.SIMRacingApps.com
+    http://Overwolf.SIMRacingApps.com
+
+Version: 1.2_Build_2017.04.03
+    1. Closed #70 (https://github.com/SIMRacingApps/SIMRacingApps/issues/70)
+       Closed #69 (https://github.com/SIMRacingApps/SIMRacingApps/issues/69)
+       Closed #63 (https://github.com/SIMRacingApps/SIMRacingApps/issues/63)
+       Sounds.PitCountDown,PitSpeedLimit,Shift to activate during live, not during replay.
+       A new settings.txt variables were created to override this, and they default to false.
+       settings.txt ->
+           pit-count-down-replay = false 
+           pit-speed-limit-replay = false
+           shift-replay = false 
+
+    2. Closed #71 (https://github.com/SIMRacingApps/SIMRacingApps/issues/71)
+       Data Publisher Plugin: Send data to external server.
+       See link to issue for specific details.
+       To have you data published to your league's web site,
+       you must know your league's id for the SIM and the URL to the server.
+       Your league admin will provide you with this information.
+       You can enter as many leagues as you want in the settings.txt file
+       and any time you are in one of these league's session, 
+       it will start transmitting your data.
+       A leagueId of "0" will publish all non-league sessions, even hosted.
+ 
+       By default, this is turned off. Enable it with these settings in your settings.txt file. 
+       The default interval is 5000 milliseconds, change that by adding
+       The URL must be set to your league's web site address that is setup to receive this data. 
        
-    1. Fixed #53 (http://issues.SIMRacingApps.com/53) where SRA would not pick the 
+          DataPublisher-Post = Y
+          DataPublisher-Post-Interval-{leagueId} = 10000
+          DataPublisher-Post-URL-{leagueId} = http://{YourLeaguesWebSite}/{pathToData}
+
+       New API calls added:
+           /Car/(CARIDENTIFIER)/MaxTires
+           /Car/(CARIDENTIFIER)/(GAUGE)/Count
+           /Session/Id
+           /Session/LeagueId
+           
+    3. VoiceAttack:
+       Closed #72 (https://github.com/SIMRacingApps/SIMRacingApps/issues/72)
+       Closed #49 (https://github.com/SIMRacingApps/SIMRacingApps/issues/49)
+       Closed #92 (https://github.com/SIMRacingApps/SIMRacingApps/issues/92)
+       Allow users to define the port and host
+       New command "Startup" was created with 2 new variables, SRA_Host and SRA_Port.
+       Edit this command and change these if needed.
+       Also, the profile now automatically executes the "Startup" command on load.
+       Added new spotter command to announce pit road speed when entering and exiting pits.
+       Updated the profile to say minutes and seconds on the commands that have time.
+       Changed Ahead/Behind to be for all classes.
+       Removed Ahead/Behind Relative and replace with Ahead/Behind Class.
+       Added Chat commands for Pitting In, Pitting Out, Thanks, and You're Welcome
+       Added ALT-T keysend to the Remove Tearoff command. So, visors will tearoff immediately.
+           NOTE: This only works if you have not remapped the action in iRacing.
+       
+
+    4. Removed my shift point overrides for the Nissan ZXT. iRacing fixed their numbers.
+
+    5. Now displays the Brake Bias on the Brake Pressure gauges.
+
+    6. Fixed #75 (https://github.com/SIMRacingApps/SIMRacingApps/issues/75)
+       where the camera was not selecting the correct car. 
+       Had to use the CarNumberRaw in the broadcast command, not the car index.
+
+    7. Fixed #76 (https://github.com/SIMRacingApps/SIMRacingApps/issues/76)
+       where the volume settings were not working.
+
+    8. Fixed #78 (https://github.com/SIMRacingApps/SIMRacingApps/issues/78)
+       In Voice Attack Profile, Blue flag in multi class identifies drivers in same class only.
+       I changed it to call out the immediate car behind you.
+
+    9. Fixed #80 (https://github.com/SIMRacingApps/SIMRacingApps/issues/80)
+       Excessive CPU being using when idle.
+
+    10.Added profile for the new Safety car. 
+       Mainly so the manufacture's logo will be right.
+    
+    11. Added Fuel Tank Size to the Fuel Tank Widget.
+    
+    12. Closed #81 (https://github.com/SIMRacingApps/SIMRacingApps/issues/81)
+       Allow Clients to be able to discover the server.
+       The URL is now broadcasted on port 28888.
+       There is a sample client posted to GitHub at (https://github.com/SIMRacingApps/SIMRacingAppsURLClientTest)
+    
+    13. Fixed #82 (https://github.com/SIMRacingApps/SIMRacingApps/issues/82)
+       settings.txt - simplugins variable needs to ignore trailing spaces
+
+    14. Fixed #85 (https://github.com/SIMRacingApps/SIMRacingApps/issues/85)
+       Yield was spell wrong in the Voice Attack Profile
+       I also added a new commands "Time Remaining", "Pass Left", "Pass Right".
+       The pass left/right is sent as a private message to the car behind you.
+
+    15. Added the Porsche 911 Cup profile for the January 2017 build.
+
+    16. Fixed #86 (https://github.com/SIMRacingApps/SIMRacingApps/issues/86)
+       Tire Measurements Don't Change on all Dallara tires.
+       This should also fix other cars with intermittent problems with tire measurements.
+       
+    17. Fixed #87 (https://github.com/SIMRacingApps/SIMRacingApps/issues/87)
+       TrackMap: Some tracks do not show track path when your language is not English on the server.
+
+    18. Fixed an issue where the Pit Speed Limit values were not working 
+       when your system is not configured for the United States.
+
+    19. Closed #91 (https://github.com/SIMRacingApps/SIMRacingApps/issues/91)
+       Added German translations for Apps and Widgets from H.Geiger.
+       Clients will default to your Window's language setting.
+       I added a -lang option to the Electron batch files in version 1.5.0.
+       I added support for the Overwolf language settings version 1.5.0.
+       Anyone wishing to translate into other languages, please post a message to SIMRacingApps on FaceBook.
+
+    20. Added the Bullring track in Las Vegas from the March 2017 build.
+       If you downloaded the track profile, you can delete it from your
+       Documents/SIMRacingApps/com/SIMRacingApps/Tracks folder. 
+
+    21. Closed #4 (https://github.com/SIMRacingApps/SIMRacingApps/issues/4)
+       Allow spectator in the relative results
+
+    22. Added changes to use the first IP address instead of the last one.
+       Some VPN devices add to the list and the first one is usually right.
+       Also allow user to override with "-ip" command line option.
+
+    23. Fixed #96 (https://github.com/SIMRacingApps/SIMRacingApps/issues/96)
+       TeamSpeak 3.1.3 or later added a security key to be able to access the client remotely.
+       
+            teamspeak-apikey = your key
+
+       You can find your key in TeamSpeak -> Options -> Addons -> Plugins -> ClientQuery -> Settings
+       and either update or add an entry to the settings.txt file.
+
+    24. Added Dirt profiles for new Cars and Tracks from the iRacing 3/29/2017 build.
+       Some of the profiles I had to override iRacings RPM Shift settings, they were wrong.
+       Also added support for the In Car Rear Wing values to be shown in the Crew Chief 
+       and Pit Controller apps for the Sprint Cars.
+           
+    For notes on previous versions, see below.
+       
+------------------------------------------------------------------------------------------------------
+---                    Configuration Requirements                                                  ---
+------------------------------------------------------------------------------------------------------
+    1. To get the server running, simply execute the SIMRacingAppsServer...exe 
+       on the same computer that the Simulator is running on.
+    2. If you do not have Java 1.8 or better installed, it will redirect you to the Java download page.
+       NOTE: This page will install the 32-bit version of Java. The 64-bit version is faster.
+       See https://github.com/SIMRacingApps/SIMRacingApps/wiki/Java-64-Bit-Installation on how to find it.
+       Also see http://wiki.SIMRacingApps.com/Java-Update-Configuration 
+       for detailed instructions on how to configure Java's Automatic Updates so it doesn't interrupt your racing.
+    3. If a Firewall is running, you might get prompted to allow the server to run.
+       Depending on if your Ethernet connection was made private or public, 
+       you may be asked to confirm that also. Please select allow.
+       If your Firewall doesn't prompt you, then you will have to add an exception to allow "java.exe"
+       for both in-bound and out-bound traffic on all ports. 
+       See https://github.com/SIMRacingApps/SIMRacingApps/wiki/How-to-fix-Firewall-issues for more information.
+    4. Enter the server address (found in the Title Bar of the server window) in your browser 
+       from any device connected to the same local network.
+       Connecting from outside the local network is not supported and not recommended due to security concerns.
+    5. Please refer to the Quick Start Guide at http://quickstart.SIMRacingApps.com
+       for more details and options for running the server.
+    
+    Issues:
+        Please visit the issues list at http://issues.SIMRacingApps.com to see if an issue you are have 
+        has already been reported. This list also contains enhancement requests.
+        You will need to create a GitHub account to post a new issue or subscribe to an existing issue. 
+        But, that is the easiest way to keep track of it and follow conversations on the issue.
+        
+    Wiki:
+        There is a Wiki for SIMRacingApps at http://wiki.SIMRacingApps.com.
+        Here you can find solutions, work-around, etc.
+
+    Electron Client:
+        To install or update Electron Launcher, 
+        1. Download the .SRA file's latest version from http://electron.SIMRacingApps.com 
+        2. Make sure Electron is not running and start the SIMRacingAppsServer.exe
+        3. Connect to the main menu from a browser and upload the .SRA file
+        4. Refer to the Electron's readme file for more information
+        
+    Overwolf Client:
+        To install or update Overwolf Launcher, 
+        1. Download the .OPK file's latest version from http://overwolf.SIMRacingApps.com
+        2. Open Overwolf's Dock and load it from Settings -> Support -> Development Options -> Install
+           TODO: Submit the package to the Overwolf Store so it can be installed from there. 
+        3. Refer to the instructions in the readme file to install this file into Overwolf.
+        WARNING: 
+            THERE IS AN OVERWOLF BUG THAT CAUSES IT TO TAKE OVER YOUR USB INPUT DEVICES
+            WHENEVER YOU CLICK ON AN APP. THIS CAN CAUSE IT TO SHIFT DOWN, LOOSE FORCE FEEDBACK,
+            AND OTHER DISASTROUS THINGS. SO, DO NOT CLICK ON AN APP WHILE IN THE CAR.
+            If you do, go into the garage and come back out and it will reset your devices.
+            I have posted the issue to the forums. 
+            You can follow it [here](http://forums.overwolf.com/index.php?/topic/7106-clicking-on-app-overwolf-takes-over-usb-input-devices)
+
+        
+****************** Previous Versions *************************
+
+1.1_Build_2016.09.15
+       
+    1. Fixed #53 (https://github.com/SIMRacingApps/SIMRacingApps/issues/53) where SRA would not pick the 
        latest version of Java if the version number of Java was greater than 99. 
        Oracle released versions 101 and 102 recently.
        This only affects you if you have multiple version of Java installed at the same time.
        You can also just uninstall the older version of Java.
        
-    2. Fixed #54 (http://issues.SIMRacingApps.com/54) Pit Count Down plugin to not play when you
+    2. Fixed #54 (https://github.com/SIMRacingApps/SIMRacingApps/issues/54) Pit Count Down plugin to not play when you
        first enter the session. Also, not to play anything if it doesn't know where the pit stall is.
        It was counting down to the start/finish line.
        
-    3. Closed #48 (https://issues.SIMRacingApps.com/48) by Adding new Pit Speed Limit 
+    3. Closed #48 (https://github.com/SIMRacingApps/SIMRacingApps/issues/48) by Adding new Pit Speed Limit 
        plugin to beep when you are speeding on pit road.
        To disable this plugin, add "!Sounds.PitSpeedLimit" to the list of simplugins in the settings.txt.
        The following variables can be put in your settings.txt file to customize it. 
@@ -27,10 +223,10 @@ Version: 1.1_Build_2016.09.15
            d. pit-speed-limit-beep-rate-excessive = 200
            e. pit-speed-limit-clip = com/SIMRacingApps/SIMPluginCallbacks/Sounds/Clips/speeding_beep.wav
            
-    4. Closed #59 (https://issues.SIMRacingApps.com/59)
+    4. Closed #59 (https://github.com/SIMRacingApps/SIMRacingApps/issues/59)
        Broadcaster, CarSelector, TrackMap: Option to change the camera to the selected car.
        
-    5. Closed #60 (https://issues.SIMRacingApps.com/60)
+    5. Closed #60 (https://github.com/SIMRacingApps/SIMRacingApps/issues/60)
        TrackMap: Add number of cautions and laps to track info box
        
     6. I added a Voice Attack Profile to the release downloads.
@@ -69,7 +265,7 @@ Version: 1.1_Build_2016.09.15
        25. Start Spotter: Start the Spotter Tasks
        26. Stop Spotter: Stop the Spotter tasks
               
-    7. Closed #61 (https://issues.SIMRacingApps.com/61)
+    7. Closed #61 (https://github.com/SIMRacingApps/SIMRacingApps/issues/61)
        WaitingForSIM: Show a splash screen when SIM is not connected.
        When the SIM connects, it hides itself.
        You can provide your own image by saving a PNG file called 
@@ -78,7 +274,7 @@ Version: 1.1_Build_2016.09.15
        Useful for streamers to put on top of their stream when they are not in a session.
        Remember to add the "&BACKGROUNDCOLOR=transparent" parameter to the URL.
 
-    8. Closed #64 (https://issues.SIMRacingApps.com/64) by Adding new Sounds.Shift 
+    8. Closed #64 (https://github.com/SIMRacingApps/SIMRacingApps/issues/64) by Adding new Sounds.Shift 
        plugin to beep when you need to shift.
        To disable this plugin, add "!Sounds.Shift" to the list of simplugins in the settings.txt.
        The following variables can be put in your settings.txt file to customize it. 
@@ -99,56 +295,6 @@ Version: 1.1_Build_2016.09.15
     
     11. Added support for iRacing's new car, Audi 90 GTO.
        
-------------------------------------------------------------------------------------------------------
----                    Configuration Requirements                                                  ---
-------------------------------------------------------------------------------------------------------
-    1. To get the server running, simply execute the SIMRacingAppsServer...exe 
-       on the same computer that the Simulator is running on.
-    2. If you do not have Java 1.8 or better installed, it will redirect you to the Java download page.
-       NOTE: This page will install the 32-bit version of Java. The 64-bit version is faster.
-       See https://github.com/SIMRacingApps/SIMRacingApps/wiki/Java-64-Bit-Installation on how to find it.
-       Also see http://wiki.SIMRacingApps.com/Java-Update-Configuration 
-       for detailed instructions on how to configure Java's Automatic Updates so it doesn't interrupt your racing.
-    3. Enter the server address (found in the Title Bar of the server window) in your browser 
-       from any device connected to the same local network.
-       Connecting from outside the local network is not supported and not recommended due to security concerns.
-    4. Please refer to the Quick Start Guide at http://quickstart.SIMRacingApps.com
-       for more details and options for running the server.
-    
-    Issues:
-        Please visit the issues list at http://issues.SIMRacingApps.com to see if an issue you are have 
-        has already been reported. This list also contains enhancement requests.
-        You will need to create a GitHub account to post a new issue or subscribe to an existing issue. 
-        But, that is the easiest way to keep track of it and follow conversations on the issue.
-        
-    Wiki:
-        There is a Wiki for SIMRacingApps at http://wiki.SIMRacingApps.com.
-        Here you can find solutions, work-around, etc.
-
-    Electron Client:
-        To install or update Electron Launcher, 
-        1. Download the .SRA file's latest version from http://electron.SIMRacingApps.com 
-        2. Make sure Electron is not running and start the SIMRacingAppsServer.exe
-        3. Connect to the main menu from a browser and upload the .SRA file
-        4. Refer to the Electron's readme file for more information
-        
-    Overwolf Client:
-        To install or update Overwolf Launcher, 
-        1. Download the .OPK file's latest version from http://overwolf.SIMRacingApps.com
-        2. Open Overwolf's Dock and load it from Settings -> Support -> Development Options -> Install
-           TODO: Submit the package to the Overwolf Store so it can be installed from there. 
-        3. Refer to the instructions in the readme file to install this file into Overwolf.
-        WARNING: 
-            THERE IS AN OVERWOLF BUG THAT CAUSES IT TO TAKE OVER YOUR USB INPUT DEVICES
-            WHENEVER YOU CLICK ON AN APP. THIS CAN CAUSE IT TO SHIFT DOWN, LOOSE FORCE FEEDBACK,
-            AND OTHER DISASTROUS THINGS. SO, DO NOT CLICK ON AN APP WHILE IN THE CAR.
-            If you do, go into the garage and come back out and it will reset your devices.
-            I have posted the issue to the forums. 
-            You can follow it [here](http://forums.overwolf.com/index.php?/topic/7106-clicking-on-app-overwolf-takes-over-usb-input-devices)
-
-        
-****************** Previous Versions *************************
-
 1.0_Build_2016.07.07
     1. This is the initial release of the SIMRacingApp's Suite.
     2. As a first release, I only have it working with 1 SIM, iRacing.

@@ -386,7 +386,8 @@ For all the possible values supported for the CARIDENTIFIER, click <a href="../J
 <ol>
 <li>http://localhost/SIMRacingApps/Data/Track/Description?output=valueformatted</li>
 </ol>
-<p><a target="_blank" href="../JavaDoc/com/SIMRacingApps/SIMPluginCallbacks/Sounds/PitCountDown.html#getVolume--"><code>/SIMPluginCallback/Sounds/PitCountDown/Volume</code></a><br />
+<p><a target="_blank" href="../JavaDoc/com/SIMRacingApps/SIMPluginCallbacks/DataPublisher/Post.html#getMaxTires--"><code>/SIMPluginCallback/DataPublisher/Post/MaxTires</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/SIMPluginCallbacks/Sounds/PitCountDown.html#getVolume--"><code>/SIMPluginCallback/Sounds/PitCountDown/Volume</code></a><br />
 <a target="_blank" href="../JavaDoc/com/SIMRacingApps/SIMPluginCallbacks/Sounds/PitCountDown.html#setVolume-double-"><code>/SIMPluginCallback/Sounds/PitCountDown/setVolume/(PERCENTAGE)</code></a><br />
 <a target="_blank" href="../JavaDoc/com/SIMRacingApps/SIMPluginCallbacks/Sounds/PitSpeedLimit.html#getVolume--"><code>/SIMPluginCallback/Sounds/PitSpeedLimit/Volume</code></a><br />
 <a target="_blank" href="../JavaDoc/com/SIMRacingApps/SIMPluginCallbacks/Sounds/PitSpeedLimit.html#setVolume-double-"><code>/SIMPluginCallback/Sounds/PitSpeedLimit/setVolume/(PERCENTAGE)</code></a><br />
@@ -430,6 +431,7 @@ For all the possible values supported for the CARIDENTIFIER, click <a href="../J
 <a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#getIsEqual-java.lang.String-"><code>/Car/(CARIDENTIFIER)/IsEqual/(CARIDENTIFIER)</code></a><br />
 <a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#getIsFixedSetup--"><code>/Car/(CARIDENTIFIER)/IsFixedSetup</code></a><br />
 <a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#getIsOverSpeedLimit--"><code>/Car/(CARIDENTIFIER)/IsOverSpeedLimit</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#getIsPaceCar--"><code>/Car/(CARIDENTIFIER)/IsPaceCar</code></a><br />
 <a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#getIsPitSpeedLimiter--"><code>/Car/(CARIDENTIFIER)/IsPitSpeedLimiter</code></a><br />
 <a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#getIsSpectator--"><code>/Car/(CARIDENTIFIER)/IsSpectator</code></a><br />
 <a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#getIsUnderSpeedLimit--"><code>/Car/(CARIDENTIFIER)/IsUnderSpeedLimit</code></a><br />
@@ -446,6 +448,7 @@ For all the possible values supported for the CARIDENTIFIER, click <a href="../J
 <a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#getLatitude-java.lang.String-"><code>/Car/(CARIDENTIFIER)/Latitude/(UOM)</code></a><br />
 <a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#getLongitude-java.lang.String-"><code>/Car/(CARIDENTIFIER)/Longitude/(UOM)</code></a><br />
 <a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#getManufacturerLogo--"><code>/Car/(CARIDENTIFIER)/ManufacturerLogo</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#getMaxTires--"><code>/Car/(CARIDENTIFIER)/MaxTires</code></a> 1.2<br />
 <a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#getMergePoint--"><code>/Car/(CARIDENTIFIER)/MergePoint</code></a><br />
 <a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#getMessages--"><code>/Car/(CARIDENTIFIER)/Messages</code></a><br />
 <a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#getName--"><code>/Car/(CARIDENTIFIER)/Name</code></a><br />
@@ -491,7 +494,9 @@ For all the possible values supported for the CARIDENTIFIER, click <a href="../J
 <a target="_blank" href="../JavaDoc/com/SIMRacingApps/Gauge.html#getCapacityMaximum-java.lang.String-"><code>/Car/(CARIDENTIFIER)/Gauge/(GAUGETYPE)/CapacityMaximum/(UOM)</code></a><br />
 <a target="_blank" href="../JavaDoc/com/SIMRacingApps/Gauge.html#getCapacityMinimum-java.lang.String-"><code>/Car/(CARIDENTIFIER)/Gauge/(GAUGETYPE)/CapacityMinimum/(UOM)</code></a><br />
 <a target="_blank" href="../JavaDoc/com/SIMRacingApps/Gauge.html#getChangeFlag--"><code>/Car/(CARIDENTIFIER)/Gauge/(GAUGETYPE)/ChangeFlag</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Gauge.html#getCount--"><code>/Car/(CARIDENTIFIER)/Gauge/(GAUGETYPE)/Count</code></a> 1.2<br />
 <a target="_blank" href="../JavaDoc/com/SIMRacingApps/Gauge.html#getDefaultUOM--"><code>/Car/(CARIDENTIFIER)/Gauge/(GAUGETYPE)/DefaultUOM</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Gauge.html#getInternalUOM--"><code>/Car/(CARIDENTIFIER)/Gauge/(GAUGETYPE)/InternalUOM</code></a><br />
 <a target="_blank" href="../JavaDoc/com/SIMRacingApps/Gauge.html#getIsChangeable--"><code>/Car/(CARIDENTIFIER)/Gauge/(GAUGETYPE)/IsChangeable</code></a><br />
 <a target="_blank" href="../JavaDoc/com/SIMRacingApps/Gauge.html#getIsDebug--"><code>/Car/(CARIDENTIFIER)/Gauge/(GAUGETYPE)/IsDebug</code></a><br />
 <a target="_blank" href="../JavaDoc/com/SIMRacingApps/Gauge.html#getIsDirty--"><code>/Car/(CARIDENTIFIER)/Gauge/(GAUGETYPE)/IsDirty</code></a><br />
@@ -525,16 +530,19 @@ For all the possible values supported for the CARIDENTIFIER, click <a href="../J
 <a target="_blank" href="../JavaDoc/com/SIMRacingApps/Session.html#getDataVersion--"><code>/Session/DataVersion</code></a><br />
 <a target="_blank" href="../JavaDoc/com/SIMRacingApps/Session.html#getDiffCars-java.lang.String-java.lang.String-"><code>/Session/DiffCars/(CARIDENTIFIER1)/(CARIDENTIFIER2)</code></a><br />
 <a target="_blank" href="../JavaDoc/com/SIMRacingApps/Session.html#getDiffCarsRelative-java.lang.String-java.lang.String-"><code>/Session/DiffCarsRelative/(CARIDENTIFIER1)/(CARIDENTIFIER2)</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Session.html#getId--"><code>/Session/Id</code></a> 1.2<br />
 <a target="_blank" href="../JavaDoc/com/SIMRacingApps/Session.html#getIncidentLimit--"><code>/Session/IncidentLimit</code></a><br />
 <a target="_blank" href="../JavaDoc/com/SIMRacingApps/Session.html#getIsCautionFlag--"><code>/Session/IsCautionFlag</code></a><br />
 <a target="_blank" href="../JavaDoc/com/SIMRacingApps/Session.html#getIsCheckeredFlag--"><code>/Session/IsCheckeredFlag</code></a><br />
 <a target="_blank" href="../JavaDoc/com/SIMRacingApps/Session.html#getIsCrossedFlag--"><code>/Session/IsCrossedFlag</code></a><br />
 <a target="_blank" href="../JavaDoc/com/SIMRacingApps/Session.html#getIsGreenFlag--"><code>/Session/IsGreenFlag</code></a><br />
 <a target="_blank" href="../JavaDoc/com/SIMRacingApps/Session.html#getIsRedFlag--"><code>/Session/IsRedFlag</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Session.html#getIsReplay--"><code>/Session/IsReplay</code></a><br />
 <a target="_blank" href="../JavaDoc/com/SIMRacingApps/Session.html#getIsWhiteFlag--"><code>/Session/IsWhiteFlag</code></a><br />
 <a target="_blank" href="../JavaDoc/com/SIMRacingApps/Session.html#getLap--"><code>/Session/Lap</code></a><br />
 <a target="_blank" href="../JavaDoc/com/SIMRacingApps/Session.html#getLaps--"><code>/Session/Laps/(SESSIONTYPE)</code></a><br />
 <a target="_blank" href="../JavaDoc/com/SIMRacingApps/Session.html#getLapsToGo--"><code>/Session/LapsToGo</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Session.html#getLeagueId--"><code>/Session/LeagueId</code></a> 1.2<br />
 <a target="_blank" href="../JavaDoc/com/SIMRacingApps/Session.html#getMessages--"><code>/Session/Messages</code></a><br />
 <a target="_blank" href="../JavaDoc/com/SIMRacingApps/Session.html#getNumberOfCarClasses--"><code>/Session/NumberOfCarClasses</code></a><br />
 <a target="_blank" href="../JavaDoc/com/SIMRacingApps/Session.html#getRadioChannelActive--"><code>/Session/RadioChannelActive</code></a><br />
@@ -565,6 +573,7 @@ For all the possible values supported for the CARIDENTIFIER, click <a href="../J
 <a target="_blank" href="../JavaDoc/com/SIMRacingApps/Session.html#setRadioScan-boolean-"><code>/Session/setRadioScan/(Y/N)</code></a><br />
 <a target="_blank" href="../JavaDoc/com/SIMRacingApps/Session.html#setReferenceCar-java.lang.String-"><code>/Session/setReferenceCar/(CARIDENTIFIER)</code></a><br />
 <a target="_blank" href="../JavaDoc/com/SIMRacingApps/SIMPlugin.html#getSIMName--"><code>/SIMName</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/SIMPlugin.html#getVersion--"><code>/Version</code></a><br />
 <a target="_blank" href="../JavaDoc/com/SIMRacingApps/SIMPlugin.html#getVolume--"><code>/Volume</code></a><br />
 <a target="_blank" href="../JavaDoc/com/SIMRacingApps/SIMPlugin.html#setVolume-double-"><code>/Volume/(PERCENTAGE)</code></a><br />
 <a target="_blank" href="../JavaDoc/com/SIMRacingApps/Track.html#getBearing-java.lang.String-java.lang.Double-java.lang.String-"><code>/Track/Bearing/(LOCATION)/(PERCENTAGE)/(UOM)</code></a><br />
@@ -591,7 +600,7 @@ For all the possible values supported for the CARIDENTIFIER, click <a href="../J
 <a target="_blank" href="../JavaDoc/com/SIMRacingApps/Track.html#getWeatherWindDirection-java.lang.String-"><code>/Track/WeatherWindDirection/(UOM)</code></a><br />
 <a target="_blank" href="../JavaDoc/com/SIMRacingApps/Track.html#getWeatherWindSpeed-java.lang.String-"><code>/Track/WeatherWindSpeed/(UOM)</code></a><br />
 </p>
-<p><a href="../COPYRIGHT.TXT">Copyright (C) 2015 - 2016 Jeffrey Gilliam</a></p>
+<p><a href="../COPYRIGHT.TXT">Copyright (C) 2015 - 2017 Jeffrey Gilliam</a></p>
 <p><a href="../LICENSE.TXT">Apache License 2.0</a></p>
           </article>
         </section>
