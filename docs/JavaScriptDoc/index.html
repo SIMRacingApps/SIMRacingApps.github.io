@@ -50,6 +50,8 @@
               </li><li>
                 <a href="Spectator.html">Spectator</a>
               </li><li>
+                <a href="Spotter.html">Spotter</a>
+              </li><li>
                 <a href="StreamingOverlay.html">StreamingOverlay</a>
               </li>
             </ul>
@@ -110,6 +112,8 @@
               </li><li>
                 <a href="sra-bar-gauge-water-temp.html">sra-bar-gauge-water-temp</a>
               </li><li>
+                <a href="sra-camera-selector.html">sra-camera-selector</a>
+              </li><li>
                 <a href="sra-car-controls.html">sra-car-controls</a>
               </li><li>
                 <a href="sra-car-image.html">sra-car-image</a>
@@ -119,6 +123,8 @@
                 <a href="sra-car-number-extended.html">sra-car-number-extended</a>
               </li><li>
                 <a href="sra-car-selector.html">sra-car-selector</a>
+              </li><li>
+                <a href="sra-car-telemetry.html">sra-car-telemetry</a>
               </li><li>
                 <a href="sra-chat.html">sra-chat</a>
               </li><li>
@@ -149,6 +155,8 @@
                 <a href="sra-relative.html">sra-relative</a>
               </li><li>
                 <a href="sra-relative-small.html">sra-relative-small</a>
+              </li><li>
+                <a href="sra-replay-control.html">sra-replay-control</a>
               </li><li>
                 <a href="sra-shift-light.html">sra-shift-light</a>
               </li><li>
@@ -225,6 +233,8 @@
               </li><li>
                 <a href="module-SIMRacingApps.sraHex.html">sraHex</a>
               </li><li>
+                <a href="module-SIMRacingApps.sraLowerCase.html">sraLowerCase</a>
+              </li><li>
                 <a href="module-SIMRacingApps.sraLPad.html">sraLPad</a>
               </li><li>
                 <a href="module-SIMRacingApps.sraNumber.html">sraNumber</a>
@@ -234,6 +244,8 @@
                 <a href="module-SIMRacingApps.sraRound.html">sraRound</a>
               </li><li>
                 <a href="module-SIMRacingApps.sraRPad.html">sraRPad</a>
+              </li><li>
+                <a href="module-SIMRacingApps.sraUpperCase.html">sraUpperCase</a>
               </li>
             </ul>
           </ul><ul class="group">
@@ -480,7 +492,7 @@ For all the possible values supported for the CARIDENTIFIER, click <a href="../J
 <a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#getWarnings--"><code>/Car/(CARIDENTIFIER)/Warnings</code></a><br />
 <a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#setAdminFlag-boolean-"><code>/Car/(CARIDENTIFIER)/setAdminFlag/(Y/N)</code></a><br />
 <a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#setBlackFlag-int-java.lang.String-"><code>/Car/(CARIDENTIFIER)/setBlackFlag/(SECONDS/LAPS)/(UOM)</code></a><br />
-<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#setCamera-java.lang.String-java.lang.String-"><code>/Car/(CARIDENTIFIER)/setCamera/Group/Camera</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#setCamera-java.lang.String-"><code>/Car/(CARIDENTIFIER)/setCamera/CameraName</code></a><br />
 <a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#setChat-java.lang.String-"><code>/Car/(CARIDENTIFIER)/setChat/(TEXT)</code></a><br />
 <a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#setChatFlag-boolean-"><code>/Car/(CARIDENTIFIER)/setChatFlag/(Y/N)</code></a><br />
 <a target="_blank" href="../JavaDoc/com/SIMRacingApps/Car.html#setClearPenaltiesFlag--"><code>/Car/(CARIDENTIFIER)/setClearPenaltiesFlag</code></a><br />
@@ -523,6 +535,9 @@ For all the possible values supported for the CARIDENTIFIER, click <a href="../J
 <a target="_blank" href="../JavaDoc/com/SIMRacingApps/Gauge.html#setChangeFlag-java.lang.String-"><code>/Car/(CARIDENTIFIER)/Gauge/(GAUGETYPE)/setChangeFlag/(FLAG)</code></a><br />
 <a target="_blank" href="../JavaDoc/com/SIMRacingApps/Gauge.html#setIsDebug-boolean-"><code>/Car/(CARIDENTIFIER)/Gauge/(GAUGETYPE)/setIsDebug/(ISDEBUG)</code></a><br />
 <a target="_blank" href="../JavaDoc/com/SIMRacingApps/Gauge.html#setValueNext-java.lang.Double-java.lang.String-"><code>/Car/(CARIDENTIFIER)/Gauge/(GAUGETYPE)/setValueNext/(VALUE)/(UOM)</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Session.html#getCamera--"><code>/Session/Camera</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Session.html#getCameraFocus--"><code>/Session/CameraFocus</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Session.html#getCameras--"><code>/Session/Cameras</code></a><br />
 <a target="_blank" href="../JavaDoc/com/SIMRacingApps/Session.html#getCars--"><code>/Session/Cars</code></a><br />
 <a target="_blank" href="../JavaDoc/com/SIMRacingApps/Session.html#getCautionLaps--"><code>/Session/CautionLaps</code></a><br />
 <a target="_blank" href="../JavaDoc/com/SIMRacingApps/Session.html#getCautions--"><code>/Session/Cautions</code></a><br />
@@ -555,13 +570,15 @@ For all the possible values supported for the CARIDENTIFIER, click <a href="../J
 <a target="_blank" href="../JavaDoc/com/SIMRacingApps/Session.html#getRadioChannels--"><code>/Session/RadioChannels</code></a><br />
 <a target="_blank" href="../JavaDoc/com/SIMRacingApps/Session.html#getRadioScan--"><code>/Session/RadioScan</code></a><br />
 <a target="_blank" href="../JavaDoc/com/SIMRacingApps/Session.html#getReferenceCar--"><code>/Session/ReferenceCar</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Session.html#getReplay--"><code>/Session/Replay</code></a><br />
 <a target="_blank" href="../JavaDoc/com/SIMRacingApps/Session.html#getStartTime--"><code>/Session/StartTime</code></a><br />
 <a target="_blank" href="../JavaDoc/com/SIMRacingApps/Session.html#getStrengthOfField--"><code>/Session/StrengthOfField</code></a><br />
 <a target="_blank" href="../JavaDoc/com/SIMRacingApps/Session.html#getTimeElapsed--"><code>/Session/TimeElapsed</code></a><br />
 <a target="_blank" href="../JavaDoc/com/SIMRacingApps/Session.html#getTimeRemaining--"><code>/Session/TimeRemaining</code></a><br />
 <a target="_blank" href="../JavaDoc/com/SIMRacingApps/Session.html#getType--"><code>/Session/Type</code></a><br />
 <a target="_blank" href="../JavaDoc/com/SIMRacingApps/Session.html#setAdvanceFlag--"><code>/Session/setAdvanceFlag</code></a><br />
-<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Session.html#setCamera-java.lang.String-java.lang.String-java.lang.String-"><code>/Session/setCamera/(CARIDENTIFIER)/Group/Camera</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Session.html#setCamera-java.lang.String-java.lang.String-java.lang.String-"><code>/Session/setCamera/(CAMERA)/(FOCUSON)/(CARIDENTIFIER)</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Session.html#setCameraFocus-java.lang.String-java.lang.String-"><code>/Session/setCamera/(FOCUSON)/(CARIDENTIFIER)</code></a><br />
 <a target="_blank" href="../JavaDoc/com/SIMRacingApps/Session.html#setCautionFlag--"><code>/Session/setCautionFlag</code></a><br />
 <a target="_blank" href="../JavaDoc/com/SIMRacingApps/Session.html#setChat-java.lang.String-"><code>/Session/setChat/(TEXT)</code></a><br />
 <a target="_blank" href="../JavaDoc/com/SIMRacingApps/Session.html#setChatFlag-boolean-"><code>/Session/setChatFlag/(Y/N)</code></a><br />
@@ -572,6 +589,8 @@ For all the possible values supported for the CARIDENTIFIER, click <a href="../J
 <a target="_blank" href="../JavaDoc/com/SIMRacingApps/Session.html#setRadioChannelName-java.lang.String-"><code>/Session/setRadioChannelName/(CHANNELNAME)</code></a><br />
 <a target="_blank" href="../JavaDoc/com/SIMRacingApps/Session.html#setRadioScan-boolean-"><code>/Session/setRadioScan/(Y/N)</code></a><br />
 <a target="_blank" href="../JavaDoc/com/SIMRacingApps/Session.html#setReferenceCar-java.lang.String-"><code>/Session/setReferenceCar/(CARIDENTIFIER)</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Session.html#setReplay-java.lang.String-"><code>/Session/setReplay/(COMMAND)</code></a><br />
+<a target="_blank" href="../JavaDoc/com/SIMRacingApps/Session.html#setReplayPosition-java.lang.String-"><code>/Session/setReplayPosition/(COMMAND)</code></a><br />
 <a target="_blank" href="../JavaDoc/com/SIMRacingApps/SIMPlugin.html#getSIMName--"><code>/SIMName</code></a><br />
 <a target="_blank" href="../JavaDoc/com/SIMRacingApps/SIMPlugin.html#getVersion--"><code>/Version</code></a><br />
 <a target="_blank" href="../JavaDoc/com/SIMRacingApps/SIMPlugin.html#getVolume--"><code>/Volume</code></a><br />

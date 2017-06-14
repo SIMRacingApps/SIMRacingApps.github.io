@@ -50,6 +50,8 @@
               </li><li>
                 <a href="Spectator.html">Spectator</a>
               </li><li>
+                <a href="Spotter.html">Spotter</a>
+              </li><li>
                 <a href="StreamingOverlay.html">StreamingOverlay</a>
               </li>
             </ul>
@@ -110,6 +112,8 @@
               </li><li>
                 <a href="sra-bar-gauge-water-temp.html">sra-bar-gauge-water-temp</a>
               </li><li>
+                <a href="sra-camera-selector.html">sra-camera-selector</a>
+              </li><li>
                 <a href="sra-car-controls.html">sra-car-controls</a>
               </li><li>
                 <a href="sra-car-image.html">sra-car-image</a>
@@ -119,6 +123,8 @@
                 <a href="sra-car-number-extended.html">sra-car-number-extended</a>
               </li><li>
                 <a href="sra-car-selector.html">sra-car-selector</a>
+              </li><li>
+                <a href="sra-car-telemetry.html">sra-car-telemetry</a>
               </li><li>
                 <a href="sra-chat.html">sra-chat</a>
               </li><li>
@@ -149,6 +155,8 @@
                 <a href="sra-relative.html">sra-relative</a>
               </li><li>
                 <a href="sra-relative-small.html">sra-relative-small</a>
+              </li><li>
+                <a href="sra-replay-control.html">sra-replay-control</a>
               </li><li>
                 <a href="sra-shift-light.html">sra-shift-light</a>
               </li><li>
@@ -225,6 +233,8 @@
               </li><li>
                 <a href="module-SIMRacingApps.sraHex.html">sraHex</a>
               </li><li>
+                <a href="module-SIMRacingApps.sraLowerCase.html">sraLowerCase</a>
+              </li><li>
                 <a href="module-SIMRacingApps.sraLPad.html">sraLPad</a>
               </li><li>
                 <a href="module-SIMRacingApps.sraNumber.html">sraNumber</a>
@@ -234,6 +244,8 @@
                 <a href="module-SIMRacingApps.sraRound.html">sraRound</a>
               </li><li>
                 <a href="module-SIMRacingApps.sraRPad.html">sraRPad</a>
+              </li><li>
+                <a href="module-SIMRacingApps.sraUpperCase.html">sraUpperCase</a>
               </li>
             </ul>
           </ul><ul class="group">
@@ -300,7 +312,7 @@
       <dt></dt>
       <dd>
         <div class="description">
-          This widget displays a TV style banner showing the standings.Designed to be used as an overlay with OBS.By default, the session type is displayed as the title.The default sponsor is SIMRacingApps.To change either, create a file called "StandingsBanner.json" in the "Documents/SIMRacingApps" folder with the following entries.<pre>{  "title":            "DAYTONA 500",  "fontSize":         "100%",  "sponsorImageUrls": ["Sponsors/Sponsor1.png","Sponsors/Sponsor2.png"],  "sponsorSeconds":   [60,120]}</pre>In the example, the sponsor logos is an array of files that are stored in the "Documents/SIMRacingApps/Sponsors" folder.The ratio of a sponsor file should be 4x1. The default window size calculates that to be 200x50 pixels, but it will scale up and down.Each sponsor can have their own display time using the seconds array.The first sponsor will be displayed for 60 seconds, the second for 120 seconds, then start over.You can add more sponsors and seconds to display as needed.<p>Example:<p><b>&lt;sra-standings-banner&gt;&lt;/sra-standings-banner&gt;<br /></b><img src="../widgets/StandingsBanner/icon.png" alt="Image goes here"/>
+          This widget displays a TV style banner showing the standings.Designed to be used as an overlay with OBS.By default, the session type is displayed as the title.The default sponsor is SIMRacingApps.To change either, create a file called "StandingsBanner.json" in the "Documents/SIMRacingApps" folder with the following entries.<pre>{  "title":            "DAYTONA 500",  "fontSize":         "100%",  "sponsorImageUrls": ["Sponsors/Sponsor1.png","Sponsors/Sponsor2.png","sra"],  "sponsorSeconds":   [60,120,60]}</pre>In the example, the sponsor logos is an array of files that are stored in the "Documents/SIMRacingApps/Sponsors" folder.The ratio of a sponsor file should be 4x1. The default window size calculates that to be 200x50 pixels, but it will scale up and down.Each sponsor can have their own display time using the seconds array.The first sponsor will be displayed for 60 seconds, the second for 120 seconds, then start over.You can add more sponsors and seconds to display as needed.Any image that cannot be found will be replaced with the stock SRA logo.<p>Example list of the files.<pre>   Documents\SIMRacingApps\StandingsBanner.json   Documents\SIMRacingApps\Sponsors\Sponsor1.png   Documents\SIMRacingApps\Sponsors\Sponsor2.png</pre><p>Example:<p><b>&lt;sra-standings-banner&gt;&lt;/sra-standings-banner&gt;<br /></b><img src="../widgets/StandingsBanner/icon.png" alt="Image goes here"/>
         </div>
         <div class="details"></div>
         <div>
