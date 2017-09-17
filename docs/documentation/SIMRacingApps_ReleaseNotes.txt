@@ -2,9 +2,103 @@ SIMRacingApps Release Notes
 Copyright (C) 2015 - 2017 Jeffrey Gilliam
 ---------------------------
 For a complete list of issues completed in this version goto 
-(https://github.com/SIMRacingApps/SIMRacingApps/milestone/5?closed=1)
+(https://github.com/SIMRacingApps/SIMRacingApps/milestone/6?closed=1)
 
-Version: 1.3_Build_2017.06.13
+Version: 1.4_Build_2017.09.17
+    1. Fixed #103 (https://github.com/SIMRacingApps/SIMRacingApps/issues/103)
+       Brake Bias .5 Increment on cars that show the actual percentage, not the delta.
+       
+    2. Fixed #104 (https://github.com/SIMRacingApps/SIMRacingApps/issues/104)
+       Standings App not working when out of car
+       
+    3. Added a small delay in the Voice Attack Profile in the spotter loops
+       to cut down on CPU usage.
+
+    4. Implemented a better SOF (Strength of field) calculation posted on the iRacing forums.
+
+    5. Fixed #106 (https://github.com/SIMRacingApps/SIMRacingApps/issues/106)
+       TeamSpeak: null pointer errors when plugin is turned off
+
+    6. Fixed #107 (https://github.com/SIMRacingApps/SIMRacingApps/issues/107)
+       iRacing: The CameraInfo.GroupName is not quoted and can contain invalid characters
+       I added quotes before the YAML is parsed.
+
+    7. Voice Attack was sending the "You're Welcome" message to the wrong car.
+       It should send it to the car in front of you.
+
+    8. Fixed #110 (https://github.com/SIMRacingApps/SIMRacingApps/issues/110)
+       TrackMap: SPA Endurance Config has finish line in wrong place
+
+    9. Closed #116 (https://github.com/SIMRacingApps/SIMRacingApps/issues/116)
+       Closed #117 (https://github.com/SIMRacingApps/SIMRacingApps/issues/117)
+       Electron Client is now bundled with the Server. 
+       To have the apps stay on top of iRacing, you will need to enable "Windowed" mode.
+       https://github.com/SIMRacingApps/SIMRacingApps/wiki/How-to-setup-iRacing-in-Windowed-Mode
+       
+       The following entries in Documents/SIMRacingApps/settings.txt need to exist to enable it.
+       
+       electron-autoupdate = Y
+       electron-autostart = Y
+
+    10. Fixed issue when Team Names and Custom Camera Names were causing java errors.
+    
+    11. Added Settings to the main menu as a selectable item.
+        Cleaned up the settings window and disabled the wrapping of the lines.
+
+    12. Fixed issue where shift sounds were inconsistent on the Dallara DW12.
+
+    13. Close #120 (https://github.com/SIMRacingApps/SIMRacingApps/issues/120)
+       Car Numbers hard to read
+       Can be controlled in the settings with this variable. Default is yes.
+       
+       use-sim-colors = N
+       
+    14. Added new tracks and cars from iRacing's Sept. 2017 build.
+       - Dirt UPM Modified Car
+       - Ferrari 488 GTE Car
+       - Dirt version of Lanier National Speedway Track
+       - Snetterton Curcuit Track
+
+    15. Fixed #119 (https://github.com/SIMRacingApps/SIMRacingApps/issues/119)
+       Sound: Master Volume not working
+       
+    For notes on previous versions, see below.
+       
+------------------------------------------------------------------------------------------------------
+---                    Configuration Requirements                                                  ---
+------------------------------------------------------------------------------------------------------
+    1. To get the server running, simply execute the SIMRacingAppsServer...exe 
+       on the same computer that the Simulator is running on.
+    2. If you do not have Java 1.8 or better installed, it will redirect you to the Java download page.
+       NOTE: This page will install the 32-bit version of Java. The 64-bit version is faster.
+       See https://github.com/SIMRacingApps/SIMRacingApps/wiki/Java-64-Bit-Installation on how to find it.
+       Also see http://wiki.SIMRacingApps.com/Java-Update-Configuration 
+       for detailed instructions on how to configure Java's Automatic Updates so it doesn't interrupt your racing.
+    3. If a Firewall is running, you might get prompted to allow the server to run.
+       Depending on if your Ethernet connection was made private or public, 
+       you may be asked to confirm that also. Please select allow.
+       If your Firewall doesn't prompt you, then you will have to add an exception to allow "java.exe"
+       for both in-bound and out-bound traffic on all ports. 
+       See https://github.com/SIMRacingApps/SIMRacingApps/wiki/How-to-fix-Firewall-issues for more information.
+    4. Enter the server address (found in the Title Bar of the server window) in your browser 
+       from any device connected to the same local network.
+       Connecting from outside the local network is not supported and not recommended due to security concerns.
+    5. Please refer to the Quick Start Guide at http://quickstart.SIMRacingApps.com
+       for more details and options for running the server.
+    
+    Issues:
+        Please visit the issues list at http://issues.SIMRacingApps.com to see if an issue you are have 
+        has already been reported. This list also contains enhancement requests.
+        You will need to create a GitHub account to post a new issue or subscribe to an existing issue. 
+        But, that is the easiest way to keep track of it and follow conversations on the issue.
+        
+    Wiki:
+        There is a Wiki for SIMRacingApps at http://wiki.SIMRacingApps.com.
+        Here you can find solutions, work-around, etc.
+       
+****************** Previous Versions *************************
+
+1.3_Build_2017.06.13
     1. TeamSpeak
        Added the ability to disable the TeamSpeak integration. 
        Add/update the following to the settings.txt file.
@@ -48,64 +142,6 @@ Version: 1.3_Build_2017.06.13
     8. iRacing June 7, 2017 Build 
        - New Track Map for Myrtle Beach
        - New Car Profiles for Ferrari 488 GTE and Ford GT 2017
-
-    For notes on previous versions, see below.
-       
-------------------------------------------------------------------------------------------------------
----                    Configuration Requirements                                                  ---
-------------------------------------------------------------------------------------------------------
-    1. To get the server running, simply execute the SIMRacingAppsServer...exe 
-       on the same computer that the Simulator is running on.
-    2. If you do not have Java 1.8 or better installed, it will redirect you to the Java download page.
-       NOTE: This page will install the 32-bit version of Java. The 64-bit version is faster.
-       See https://github.com/SIMRacingApps/SIMRacingApps/wiki/Java-64-Bit-Installation on how to find it.
-       Also see http://wiki.SIMRacingApps.com/Java-Update-Configuration 
-       for detailed instructions on how to configure Java's Automatic Updates so it doesn't interrupt your racing.
-    3. If a Firewall is running, you might get prompted to allow the server to run.
-       Depending on if your Ethernet connection was made private or public, 
-       you may be asked to confirm that also. Please select allow.
-       If your Firewall doesn't prompt you, then you will have to add an exception to allow "java.exe"
-       for both in-bound and out-bound traffic on all ports. 
-       See https://github.com/SIMRacingApps/SIMRacingApps/wiki/How-to-fix-Firewall-issues for more information.
-    4. Enter the server address (found in the Title Bar of the server window) in your browser 
-       from any device connected to the same local network.
-       Connecting from outside the local network is not supported and not recommended due to security concerns.
-    5. Please refer to the Quick Start Guide at http://quickstart.SIMRacingApps.com
-       for more details and options for running the server.
-    
-    Issues:
-        Please visit the issues list at http://issues.SIMRacingApps.com to see if an issue you are have 
-        has already been reported. This list also contains enhancement requests.
-        You will need to create a GitHub account to post a new issue or subscribe to an existing issue. 
-        But, that is the easiest way to keep track of it and follow conversations on the issue.
-        
-    Wiki:
-        There is a Wiki for SIMRacingApps at http://wiki.SIMRacingApps.com.
-        Here you can find solutions, work-around, etc.
-
-    Electron Client:
-        To install or update Electron Launcher, 
-        1. Download the .SRA file's latest version from http://electron.SIMRacingApps.com 
-        2. Make sure Electron is not running and start the SIMRacingAppsServer.exe
-        3. Connect to the main menu from a browser and upload the .SRA file
-        4. Refer to the Electron's readme file for more information
-        
-    Overwolf Client:
-        To install or update Overwolf Launcher, 
-        1. Download the .OPK file's latest version from http://overwolf.SIMRacingApps.com
-        2. Open Overwolf's Dock and load it from Settings -> Support -> Development Options -> Install
-           TODO: Submit the package to the Overwolf Store so it can be installed from there. 
-        3. Refer to the instructions in the readme file to install this file into Overwolf.
-        WARNING: 
-            THERE IS AN OVERWOLF BUG THAT CAUSES IT TO TAKE OVER YOUR USB INPUT DEVICES
-            WHENEVER YOU CLICK ON AN APP. THIS CAN CAUSE IT TO SHIFT DOWN, LOOSE FORCE FEEDBACK,
-            AND OTHER DISASTROUS THINGS. SO, DO NOT CLICK ON AN APP WHILE IN THE CAR.
-            If you do, go into the garage and come back out and it will reset your devices.
-            I have posted the issue to the forums. 
-            You can follow it [here](http://forums.overwolf.com/index.php?/topic/7106-clicking-on-app-overwolf-takes-over-usb-input-devices)
-
-        
-****************** Previous Versions *************************
 
 1.2_Build_2017.04.03
     1. Closed #70 (https://github.com/SIMRacingApps/SIMRacingApps/issues/70)
