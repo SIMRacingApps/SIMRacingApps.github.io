@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10,"i26":10,"i27":10,"i28":10,"i29":10,"i30":10,"i31":10,"i32":10,"i33":10,"i34":10,"i35":10,"i36":10,"i37":10,"i38":10,"i39":10,"i40":10,"i41":10,"i42":10,"i43":10,"i44":10,"i45":10,"i46":10,"i47":10,"i48":10,"i49":10,"i50":10,"i51":10,"i52":10,"i53":10,"i54":10,"i55":10,"i56":10,"i57":10,"i58":10,"i59":10,"i60":10,"i61":10,"i62":10,"i63":10,"i64":10,"i65":10,"i66":10,"i67":10,"i68":10,"i69":10,"i70":10,"i71":10,"i72":10,"i73":10,"i74":10,"i75":10,"i76":10,"i77":10,"i78":10,"i79":10,"i80":10,"i81":10,"i82":10,"i83":10,"i84":10,"i85":10,"i86":10,"i87":10,"i88":10,"i89":10,"i90":10,"i91":10,"i92":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10,"i26":10,"i27":10,"i28":10,"i29":10,"i30":10,"i31":10,"i32":10,"i33":10,"i34":10,"i35":10,"i36":10,"i37":10,"i38":10,"i39":10,"i40":10,"i41":10,"i42":10,"i43":10,"i44":10,"i45":10,"i46":10,"i47":10,"i48":10,"i49":10,"i50":10,"i51":10,"i52":10,"i53":10,"i54":10,"i55":10,"i56":10,"i57":10,"i58":10,"i59":10,"i60":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -49,7 +49,7 @@ var activeTableTab = "activeTableTab";
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../com/SIMRacingApps/Data.Type.html" title="enum in com.SIMRacingApps"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../com/SIMRacingApps/Gauge.SIMValueTypes.html" title="enum in com.SIMRacingApps"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../com/SIMRacingApps/Gauge.Type.html" title="class in com.SIMRacingApps"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../index.html?com/SIMRacingApps/Gauge.html" target="_top">Frames</a></li>
@@ -106,6 +106,10 @@ var activeTableTab = "activeTableTab";
 <div class="description">
 <ul class="blockList">
 <li class="blockList">
+<dl>
+<dt>Direct Known Subclasses:</dt>
+<dd><a href="../../com/SIMRacingApps/SIMPlugins/iRacing/iRacingGauge.html" title="class in com.SIMRacingApps.SIMPlugins.iRacing">iRacingGauge</a></dd>
+</dl>
 <hr>
 <br>
 <pre>public class <span class="typeNameLabel">Gauge</span>
@@ -136,13 +140,13 @@ extends java.lang.Object</pre>
  It has an increment that all values will be rounded to when changing it.
  <p>
  A gauge can also have "State", which is defined range(s) of values. 
- Standard States are "OFF", "ERROR" and "NORMAL".
+ Standard States are "NOTAVAILABLE", "OFF", "ERROR" and "NORMAL".
  Clients can choose to display different colors, blink, or other visual effects based on the state.
  Many gauges also have additional states. 
  See <a href="../../com/SIMRacingApps/Gauge.Type.html" title="class in com.SIMRacingApps"><code>Gauge.Type</code></a> for each gauges documentation for the states it supports.</div>
 <dl>
 <dt><span class="simpleTagLabel">Since:</span></dt>
-<dd>1.0</dd>
+<dd>1.4</dd>
 <dt><span class="simpleTagLabel">Author:</span></dt>
 <dd>Jeffrey Gilliam</dd>
 <dt><span class="simpleTagLabel">Copyright:</span></dt>
@@ -170,12 +174,6 @@ extends java.lang.Object</pre>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static class&nbsp;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.SIMValueTypes.html" title="enum in com.SIMRacingApps">Gauge.SIMValueTypes</a></span></code>
-<div class="block">This defines when the SIMValue.get() function is called what it will return when.</div>
-</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>static class&nbsp;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.Type.html" title="class in com.SIMRacingApps">Gauge.Type</a></span></code>
 <div class="block">This defines all the possible gauge types.</div>
 </td>
@@ -195,8 +193,11 @@ extends java.lang.Object</pre>
 <th class="colOne" scope="col">Constructor and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#Gauge-java.lang.String-java.lang.String-">Gauge</a></span>(java.lang.String&nbsp;car,
-     java.lang.String&nbsp;type)</code>
+<td class="colOne"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#Gauge-java.lang.String-com.SIMRacingApps.Car-com.SIMRacingApps.Track-java.util.Map-java.util.Map-">Gauge</a></span>(java.lang.String&nbsp;type,
+     <a href="../../com/SIMRacingApps/Car.html" title="class in com.SIMRacingApps">Car</a>&nbsp;car,
+     <a href="../../com/SIMRacingApps/Track.html" title="class in com.SIMRacingApps">Track</a>&nbsp;track,
+     java.util.Map&lt;java.lang.String,java.util.Map&lt;java.lang.String,java.util.Map&lt;java.lang.String,java.lang.Object&gt;&gt;&gt;&nbsp;simGaugesBefore,
+     java.util.Map&lt;java.lang.String,java.util.Map&lt;java.lang.String,java.util.Map&lt;java.lang.String,java.lang.Object&gt;&gt;&gt;&nbsp;simGaugesAfter)</code>
 <div class="block">Constructor for the Gauge class.</div>
 </td>
 </tr>
@@ -216,248 +217,240 @@ extends java.lang.Object</pre>
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#Z:Z_getIsSentToSIM--">_getIsSentToSIM</a></span>()</code>&nbsp;</td>
-</tr>
-<tr id="i1" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#Z:Z_setIsSentToSIM-boolean-">_setIsSentToSIM</a></span>(boolean&nbsp;isSentToSIM)</code>&nbsp;</td>
-</tr>
-<tr id="i2" class="altColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#addGroup-com.SIMRacingApps.Gauge-">addGroup</a></span>(<a href="../../com/SIMRacingApps/Gauge.html" title="class in com.SIMRacingApps">Gauge</a>&nbsp;gauge)</code>
-<div class="block">Add another gauge to this gauge to group them together.</div>
-</td>
-</tr>
-<tr id="i3" class="rowColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#addStateRange-com.SIMRacingApps.Gauge-">addStateRange</a></span>(<a href="../../com/SIMRacingApps/Gauge.html" title="class in com.SIMRacingApps">Gauge</a>&nbsp;gauge)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#Z:Z_addStateRange-com.SIMRacingApps.Gauge-">_addStateRange</a></span>(<a href="../../com/SIMRacingApps/Gauge.html" title="class in com.SIMRacingApps">Gauge</a>&nbsp;gauge)</code>
 <div class="block">Adds all the states from the passed in gauge to this gauge.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i1" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#addStateRange-java.lang.String-double-double-">addStateRange</a></span>(java.lang.String&nbsp;name,
-             double&nbsp;start,
-             double&nbsp;end)</code>
-<div class="block">Add a new state range to this gauge.</div>
-</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#Z:Z_addStateRange-java.lang.String-java.lang.String-double-double-java.lang.String-">_addStateRange</a></span>(java.lang.String&nbsp;stateName,
+              java.lang.String&nbsp;name,
+              double&nbsp;start,
+              double&nbsp;end,
+              java.lang.String&nbsp;UOM)</code>&nbsp;</td>
+</tr>
+<tr id="i2" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#Z:Z_addStateRange-java.lang.String-java.lang.String-double-double-java.lang.String-com.SIMRacingApps.Data-">_addStateRange</a></span>(java.lang.String&nbsp;stateName,
+              java.lang.String&nbsp;name,
+              double&nbsp;start,
+              double&nbsp;end,
+              java.lang.String&nbsp;UOM,
+              <a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a>&nbsp;d)</code>&nbsp;</td>
+</tr>
+<tr id="i3" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#Z:Z_removeStateRange-java.lang.String-java.lang.String-">_removeStateRange</a></span>(java.lang.String&nbsp;stateName,
+                 java.lang.String&nbsp;name)</code>&nbsp;</td>
+</tr>
+<tr id="i4" class="altColor">
+<td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#Z:Z_setCapacityIncrement-double-java.lang.String-">_setCapacityIncrement</a></span>(double&nbsp;d,
+                     java.lang.String&nbsp;uom)</code>&nbsp;</td>
 </tr>
 <tr id="i5" class="rowColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#addStateRange-java.lang.String-double-double-com.SIMRacingApps.Data-">addStateRange</a></span>(java.lang.String&nbsp;name,
-             double&nbsp;start,
-             double&nbsp;end,
-             <a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a>&nbsp;d)</code>
-<div class="block">Add a new state range to this gauge that transforms the value.</div>
-</td>
+<td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#Z:Z_setCapacityMaximum-double-java.lang.String-">_setCapacityMaximum</a></span>(double&nbsp;d,
+                   java.lang.String&nbsp;uom)</code>&nbsp;</td>
 </tr>
 <tr id="i6" class="altColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#afterPitting-int-">afterPitting</a></span>(int&nbsp;lap)</code>
-<div class="block">Call this method after pitting to allow saving historical values that can only be read after you pit.</div>
-</td>
+<td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#Z:Z_setCapacityMinimum-double-java.lang.String-">_setCapacityMinimum</a></span>(double&nbsp;d,
+                   java.lang.String&nbsp;uom)</code>&nbsp;</td>
 </tr>
 <tr id="i7" class="rowColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#beforePitting-int-">beforePitting</a></span>(int&nbsp;lap)</code>
-<div class="block">This method should be called before pitting to allow the current value to be saved historically before they are changed.</div>
-</td>
+<td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#Z:Z_setIsChangable-boolean-">_setIsChangable</a></span>(boolean&nbsp;b)</code>&nbsp;</td>
 </tr>
 <tr id="i8" class="altColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#decrementValueNext--">decrementValueNext</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#Z:Z_setIsDirty-boolean-">_setIsDirty</a></span>(boolean&nbsp;b)</code>&nbsp;</td>
 </tr>
 <tr id="i9" class="rowColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#decrementValueNext-java.lang.String-">decrementValueNext</a></span>(java.lang.String&nbsp;UOM)</code>
-<div class="block">Decrements the next value, to be applied at the next pit stop, according to the value set by <a href="../../com/SIMRacingApps/Gauge.html#setCapacityIncrement-double-"><code>setCapacityIncrement(double)</code></a>.</div>
-</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#Z:Z_setIsFixed-boolean-">_setIsFixed</a></span>(boolean&nbsp;b)</code>&nbsp;</td>
 </tr>
 <tr id="i10" class="altColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#getCapacityIncrement--">getCapacityIncrement</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#Z:Z_setMajorIncrement-double-java.lang.String-">_setMajorIncrement</a></span>(double&nbsp;d,
+                  java.lang.String&nbsp;uom)</code>&nbsp;</td>
 </tr>
 <tr id="i11" class="rowColor">
+<td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#Z:Z_setMaximum-double-java.lang.String-">_setMaximum</a></span>(double&nbsp;d,
+           java.lang.String&nbsp;uom)</code>&nbsp;</td>
+</tr>
+<tr id="i12" class="altColor">
+<td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#Z:Z_setMinimum-double-java.lang.String-">_setMinimum</a></span>(double&nbsp;d,
+           java.lang.String&nbsp;uom)</code>&nbsp;</td>
+</tr>
+<tr id="i13" class="rowColor">
+<td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#Z:Z_setMinorIncrement-double-java.lang.String-">_setMinorIncrement</a></span>(double&nbsp;d,
+                  java.lang.String&nbsp;uom)</code>&nbsp;</td>
+</tr>
+<tr id="i14" class="altColor">
+<td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#Z:Z_setOnResetChange-boolean-">_setOnResetChange</a></span>(boolean&nbsp;b)</code>&nbsp;</td>
+</tr>
+<tr id="i15" class="rowColor">
+<td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#decrementValueNext--">decrementValueNext</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i16" class="altColor">
+<td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#decrementValueNext-java.lang.String-">decrementValueNext</a></span>(java.lang.String&nbsp;UOM)</code>
+<div class="block">Decrements the next value, to be applied at the next pit stop, according to the value set by <a href="../../com/SIMRacingApps/Gauge.html#Z:Z_setCapacityIncrement-double-java.lang.String-"><code>_setCapacityIncrement(double,String)</code></a>.</div>
+</td>
+</tr>
+<tr id="i17" class="rowColor">
+<td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#getCapacityIncrement--">getCapacityIncrement</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i18" class="altColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#getCapacityIncrement-java.lang.String-">getCapacityIncrement</a></span>(java.lang.String&nbsp;UOM)</code>
 <div class="block">Returns the increment value that the gauge uses when you call <a href="../../com/SIMRacingApps/Gauge.html#incrementValueNext-java.lang.String-"><code>incrementValueNext(String)</code></a> 
  or <a href="../../com/SIMRacingApps/Gauge.html#decrementValueNext-java.lang.String-"><code>decrementValueNext(String)</code></a>.</div>
 </td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i19" class="rowColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#getCapacityMaximum--">getCapacityMaximum</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i20" class="altColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#getCapacityMaximum-java.lang.String-">getCapacityMaximum</a></span>(java.lang.String&nbsp;UOM)</code>
-<div class="block">Returns the maximum number that this gauge will accept when calling <a href="../../com/SIMRacingApps/Gauge.html#setValueNext-java.lang.Double-java.lang.String-"><code>setValueNext(Double,String)</code></a>
+<div class="block">Returns the maximum number that this gauge will accept when calling <a href="../../com/SIMRacingApps/Gauge.html#setValueNext-double-java.lang.String-"><code>setValueNext(double,String)</code></a>
  or <a href="../../com/SIMRacingApps/Gauge.html#incrementValueNext-java.lang.String-"><code>incrementValueNext(String)</code></a></div>
 </td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i21" class="rowColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#getCapacityMinimum--">getCapacityMinimum</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i15" class="rowColor">
+<tr id="i22" class="altColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#getCapacityMinimum-java.lang.String-">getCapacityMinimum</a></span>(java.lang.String&nbsp;UOM)</code>
-<div class="block">Returns the minimum number that this gauge will accept when calling <a href="../../com/SIMRacingApps/Gauge.html#setValueNext-java.lang.Double-java.lang.String-"><code>setValueNext(Double,String)</code></a>
+<div class="block">Returns the minimum number that this gauge will accept when calling <a href="../../com/SIMRacingApps/Gauge.html#setValueNext-double-java.lang.String-"><code>setValueNext(double,String)</code></a>
  or <a href="../../com/SIMRacingApps/Gauge.html#decrementValueNext-java.lang.String-"><code>decrementValueNext(String)</code></a></div>
 </td>
 </tr>
-<tr id="i16" class="altColor">
+<tr id="i23" class="rowColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#getChangeFlag--">getChangeFlag</a></span>()</code>
 <div class="block">Returns Y if the object for this gauge is flagged for changed on the next pit stop.</div>
 </td>
 </tr>
-<tr id="i17" class="rowColor">
+<tr id="i24" class="altColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#getCount--">getCount</a></span>()</code>
-<div class="block">Returns the number of times this gauge was changed.</div>
+<div class="block">Returns the number of times this gauge was used.</div>
 </td>
 </tr>
-<tr id="i18" class="altColor">
-<td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#getDefaultUOM--">getDefaultUOM</a></span>()</code>
-<div class="block">Returns the Default Unit of Measure for this gauge (i.e.</div>
-</td>
-</tr>
-<tr id="i19" class="rowColor">
-<td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#getInternalUOM--">getInternalUOM</a></span>()</code>
-<div class="block">Returns the Internal Unit of Measure for this gauge (i.e.</div>
-</td>
-</tr>
-<tr id="i20" class="altColor">
+<tr id="i25" class="rowColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#getIsChangeable--">getIsChangeable</a></span>()</code>
 <div class="block">Returns true if this gauge represents an object that can be replaced/changed at the next pit stop (i.e.</div>
 </td>
 </tr>
-<tr id="i21" class="rowColor">
-<td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#getIsDebug--">getIsDebug</a></span>()</code>
-<div class="block">Returns Y if this gauge is outputting debug information.</div>
-</td>
-</tr>
-<tr id="i22" class="altColor">
+<tr id="i26" class="altColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#getIsDirty--">getIsDirty</a></span>()</code>
 <div class="block">Returns Y if the next value of the gauge is different from the current value.</div>
 </td>
 </tr>
-<tr id="i23" class="rowColor">
+<tr id="i27" class="rowColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#getIsFixed--">getIsFixed</a></span>()</code>
-<div class="block">Returns false if this gauge's next value can be changed via <a href="../../com/SIMRacingApps/Gauge.html#setValueNext-java.lang.Double-java.lang.String-"><code>setValueNext(Double,String)</code></a>, 
+<div class="block">Returns false if this gauge's next value can be changed via <a href="../../com/SIMRacingApps/Gauge.html#setValueNext-double-java.lang.String-"><code>setValueNext(double,String)</code></a>, 
  <a href="../../com/SIMRacingApps/Gauge.html#incrementValueNext-java.lang.String-"><code>incrementValueNext(String)</code></a> or <a href="../../com/SIMRacingApps/Gauge.html#decrementValueNext-java.lang.String-"><code>decrementValueNext(String)</code></a>.</div>
 </td>
 </tr>
-<tr id="i24" class="altColor">
+<tr id="i28" class="altColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#getLapChanged--">getLapChanged</a></span>()</code>
 <div class="block">Returns the lap when the object for this gauge was changed.</div>
 </td>
 </tr>
-<tr id="i25" class="rowColor">
+<tr id="i29" class="rowColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#getLaps--">getLaps</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i26" class="altColor">
+<tr id="i30" class="altColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#getLaps-int-">getLaps</a></span>(int&nbsp;currentLap)</code>
 <div class="block">Returns the number of laps since the object for this gauge was changed.</div>
 </td>
 </tr>
-<tr id="i27" class="rowColor">
+<tr id="i31" class="rowColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#getLaps-java.lang.String-">getLaps</a></span>(java.lang.String&nbsp;currentLap)</code>&nbsp;</td>
 </tr>
-<tr id="i28" class="altColor">
+<tr id="i32" class="altColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#getLapsHistorical--">getLapsHistorical</a></span>()</code>
-<div class="block">Returns the lap the historical value was taken.</div>
+<div class="block">Returns the number of laps since the last change.</div>
 </td>
 </tr>
-<tr id="i29" class="rowColor">
+<tr id="i33" class="rowColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#getMajorIncrement--">getMajorIncrement</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i30" class="altColor">
+<tr id="i34" class="altColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#getMajorIncrement-java.lang.String-">getMajorIncrement</a></span>(java.lang.String&nbsp;UOM)</code>
 <div class="block">Returns how often to show major tick marks between the minimum and the maximum.</div>
 </td>
 </tr>
-<tr id="i31" class="rowColor">
+<tr id="i35" class="rowColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#getMaximum--">getMaximum</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i32" class="altColor">
+<tr id="i36" class="altColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#getMaximum-java.lang.String-">getMaximum</a></span>(java.lang.String&nbsp;UOM)</code>
 <div class="block">Returns the maximum value of where this gauge should end with the last tick mark (i.e.</div>
 </td>
 </tr>
-<tr id="i33" class="rowColor">
+<tr id="i37" class="rowColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#getMinimum--">getMinimum</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i34" class="altColor">
+<tr id="i38" class="altColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#getMinimum-java.lang.String-">getMinimum</a></span>(java.lang.String&nbsp;UOM)</code>
 <div class="block">Returns the minimum value of where this gauge should start with the first tick mark (i.e.</div>
 </td>
 </tr>
-<tr id="i35" class="rowColor">
+<tr id="i39" class="rowColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#getMinorIncrement--">getMinorIncrement</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i36" class="altColor">
+<tr id="i40" class="altColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#getMinorIncrement-java.lang.String-">getMinorIncrement</a></span>(java.lang.String&nbsp;UOM)</code>
 <div class="block">Returns how often to show minor tick marks between the minimum and the maximum.</div>
 </td>
 </tr>
-<tr id="i37" class="rowColor">
+<tr id="i41" class="rowColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#getMultiplier--">getMultiplier</a></span>()</code>
 <div class="block">Return a multiplier to be used when calculating the major and minor tick marks.</div>
 </td>
 </tr>
-<tr id="i38" class="altColor">
-<td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#getName--">getName</a></span>()</code>
-<div class="block">Returns the untranslated name of the gauge.</div>
-</td>
-</tr>
-<tr id="i39" class="rowColor">
-<td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#getOnResetChange--">getOnResetChange</a></span>()</code>
-<div class="block">Returns true if this gauge is changed on a reset.</div>
-</td>
-</tr>
-<tr id="i40" class="altColor">
-<td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#getStateAscending--">getStateAscending</a></span>()</code>&nbsp;</td>
-</tr>
-<tr id="i41" class="rowColor">
-<td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#getStateRange--">getStateRange</a></span>()</code>&nbsp;</td>
-</tr>
 <tr id="i42" class="altColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#getStateRange-java.lang.String-">getStateRange</a></span>(java.lang.String&nbsp;state)</code>
-<div class="block">Returns the state range of the requested state.</div>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#getName--">getName</a></span>()</code>
+<div class="block">Returns the untranslated name to display on the gauge.</div>
 </td>
 </tr>
 <tr id="i43" class="rowColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#getStates--">getStates</a></span>()</code>
-<div class="block">Returns all the states.</div>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#getOnResetChange--">getOnResetChange</a></span>()</code>
+<div class="block">Returns true if this gauge is changed on a reset.</div>
 </td>
 </tr>
 <tr id="i44" class="altColor">
@@ -515,219 +508,38 @@ extends java.lang.Object</pre>
 <tr id="i54" class="altColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#incrementValueNext-java.lang.String-">incrementValueNext</a></span>(java.lang.String&nbsp;UOM)</code>
-<div class="block">Increments the next value, to be applied at the next pit stop, according to the value set by <a href="../../com/SIMRacingApps/Gauge.html#setCapacityIncrement-double-"><code>setCapacityIncrement(double)</code></a>.</div>
+<div class="block">Increments the next value, to be applied at the next pit stop, according to the value set by <a href="../../com/SIMRacingApps/Gauge.html#Z:Z_setCapacityIncrement-double-java.lang.String-"><code>_setCapacityIncrement(double,String)</code></a>.</div>
 </td>
 </tr>
 <tr id="i55" class="rowColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#removeStateRange-java.lang.String-">removeStateRange</a></span>(java.lang.String&nbsp;name)</code>
-<div class="block">Removes a state.</div>
-</td>
-</tr>
-<tr id="i56" class="altColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#reset-int-int-int-">reset</a></span>(int&nbsp;lap,
-     int&nbsp;app_ini_autoResetPitBox,
-     int&nbsp;app_ini_autoResetFastRepair)</code>
-<div class="block">Resets the gauge to it's default values.</div>
-</td>
-</tr>
-<tr id="i57" class="rowColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#setCapacityIncrement-double-">setCapacityIncrement</a></span>(double&nbsp;capacityIncrement)</code>&nbsp;</td>
-</tr>
-<tr id="i58" class="altColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#setCapacityIncrement-double-java.lang.String-">setCapacityIncrement</a></span>(double&nbsp;capacityIncrement,
-                    java.lang.String&nbsp;UOM)</code>
-<div class="block">Sets the increment capacity value..</div>
-</td>
-</tr>
-<tr id="i59" class="rowColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#setCapacityMaximum-double-">setCapacityMaximum</a></span>(double&nbsp;capacityMaximum)</code>&nbsp;</td>
-</tr>
-<tr id="i60" class="altColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#setCapacityMaximum-double-java.lang.String-">setCapacityMaximum</a></span>(double&nbsp;capacityMaximum,
-                  java.lang.String&nbsp;UOM)</code>
-<div class="block">Sets the maximum capacity value.</div>
-</td>
-</tr>
-<tr id="i61" class="rowColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#setCapacityMinimum-double-">setCapacityMinimum</a></span>(double&nbsp;capacityMinimum)</code>&nbsp;</td>
-</tr>
-<tr id="i62" class="altColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#setCapacityMinimum-double-java.lang.String-">setCapacityMinimum</a></span>(double&nbsp;capacityMinimum,
-                  java.lang.String&nbsp;UOM)</code>
-<div class="block">Sets the minimum capacity value..</div>
-</td>
-</tr>
-<tr id="i63" class="rowColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#setChangeFlag-boolean-">setChangeFlag</a></span>(boolean&nbsp;flag)</code>
 <div class="block">Sets the change flag for this gauge and all the gauges grouped with it.</div>
 </td>
 </tr>
-<tr id="i64" class="altColor">
+<tr id="i56" class="altColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#setChangeFlag-java.lang.String-">setChangeFlag</a></span>(java.lang.String&nbsp;flag)</code>&nbsp;</td>
 </tr>
-<tr id="i65" class="rowColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#setDefaultUOM-java.lang.String-">setDefaultUOM</a></span>(java.lang.String&nbsp;uom)</code>
-<div class="block">Sets the default unit of measure.</div>
-</td>
-</tr>
-<tr id="i66" class="altColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#setIsChangable-boolean-">setIsChangable</a></span>(boolean&nbsp;isChangeable)</code>
-<div class="block">Sets the gauge's changeable attribute.</div>
-</td>
-</tr>
-<tr id="i67" class="rowColor">
-<td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#setIsDebug--">setIsDebug</a></span>()</code>&nbsp;</td>
-</tr>
-<tr id="i68" class="altColor">
-<td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#setIsDebug-boolean-">setIsDebug</a></span>(boolean&nbsp;isDebug)</code>
-<div class="block">Sets the debug flag for this gauge
- See <a href="../../com/SIMRacingApps/Gauge.html#getIsDebug--"><code>getIsDebug()</code></a></div>
-</td>
-</tr>
-<tr id="i69" class="rowColor">
-<td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#setIsDebug-java.lang.String-">setIsDebug</a></span>(java.lang.String&nbsp;isDebug)</code>&nbsp;</td>
-</tr>
-<tr id="i70" class="altColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#setIsFixed-boolean-">setIsFixed</a></span>(boolean&nbsp;isFixed)</code>
-<div class="block">Sets the gauge's fixed attribute to indicate if the next value can be changed.</div>
-</td>
-</tr>
-<tr id="i71" class="rowColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#setMajorIncrement-double-">setMajorIncrement</a></span>(double&nbsp;majorIncrement)</code>&nbsp;</td>
-</tr>
-<tr id="i72" class="altColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#setMajorIncrement-double-java.lang.String-">setMajorIncrement</a></span>(double&nbsp;majorIncrement,
-                 java.lang.String&nbsp;UOM)</code>
-<div class="block">Sets the major increment value..</div>
-</td>
-</tr>
-<tr id="i73" class="rowColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#setMaximum-double-">setMaximum</a></span>(double&nbsp;maximum)</code>&nbsp;</td>
-</tr>
-<tr id="i74" class="altColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#setMaximum-double-java.lang.String-">setMaximum</a></span>(double&nbsp;maximum,
-          java.lang.String&nbsp;UOM)</code>
-<div class="block">Sets the maximum value for the last tick mark.</div>
-</td>
-</tr>
-<tr id="i75" class="rowColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#setMinimum-double-">setMinimum</a></span>(double&nbsp;minimum)</code>&nbsp;</td>
-</tr>
-<tr id="i76" class="altColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#setMinimum-double-java.lang.String-">setMinimum</a></span>(double&nbsp;minimum,
-          java.lang.String&nbsp;UOM)</code>
-<div class="block">Sets the minimum value for the first tick mark.</div>
-</td>
-</tr>
-<tr id="i77" class="rowColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#setMinorIncrement-double-">setMinorIncrement</a></span>(double&nbsp;minorIncrement)</code>&nbsp;</td>
-</tr>
-<tr id="i78" class="altColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#setMinorIncrement-double-java.lang.String-">setMinorIncrement</a></span>(double&nbsp;minorIncrement,
-                 java.lang.String&nbsp;UOM)</code>
-<div class="block">Sets the minor increment value..</div>
-</td>
-</tr>
-<tr id="i79" class="rowColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#setMultiplier-double-">setMultiplier</a></span>(double&nbsp;multiplier)</code>
-<div class="block">Sets the multiplier for this gauge to use when calculating major and minor tick marks.</div>
-</td>
-</tr>
-<tr id="i80" class="altColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#setName-java.lang.String-">setName</a></span>(java.lang.String&nbsp;name)</code>
-<div class="block">Sets the Name of the gauge.</div>
-</td>
-</tr>
-<tr id="i81" class="rowColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#setOnResetChange-boolean-">setOnResetChange</a></span>(boolean&nbsp;onResetChange)</code>
-<div class="block">Sets the gauge's on reset change attribute.</div>
-</td>
-</tr>
-<tr id="i82" class="altColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#setSIMValue-com.SIMRacingApps.Data-com.SIMRacingApps.Gauge.SIMValueTypes-">setSIMValue</a></span>(<a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a>&nbsp;d,
-           <a href="../../com/SIMRacingApps/Gauge.SIMValueTypes.html" title="enum in com.SIMRacingApps">Gauge.SIMValueTypes</a>&nbsp;t)</code>
-<div class="block">Used internally to set the reader the gauge will use to get values from the SIM.</div>
-</td>
-</tr>
-<tr id="i83" class="rowColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#setStateAscending-boolean-">setStateAscending</a></span>(boolean&nbsp;state_ascending)</code>&nbsp;</td>
-</tr>
-<tr id="i84" class="altColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#setTypeName-java.lang.String-">setTypeName</a></span>(java.lang.String&nbsp;typename)</code>
-<div class="block">Sets the Type Name of the gauge.</div>
-</td>
-</tr>
-<tr id="i85" class="rowColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#setUOM-java.lang.String-">setUOM</a></span>(java.lang.String&nbsp;uom)</code>
-<div class="block">Sets the unit of measure.</div>
-</td>
-</tr>
-<tr id="i86" class="altColor">
+<tr id="i57" class="rowColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#setValueNext--">setValueNext</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i87" class="rowColor">
+<tr id="i58" class="altColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#setValueNext-java.lang.Double-java.lang.String-">setValueNext</a></span>(java.lang.Double&nbsp;value,
+<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#setValueNext-double-java.lang.String-">setValueNext</a></span>(double&nbsp;value,
             java.lang.String&nbsp;UOM)</code>
 <div class="block">Sets the next value to be applied at the next pit stop.</div>
 </td>
 </tr>
-<tr id="i88" class="altColor">
+<tr id="i59" class="rowColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#setValueNext-java.lang.String-">setValueNext</a></span>(java.lang.String&nbsp;value)</code>&nbsp;</td>
 </tr>
-<tr id="i89" class="rowColor">
+<tr id="i60" class="altColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#setValueNext-java.lang.String-java.lang.String-">setValueNext</a></span>(java.lang.String&nbsp;value,
             java.lang.String&nbsp;UOM)</code>&nbsp;</td>
-</tr>
-<tr id="i90" class="altColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#takeReading--">takeReading</a></span>()</code>
-<div class="block">Call this method to get the gauge to take a reading and store it internally.</div>
-</td>
-</tr>
-<tr id="i91" class="rowColor">
-<td class="colFirst"><code>java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#toString--">toString</a></span>()</code>&nbsp;</td>
-</tr>
-<tr id="i92" class="altColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Gauge.html#updateCurrentLap-int-">updateCurrentLap</a></span>(int&nbsp;currentLap)</code>
-<div class="block">Updates the gauge with the current lap so functions that need the current lap can calculate their values.</div>
-</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -735,7 +547,7 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;java.lang.Object</h3>
-<code>equals, getClass, hashCode, notify, notifyAll, wait, wait, wait</code></li>
+<code>equals, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</code></li>
 </ul>
 </li>
 </ul>
@@ -751,20 +563,29 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a name="Gauge-java.lang.String-java.lang.String-">
+<a name="Gauge-java.lang.String-com.SIMRacingApps.Car-com.SIMRacingApps.Track-java.util.Map-java.util.Map-">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>Gauge</h4>
-<pre>public&nbsp;Gauge(java.lang.String&nbsp;car,
-             java.lang.String&nbsp;type)</pre>
+<pre>public&nbsp;Gauge(java.lang.String&nbsp;type,
+             <a href="../../com/SIMRacingApps/Car.html" title="class in com.SIMRacingApps">Car</a>&nbsp;car,
+             <a href="../../com/SIMRacingApps/Track.html" title="class in com.SIMRacingApps">Track</a>&nbsp;track,
+             java.util.Map&lt;java.lang.String,java.util.Map&lt;java.lang.String,java.util.Map&lt;java.lang.String,java.lang.Object&gt;&gt;&gt;&nbsp;simGaugesBefore,
+             java.util.Map&lt;java.lang.String,java.util.Map&lt;java.lang.String,java.util.Map&lt;java.lang.String,java.lang.Object&gt;&gt;&gt;&nbsp;simGaugesAfter)</pre>
 <div class="block">Constructor for the Gauge class.
- It takes 2 required parameters that defines the car identifier and the type of gauge.</div>
+ Some gauges change depending on the track.
+ 
+ The UOM will be set my the SIM to either what is naturally displayed on this car at this track.
+ Or, it could let the user switch between Imperial and Metric.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>car</code> - The car identifier as defined by <a href="../../com/SIMRacingApps/Session.html#getCar-java.lang.String-"><code>Session.getCar(String)</code></a></dd>
 <dd><code>type</code> - The type of gauge as defined by <a href="../../com/SIMRacingApps/Gauge.Type.html" title="class in com.SIMRacingApps"><code>Gauge.Type</code></a></dd>
+<dd><code>car</code> - The car to associate this gauge with.</dd>
+<dd><code>track</code> - The track the car will be running on.</dd>
+<dd><code>simGaugesBefore</code> - A map that contains gauge data from the SIM to be applied first. The files can then override those values if needed.</dd>
+<dd><code>simGaugesAfter</code> - A map that contains gauge data from the SIM to be applied after the files are processed to override any values in them.</dd>
 </dl>
 </li>
 </ul>
@@ -776,24 +597,6 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a name="getStateAscending--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getStateAscending</h4>
-<pre>public&nbsp;boolean&nbsp;getStateAscending()</pre>
-</li>
-</ul>
-<a name="setStateAscending-boolean-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>setStateAscending</h4>
-<pre>public&nbsp;void&nbsp;setStateAscending(boolean&nbsp;state_ascending)</pre>
-</li>
-</ul>
 <a name="getType--">
 <!--   -->
 </a>
@@ -817,27 +620,12 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>getName</h4>
 <pre>public&nbsp;<a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a>&nbsp;getName()</pre>
-<div class="block">Returns the untranslated name of the gauge. (e.g. WATER)
+<div class="block">Returns the untranslated name to display on the gauge. (e.g. WATER)
  
  <p>PATH = <a href="../../com/SIMRacingApps/Gauge.html#getName--"><code>/Car/(CARIDENTIFIER)/Gauge/(GAUGETYPE)/Name</code></a></div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>The name of the gauge.</dd>
-</dl>
-</li>
-</ul>
-<a name="setName-java.lang.String-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>setName</h4>
-<pre>public&nbsp;void&nbsp;setName(java.lang.String&nbsp;name)</pre>
-<div class="block">Sets the Name of the gauge.
- See <a href="../../com/SIMRacingApps/Gauge.html#getName--"><code>getName()</code></a></div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>name</code> - The name of the gauge.</dd>
 </dl>
 </li>
 </ul>
@@ -854,68 +642,6 @@ extends java.lang.Object</pre>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>A additional explanation of the gauge.</dd>
-</dl>
-</li>
-</ul>
-<a name="setTypeName-java.lang.String-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>setTypeName</h4>
-<pre>public&nbsp;void&nbsp;setTypeName(java.lang.String&nbsp;typename)</pre>
-<div class="block">Sets the Type Name of the gauge.
- See <a href="../../com/SIMRacingApps/Gauge.html#getTypeName--"><code>getTypeName()</code></a></div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>typename</code> - The typename of the gauge.</dd>
-</dl>
-</li>
-</ul>
-<a name="getDefaultUOM--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getDefaultUOM</h4>
-<pre>public&nbsp;<a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a>&nbsp;getDefaultUOM()</pre>
-<div class="block">Returns the Default Unit of Measure for this gauge (i.e. "NATIVE")
- 
- <p>PATH = <a href="../../com/SIMRacingApps/Gauge.html#getDefaultUOM--"><code>/Car/(CARIDENTIFIER)/Gauge/(GAUGETYPE)/DefaultUOM</code></a></div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>The Unit of Measure.</dd>
-</dl>
-</li>
-</ul>
-<a name="setDefaultUOM-java.lang.String-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>setDefaultUOM</h4>
-<pre>public&nbsp;void&nbsp;setDefaultUOM(java.lang.String&nbsp;uom)</pre>
-<div class="block">Sets the default unit of measure.
- See <a href="../../com/SIMRacingApps/Gauge.html#getDefaultUOM--"><code>getDefaultUOM()</code></a></div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>uom</code> - The unit of measure.</dd>
-</dl>
-</li>
-</ul>
-<a name="getInternalUOM--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getInternalUOM</h4>
-<pre>public&nbsp;<a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a>&nbsp;getInternalUOM()</pre>
-<div class="block">Returns the Internal Unit of Measure for this gauge (i.e. "F")
- 
- <p>PATH = <a href="../../com/SIMRacingApps/Gauge.html#getInternalUOM--"><code>/Car/(CARIDENTIFIER)/Gauge/(GAUGETYPE)/InternalUOM</code></a></div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>The Internal Unit of Measure.</dd>
 </dl>
 </li>
 </ul>
@@ -937,21 +663,6 @@ extends java.lang.Object</pre>
 </dl>
 </li>
 </ul>
-<a name="setUOM-java.lang.String-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>setUOM</h4>
-<pre>public&nbsp;void&nbsp;setUOM(java.lang.String&nbsp;uom)</pre>
-<div class="block">Sets the unit of measure.
- See <a href="../../com/SIMRacingApps/Gauge.html#getUOM--"><code>getUOM()</code></a></div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>uom</code> - The unit of measure.</dd>
-</dl>
-</li>
-</ul>
 <a name="getMultiplier--">
 <!--   -->
 </a>
@@ -967,21 +678,6 @@ extends java.lang.Object</pre>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>The multiplier value.</dd>
-</dl>
-</li>
-</ul>
-<a name="setMultiplier-double-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>setMultiplier</h4>
-<pre>public&nbsp;void&nbsp;setMultiplier(double&nbsp;multiplier)</pre>
-<div class="block">Sets the multiplier for this gauge to use when calculating major and minor tick marks.
- See <a href="../../com/SIMRacingApps/Gauge.html#getMultiplier--"><code>getMultiplier()</code></a></div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>multiplier</code> - The multiplier.</dd>
 </dl>
 </li>
 </ul>
@@ -1013,32 +709,6 @@ extends java.lang.Object</pre>
 <pre>public&nbsp;<a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a>&nbsp;getMinimum()</pre>
 </li>
 </ul>
-<a name="setMinimum-double-java.lang.String-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>setMinimum</h4>
-<pre>public&nbsp;void&nbsp;setMinimum(double&nbsp;minimum,
-                       java.lang.String&nbsp;UOM)</pre>
-<div class="block">Sets the minimum value for the first tick mark.
- See <a href="../../com/SIMRacingApps/Gauge.html#getMinimum-java.lang.String-"><code>getMinimum(String)</code></a></div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>minimum</code> - The minimum value.</dd>
-<dd><code>UOM</code> - (Optional) The Unit of Measure of this value. Defaults to the gauges UOM.</dd>
-</dl>
-</li>
-</ul>
-<a name="setMinimum-double-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>setMinimum</h4>
-<pre>public&nbsp;void&nbsp;setMinimum(double&nbsp;minimum)</pre>
-</li>
-</ul>
 <a name="getMaximum-java.lang.String-">
 <!--   -->
 </a>
@@ -1065,32 +735,6 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>getMaximum</h4>
 <pre>public&nbsp;<a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a>&nbsp;getMaximum()</pre>
-</li>
-</ul>
-<a name="setMaximum-double-java.lang.String-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>setMaximum</h4>
-<pre>public&nbsp;void&nbsp;setMaximum(double&nbsp;maximum,
-                       java.lang.String&nbsp;UOM)</pre>
-<div class="block">Sets the maximum value for the last tick mark.
- See <a href="../../com/SIMRacingApps/Gauge.html#getMaximum-java.lang.String-"><code>getMaximum(String)</code></a></div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>maximum</code> - The maximum value.</dd>
-<dd><code>UOM</code> - (Optional) The Unit of Measure of this value. Defaults to the gauges UOM.</dd>
-</dl>
-</li>
-</ul>
-<a name="setMaximum-double-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>setMaximum</h4>
-<pre>public&nbsp;void&nbsp;setMaximum(double&nbsp;maximum)</pre>
 </li>
 </ul>
 <a name="getMajorIncrement-java.lang.String-">
@@ -1121,32 +765,6 @@ extends java.lang.Object</pre>
 <pre>public&nbsp;<a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a>&nbsp;getMajorIncrement()</pre>
 </li>
 </ul>
-<a name="setMajorIncrement-double-java.lang.String-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>setMajorIncrement</h4>
-<pre>public&nbsp;void&nbsp;setMajorIncrement(double&nbsp;majorIncrement,
-                              java.lang.String&nbsp;UOM)</pre>
-<div class="block">Sets the major increment value..
- See <a href="../../com/SIMRacingApps/Gauge.html#getMajorIncrement-java.lang.String-"><code>getMajorIncrement(String)</code></a></div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>majorIncrement</code> - The major increment value</dd>
-<dd><code>UOM</code> - (Optional) The Unit of Measure of this value. Defaults to the gauges UOM.</dd>
-</dl>
-</li>
-</ul>
-<a name="setMajorIncrement-double-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>setMajorIncrement</h4>
-<pre>public&nbsp;void&nbsp;setMajorIncrement(double&nbsp;majorIncrement)</pre>
-</li>
-</ul>
 <a name="getMinorIncrement-java.lang.String-">
 <!--   -->
 </a>
@@ -1175,32 +793,6 @@ extends java.lang.Object</pre>
 <pre>public&nbsp;<a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a>&nbsp;getMinorIncrement()</pre>
 </li>
 </ul>
-<a name="setMinorIncrement-double-java.lang.String-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>setMinorIncrement</h4>
-<pre>public&nbsp;void&nbsp;setMinorIncrement(double&nbsp;minorIncrement,
-                              java.lang.String&nbsp;UOM)</pre>
-<div class="block">Sets the minor increment value..
- See <a href="../../com/SIMRacingApps/Gauge.html#getMinorIncrement-java.lang.String-"><code>getMinorIncrement(String)</code></a></div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>minorIncrement</code> - The minor increment value</dd>
-<dd><code>UOM</code> - (Optional) The Unit of Measure of this value. Defaults to the gauges UOM.</dd>
-</dl>
-</li>
-</ul>
-<a name="setMinorIncrement-double-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>setMinorIncrement</h4>
-<pre>public&nbsp;void&nbsp;setMinorIncrement(double&nbsp;minorIncrement)</pre>
-</li>
-</ul>
 <a name="getCapacityMaximum-java.lang.String-">
 <!--   -->
 </a>
@@ -1208,7 +800,7 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>getCapacityMaximum</h4>
 <pre>public&nbsp;<a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a>&nbsp;getCapacityMaximum(java.lang.String&nbsp;UOM)</pre>
-<div class="block">Returns the maximum number that this gauge will accept when calling <a href="../../com/SIMRacingApps/Gauge.html#setValueNext-java.lang.Double-java.lang.String-"><code>setValueNext(Double,String)</code></a>
+<div class="block">Returns the maximum number that this gauge will accept when calling <a href="../../com/SIMRacingApps/Gauge.html#setValueNext-double-java.lang.String-"><code>setValueNext(double,String)</code></a>
  or <a href="../../com/SIMRacingApps/Gauge.html#incrementValueNext-java.lang.String-"><code>incrementValueNext(String)</code></a>
  
  <p>PATH = <a href="../../com/SIMRacingApps/Gauge.html#getCapacityMaximum-java.lang.String-"><code>/Car/(CARIDENTIFIER)/Gauge/(GAUGETYPE)/CapacityMaximum/(UOM)</code></a></div>
@@ -1229,32 +821,6 @@ extends java.lang.Object</pre>
 <pre>public&nbsp;<a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a>&nbsp;getCapacityMaximum()</pre>
 </li>
 </ul>
-<a name="setCapacityMaximum-double-java.lang.String-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>setCapacityMaximum</h4>
-<pre>public&nbsp;void&nbsp;setCapacityMaximum(double&nbsp;capacityMaximum,
-                               java.lang.String&nbsp;UOM)</pre>
-<div class="block">Sets the maximum capacity value.
- See <a href="../../com/SIMRacingApps/Gauge.html#getCapacityMaximum-java.lang.String-"><code>getCapacityMaximum(String)</code></a></div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>capacityMaximum</code> - The maximum capacity value</dd>
-<dd><code>UOM</code> - (Optional) The Unit of Measure of this value. Defaults to the gauges UOM.</dd>
-</dl>
-</li>
-</ul>
-<a name="setCapacityMaximum-double-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>setCapacityMaximum</h4>
-<pre>public&nbsp;void&nbsp;setCapacityMaximum(double&nbsp;capacityMaximum)</pre>
-</li>
-</ul>
 <a name="getCapacityMinimum-java.lang.String-">
 <!--   -->
 </a>
@@ -1262,7 +828,7 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>getCapacityMinimum</h4>
 <pre>public&nbsp;<a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a>&nbsp;getCapacityMinimum(java.lang.String&nbsp;UOM)</pre>
-<div class="block">Returns the minimum number that this gauge will accept when calling <a href="../../com/SIMRacingApps/Gauge.html#setValueNext-java.lang.Double-java.lang.String-"><code>setValueNext(Double,String)</code></a>
+<div class="block">Returns the minimum number that this gauge will accept when calling <a href="../../com/SIMRacingApps/Gauge.html#setValueNext-double-java.lang.String-"><code>setValueNext(double,String)</code></a>
  or <a href="../../com/SIMRacingApps/Gauge.html#decrementValueNext-java.lang.String-"><code>decrementValueNext(String)</code></a>
  
  <p>PATH = <a href="../../com/SIMRacingApps/Gauge.html#getCapacityMinimum-java.lang.String-"><code>/Car/(CARIDENTIFIER)/Gauge/(GAUGETYPE)/CapacityMinimum/(UOM)</code></a></div>
@@ -1283,32 +849,6 @@ extends java.lang.Object</pre>
 <pre>public&nbsp;<a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a>&nbsp;getCapacityMinimum()</pre>
 </li>
 </ul>
-<a name="setCapacityMinimum-double-java.lang.String-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>setCapacityMinimum</h4>
-<pre>public&nbsp;void&nbsp;setCapacityMinimum(double&nbsp;capacityMinimum,
-                               java.lang.String&nbsp;UOM)</pre>
-<div class="block">Sets the minimum capacity value..
- See <a href="../../com/SIMRacingApps/Gauge.html#getCapacityMinimum-java.lang.String-"><code>getCapacityMinimum(String)</code></a></div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>capacityMinimum</code> - The minimum capacity value</dd>
-<dd><code>UOM</code> - (Optional) The Unit of Measure of this value. Defaults to the gauges UOM.</dd>
-</dl>
-</li>
-</ul>
-<a name="setCapacityMinimum-double-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>setCapacityMinimum</h4>
-<pre>public&nbsp;void&nbsp;setCapacityMinimum(double&nbsp;capacityMinimum)</pre>
-</li>
-</ul>
 <a name="getCapacityIncrement-java.lang.String-">
 <!--   -->
 </a>
@@ -1318,7 +858,7 @@ extends java.lang.Object</pre>
 <pre>public&nbsp;<a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a>&nbsp;getCapacityIncrement(java.lang.String&nbsp;UOM)</pre>
 <div class="block">Returns the increment value that the gauge uses when you call <a href="../../com/SIMRacingApps/Gauge.html#incrementValueNext-java.lang.String-"><code>incrementValueNext(String)</code></a> 
  or <a href="../../com/SIMRacingApps/Gauge.html#decrementValueNext-java.lang.String-"><code>decrementValueNext(String)</code></a>.
- Also, all values passed to <a href="../../com/SIMRacingApps/Gauge.html#setValueNext-java.lang.Double-java.lang.String-"><code>setValueNext(Double,String)</code></a> are rounded up to the the
+ Also, all values passed to <a href="../../com/SIMRacingApps/Gauge.html#setValueNext-double-java.lang.String-"><code>setValueNext(double,String)</code></a> are rounded up to the the
  closest multiple of this value.
  
  <p>PATH = <a href="../../com/SIMRacingApps/Gauge.html#getCapacityIncrement-java.lang.String-"><code>/Car/(CARIDENTIFIER)/Gauge/(GAUGETYPE)/CapacityIncrement/(UOM)</code></a></div>
@@ -1339,47 +879,6 @@ extends java.lang.Object</pre>
 <pre>public&nbsp;<a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a>&nbsp;getCapacityIncrement()</pre>
 </li>
 </ul>
-<a name="setCapacityIncrement-double-java.lang.String-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>setCapacityIncrement</h4>
-<pre>public&nbsp;void&nbsp;setCapacityIncrement(double&nbsp;capacityIncrement,
-                                 java.lang.String&nbsp;UOM)</pre>
-<div class="block">Sets the increment capacity value..
- See <a href="../../com/SIMRacingApps/Gauge.html#getCapacityIncrement-java.lang.String-"><code>getCapacityIncrement(String)</code></a></div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>capacityIncrement</code> - The incremental capacity value</dd>
-<dd><code>UOM</code> - (Optional) The Unit of Measure of this value. Defaults to the gauges UOM.</dd>
-</dl>
-</li>
-</ul>
-<a name="setCapacityIncrement-double-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>setCapacityIncrement</h4>
-<pre>public&nbsp;void&nbsp;setCapacityIncrement(double&nbsp;capacityIncrement)</pre>
-</li>
-</ul>
-<a name="updateCurrentLap-int-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>updateCurrentLap</h4>
-<pre>public&nbsp;void&nbsp;updateCurrentLap(int&nbsp;currentLap)</pre>
-<div class="block">Updates the gauge with the current lap so functions that need the current lap can calculate their values.
- Obviously, this should be called when the current lap changes for the car this gauge is attached to.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>currentLap</code> - The current lap.</dd>
-</dl>
-</li>
-</ul>
 <a name="getIsFixed--">
 <!--   -->
 </a>
@@ -1387,7 +886,7 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>getIsFixed</h4>
 <pre>public&nbsp;<a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a>&nbsp;getIsFixed()</pre>
-<div class="block">Returns false if this gauge's next value can be changed via <a href="../../com/SIMRacingApps/Gauge.html#setValueNext-java.lang.Double-java.lang.String-"><code>setValueNext(Double,String)</code></a>, 
+<div class="block">Returns false if this gauge's next value can be changed via <a href="../../com/SIMRacingApps/Gauge.html#setValueNext-double-java.lang.String-"><code>setValueNext(double,String)</code></a>, 
  <a href="../../com/SIMRacingApps/Gauge.html#incrementValueNext-java.lang.String-"><code>incrementValueNext(String)</code></a> or <a href="../../com/SIMRacingApps/Gauge.html#decrementValueNext-java.lang.String-"><code>decrementValueNext(String)</code></a>.
  A client could use this value to grey out or hide the buttons for changing it.
  
@@ -1395,21 +894,6 @@ extends java.lang.Object</pre>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>true if gauge is fixed, false of not.</dd>
-</dl>
-</li>
-</ul>
-<a name="setIsFixed-boolean-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>setIsFixed</h4>
-<pre>public&nbsp;void&nbsp;setIsFixed(boolean&nbsp;isFixed)</pre>
-<div class="block">Sets the gauge's fixed attribute to indicate if the next value can be changed.
- See <a href="../../com/SIMRacingApps/Gauge.html#getIsFixed--"><code>getIsFixed()</code></a></div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>isFixed</code> - true if fixed, false if not.</dd>
 </dl>
 </li>
 </ul>
@@ -1429,21 +913,6 @@ extends java.lang.Object</pre>
 </dl>
 </li>
 </ul>
-<a name="setIsChangable-boolean-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>setIsChangable</h4>
-<pre>public&nbsp;void&nbsp;setIsChangable(boolean&nbsp;isChangeable)</pre>
-<div class="block">Sets the gauge's changeable attribute.
- See <a href="../../com/SIMRacingApps/Gauge.html#getIsChangeable--"><code>getIsChangeable()</code></a></div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>isChangeable</code> - true if changeable, false if not.</dd>
-</dl>
-</li>
-</ul>
 <a name="getOnResetChange--">
 <!--   -->
 </a>
@@ -1451,111 +920,12 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>getOnResetChange</h4>
 <pre>public&nbsp;<a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a>&nbsp;getOnResetChange()</pre>
-<div class="block">Returns true if this gauge is changed on a reset.
+<div class="block">Returns true if this gauge is changed on a reset. 
  
  <p>PATH = <a href="../../com/SIMRacingApps/Gauge.html#getOnResetChange--"><code>/Car/(CARIDENTIFIER)/Gauge/(GAUGETYPE)/OnResetChange</code></a></div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>true if gauge is changed upon reset, false of not.</dd>
-</dl>
-</li>
-</ul>
-<a name="setOnResetChange-boolean-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>setOnResetChange</h4>
-<pre>public&nbsp;void&nbsp;setOnResetChange(boolean&nbsp;onResetChange)</pre>
-<div class="block">Sets the gauge's on reset change attribute.
- See <a href="../../com/SIMRacingApps/Gauge.html#setOnResetChange-boolean-"><code>setOnResetChange(boolean)</code></a></div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>onResetChange</code> - true if changed on reset, false if not.</dd>
-</dl>
-</li>
-</ul>
-<a name="getIsDebug--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getIsDebug</h4>
-<pre>public&nbsp;<a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a>&nbsp;getIsDebug()</pre>
-<div class="block">Returns Y if this gauge is outputting debug information.
- 
- <p>PATH = <a href="../../com/SIMRacingApps/Gauge.html#getIsDebug--"><code>/Car/(CARIDENTIFIER)/Gauge/(GAUGETYPE)/IsDebug</code></a></div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>true if gauge is in debug mode, false of not.</dd>
-</dl>
-</li>
-</ul>
-<a name="setIsDebug-boolean-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>setIsDebug</h4>
-<pre>public&nbsp;<a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a>&nbsp;setIsDebug(boolean&nbsp;isDebug)</pre>
-<div class="block">Sets the debug flag for this gauge
- See <a href="../../com/SIMRacingApps/Gauge.html#getIsDebug--"><code>getIsDebug()</code></a>
- 
- <p>PATH = <a href="../../com/SIMRacingApps/Gauge.html#setIsDebug-boolean-"><code>/Car/(CARIDENTIFIER)/Gauge/(GAUGETYPE)/setIsDebug/(ISDEBUG)</code></a></div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>isDebug</code> - true to enable debugging</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>true if gauge is changed upon reset, false of not.</dd>
-</dl>
-</li>
-</ul>
-<a name="setIsDebug-java.lang.String-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>setIsDebug</h4>
-<pre>public&nbsp;<a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a>&nbsp;setIsDebug(java.lang.String&nbsp;isDebug)</pre>
-</li>
-</ul>
-<a name="setIsDebug--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>setIsDebug</h4>
-<pre>public&nbsp;<a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a>&nbsp;setIsDebug()</pre>
-</li>
-</ul>
-<a name="Z:Z_getIsSentToSIM--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>_getIsSentToSIM</h4>
-<pre>public&nbsp;boolean&nbsp;_getIsSentToSIM()</pre>
-</li>
-</ul>
-<a name="Z:Z_setIsSentToSIM-boolean-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>_setIsSentToSIM</h4>
-<pre>public&nbsp;void&nbsp;_setIsSentToSIM(boolean&nbsp;isSentToSIM)</pre>
-</li>
-</ul>
-<a name="toString--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>toString</h4>
-<pre>public&nbsp;java.lang.String&nbsp;toString()</pre>
-<dl>
-<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code>toString</code>&nbsp;in class&nbsp;<code>java.lang.Object</code></dd>
+<dd>true if gauge is changed on a reset, false of not.</dd>
 </dl>
 </li>
 </ul>
@@ -1625,8 +995,7 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>getCount</h4>
 <pre>public&nbsp;<a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a>&nbsp;getCount()</pre>
-<div class="block">Returns the number of times this gauge was changed.
- The count starts at one, so the initial reading counts.
+<div class="block">Returns the number of times this gauge was used.
  
  <p>PATH = <a href="../../com/SIMRacingApps/Gauge.html#getCount--"><code>/Car/(CARIDENTIFIER)/Gauge/(GAUGETYPE)/Count</code></a> 1.2</div>
 <dl>
@@ -1673,117 +1042,6 @@ extends java.lang.Object</pre>
 <pre>public&nbsp;<a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a>&nbsp;getLaps()</pre>
 </li>
 </ul>
-<a name="getStateRange-java.lang.String-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getStateRange</h4>
-<pre>public&nbsp;<a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a>&nbsp;getStateRange(java.lang.String&nbsp;state)</pre>
-<div class="block">Returns the state range of the requested state.
- 
- <p>PATH = <a href="../../com/SIMRacingApps/Gauge.html#getStateRange-java.lang.String-"><code>/Car/(CARIDENTIFIER)/Gauge/(GAUGETYPE)/StateRange/(STATE)</code></a></div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>state</code> - (Optional) The state to return. Default CRITICAL state.</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>The requested state as an JSON string { state: "xxx", start: -1.0, end: -1.0 }</dd>
-</dl>
-</li>
-</ul>
-<a name="getStateRange--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getStateRange</h4>
-<pre>public&nbsp;<a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a>&nbsp;getStateRange()</pre>
-</li>
-</ul>
-<a name="getStates--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getStates</h4>
-<pre>public&nbsp;<a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a>&nbsp;getStates()</pre>
-<div class="block">Returns all the states.
- 
- <p>PATH = <a href="../../com/SIMRacingApps/Gauge.html#getStates--"><code>/Car/(CARIDENTIFIER)/Gauge/(GAUGETYPE)/States</code></a></div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>The states as an JSON string ["name": { state: "xxx", start: -1.0, end: -1.0 }]</dd>
-</dl>
-</li>
-</ul>
-<a name="addStateRange-com.SIMRacingApps.Gauge-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>addStateRange</h4>
-<pre>public&nbsp;void&nbsp;addStateRange(<a href="../../com/SIMRacingApps/Gauge.html" title="class in com.SIMRacingApps">Gauge</a>&nbsp;gauge)</pre>
-<div class="block">Adds all the states from the passed in gauge to this gauge.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>gauge</code> - The gauge to copy the states from</dd>
-</dl>
-</li>
-</ul>
-<a name="addStateRange-java.lang.String-double-double-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>addStateRange</h4>
-<pre>public&nbsp;void&nbsp;addStateRange(java.lang.String&nbsp;name,
-                          double&nbsp;start,
-                          double&nbsp;end)</pre>
-<div class="block">Add a new state range to this gauge. 
- The values should be in the same UOM that getInternalUOM() returns.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>name</code> - The name of the state.</dd>
-<dd><code>start</code> - The starting value, inclusive.</dd>
-<dd><code>end</code> - The ending value, exclusive.</dd>
-</dl>
-</li>
-</ul>
-<a name="addStateRange-java.lang.String-double-double-com.SIMRacingApps.Data-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>addStateRange</h4>
-<pre>public&nbsp;void&nbsp;addStateRange(java.lang.String&nbsp;name,
-                          double&nbsp;start,
-                          double&nbsp;end,
-                          <a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a>&nbsp;d)</pre>
-<div class="block">Add a new state range to this gauge that transforms the value.
- The values should be in the same UOM that getInternalUOM() returns.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>name</code> - The name of the state.</dd>
-<dd><code>start</code> - The starting value, inclusive.</dd>
-<dd><code>end</code> - The ending value, exclusive.</dd>
-<dd><code>d</code> - The new value</dd>
-</dl>
-</li>
-</ul>
-<a name="removeStateRange-java.lang.String-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>removeStateRange</h4>
-<pre>public&nbsp;void&nbsp;removeStateRange(java.lang.String&nbsp;name)</pre>
-<div class="block">Removes a state.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>name</code> - The name of the state.</dd>
-</dl>
-</li>
-</ul>
 <a name="getValueHistorical-java.lang.String-">
 <!--   -->
 </a>
@@ -1818,12 +1076,12 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>getLapsHistorical</h4>
 <pre>public&nbsp;<a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a>&nbsp;getLapsHistorical()</pre>
-<div class="block">Returns the lap the historical value was taken.
+<div class="block">Returns the number of laps since the last change.
  
  <p>PATH = <a href="../../com/SIMRacingApps/Gauge.html#getLapsHistorical--"><code>/Car/(CARIDENTIFIER)/Gauge/(GAUGETYPE)/LapsHistorical</code></a></div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>The lap the historical value was taken.</dd>
+<dd>The lap number of laps since the last change.</dd>
 </dl>
 </li>
 </ul>
@@ -1835,7 +1093,8 @@ extends java.lang.Object</pre>
 <h4>getValueNext</h4>
 <pre>public&nbsp;<a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a>&nbsp;getValueNext(java.lang.String&nbsp;UOM)</pre>
 <div class="block">Returns the value of the next value that the object will be at the next pit stop.
- 
+ By default it returns the current value.
+
  <p>PATH = <a href="../../com/SIMRacingApps/Gauge.html#getValueNext-java.lang.String-"><code>/Car/(CARIDENTIFIER)/Gauge/(GAUGETYPE)/ValueNext/(UOM)</code></a></div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -1852,21 +1111,6 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>getValueNext</h4>
 <pre>public&nbsp;<a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a>&nbsp;getValueNext()</pre>
-</li>
-</ul>
-<a name="addGroup-com.SIMRacingApps.Gauge-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>addGroup</h4>
-<pre>public&nbsp;void&nbsp;addGroup(<a href="../../com/SIMRacingApps/Gauge.html" title="class in com.SIMRacingApps">Gauge</a>&nbsp;gauge)</pre>
-<div class="block">Add another gauge to this gauge to group them together.
- When the change flag is set this gauge, the entire group will also get called.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>gauge</code> - An instance of another gauge.</dd>
-</dl>
 </li>
 </ul>
 <a name="getChangeFlag--">
@@ -1893,6 +1137,8 @@ extends java.lang.Object</pre>
 <h4>setChangeFlag</h4>
 <pre>public&nbsp;<a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a>&nbsp;setChangeFlag(boolean&nbsp;flag)</pre>
 <div class="block">Sets the change flag for this gauge and all the gauges grouped with it.
+ By default, this will not all the change flag to be true.
+ Therefore, each gauge that can be changed, must override this and set the flag.
  
  <p>PATH = <a href="../../com/SIMRacingApps/Gauge.html#setChangeFlag-java.lang.String-"><code>/Car/(CARIDENTIFIER)/Gauge/(GAUGETYPE)/setChangeFlag/(FLAG)</code></a></div>
 <dl>
@@ -1919,7 +1165,7 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>decrementValueNext</h4>
 <pre>public&nbsp;<a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a>&nbsp;decrementValueNext(java.lang.String&nbsp;UOM)</pre>
-<div class="block">Decrements the next value, to be applied at the next pit stop, according to the value set by <a href="../../com/SIMRacingApps/Gauge.html#setCapacityIncrement-double-"><code>setCapacityIncrement(double)</code></a>. 
+<div class="block">Decrements the next value, to be applied at the next pit stop, according to the value set by <a href="../../com/SIMRacingApps/Gauge.html#Z:Z_setCapacityIncrement-double-java.lang.String-"><code>_setCapacityIncrement(double,String)</code></a>. 
  If the gauge is fixed, then only the change flag will be set and the next value will not be changed. 
  The change flag is set to Y even if the new value and the old value are the same.
  
@@ -1948,7 +1194,7 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>incrementValueNext</h4>
 <pre>public&nbsp;<a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a>&nbsp;incrementValueNext(java.lang.String&nbsp;UOM)</pre>
-<div class="block">Increments the next value, to be applied at the next pit stop, according to the value set by <a href="../../com/SIMRacingApps/Gauge.html#setCapacityIncrement-double-"><code>setCapacityIncrement(double)</code></a>. 
+<div class="block">Increments the next value, to be applied at the next pit stop, according to the value set by <a href="../../com/SIMRacingApps/Gauge.html#Z:Z_setCapacityIncrement-double-java.lang.String-"><code>_setCapacityIncrement(double,String)</code></a>. 
  If the gauge is fixed, then only the change flag will be set and the next value will not be changed. 
  If increments above the maximum capacity, then it sets it to the maximum capacity. 
  The change flag is set to Y even if the new value and the old value are the same.
@@ -1971,22 +1217,22 @@ extends java.lang.Object</pre>
 <pre>public&nbsp;<a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a>&nbsp;incrementValueNext()</pre>
 </li>
 </ul>
-<a name="setValueNext-java.lang.Double-java.lang.String-">
+<a name="setValueNext-double-java.lang.String-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>setValueNext</h4>
-<pre>public&nbsp;<a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a>&nbsp;setValueNext(java.lang.Double&nbsp;value,
+<pre>public&nbsp;<a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a>&nbsp;setValueNext(double&nbsp;value,
                          java.lang.String&nbsp;UOM)</pre>
 <div class="block">Sets the next value to be applied at the next pit stop.
  If the gauge is fixed, then only the change flag will be set and the next value will not be changed. 
  If below the minimum capacity, then it sets it to the minimum capacity.
  If above the maximum capacity, then it sets it to the maximum capacity.
- The value is rounded to the nearest increment as defined by <a href="../../com/SIMRacingApps/Gauge.html#setCapacityIncrement-double-"><code>setCapacityIncrement(double)</code></a>.
+ The value is rounded to the nearest increment as defined by <a href="../../com/SIMRacingApps/Gauge.html#Z:Z_setCapacityIncrement-double-java.lang.String-"><code>_setCapacityIncrement(double,String)</code></a>.
  The change flag is set to Y even if the new value and the old value are the same.
  
- <p>PATH = <a href="../../com/SIMRacingApps/Gauge.html#setValueNext-java.lang.Double-java.lang.String-"><code>/Car/(CARIDENTIFIER)/Gauge/(GAUGETYPE)/setValueNext/(VALUE)/(UOM)</code></a></div>
+ <p>PATH = <a href="../../com/SIMRacingApps/Gauge.html#setValueNext-double-java.lang.String-"><code>/Car/(CARIDENTIFIER)/Gauge/(GAUGETYPE)/setValueNext/(VALUE)/(UOM)</code></a></div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>value</code> - (Optional) The value to be set. Default 0.</dd>
@@ -2024,77 +1270,161 @@ extends java.lang.Object</pre>
 <pre>public&nbsp;<a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a>&nbsp;setValueNext()</pre>
 </li>
 </ul>
-<a name="reset-int-int-int-">
+<a name="Z:Z_addStateRange-com.SIMRacingApps.Gauge-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>reset</h4>
-<pre>public&nbsp;void&nbsp;reset(int&nbsp;lap,
-                  int&nbsp;app_ini_autoResetPitBox,
-                  int&nbsp;app_ini_autoResetFastRepair)</pre>
-<div class="block">Resets the gauge to it's default values.
- The app_ini_autoResetPitBox flag determines if the change flag will be set to Y or N to match it.</div>
+<h4>_addStateRange</h4>
+<pre>public&nbsp;void&nbsp;_addStateRange(<a href="../../com/SIMRacingApps/Gauge.html" title="class in com.SIMRacingApps">Gauge</a>&nbsp;gauge)</pre>
+<div class="block">Adds all the states from the passed in gauge to this gauge.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>lap</code> - The lap the reset occurred on.</dd>
-<dd><code>app_ini_autoResetPitBox</code> - 1 to set the change flag to Y, 0 to not.</dd>
-<dd><code>app_ini_autoResetFastRepair</code> - 1 to set the change flag to Y, 0 to not.</dd>
+<dd><code>gauge</code> - The gauge to copy the states from</dd>
 </dl>
 </li>
 </ul>
-<a name="beforePitting-int-">
+<a name="Z:Z_addStateRange-java.lang.String-java.lang.String-double-double-java.lang.String-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>beforePitting</h4>
-<pre>public&nbsp;void&nbsp;beforePitting(int&nbsp;lap)</pre>
-<div class="block">This method should be called before pitting to allow the current value to be saved historically before they are changed.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>lap</code> - The lap pitted.</dd>
-</dl>
+<h4>_addStateRange</h4>
+<pre>public&nbsp;void&nbsp;_addStateRange(java.lang.String&nbsp;stateName,
+                           java.lang.String&nbsp;name,
+                           double&nbsp;start,
+                           double&nbsp;end,
+                           java.lang.String&nbsp;UOM)</pre>
 </li>
 </ul>
-<a name="takeReading--">
+<a name="Z:Z_addStateRange-java.lang.String-java.lang.String-double-double-java.lang.String-com.SIMRacingApps.Data-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>takeReading</h4>
-<pre>public&nbsp;void&nbsp;takeReading()</pre>
-<div class="block">Call this method to get the gauge to take a reading and store it internally.</div>
+<h4>_addStateRange</h4>
+<pre>public&nbsp;void&nbsp;_addStateRange(java.lang.String&nbsp;stateName,
+                           java.lang.String&nbsp;name,
+                           double&nbsp;start,
+                           double&nbsp;end,
+                           java.lang.String&nbsp;UOM,
+                           <a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a>&nbsp;d)</pre>
 </li>
 </ul>
-<a name="afterPitting-int-">
+<a name="Z:Z_removeStateRange-java.lang.String-java.lang.String-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>afterPitting</h4>
-<pre>public&nbsp;void&nbsp;afterPitting(int&nbsp;lap)</pre>
-<div class="block">Call this method after pitting to allow saving historical values that can only be read after you pit.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>lap</code> - The lap you pitted on.</dd>
-</dl>
+<h4>_removeStateRange</h4>
+<pre>public&nbsp;void&nbsp;_removeStateRange(java.lang.String&nbsp;stateName,
+                              java.lang.String&nbsp;name)</pre>
 </li>
 </ul>
-<a name="setSIMValue-com.SIMRacingApps.Data-com.SIMRacingApps.Gauge.SIMValueTypes-">
+<a name="Z:Z_setMinimum-double-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>_setMinimum</h4>
+<pre>public&nbsp;<a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a>&nbsp;_setMinimum(double&nbsp;d,
+                        java.lang.String&nbsp;uom)</pre>
+</li>
+</ul>
+<a name="Z:Z_setMaximum-double-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>_setMaximum</h4>
+<pre>public&nbsp;<a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a>&nbsp;_setMaximum(double&nbsp;d,
+                        java.lang.String&nbsp;uom)</pre>
+</li>
+</ul>
+<a name="Z:Z_setMajorIncrement-double-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>_setMajorIncrement</h4>
+<pre>public&nbsp;<a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a>&nbsp;_setMajorIncrement(double&nbsp;d,
+                               java.lang.String&nbsp;uom)</pre>
+</li>
+</ul>
+<a name="Z:Z_setMinorIncrement-double-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>_setMinorIncrement</h4>
+<pre>public&nbsp;<a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a>&nbsp;_setMinorIncrement(double&nbsp;d,
+                               java.lang.String&nbsp;uom)</pre>
+</li>
+</ul>
+<a name="Z:Z_setCapacityMinimum-double-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>_setCapacityMinimum</h4>
+<pre>public&nbsp;<a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a>&nbsp;_setCapacityMinimum(double&nbsp;d,
+                                java.lang.String&nbsp;uom)</pre>
+</li>
+</ul>
+<a name="Z:Z_setCapacityMaximum-double-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>_setCapacityMaximum</h4>
+<pre>public&nbsp;<a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a>&nbsp;_setCapacityMaximum(double&nbsp;d,
+                                java.lang.String&nbsp;uom)</pre>
+</li>
+</ul>
+<a name="Z:Z_setCapacityIncrement-double-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>_setCapacityIncrement</h4>
+<pre>public&nbsp;<a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a>&nbsp;_setCapacityIncrement(double&nbsp;d,
+                                  java.lang.String&nbsp;uom)</pre>
+</li>
+</ul>
+<a name="Z:Z_setIsFixed-boolean-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>_setIsFixed</h4>
+<pre>public&nbsp;<a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a>&nbsp;_setIsFixed(boolean&nbsp;b)</pre>
+</li>
+</ul>
+<a name="Z:Z_setIsChangable-boolean-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>_setIsChangable</h4>
+<pre>public&nbsp;<a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a>&nbsp;_setIsChangable(boolean&nbsp;b)</pre>
+</li>
+</ul>
+<a name="Z:Z_setIsDirty-boolean-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>_setIsDirty</h4>
+<pre>public&nbsp;<a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a>&nbsp;_setIsDirty(boolean&nbsp;b)</pre>
+</li>
+</ul>
+<a name="Z:Z_setOnResetChange-boolean-">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>setSIMValue</h4>
-<pre>public&nbsp;void&nbsp;setSIMValue(<a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a>&nbsp;d,
-                        <a href="../../com/SIMRacingApps/Gauge.SIMValueTypes.html" title="enum in com.SIMRacingApps">Gauge.SIMValueTypes</a>&nbsp;t)</pre>
-<div class="block">Used internally to set the reader the gauge will use to get values from the SIM.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>d</code> - The data object that will return the value when getValue() is called on it.</dd>
-<dd><code>t</code> - The type of reader it is as defined by <a href="../../com/SIMRacingApps/Gauge.html#SIMValueType"><code>SIMValueType</code></a> of what the reader will return.</dd>
-</dl>
+<h4>_setOnResetChange</h4>
+<pre>public&nbsp;<a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a>&nbsp;_setOnResetChange(boolean&nbsp;b)</pre>
 </li>
 </ul>
 </li>
@@ -2126,7 +1456,7 @@ extends java.lang.Object</pre>
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../com/SIMRacingApps/Data.Type.html" title="enum in com.SIMRacingApps"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../com/SIMRacingApps/Gauge.SIMValueTypes.html" title="enum in com.SIMRacingApps"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../com/SIMRacingApps/Gauge.Type.html" title="class in com.SIMRacingApps"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../index.html?com/SIMRacingApps/Gauge.html" target="_top">Frames</a></li>

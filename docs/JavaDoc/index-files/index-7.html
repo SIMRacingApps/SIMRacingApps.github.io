@@ -77,13 +77,9 @@
 <dd>
 <div class="block">The Gauge class is used to monitor anything on the car that has a value, or has a value that can be set on the next pit stop.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Gauge.html#Gauge-java.lang.String-java.lang.String-">Gauge(String, String)</a></span> - Constructor for class com.SIMRacingApps.<a href="../com/SIMRacingApps/Gauge.html" title="class in com.SIMRacingApps">Gauge</a></dt>
+<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Gauge.html#Gauge-java.lang.String-com.SIMRacingApps.Car-com.SIMRacingApps.Track-java.util.Map-java.util.Map-">Gauge(String, Car, Track, Map&lt;String, Map&lt;String, Map&lt;String, Object&gt;&gt;&gt;, Map&lt;String, Map&lt;String, Map&lt;String, Object&gt;&gt;&gt;)</a></span> - Constructor for class com.SIMRacingApps.<a href="../com/SIMRacingApps/Gauge.html" title="class in com.SIMRacingApps">Gauge</a></dt>
 <dd>
 <div class="block">Constructor for the Gauge class.</div>
-</dd>
-<dt><a href="../com/SIMRacingApps/Gauge.SIMValueTypes.html" title="enum in com.SIMRacingApps"><span class="typeNameLink">Gauge.SIMValueTypes</span></a> - Enum in <a href="../com/SIMRacingApps/package-summary.html">com.SIMRacingApps</a></dt>
-<dd>
-<div class="block">This defines when the SIMValue.get() function is called what it will return when.</div>
 </dd>
 <dt><a href="../com/SIMRacingApps/Gauge.Type.html" title="class in com.SIMRacingApps"><span class="typeNameLink">Gauge.Type</span></a> - Class in <a href="../com/SIMRacingApps/package-summary.html">com.SIMRacingApps</a></dt>
 <dd>
@@ -202,19 +198,25 @@
 </dd>
 <dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Gauge.html#getCapacityIncrement--">getCapacityIncrement()</a></span> - Method in class com.SIMRacingApps.<a href="../com/SIMRacingApps/Gauge.html" title="class in com.SIMRacingApps">Gauge</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/SIMPlugins/iRacing/Gauges/FuelLevel.html#getCapacityIncrement-java.lang.String-">getCapacityIncrement(String)</a></span> - Method in class com.SIMRacingApps.SIMPlugins.iRacing.Gauges.<a href="../com/SIMRacingApps/SIMPlugins/iRacing/Gauges/FuelLevel.html" title="class in com.SIMRacingApps.SIMPlugins.iRacing.Gauges">FuelLevel</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Gauge.html#getCapacityMaximum-java.lang.String-">getCapacityMaximum(String)</a></span> - Method in class com.SIMRacingApps.<a href="../com/SIMRacingApps/Gauge.html" title="class in com.SIMRacingApps">Gauge</a></dt>
 <dd>
-<div class="block">Returns the maximum number that this gauge will accept when calling <a href="../com/SIMRacingApps/Gauge.html#setValueNext-java.lang.Double-java.lang.String-"><code>Gauge.setValueNext(Double,String)</code></a>
+<div class="block">Returns the maximum number that this gauge will accept when calling <a href="../com/SIMRacingApps/Gauge.html#setValueNext-double-java.lang.String-"><code>Gauge.setValueNext(double,String)</code></a>
  or <a href="../com/SIMRacingApps/Gauge.html#incrementValueNext-java.lang.String-"><code>Gauge.incrementValueNext(String)</code></a></div>
 </dd>
 <dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Gauge.html#getCapacityMaximum--">getCapacityMaximum()</a></span> - Method in class com.SIMRacingApps.<a href="../com/SIMRacingApps/Gauge.html" title="class in com.SIMRacingApps">Gauge</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/SIMPlugins/iRacing/Gauges/FuelLevel.html#getCapacityMaximum-java.lang.String-">getCapacityMaximum(String)</a></span> - Method in class com.SIMRacingApps.SIMPlugins.iRacing.Gauges.<a href="../com/SIMRacingApps/SIMPlugins/iRacing/Gauges/FuelLevel.html" title="class in com.SIMRacingApps.SIMPlugins.iRacing.Gauges">FuelLevel</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Gauge.html#getCapacityMinimum-java.lang.String-">getCapacityMinimum(String)</a></span> - Method in class com.SIMRacingApps.<a href="../com/SIMRacingApps/Gauge.html" title="class in com.SIMRacingApps">Gauge</a></dt>
 <dd>
-<div class="block">Returns the minimum number that this gauge will accept when calling <a href="../com/SIMRacingApps/Gauge.html#setValueNext-java.lang.Double-java.lang.String-"><code>Gauge.setValueNext(Double,String)</code></a>
+<div class="block">Returns the minimum number that this gauge will accept when calling <a href="../com/SIMRacingApps/Gauge.html#setValueNext-double-java.lang.String-"><code>Gauge.setValueNext(double,String)</code></a>
  or <a href="../com/SIMRacingApps/Gauge.html#decrementValueNext-java.lang.String-"><code>Gauge.decrementValueNext(String)</code></a></div>
 </dd>
 <dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Gauge.html#getCapacityMinimum--">getCapacityMinimum()</a></span> - Method in class com.SIMRacingApps.<a href="../com/SIMRacingApps/Gauge.html" title="class in com.SIMRacingApps">Gauge</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/SIMPlugins/iRacing/Gauges/FuelLevel.html#getCapacityMinimum-java.lang.String-">getCapacityMinimum(String)</a></span> - Method in class com.SIMRacingApps.SIMPlugins.iRacing.Gauges.<a href="../com/SIMRacingApps/SIMPlugins/iRacing/Gauges/FuelLevel.html" title="class in com.SIMRacingApps.SIMPlugins.iRacing.Gauges">FuelLevel</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Session.html#getCar-java.lang.String-">getCar(String)</a></span> - Method in class com.SIMRacingApps.<a href="../com/SIMRacingApps/Session.html" title="class in com.SIMRacingApps">Session</a></dt>
 <dd>
@@ -336,7 +338,7 @@
 </dd>
 <dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Gauge.html#getCount--">getCount()</a></span> - Method in class com.SIMRacingApps.<a href="../com/SIMRacingApps/Gauge.html" title="class in com.SIMRacingApps">Gauge</a></dt>
 <dd>
-<div class="block">Returns the number of times this gauge was changed.</div>
+<div class="block">Returns the number of times this gauge was used.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="../com/SIMRacingApps/SIMPlugins/iRacing/iRacingTrack.html#getCountry--">getCountry()</a></span> - Method in class com.SIMRacingApps.SIMPlugins.iRacing.<a href="../com/SIMRacingApps/SIMPlugins/iRacing/iRacingTrack.html" title="class in com.SIMRacingApps.SIMPlugins.iRacing">iRacingTrack</a></dt>
 <dd>&nbsp;</dd>
@@ -362,10 +364,6 @@
 </dd>
 <dt><span class="memberNameLink"><a href="../com/SIMRacingApps/SIMPlugins/iRacing/iRacingSession.html#getDataVersion--">getDataVersion()</a></span> - Method in class com.SIMRacingApps.SIMPlugins.iRacing.<a href="../com/SIMRacingApps/SIMPlugins/iRacing/iRacingSession.html" title="class in com.SIMRacingApps.SIMPlugins.iRacing">iRacingSession</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Gauge.html#getDefaultUOM--">getDefaultUOM()</a></span> - Method in class com.SIMRacingApps.<a href="../com/SIMRacingApps/Gauge.html" title="class in com.SIMRacingApps">Gauge</a></dt>
-<dd>
-<div class="block">Returns the Default Unit of Measure for this gauge (i.e.</div>
-</dd>
 <dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Util/SendKeys.html#getDelay--">getDelay()</a></span> - Static method in class com.SIMRacingApps.Util.<a href="../com/SIMRacingApps/Util/SendKeys.html" title="class in com.SIMRacingApps.Util">SendKeys</a></dt>
 <dd>
 <div class="block">Returns the current default delay in milliseconds.</div>
@@ -670,10 +668,6 @@
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="../com/SIMRacingApps/SIMPlugins/iRacing/Vars.html#getInteger-java.lang.String-">getInteger(String)</a></span> - Method in class com.SIMRacingApps.SIMPlugins.iRacing.<a href="../com/SIMRacingApps/SIMPlugins/iRacing/Vars.html" title="class in com.SIMRacingApps.SIMPlugins.iRacing">Vars</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Gauge.html#getInternalUOM--">getInternalUOM()</a></span> - Method in class com.SIMRacingApps.<a href="../com/SIMRacingApps/Gauge.html" title="class in com.SIMRacingApps">Gauge</a></dt>
-<dd>
-<div class="block">Returns the Internal Unit of Measure for this gauge (i.e.</div>
-</dd>
 <dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Data.html#getInterval-java.lang.String-">getInterval(String)</a></span> - Method in class com.SIMRacingApps.<a href="../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></dt>
 <dd>
 <div class="block">Returns the interval in milliseconds used by <a href="../com/SIMRacingApps/Data.html#isDataStale-java.lang.String-"><code>Data.isDataStale(String)</code></a>.</div>
@@ -720,10 +714,6 @@
 </dd>
 <dt><span class="memberNameLink"><a href="../com/SIMRacingApps/SIMPlugins/iRacing/iRacingSession.html#getIsCrossedFlag--">getIsCrossedFlag()</a></span> - Method in class com.SIMRacingApps.SIMPlugins.iRacing.<a href="../com/SIMRacingApps/SIMPlugins/iRacing/iRacingSession.html" title="class in com.SIMRacingApps.SIMPlugins.iRacing">iRacingSession</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Gauge.html#getIsDebug--">getIsDebug()</a></span> - Method in class com.SIMRacingApps.<a href="../com/SIMRacingApps/Gauge.html" title="class in com.SIMRacingApps">Gauge</a></dt>
-<dd>
-<div class="block">Returns Y if this gauge is outputting debug information.</div>
-</dd>
 <dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Gauge.html#getIsDirty--">getIsDirty()</a></span> - Method in class com.SIMRacingApps.<a href="../com/SIMRacingApps/Gauge.html" title="class in com.SIMRacingApps">Gauge</a></dt>
 <dd>
 <div class="block">Returns Y if the next value of the gauge is different from the current value.</div>
@@ -748,7 +738,7 @@
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Gauge.html#getIsFixed--">getIsFixed()</a></span> - Method in class com.SIMRacingApps.<a href="../com/SIMRacingApps/Gauge.html" title="class in com.SIMRacingApps">Gauge</a></dt>
 <dd>
-<div class="block">Returns false if this gauge's next value can be changed via <a href="../com/SIMRacingApps/Gauge.html#setValueNext-java.lang.Double-java.lang.String-"><code>Gauge.setValueNext(Double,String)</code></a>, 
+<div class="block">Returns false if this gauge's next value can be changed via <a href="../com/SIMRacingApps/Gauge.html#setValueNext-double-java.lang.String-"><code>Gauge.setValueNext(double,String)</code></a>, 
  <a href="../com/SIMRacingApps/Gauge.html#incrementValueNext-java.lang.String-"><code>Gauge.incrementValueNext(String)</code></a> or <a href="../com/SIMRacingApps/Gauge.html#decrementValueNext-java.lang.String-"><code>Gauge.decrementValueNext(String)</code></a>.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Car.html#getIsFixedSetup--">getIsFixedSetup()</a></span> - Method in class com.SIMRacingApps.<a href="../com/SIMRacingApps/Car.html" title="class in com.SIMRacingApps">Car</a></dt>
@@ -869,12 +859,24 @@
 </dd>
 <dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Session.html#getLaps--">getLaps()</a></span> - Method in class com.SIMRacingApps.<a href="../com/SIMRacingApps/Session.html" title="class in com.SIMRacingApps">Session</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/SIMPlugins/iRacing/iRacingGauge.html#getLaps--">getLaps()</a></span> - Method in class com.SIMRacingApps.SIMPlugins.iRacing.<a href="../com/SIMRacingApps/SIMPlugins/iRacing/iRacingGauge.html" title="class in com.SIMRacingApps.SIMPlugins.iRacing">iRacingGauge</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="../com/SIMRacingApps/SIMPlugins/iRacing/iRacingSession.html#getLaps-java.lang.String-">getLaps(String)</a></span> - Method in class com.SIMRacingApps.SIMPlugins.iRacing.<a href="../com/SIMRacingApps/SIMPlugins/iRacing/iRacingSession.html" title="class in com.SIMRacingApps.SIMPlugins.iRacing">iRacingSession</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Gauge.html#getLapsHistorical--">getLapsHistorical()</a></span> - Method in class com.SIMRacingApps.<a href="../com/SIMRacingApps/Gauge.html" title="class in com.SIMRacingApps">Gauge</a></dt>
 <dd>
-<div class="block">Returns the lap the historical value was taken.</div>
+<div class="block">Returns the number of laps since the last change.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/SIMPlugins/iRacing/Gauges/Changeables.html#getLapsHistorical--">getLapsHistorical()</a></span> - Method in class com.SIMRacingApps.SIMPlugins.iRacing.Gauges.<a href="../com/SIMRacingApps/SIMPlugins/iRacing/Gauges/Changeables.html" title="class in com.SIMRacingApps.SIMPlugins.iRacing.Gauges">Changeables</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/SIMPlugins/iRacing/Gauges/FastRepairs.html#getLapsHistorical--">getLapsHistorical()</a></span> - Method in class com.SIMRacingApps.SIMPlugins.iRacing.Gauges.<a href="../com/SIMRacingApps/SIMPlugins/iRacing/Gauges/FastRepairs.html" title="class in com.SIMRacingApps.SIMPlugins.iRacing.Gauges">FastRepairs</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/SIMPlugins/iRacing/Gauges/FuelLevel.html#getLapsHistorical--">getLapsHistorical()</a></span> - Method in class com.SIMRacingApps.SIMPlugins.iRacing.Gauges.<a href="../com/SIMRacingApps/SIMPlugins/iRacing/Gauges/FuelLevel.html" title="class in com.SIMRacingApps.SIMPlugins.iRacing.Gauges">FuelLevel</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/SIMPlugins/iRacing/Gauges/Tire.html#getLapsHistorical--">getLapsHistorical()</a></span> - Method in class com.SIMRacingApps.SIMPlugins.iRacing.Gauges.<a href="../com/SIMRacingApps/SIMPlugins/iRacing/Gauges/Tire.html" title="class in com.SIMRacingApps.SIMPlugins.iRacing.Gauges">Tire</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/SIMPlugins/iRacing/Gauges/WindshieldTearoff.html#getLapsHistorical--">getLapsHistorical()</a></span> - Method in class com.SIMRacingApps.SIMPlugins.iRacing.Gauges.<a href="../com/SIMRacingApps/SIMPlugins/iRacing/Gauges/WindshieldTearoff.html" title="class in com.SIMRacingApps.SIMPlugins.iRacing.Gauges">WindshieldTearoff</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Car.html#getLapsToGo--">getLapsToGo()</a></span> - Method in class com.SIMRacingApps.<a href="../com/SIMRacingApps/Car.html" title="class in com.SIMRacingApps">Car</a></dt>
 <dd>
 <div class="block">Returns the number of laps this car has remaining.</div>
@@ -1026,6 +1028,8 @@
 </dd>
 <dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Gauge.html#getMajorIncrement--">getMajorIncrement()</a></span> - Method in class com.SIMRacingApps.<a href="../com/SIMRacingApps/Gauge.html" title="class in com.SIMRacingApps">Gauge</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/SIMPlugins/iRacing/Gauges/FuelLevel.html#getMajorIncrement-java.lang.String-">getMajorIncrement(String)</a></span> - Method in class com.SIMRacingApps.SIMPlugins.iRacing.Gauges.<a href="../com/SIMRacingApps/SIMPlugins/iRacing/Gauges/FuelLevel.html" title="class in com.SIMRacingApps.SIMPlugins.iRacing.Gauges">FuelLevel</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Car.html#getManufacturerLogo--">getManufacturerLogo()</a></span> - Method in class com.SIMRacingApps.<a href="../com/SIMRacingApps/Car.html" title="class in com.SIMRacingApps">Car</a></dt>
 <dd>
 <div class="block">Returns the filename of the manufacturer's logo for this car.</div>
@@ -1043,6 +1047,8 @@
 <div class="block">Returns the maximum value of where this gauge should end with the last tick mark (i.e.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Gauge.html#getMaximum--">getMaximum()</a></span> - Method in class com.SIMRacingApps.<a href="../com/SIMRacingApps/Gauge.html" title="class in com.SIMRacingApps">Gauge</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/SIMPlugins/iRacing/Gauges/FuelLevel.html#getMaximum-java.lang.String-">getMaximum(String)</a></span> - Method in class com.SIMRacingApps.SIMPlugins.iRacing.Gauges.<a href="../com/SIMRacingApps/SIMPlugins/iRacing/Gauges/FuelLevel.html" title="class in com.SIMRacingApps.SIMPlugins.iRacing.Gauges">FuelLevel</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Car.html#getMaxTires--">getMaxTires()</a></span> - Method in class com.SIMRacingApps.<a href="../com/SIMRacingApps/Car.html" title="class in com.SIMRacingApps">Car</a></dt>
 <dd>
@@ -1086,6 +1092,8 @@
 </dd>
 <dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Gauge.html#getMinorIncrement--">getMinorIncrement()</a></span> - Method in class com.SIMRacingApps.<a href="../com/SIMRacingApps/Gauge.html" title="class in com.SIMRacingApps">Gauge</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/SIMPlugins/iRacing/Gauges/FuelLevel.html#getMinorIncrement-java.lang.String-">getMinorIncrement(String)</a></span> - Method in class com.SIMRacingApps.SIMPlugins.iRacing.Gauges.<a href="../com/SIMRacingApps/SIMPlugins/iRacing/Gauges/FuelLevel.html" title="class in com.SIMRacingApps.SIMPlugins.iRacing.Gauges">FuelLevel</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Gauge.html#getMultiplier--">getMultiplier()</a></span> - Method in class com.SIMRacingApps.<a href="../com/SIMRacingApps/Gauge.html" title="class in com.SIMRacingApps">Gauge</a></dt>
 <dd>
 <div class="block">Return a multiplier to be used when calculating the major and minor tick marks.</div>
@@ -1100,7 +1108,7 @@
 </dd>
 <dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Gauge.html#getName--">getName()</a></span> - Method in class com.SIMRacingApps.<a href="../com/SIMRacingApps/Gauge.html" title="class in com.SIMRacingApps">Gauge</a></dt>
 <dd>
-<div class="block">Returns the untranslated name of the gauge.</div>
+<div class="block">Returns the untranslated name to display on the gauge.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="../com/SIMRacingApps/JComponents/JDataLabel.html#getName--">getName()</a></span> - Method in class com.SIMRacingApps.JComponents.<a href="../com/SIMRacingApps/JComponents/JDataLabel.html" title="class in com.SIMRacingApps.JComponents">JDataLabel</a></dt>
 <dd>&nbsp;</dd>
@@ -1513,24 +1521,12 @@
 <dd>
 <div class="block">Returns the current state.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Gauge.html#getStateAscending--">getStateAscending()</a></span> - Method in class com.SIMRacingApps.<a href="../com/SIMRacingApps/Gauge.html" title="class in com.SIMRacingApps">Gauge</a></dt>
-<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Data.html#getStatePercent-java.lang.String-">getStatePercent(String)</a></span> - Method in class com.SIMRacingApps.<a href="../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></dt>
 <dd>
 <div class="block">Returns the percentage of where the current value lies within the range of the State.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Data.html#getStatePercent--">getStatePercent()</a></span> - Method in class com.SIMRacingApps.<a href="../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Gauge.html#getStateRange-java.lang.String-">getStateRange(String)</a></span> - Method in class com.SIMRacingApps.<a href="../com/SIMRacingApps/Gauge.html" title="class in com.SIMRacingApps">Gauge</a></dt>
-<dd>
-<div class="block">Returns the state range of the requested state.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Gauge.html#getStateRange--">getStateRange()</a></span> - Method in class com.SIMRacingApps.<a href="../com/SIMRacingApps/Gauge.html" title="class in com.SIMRacingApps">Gauge</a></dt>
-<dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Gauge.html#getStates--">getStates()</a></span> - Method in class com.SIMRacingApps.<a href="../com/SIMRacingApps/Gauge.html" title="class in com.SIMRacingApps">Gauge</a></dt>
-<dd>
-<div class="block">Returns all the states.</div>
-</dd>
 <dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Car.html#getStatus--">getStatus()</a></span> - Method in class com.SIMRacingApps.<a href="../com/SIMRacingApps/Car.html" title="class in com.SIMRacingApps">Car</a></dt>
 <dd>
 <div class="block">Returns the current status of the car as defined by <a href="../com/SIMRacingApps/Car.Status.html" title="class in com.SIMRacingApps"><code>Car.Status</code></a></div>
@@ -1726,59 +1722,41 @@
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="../com/SIMRacingApps/SIMPlugins/iRacing/SessionDataCache/SessionDataCars.html#getValue-java.lang.String-">getValue(String)</a></span> - Method in class com.SIMRacingApps.SIMPlugins.iRacing.SessionDataCache.<a href="../com/SIMRacingApps/SIMPlugins/iRacing/SessionDataCache/SessionDataCars.html" title="class in com.SIMRacingApps.SIMPlugins.iRacing.SessionDataCache">SessionDataCars</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/SIMPlugins/iRacing/VarData/VarDataDouble.html#getValue-java.lang.String-">getValue(String)</a></span> - Method in class com.SIMRacingApps.SIMPlugins.iRacing.VarData.<a href="../com/SIMRacingApps/SIMPlugins/iRacing/VarData/VarDataDouble.html" title="class in com.SIMRacingApps.SIMPlugins.iRacing.VarData">VarDataDouble</a></dt>
-<dd>
-<div class="block">Returns the most recent value from iRacing for this Var.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/SIMPlugins/iRacing/VarData/VarDataDoubleBrakePressure.html#getValue-java.lang.String-">getValue(String)</a></span> - Method in class com.SIMRacingApps.SIMPlugins.iRacing.VarData.<a href="../com/SIMRacingApps/SIMPlugins/iRacing/VarData/VarDataDoubleBrakePressure.html" title="class in com.SIMRacingApps.SIMPlugins.iRacing.VarData">VarDataDoubleBrakePressure</a></dt>
-<dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/SIMPlugins/iRacing/VarData/VarDataDoubleFastRepairs.html#getValue-java.lang.String-">getValue(String)</a></span> - Method in class com.SIMRacingApps.SIMPlugins.iRacing.VarData.<a href="../com/SIMRacingApps/SIMPlugins/iRacing/VarData/VarDataDoubleFastRepairs.html" title="class in com.SIMRacingApps.SIMPlugins.iRacing.VarData">VarDataDoubleFastRepairs</a></dt>
-<dd>
-<div class="block">Returns the current Fast Repairs value.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/SIMPlugins/iRacing/VarData/VarDataDoubleFuelPress.html#getValue-java.lang.String-">getValue(String)</a></span> - Method in class com.SIMRacingApps.SIMPlugins.iRacing.VarData.<a href="../com/SIMRacingApps/SIMPlugins/iRacing/VarData/VarDataDoubleFuelPress.html" title="class in com.SIMRacingApps.SIMPlugins.iRacing.VarData">VarDataDoubleFuelPress</a></dt>
-<dd>
-<div class="block">Returns the current value of the var</div>
-</dd>
-<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/SIMPlugins/iRacing/VarData/VarDataDoubleOilPress.html#getValue-java.lang.String-">getValue(String)</a></span> - Method in class com.SIMRacingApps.SIMPlugins.iRacing.VarData.<a href="../com/SIMRacingApps/SIMPlugins/iRacing/VarData/VarDataDoubleOilPress.html" title="class in com.SIMRacingApps.SIMPlugins.iRacing.VarData">VarDataDoubleOilPress</a></dt>
-<dd>
-<div class="block">Returns the current value of the var</div>
-</dd>
-<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/SIMPlugins/iRacing/VarData/VarDataDoubleRPM.html#getValue-java.lang.String-">getValue(String)</a></span> - Method in class com.SIMRacingApps.SIMPlugins.iRacing.VarData.<a href="../com/SIMRacingApps/SIMPlugins/iRacing/VarData/VarDataDoubleRPM.html" title="class in com.SIMRacingApps.SIMPlugins.iRacing.VarData">VarDataDoubleRPM</a></dt>
-<dd>
-<div class="block">Returns the current value of the var</div>
-</dd>
-<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/SIMPlugins/iRacing/VarData/VarDataDoubleSpeed.html#getValue-java.lang.String-">getValue(String)</a></span> - Method in class com.SIMRacingApps.SIMPlugins.iRacing.VarData.<a href="../com/SIMRacingApps/SIMPlugins/iRacing/VarData/VarDataDoubleSpeed.html" title="class in com.SIMRacingApps.SIMPlugins.iRacing.VarData">VarDataDoubleSpeed</a></dt>
-<dd>
-<div class="block">Returns the current speed calculated by the last call to onDataVersionChange().</div>
-</dd>
-<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/SIMPlugins/iRacing/VarData/VarDataDoubleSteer.html#getValue-java.lang.String-">getValue(String)</a></span> - Method in class com.SIMRacingApps.SIMPlugins.iRacing.VarData.<a href="../com/SIMRacingApps/SIMPlugins/iRacing/VarData/VarDataDoubleSteer.html" title="class in com.SIMRacingApps.SIMPlugins.iRacing.VarData">VarDataDoubleSteer</a></dt>
-<dd>
-<div class="block">Returns the current value of the var</div>
-</dd>
-<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/SIMPlugins/iRacing/VarData/VarDataDoubleTape.html#getValue-java.lang.String-">getValue(String)</a></span> - Method in class com.SIMRacingApps.SIMPlugins.iRacing.VarData.<a href="../com/SIMRacingApps/SIMPlugins/iRacing/VarData/VarDataDoubleTape.html" title="class in com.SIMRacingApps.SIMPlugins.iRacing.VarData">VarDataDoubleTape</a></dt>
-<dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/SIMPlugins/iRacing/VarData/VarDataDoubleTape4.html#getValue-java.lang.String-">getValue(String)</a></span> - Method in class com.SIMRacingApps.SIMPlugins.iRacing.VarData.<a href="../com/SIMRacingApps/SIMPlugins/iRacing/VarData/VarDataDoubleTape4.html" title="class in com.SIMRacingApps.SIMPlugins.iRacing.VarData">VarDataDoubleTape4</a></dt>
-<dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/SIMPlugins/iRacing/VarData/VarDataDoubleTapePct.html#getValue-java.lang.String-">getValue(String)</a></span> - Method in class com.SIMRacingApps.SIMPlugins.iRacing.VarData.<a href="../com/SIMRacingApps/SIMPlugins/iRacing/VarData/VarDataDoubleTapePct.html" title="class in com.SIMRacingApps.SIMPlugins.iRacing.VarData">VarDataDoubleTapePct</a></dt>
-<dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/SIMPlugins/iRacing/VarData/VarDataDoubleWaterPressure.html#getValue-java.lang.String-">getValue(String)</a></span> - Method in class com.SIMRacingApps.SIMPlugins.iRacing.VarData.<a href="../com/SIMRacingApps/SIMPlugins/iRacing/VarData/VarDataDoubleWaterPressure.html" title="class in com.SIMRacingApps.SIMPlugins.iRacing.VarData">VarDataDoubleWaterPressure</a></dt>
-<dd>
-<div class="block">Returns the current speed calculated by the last call to onDataVersionChange().</div>
-</dd>
-<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/SIMPlugins/iRacing/VarData/VarDataDoubleWaterTemp.html#getValue-java.lang.String-">getValue(String)</a></span> - Method in class com.SIMRacingApps.SIMPlugins.iRacing.VarData.<a href="../com/SIMRacingApps/SIMPlugins/iRacing/VarData/VarDataDoubleWaterTemp.html" title="class in com.SIMRacingApps.SIMPlugins.iRacing.VarData">VarDataDoubleWaterTemp</a></dt>
-<dd>
-<div class="block">Returns the current value of the var</div>
-</dd>
-<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/SIMPlugins/iRacing/VarData/VarDataDoubleWindshieldTearoff.html#getValue-java.lang.String-">getValue(String)</a></span> - Method in class com.SIMRacingApps.SIMPlugins.iRacing.VarData.<a href="../com/SIMRacingApps/SIMPlugins/iRacing/VarData/VarDataDoubleWindshieldTearoff.html" title="class in com.SIMRacingApps.SIMPlugins.iRacing.VarData">VarDataDoubleWindshieldTearoff</a></dt>
-<dd>
-<div class="block">Returns the current Windshield Tearoff value.</div>
-</dd>
 <dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Gauge.html#getValueCurrent-java.lang.String-">getValueCurrent(String)</a></span> - Method in class com.SIMRacingApps.<a href="../com/SIMRacingApps/Gauge.html" title="class in com.SIMRacingApps">Gauge</a></dt>
 <dd>
 <div class="block">Returns the current value of the gauge.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Gauge.html#getValueCurrent--">getValueCurrent()</a></span> - Method in class com.SIMRacingApps.<a href="../com/SIMRacingApps/Gauge.html" title="class in com.SIMRacingApps">Gauge</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/SIMPlugins/iRacing/Gauges/BrakePressure.html#getValueCurrent-java.lang.String-">getValueCurrent(String)</a></span> - Method in class com.SIMRacingApps.SIMPlugins.iRacing.Gauges.<a href="../com/SIMRacingApps/SIMPlugins/iRacing/Gauges/BrakePressure.html" title="class in com.SIMRacingApps.SIMPlugins.iRacing.Gauges">BrakePressure</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/SIMPlugins/iRacing/Gauges/Changeables.html#getValueCurrent-java.lang.String-">getValueCurrent(String)</a></span> - Method in class com.SIMRacingApps.SIMPlugins.iRacing.Gauges.<a href="../com/SIMRacingApps/SIMPlugins/iRacing/Gauges/Changeables.html" title="class in com.SIMRacingApps.SIMPlugins.iRacing.Gauges">Changeables</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/SIMPlugins/iRacing/Gauges/FastRepairs.html#getValueCurrent-java.lang.String-">getValueCurrent(String)</a></span> - Method in class com.SIMRacingApps.SIMPlugins.iRacing.Gauges.<a href="../com/SIMRacingApps/SIMPlugins/iRacing/Gauges/FastRepairs.html" title="class in com.SIMRacingApps.SIMPlugins.iRacing.Gauges">FastRepairs</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/SIMPlugins/iRacing/Gauges/FuelLevel.html#getValueCurrent-java.lang.String-">getValueCurrent(String)</a></span> - Method in class com.SIMRacingApps.SIMPlugins.iRacing.Gauges.<a href="../com/SIMRacingApps/SIMPlugins/iRacing/Gauges/FuelLevel.html" title="class in com.SIMRacingApps.SIMPlugins.iRacing.Gauges">FuelLevel</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/SIMPlugins/iRacing/Gauges/FuelPressure.html#getValueCurrent-java.lang.String-">getValueCurrent(String)</a></span> - Method in class com.SIMRacingApps.SIMPlugins.iRacing.Gauges.<a href="../com/SIMRacingApps/SIMPlugins/iRacing/Gauges/FuelPressure.html" title="class in com.SIMRacingApps.SIMPlugins.iRacing.Gauges">FuelPressure</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/SIMPlugins/iRacing/Gauges/OilPressure.html#getValueCurrent-java.lang.String-">getValueCurrent(String)</a></span> - Method in class com.SIMRacingApps.SIMPlugins.iRacing.Gauges.<a href="../com/SIMRacingApps/SIMPlugins/iRacing/Gauges/OilPressure.html" title="class in com.SIMRacingApps.SIMPlugins.iRacing.Gauges">OilPressure</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/SIMPlugins/iRacing/Gauges/Speedometer.html#getValueCurrent-java.lang.String-">getValueCurrent(String)</a></span> - Method in class com.SIMRacingApps.SIMPlugins.iRacing.Gauges.<a href="../com/SIMRacingApps/SIMPlugins/iRacing/Gauges/Speedometer.html" title="class in com.SIMRacingApps.SIMPlugins.iRacing.Gauges">Speedometer</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/SIMPlugins/iRacing/Gauges/Steering.html#getValueCurrent-java.lang.String-">getValueCurrent(String)</a></span> - Method in class com.SIMRacingApps.SIMPlugins.iRacing.Gauges.<a href="../com/SIMRacingApps/SIMPlugins/iRacing/Gauges/Steering.html" title="class in com.SIMRacingApps.SIMPlugins.iRacing.Gauges">Steering</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/SIMPlugins/iRacing/Gauges/Tachometer.html#getValueCurrent-java.lang.String-">getValueCurrent(String)</a></span> - Method in class com.SIMRacingApps.SIMPlugins.iRacing.Gauges.<a href="../com/SIMRacingApps/SIMPlugins/iRacing/Gauges/Tachometer.html" title="class in com.SIMRacingApps.SIMPlugins.iRacing.Gauges">Tachometer</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/SIMPlugins/iRacing/Gauges/Tire.html#getValueCurrent-java.lang.String-">getValueCurrent(String)</a></span> - Method in class com.SIMRacingApps.SIMPlugins.iRacing.Gauges.<a href="../com/SIMRacingApps/SIMPlugins/iRacing/Gauges/Tire.html" title="class in com.SIMRacingApps.SIMPlugins.iRacing.Gauges">Tire</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/SIMPlugins/iRacing/Gauges/WaterPressure.html#getValueCurrent-java.lang.String-">getValueCurrent(String)</a></span> - Method in class com.SIMRacingApps.SIMPlugins.iRacing.Gauges.<a href="../com/SIMRacingApps/SIMPlugins/iRacing/Gauges/WaterPressure.html" title="class in com.SIMRacingApps.SIMPlugins.iRacing.Gauges">WaterPressure</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/SIMPlugins/iRacing/Gauges/WaterTemp.html#getValueCurrent-java.lang.String-">getValueCurrent(String)</a></span> - Method in class com.SIMRacingApps.SIMPlugins.iRacing.Gauges.<a href="../com/SIMRacingApps/SIMPlugins/iRacing/Gauges/WaterTemp.html" title="class in com.SIMRacingApps.SIMPlugins.iRacing.Gauges">WaterTemp</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/SIMPlugins/iRacing/Gauges/WindshieldTearoff.html#getValueCurrent-java.lang.String-">getValueCurrent(String)</a></span> - Method in class com.SIMRacingApps.SIMPlugins.iRacing.Gauges.<a href="../com/SIMRacingApps/SIMPlugins/iRacing/Gauges/WindshieldTearoff.html" title="class in com.SIMRacingApps.SIMPlugins.iRacing.Gauges">WindshieldTearoff</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/SIMPlugins/iRacing/iRacingGauge.html#getValueCurrent-java.lang.String-java.lang.String-java.lang.String-">getValueCurrent(String, String, String)</a></span> - Method in class com.SIMRacingApps.SIMPlugins.iRacing.<a href="../com/SIMRacingApps/SIMPlugins/iRacing/iRacingGauge.html" title="class in com.SIMRacingApps.SIMPlugins.iRacing">iRacingGauge</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/SIMPlugins/iRacing/iRacingGauge.html#getValueCurrent-java.lang.String-">getValueCurrent(String)</a></span> - Method in class com.SIMRacingApps.SIMPlugins.iRacing.<a href="../com/SIMRacingApps/SIMPlugins/iRacing/iRacingGauge.html" title="class in com.SIMRacingApps.SIMPlugins.iRacing">iRacingGauge</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Data.html#getValueFormatted-java.lang.String-">getValueFormatted(String)</a></span> - Method in class com.SIMRacingApps.<a href="../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></dt>
 <dd>
@@ -1792,11 +1770,27 @@
 </dd>
 <dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Gauge.html#getValueHistorical--">getValueHistorical()</a></span> - Method in class com.SIMRacingApps.<a href="../com/SIMRacingApps/Gauge.html" title="class in com.SIMRacingApps">Gauge</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/SIMPlugins/iRacing/Gauges/Changeables.html#getValueHistorical-java.lang.String-">getValueHistorical(String)</a></span> - Method in class com.SIMRacingApps.SIMPlugins.iRacing.Gauges.<a href="../com/SIMRacingApps/SIMPlugins/iRacing/Gauges/Changeables.html" title="class in com.SIMRacingApps.SIMPlugins.iRacing.Gauges">Changeables</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/SIMPlugins/iRacing/Gauges/FastRepairs.html#getValueHistorical-java.lang.String-">getValueHistorical(String)</a></span> - Method in class com.SIMRacingApps.SIMPlugins.iRacing.Gauges.<a href="../com/SIMRacingApps/SIMPlugins/iRacing/Gauges/FastRepairs.html" title="class in com.SIMRacingApps.SIMPlugins.iRacing.Gauges">FastRepairs</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/SIMPlugins/iRacing/Gauges/FuelLevel.html#getValueHistorical-java.lang.String-">getValueHistorical(String)</a></span> - Method in class com.SIMRacingApps.SIMPlugins.iRacing.Gauges.<a href="../com/SIMRacingApps/SIMPlugins/iRacing/Gauges/FuelLevel.html" title="class in com.SIMRacingApps.SIMPlugins.iRacing.Gauges">FuelLevel</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/SIMPlugins/iRacing/Gauges/Tire.html#getValueHistorical-java.lang.String-">getValueHistorical(String)</a></span> - Method in class com.SIMRacingApps.SIMPlugins.iRacing.Gauges.<a href="../com/SIMRacingApps/SIMPlugins/iRacing/Gauges/Tire.html" title="class in com.SIMRacingApps.SIMPlugins.iRacing.Gauges">Tire</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/SIMPlugins/iRacing/Gauges/TireTemp.html#getValueHistorical-java.lang.String-">getValueHistorical(String)</a></span> - Method in class com.SIMRacingApps.SIMPlugins.iRacing.Gauges.<a href="../com/SIMRacingApps/SIMPlugins/iRacing/Gauges/TireTemp.html" title="class in com.SIMRacingApps.SIMPlugins.iRacing.Gauges">TireTemp</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Gauge.html#getValueNext-java.lang.String-">getValueNext(String)</a></span> - Method in class com.SIMRacingApps.<a href="../com/SIMRacingApps/Gauge.html" title="class in com.SIMRacingApps">Gauge</a></dt>
 <dd>
 <div class="block">Returns the value of the next value that the object will be at the next pit stop.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="../com/SIMRacingApps/Gauge.html#getValueNext--">getValueNext()</a></span> - Method in class com.SIMRacingApps.<a href="../com/SIMRacingApps/Gauge.html" title="class in com.SIMRacingApps">Gauge</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/SIMPlugins/iRacing/Gauges/Changeables.html#getValueNext-java.lang.String-">getValueNext(String)</a></span> - Method in class com.SIMRacingApps.SIMPlugins.iRacing.Gauges.<a href="../com/SIMRacingApps/SIMPlugins/iRacing/Gauges/Changeables.html" title="class in com.SIMRacingApps.SIMPlugins.iRacing.Gauges">Changeables</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/SIMPlugins/iRacing/Gauges/FuelLevel.html#getValueNext-java.lang.String-">getValueNext(String)</a></span> - Method in class com.SIMRacingApps.SIMPlugins.iRacing.Gauges.<a href="../com/SIMRacingApps/SIMPlugins/iRacing/Gauges/FuelLevel.html" title="class in com.SIMRacingApps.SIMPlugins.iRacing.Gauges">FuelLevel</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="../com/SIMRacingApps/SIMPlugins/iRacing/Gauges/Tire.html#getValueNext-java.lang.String-">getValueNext(String)</a></span> - Method in class com.SIMRacingApps.SIMPlugins.iRacing.Gauges.<a href="../com/SIMRacingApps/SIMPlugins/iRacing/Gauges/Tire.html" title="class in com.SIMRacingApps.SIMPlugins.iRacing.Gauges">Tire</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="../com/SIMRacingApps/SIMPlugins/iRacing/Header.html#getVarBuf_BufOffset-int-">getVarBuf_BufOffset(int)</a></span> - Method in class com.SIMRacingApps.SIMPlugins.iRacing.<a href="../com/SIMRacingApps/SIMPlugins/iRacing/Header.html" title="class in com.SIMRacingApps.SIMPlugins.iRacing">Header</a></dt>
 <dd>&nbsp;</dd>
