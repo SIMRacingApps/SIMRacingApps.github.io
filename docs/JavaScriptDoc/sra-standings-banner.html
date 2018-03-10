@@ -50,7 +50,11 @@
               </li><li>
                 <a href="Spectator.html">Spectator</a>
               </li><li>
+                <a href="Spectator60.html">Spectator60</a>
+              </li><li>
                 <a href="Spotter.html">Spotter</a>
+              </li><li>
+                <a href="Spotter60.html">Spotter60</a>
               </li><li>
                 <a href="StreamingOverlay.html">StreamingOverlay</a>
               </li>
@@ -78,6 +82,8 @@
               </li><li>
                 <a href="sra-analog-gauge-spek-oil-temp.html">sra-analog-gauge-spek-oil-temp</a>
               </li><li>
+                <a href="sra-analog-gauge-spek-speedometer.html">sra-analog-gauge-spek-speedometer</a>
+              </li><li>
                 <a href="sra-analog-gauge-spek-tachometer.html">sra-analog-gauge-spek-tachometer</a>
               </li><li>
                 <a href="sra-analog-gauge-spek-voltage.html">sra-analog-gauge-spek-voltage</a>
@@ -102,6 +108,8 @@
               </li><li>
                 <a href="sra-bar-gauge-oil-temp.html">sra-bar-gauge-oil-temp</a>
               </li><li>
+                <a href="sra-bar-gauge-speedometer.html">sra-bar-gauge-speedometer</a>
+              </li><li>
                 <a href="sra-bar-gauge-tachometer.html">sra-bar-gauge-tachometer</a>
               </li><li>
                 <a href="sra-bar-gauge-voltage.html">sra-bar-gauge-voltage</a>
@@ -114,15 +122,23 @@
               </li><li>
                 <a href="sra-camera-selector.html">sra-camera-selector</a>
               </li><li>
+                <a href="sra-camera-selector-custom.html">sra-camera-selector-custom</a>
+              </li><li>
                 <a href="sra-car-controls.html">sra-car-controls</a>
               </li><li>
                 <a href="sra-car-image.html">sra-car-image</a>
+              </li><li>
+                <a href="sra-car-left.html">sra-car-left</a>
               </li><li>
                 <a href="sra-car-number.html">sra-car-number</a>
               </li><li>
                 <a href="sra-car-number-extended.html">sra-car-number-extended</a>
               </li><li>
+                <a href="sra-car-right.html">sra-car-right</a>
+              </li><li>
                 <a href="sra-car-selector.html">sra-car-selector</a>
+              </li><li>
+                <a href="sra-car-selector64.html">sra-car-selector64</a>
               </li><li>
                 <a href="sra-car-telemetry.html">sra-car-telemetry</a>
               </li><li>
@@ -138,6 +154,8 @@
               </li><li>
                 <a href="sra-gear.html">sra-gear</a>
               </li><li>
+                <a href="sra-in-garage.html">sra-in-garage</a>
+              </li><li>
                 <a href="sra-lap-timing.html">sra-lap-timing</a>
               </li><li>
                 <a href="sra-laps-banner.html">sra-laps-banner</a>
@@ -151,6 +169,8 @@
                 <a href="sra-pit-road.html">sra-pit-road</a>
               </li><li>
                 <a href="sra-radio-control.html">sra-radio-control</a>
+              </li><li>
+                <a href="sra-radio-transmitting.html">sra-radio-transmitting</a>
               </li><li>
                 <a href="sra-relative.html">sra-relative</a>
               </li><li>
@@ -166,6 +186,14 @@
               </li><li>
                 <a href="sra-standings-banner.html">sra-standings-banner</a>
               </li><li>
+                <a href="sra-standings-banner-class-vertical.html">sra-standings-banner-class-vertical</a>
+              </li><li>
+                <a href="sra-standings-banner-class-vertical20.html">sra-standings-banner-class-vertical20</a>
+              </li><li>
+                <a href="sra-standings-banner-vertical.html">sra-standings-banner-vertical</a>
+              </li><li>
+                <a href="sra-standings-banner-vertical20.html">sra-standings-banner-vertical20</a>
+              </li><li>
                 <a href="sra-standings-top-10.html">sra-standings-top-10</a>
               </li><li>
                 <a href="sra-standings-top-20.html">sra-standings-top-20</a>
@@ -173,6 +201,8 @@
                 <a href="sra-standings-top-35.html">sra-standings-top-35</a>
               </li><li>
                 <a href="sra-standings-top-43.html">sra-standings-top-43</a>
+              </li><li>
+                <a href="sra-standings-top-60.html">sra-standings-top-60</a>
               </li><li>
                 <a href="sra-steering-wheel.html">sra-steering-wheel</a>
               </li><li>
@@ -312,7 +342,7 @@
       <dt></dt>
       <dd>
         <div class="description">
-          This widget displays a TV style banner showing the standings.Designed to be used as an overlay with OBS.By default, the session type is displayed as the title.The default sponsor is SIMRacingApps.To change either, create a file called "StandingsBanner.json" in the "Documents/SIMRacingApps" folder with the following entries.<pre>{  "title":            "DAYTONA 500",  "fontSize":         "100%",  "sponsorImageUrls": ["Sponsors/Sponsor1.png","Sponsors/Sponsor2.png","sra"],  "sponsorSeconds":   [60,120,60]}</pre>In the example, the sponsor logos is an array of files that are stored in the "Documents/SIMRacingApps/Sponsors" folder.The ratio of a sponsor file should be 4x1. The default window size calculates that to be 200x50 pixels, but it will scale up and down.Each sponsor can have their own display time using the seconds array.The first sponsor will be displayed for 60 seconds, the second for 120 seconds, then start over.You can add more sponsors and seconds to display as needed.Any image that cannot be found will be replaced with the stock SRA logo.<p>Example list of the files.<pre>   Documents\SIMRacingApps\StandingsBanner.json   Documents\SIMRacingApps\Sponsors\Sponsor1.png   Documents\SIMRacingApps\Sponsors\Sponsor2.png</pre><p>Example:<p><b>&lt;sra-standings-banner&gt;&lt;/sra-standings-banner&gt;<br /></b><img src="../widgets/StandingsBanner/icon.png" alt="Image goes here"/>
+          This widget displays a TV style banner showing the standings of your class.Designed to be used as an overlay with OBS.By default, the session type is displayed as the title.The default sponsor is SIMRacingApps.To change either, create a file called "StandingsBanner.json" in the "Documents/SIMRacingApps" folder with the following entries.<pre>{  "title":            "DAYTONA 500",  "fontSize":         "100%",  "sponsorImageUrls": ["Sponsors/Sponsor1.png","Sponsors/Sponsor2.png","sra"],  "sponsorSeconds":   [60,120,60]}</pre>In the example, the sponsor logos is an array of files that are stored in the "Documents/SIMRacingApps/Sponsors" folder.The ratio of a sponsor file should be 4x1. The default window size calculates that to be 200x50 pixels, but it will scale up and down.Each sponsor can have their own display time using the seconds array.The first sponsor will be displayed for 60 seconds, the second for 120 seconds, then start over.You can add more sponsors and seconds to display as needed.Any image that cannot be found will be replaced with the stock SRA logo.<p>Example list of the files.<pre>   Documents\SIMRacingApps\StandingsBanner.json   Documents\SIMRacingApps\Sponsors\Sponsor1.png   Documents\SIMRacingApps\Sponsors\Sponsor2.png</pre><p>Example:<p><b>&lt;sra-standings-banner&gt;&lt;/sra-standings-banner&gt;<br /></b><img src="../widgets/StandingsBanner/icon.png" alt="Image goes here"/>
         </div>
         <div class="details"></div>
         <div>
@@ -327,6 +357,11 @@
                 <td class="type"><span class="param-type">
                 </span></td>
                 <td class="description last">Set to true to show the short name. Default is false.</td>
+              </tr><tr>
+                <td class="name" nowrap="">show-team-name</td>
+                <td class="type"><span class="param-type">
+                </span></td>
+                <td class="description last">Set to false to not show the team name. Default is true.</td>
               </tr><tr>
                 <td class="name" nowrap="">data-sra-args-interval</td>
                 <td class="type"><span class="param-type">

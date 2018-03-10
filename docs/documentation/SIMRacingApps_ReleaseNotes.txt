@@ -1,10 +1,213 @@
 SIMRacingApps Release Notes
-Copyright (C) 2015 - 2017 Jeffrey Gilliam
+Copyright (C) 2015 - 2018 Jeffrey Gilliam
 ---------------------------
 For a complete list of issues completed in this version goto 
-(https://github.com/SIMRacingApps/SIMRacingApps/milestone/7?closed=1)
+(https://github.com/SIMRacingApps/SIMRacingApps/milestone/8?closed=1)
 
-Version: 1.5_Build_2017.12.11
+Version: 1.6_Build_2018.03.10
+    1. Closed #122 (https://github.com/SIMRacingApps/SIMRacingApps/issues/122)
+       CarLeft, CarRight: Show when car(s) are to the left or right of you
+       Added 2 new widgets, CarLeft and CarRight.
+       These are simply arrows that follow the spotter indicators. 
+       There are 2 sets of them, so you can place 2 lefts in different places.
+       Use the transparent feature of Electron, to hide them when they're not showing.
+
+    2. Added new API call to get the spotter messages.
+           /Car/(CARIDENTIFIER)/SpotterMessage
+       Can return the following
+          - (blank) = not talking
+          - CLEAR = no cars around you
+          - CARLEFT = car to your left
+          - CARRIGHT = car to your right
+          - CARLEFTRIGHT = car on your left and right
+          - CARSLEFT = 2 or more cars on your left
+          - CARSRIGHT = 2 or more cars on your right 
+    
+    3. Fixed #131 (https://github.com/SIMRacingApps/SIMRacingApps/issues/131)
+       Java 9 support.
+    
+    4. StandingsBanner widget now alternates between driver name and team name. 
+    
+    5. Closed #124 (https://github.com/SIMRacingApps/SIMRacingApps/issues/124)
+       TeamSpeak: Update alias with your name from iRacing
+       You can turn this on in the settings with "teamspeak-update-name = Y".
+       It is off by default because it doesn't work in a team or when spotting,
+       because it changes it to the driver's name in those sessions. 
+
+    6. Closed #132 (https://github.com/SIMRacingApps/SIMRacingApps/issues/132)
+       VoiceAttack: Add commands to hide/unhide apps
+       Added new API calls /Session/setAppsHidden and /Session/IsAppsHidden.
+       Only works with Electron Apps.
+
+    7. Voice Attack Profile: Added commands for replay commands, camera changes and window control.
+        - Hide All
+        - Show All
+        - Play
+        - Pause or Stop
+        - Rewind, Reverse
+        - Fast Forward or Forward
+        - Slow Motion or Slow Down or Slow or Slower
+        - Next Lap
+        - Previous Lap
+        - Camera Chopper
+        - Camera Blimp
+        - Camera Cockpit
+        - Camera Gyro
+        - Camera TV1
+        - Camera TV2
+        - Camera TV3
+        - Camera Pit Lane
+        - Camera Pit Lane 2
+        - Camera Chase
+        - Camera Far Chase
+        - Camera Rear Chase
+        - Camera Spectator
+    
+    8. Fixed #134 (https://github.com/SIMRacingApps/SIMRacingApps/issues/134)
+       PitCountDown: Doesn't work with JJ Spotter Pack
+       
+    9. Closed #133 (https://github.com/SIMRacingApps/SIMRacingApps/issues/133)
+       Standings Banner: For your class only
+
+    10. Closed #135 (https://github.com/SIMRacingApps/SIMRacingApps/issues/135)
+        Standings Banner Vertical: For your class only
+
+    11. Closed #137 (https://github.com/SIMRacingApps/SIMRacingApps/issues/137)
+        Feature: Setup Protector
+        Created a new widget called InGarage that you can supply your own image if you wish.
+
+    12. Fixed the Sebring Track Image.
+
+    13. Closed #89 (https://github.com/SIMRacingApps/SIMRacingApps/issues/89)
+        Closed #140 (https://github.com/SIMRacingApps/SIMRacingApps/issues/140)
+        CarSelector Widget does not support 50+ car fields
+        All Widets/Apps using CarSelector, now uses CarSelector64 for up to 64 cars.
+    
+    14. Fixed #136 (https://github.com/SIMRacingApps/SIMRacingApps/issues/136)
+        VoiceAttack, Start Gear Announcement, setting SRA_loop false still loops.
+        Change to use local variables.
+        The preferred way to disable a spotter loop, is to remove it from the "Start Spotter" command
+       
+    15. Fixed #141 (https://github.com/SIMRacingApps/SIMRacingApps/issues/141)
+        Invalid Characters in the UserName causes server to crash
+        This fixes Brian Wertman's and Don Runkle Jr.'s issues where SRA would only crash on Sunday nights.
+        Turns out, the league he runs on Sunday, the admins were putting invalid characters in the UserName.
+
+    16. Closed #101 (https://github.com/SIMRacingApps/SIMRacingApps/issues/101)
+        Add option to all widgets to autohide
+        Electron was enhanced to allow users to select when an app/widget should be visible.
+        Options are when: NotConnected, InCar, InGarage, InReplay
+        These options are saved with your configuration.
+        Electron also automatically reloads the App/Widget if you change Transparent or Frame.
+        Electron does not allow transparent and frame to be selected at the same time.
+    
+    17. Fixed favorites to allow https URLs.
+        
+    18. Closed #138 (https://github.com/SIMRacingApps/SIMRacingApps/issues/138)
+        Electron: Ability to click through the transparent areas
+        What this means is if you need to move or resize an Electron widget, 
+        you will need to turn off transparency, move/resize, then turn it back on.
+        You can disable this feature by adding "electron-noclickthrough=y" to the settings.
+
+    19. Added RadioTransmitting Widget. Contributed by Ricky Thompson.
+    
+    20. Fixed issue where empty folders in the Documents\SIMRacingApps\favorites, apps, widgets
+        would prevent any user defined files from loading. 
+        
+    21. Closed #143 (https://github.com/SIMRacingApps/SIMRacingApps/issues/143)
+        Camera Selector support 30 cameras
+        New widget called CameraSelector30 can have 30 cameras.
+
+    22. Updated JNA library from 4.2.1 to 4.5.1.
+
+    23. Wrote my own YAML parser and retired the SnakeYaml parser.
+        Did this to stop chasing iRacing's bad YAML output. 
+        This one is very forgiving.
+
+    24. Closed #90 (https://github.com/SIMRacingApps/SIMRacingApps/issues/90)
+        StandingsTopX widgets = StandingsTop60, Spectator60, Spotter60
+
+    25. Closed #139 (https://github.com/SIMRacingApps/SIMRacingApps/issues/139)
+        Detect to display Laps or Time Remaining on all widgets
+        Standings, Relative, LapTiming, CrewChief, Digital Dash were modified to show the
+        approximation of laps remaining and/or the time remaining.
+
+    26. Closed #148 (https://github.com/SIMRacingApps/SIMRacingApps/issues/148) 
+        Server: Remap Driver Names
+        Simply add the name to change in the settings with SIM name on the left.
+        Any spaces on the left side must have a backslash in front of the space.
+        Use this to highlight friends, enemies, blacklist, whatever
+          Jeffrey\ Gilliam = *[Jeff Gilliam] 
+          John\ Doe27 = >>John Doe
+          Young\ Gun = !!Danger Danger
+          
+    27. Closed #146 (https://github.com/SIMRacingApps/SIMRacingApps/issues/146)
+        StandingsBannerVertical20: For 10 static and 10 rotating full length of the screen
+
+    28. Added a Track Map version that only shows the Reference Car and the Leader.
+    
+    29. Fixed TrackMap for Daytona Rally Cross Long
+    
+    30. Server will now try to bind to ports 80, 8080, 5555.
+        If first one is in use, it will try the next and so on.
+        You can still change the first port it tries in the settings.
+        If your port is busy, then 8080 and 5555 will be tried.
+    
+    31. Added ability to edit useroverrides.css to the menu
+    
+    32. Added 2 new widgets for the non-purists, 
+        AnalogGauge/Spek/Speedomter and BarGauge/Speedometer
+        I did not put these in any existing App, they are stand alone.
+
+    33. iRacing Build 2018.03.06 Content
+        - Audi R18 
+        - Dallara IR18 
+        - Porsche 919 Hybrid 
+        - The Dirt Track at Charlotte 
+        - Limaland Motorsports Park 
+        - Pocono Raceway track upgrade 
+        - Sonoma Raceway (Rallycross) 
+
+    For notes on previous versions, see below.
+       
+------------------------------------------------------------------------------------------------------
+---                    Configuration Requirements                                                  ---
+------------------------------------------------------------------------------------------------------
+    1. To get the server running, simply execute the SIMRacingAppsServer...exe 
+       on the same computer that the Simulator is running on.
+    2. If you do not have Java 1.8 or better installed, it will redirect you to the Java download page.
+       NOTE: This page may install the 32-bit version of Java. The 64-bit version is faster.
+       See https://github.com/SIMRacingApps/SIMRacingApps/wiki/Java-64-Bit-Installation on how to find it.
+       Also see http://wiki.SIMRacingApps.com/Java-Update-Configuration 
+       for detailed instructions on how to configure Java's Automatic Updates so it doesn't interrupt your racing.
+    3. If a Firewall is running, you might get prompted to allow the server to run.
+       Depending on if your Ethernet connection was made private or public, 
+       you may be asked to confirm that also. Please select allow.
+       If your Firewall doesn't prompt you, then you will have to add an exception to allow "java.exe"
+       for both in-bound and out-bound traffic on all ports. 
+       See https://github.com/SIMRacingApps/SIMRacingApps/wiki/How-to-fix-Firewall-issues for more information.
+    4. Enter the server address (found in the Title Bar of the server window) in your browser 
+       from any device connected to the same local network.
+       Connecting from outside the local network is not supported and not recommended due to security concerns.
+    5. To use the Electron client with the Apps/Widgets overlaid on top of the SIM, you 
+       must have the SIM running in Windowed mode. Please see the following Wiki info to configure the SIM.
+       https://github.com/SIMRacingApps/SIMRacingApps/wiki/How-to-setup-iRacing-in-Windowed-Mode
+    6. Please refer to the Quick Start Guide at http://quickstart.SIMRacingApps.com
+       for more details and options for running the server.
+    
+    Issues:
+        Please visit the issues list at http://issues.SIMRacingApps.com to see if an issue you are have 
+        has already been reported. This list also contains enhancement requests.
+        You will need to create a GitHub account to post a new issue or subscribe to an existing issue. 
+        But, that is the easiest way to keep track of it and follow conversations on the issue.
+        
+    Wiki:
+        There is a Wiki for SIMRacingApps at http://wiki.SIMRacingApps.com.
+        Here you can find solutions, work-around, etc.
+       
+****************** Previous Versions *************************
+
+1.5_Build_2017.12.11
     1. Fixed #98 (https://github.com/SIMRacingApps/SIMRacingApps/issues/98)
        Team Driver Swap PitCommander issue
        When changing drivers, this issue could have caused the pit service to stop adding
@@ -46,42 +249,6 @@ Version: 1.5_Build_2017.12.11
        They are no long sending those events because they consider that area the window title area.
        You can still grab in that area and move the widget and you can right click to close it.
        Therefore, for now, I'm going to put this release out without the bar. 
-               
-    For notes on previous versions, see below.
-       
-------------------------------------------------------------------------------------------------------
----                    Configuration Requirements                                                  ---
-------------------------------------------------------------------------------------------------------
-    1. To get the server running, simply execute the SIMRacingAppsServer...exe 
-       on the same computer that the Simulator is running on.
-    2. If you do not have Java 1.8 or better installed, it will redirect you to the Java download page.
-       NOTE: This page will install the 32-bit version of Java. The 64-bit version is faster.
-       See https://github.com/SIMRacingApps/SIMRacingApps/wiki/Java-64-Bit-Installation on how to find it.
-       Also see http://wiki.SIMRacingApps.com/Java-Update-Configuration 
-       for detailed instructions on how to configure Java's Automatic Updates so it doesn't interrupt your racing.
-    3. If a Firewall is running, you might get prompted to allow the server to run.
-       Depending on if your Ethernet connection was made private or public, 
-       you may be asked to confirm that also. Please select allow.
-       If your Firewall doesn't prompt you, then you will have to add an exception to allow "java.exe"
-       for both in-bound and out-bound traffic on all ports. 
-       See https://github.com/SIMRacingApps/SIMRacingApps/wiki/How-to-fix-Firewall-issues for more information.
-    4. Enter the server address (found in the Title Bar of the server window) in your browser 
-       from any device connected to the same local network.
-       Connecting from outside the local network is not supported and not recommended due to security concerns.
-    5. Please refer to the Quick Start Guide at http://quickstart.SIMRacingApps.com
-       for more details and options for running the server.
-    
-    Issues:
-        Please visit the issues list at http://issues.SIMRacingApps.com to see if an issue you are have 
-        has already been reported. This list also contains enhancement requests.
-        You will need to create a GitHub account to post a new issue or subscribe to an existing issue. 
-        But, that is the easiest way to keep track of it and follow conversations on the issue.
-        
-    Wiki:
-        There is a Wiki for SIMRacingApps at http://wiki.SIMRacingApps.com.
-        Here you can find solutions, work-around, etc.
-       
-****************** Previous Versions *************************
 
 1.4_Build_2017.10.22
     1. Fixed #103 (https://github.com/SIMRacingApps/SIMRacingApps/issues/103)
