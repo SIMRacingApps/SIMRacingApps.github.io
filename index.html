@@ -49,15 +49,6 @@
             BETAupdateRequest.open("GET",'BETA-version.json');
             BETAupdateRequest.send();
             
-	        var overwolf_updateRequest = new XMLHttpRequest();
-	        overwolf_updateRequest.onload = function(e) {
-	            var overwolf_version = JSON.parse(overwolf_updateRequest.responseText);
-	            console.log("overwolf_manifest.json: " + JSON.stringify(overwolf_version.meta.version));
-	            document.getElementById("overwolfversion").innerHTML = overwolf_version.meta.version;
-	        }
-	        overwolf_updateRequest.open("GET",'overwolf_manifest.json');
-	        overwolf_updateRequest.send();
-	
 	        var electron_updateRequest = new XMLHttpRequest();
 	        electron_updateRequest.onload = function(e) {
 	            var electron_version = JSON.parse(electron_updateRequest.responseText);
@@ -131,9 +122,7 @@
         <li>It comes with over <b>50 Apps and Widgets</b>, free, out of the box. See below for the most popular ones.</li>
         <ii>It has built in sounds for counting down to pit stall, when exceeding pit road speed, and when to shift.</ii>
 		<li>The popular <a target="_blank" href="https://github.com/SIMRacingApps/SIMRacingAppsElectron/blob/master/README.md">Atom/Electron</a> 
-		    and 
-		    <a target="_blank" href="https://github.com/SIMRacingApps/SIMRacingAppsOverwolf/blob/master/README.md">Overwolf</a>
-		    client platforms are supported where multiple configurations can be created.</li>
+		    client platform is supported where multiple configurations can be created.</li>
 		<li>It has a hardware plug-in interface, for Shift Lights, Sound, Arduino, Raspberry Pi or anything else you can think of.</li>
 		<li>It's a ReST interface for developers to access the SIM Data via an HTTP call from anywhere on your network.</li>
 		<li>There's a <a target="_blank" href="http://voiceattack.com">Voice Attack</a> Profile on the download's page that uses the ReST API to control the SIM.</li>
@@ -176,11 +165,6 @@
 		    <a target="_blank" href="https://github.com/SIMRacingApps/SIMRacingApps/wiki/Add-to-Home-Screen-on-iOS-or-Andriod">add the App to your home screen</a> to get a full screen experience.
 		</li>
 		<li>Click on one or more Apps or Widgets and start racing. Clicking the description will open the documentation for that App or Widget.</li>
-		<li>You can also use the 
-		    <b><a target="_blank" href="https://github.com/SIMRacingApps/SIMRacingAppsElectron/blob/master/README.md">[Electron]</a></b> 
-		    or 
-		    <b><a target="_blank" href="https://github.com/SIMRacingApps/SIMRacingAppsOverwolf/blob/master/README.md">[Overwolf]</a></b> 
-		    runtimes as a client as well. These clients are <b>experimental</b> and may not work with your system. Some problems may need to be reported directly to them. Electron is more stable than Overwolf, but see the readme files in the download links above for compatibility details.</li>
 		<li>You can also embed URLs to an App or Widget in streaming tools like 
 		    <b><a target="_blank" href="https://obsproject.com">[Open Broadcasting Software (OBS)]</a></b>.
 		    Click <a target="_blank" href="https://github.com/SIMRacingApps/SIMRacingApps/wiki/How-use-setup-OBS-(Open-Broadcaster-Software)-to-overlay-Apps">here</a> for details on how to configure OBS.
