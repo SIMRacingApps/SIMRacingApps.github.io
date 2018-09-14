@@ -122,7 +122,9 @@
               </li><li>
                 <a href="sra-camera-selector.html">sra-camera-selector</a>
               </li><li>
-                <a href="sra-camera-selector-custom.html">sra-camera-selector-custom</a>
+                <a href="sra-camera-selector30.html">sra-camera-selector30</a>
+              </li><li>
+                <a href="sra-camera-selector-vertical30.html">sra-camera-selector-vertical30</a>
               </li><li>
                 <a href="sra-car-controls.html">sra-car-controls</a>
               </li><li>
@@ -156,6 +158,8 @@
               </li><li>
                 <a href="sra-in-garage.html">sra-in-garage</a>
               </li><li>
+                <a href="sra-lap-times.html">sra-lap-times</a>
+              </li><li>
                 <a href="sra-lap-timing.html">sra-lap-timing</a>
               </li><li>
                 <a href="sra-laps-banner.html">sra-laps-banner</a>
@@ -177,6 +181,10 @@
                 <a href="sra-relative-small.html">sra-relative-small</a>
               </li><li>
                 <a href="sra-replay-control.html">sra-replay-control</a>
+              </li><li>
+                <a href="sra-s-r-a-logo.html">sra-s-r-a-logo</a>
+              </li><li>
+                <a href="sra-s-r-a-logo-u-r-l.html">sra-s-r-a-logo-u-r-l</a>
               </li><li>
                 <a href="sra-shift-light.html">sra-shift-light</a>
               </li><li>
@@ -258,6 +266,8 @@
                 <a href="module-SIMRacingApps.sraDecodeEntities.html">sraDecodeEntities</a>
               </li><li>
                 <a href="module-SIMRacingApps.sraDuration.html">sraDuration</a>
+              </li><li>
+                <a href="module-SIMRacingApps.sraEncodeEntities.html">sraEncodeEntities</a>
               </li><li>
                 <a href="module-SIMRacingApps.sraFloor.html">sraFloor</a>
               </li><li>
@@ -342,7 +352,7 @@
       <dt></dt>
       <dd>
         <div class="description">
-          This widget simply displays the car number using the colors returned by the SIM.<p>Example(s):<p><b>&lt;sra-car-number data-sra-args-car="ME"&gt;&lt;/sra-car-number&gt;<br />&lt;div data-sra-car="ME"&gt;&lt;/div&gt;</b><img src="../widgets/CarNumber/icon.png" />
+          This widget simply displays the car number using the colors returned by the SIM.<p>You can provide an image of your car number that is based on the league id returned by the SIM.It requires your league be run using iRacing's leagues.It will not work if it is a hosted session because iRacing does not return a league number.The image path should be as follows:<p>Documents/SIMRacingApps/CarNumbers/LeagueID-{leagueId}/{carNumber}.png<p>The leagueId can be found in iRacing's League Directory listing by clicking on the league you are in and looking at the URL for that page. If you want to make numbers for your official races, use the league id of 0. Then create numbers for 1-60 to cover them all. These will be used by all cars.<p>Example: Documents/SIMRacingApps/CarNumbers/LeagueID-1489/61.png<p>All images should have an aspect ratio of 1.666 (i.e. 800 wide, 480 high) to cover the original number.Note: Taking a screen shot of your number while in iRacing creates a dull image.<p>Example(s):<p><b>&lt;sra-car-number data-sra-args-car="ME"&gt;&lt;/sra-car-number&gt;<br />&lt;div data-sra-car="ME"&gt;&lt;/div&gt;</b><img src="../widgets/CarNumber/icon.png" />
         </div>
         <div class="details"></div>
         <div>

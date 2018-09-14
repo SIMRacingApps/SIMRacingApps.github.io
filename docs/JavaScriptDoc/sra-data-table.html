@@ -122,7 +122,9 @@
               </li><li>
                 <a href="sra-camera-selector.html">sra-camera-selector</a>
               </li><li>
-                <a href="sra-camera-selector-custom.html">sra-camera-selector-custom</a>
+                <a href="sra-camera-selector30.html">sra-camera-selector30</a>
+              </li><li>
+                <a href="sra-camera-selector-vertical30.html">sra-camera-selector-vertical30</a>
               </li><li>
                 <a href="sra-car-controls.html">sra-car-controls</a>
               </li><li>
@@ -156,6 +158,8 @@
               </li><li>
                 <a href="sra-in-garage.html">sra-in-garage</a>
               </li><li>
+                <a href="sra-lap-times.html">sra-lap-times</a>
+              </li><li>
                 <a href="sra-lap-timing.html">sra-lap-timing</a>
               </li><li>
                 <a href="sra-laps-banner.html">sra-laps-banner</a>
@@ -177,6 +181,10 @@
                 <a href="sra-relative-small.html">sra-relative-small</a>
               </li><li>
                 <a href="sra-replay-control.html">sra-replay-control</a>
+              </li><li>
+                <a href="sra-s-r-a-logo.html">sra-s-r-a-logo</a>
+              </li><li>
+                <a href="sra-s-r-a-logo-u-r-l.html">sra-s-r-a-logo-u-r-l</a>
               </li><li>
                 <a href="sra-shift-light.html">sra-shift-light</a>
               </li><li>
@@ -258,6 +266,8 @@
                 <a href="module-SIMRacingApps.sraDecodeEntities.html">sraDecodeEntities</a>
               </li><li>
                 <a href="module-SIMRacingApps.sraDuration.html">sraDuration</a>
+              </li><li>
+                <a href="module-SIMRacingApps.sraEncodeEntities.html">sraEncodeEntities</a>
               </li><li>
                 <a href="module-SIMRacingApps.sraFloor.html">sraFloor</a>
               </li><li>
@@ -342,7 +352,7 @@
       <dt></dt>
       <dd>
         <div class="description">
-          This widget extends the sra-data directive by placing the data in a HTML Table.You have full control on what goes in the header, body, and footer.The body can also have a label to go with the data.<p>The data-sra-args-data parameter should list all the paths to the SIM data you will be using for the entire table as follows:<pre>     data-sra-args-data = "/Car/REFERENCE/DriverName;/Car/REFERENCE/Number"</pre><p>Each table element where data is inserted can take a class and HTML, but they have to be written in JavaScript.The JavaScript should reference the "data" object to display SIM data or a constant can be usedFor example, if you want to have a constant for the header, it would be written as follows:<pre>     data-sra-args-header       = "'Some Constant'"     data-sra-args-header-class = "'myHeaderClass'"     &lt;!-- or if using the data object --&gt;     data-sra-args-header       = "'Driver = ' + data.Car.REFERENCE.DriverName.ValueFormatted"</pre>For the rows, each row must be given a name and listed in the order to display them. They are assigned to the row-names parameter separated with semicolons, commas or spaces as follows:<pre>     data-sra-args-row-names = "carnum;name"</pre>Once each row has a name, then a Class, HTML, or Label can be assigned to those rows by using their name in the argument variable name as follows:<pre>     data-sra-args-row-name-label       = "translations.NAME + ':'"     data-sra-args-row-name             = "data.Car.REFERENCE.DriverName.ValueFormatted"     data-sra-args-row-name-class       = "'myNameClass'"     data-sra-args-row-name-label-class = "'myNameLabelClass'"     data-sra-args-row-name-value-class = "'myNameValueClass'"     data-sra-args-row-carnum-label     = "translations.CARNUMBER + ':'"     data-sra-args-row-carnum           = "data.Car.REFERENCE.CarNumber.ValueFormatted"      </pre><p>Example from the CrewChief App:<pre><b>&lt;sra-data-table     id                                  = "SIMRacingApps-App-CrewChief-CarTrack"     data-sra-args-data                  = "Car/REFERENCE/DriverName;Car/REFERENCE/Number;Car/REFERENCE/DriverRating;Session/Type;Car/REFERENCE/Status;Car/REFERENCE/Description;Track/Description;Track/Length;Track/Category;Track/PitSpeedLimit"     data-sra-args-row-names             = "drivername;rating;session;cardesc;trackdesc;trackinfo;pitinfo"     data-sra-args-row-drivername        = "data.Car.REFERENCE.DriverName.ValueFormatted"     data-sra-args-row-rating            = "data.Car.REFERENCE.DriverRating.ValueFormatted+' #'+data.Car.REFERENCE.Number.ValueFormatted"     data-sra-args-row-session           = "data.Session.Type.ValueFormatted+' - '+data.Car.REFERENCE.Status.ValueFormatted"     data-sra-args-row-cardesc           = "data.Car.REFERENCE.Description.ValueFormatted"     data-sra-args-row-trackdesc         = "data.Track.Description.ValueFormatted"     data-sra-args-row-trackinfo         = "(data.Track.Length.Value|sraNumber:1)+' '+data.Track.Length.UOMDesc+' '+data.Track.Category.ValueFormatted"     data-sra-args-row-pitinfo           = "translations.PITROADSPEEDLIMIT+': '+(data.Track.PitSpeedLimit|sraNumber:0)"&gt;&lt;/sra-data-table&gt;</b></pre>
+          This widget extends the sra-data directive by placing the data in a HTML Table.You have full control on what goes in the header, body, and footer.The body can also have a label to go with the data.<p>The data-sra-args-data parameter should list all the paths to the SIM data you will be using for the entire table as follows:<pre>     data-sra-args-data = "/Car/REFERENCE/DriverName;/Car/REFERENCE/Number"</pre><p>Each table element where data is inserted can take a class and HTML, but they have to be written in JavaScript.The JavaScript should reference the "data" object to display SIM data or a constant can be usedFor example, if you want to have a constant for the header, it would be written as follows:<pre>     data-sra-args-header       = "'Some Constant'"     data-sra-args-header-class = "'myHeaderClass'"     &lt;!-- or if using the data object --&gt;     data-sra-args-header       = "'Driver = ' + (data.Car.REFERENCE.DriverName.ValueFormatted|sraEncodeEntities)"</pre>NOTE: All data should be cleansed with a call to the sraEncodeEntities filter.For the rows, each row must be given a name and listed in the order to display them. They are assigned to the row-names parameter separated with semicolons, commas or spaces as follows:<pre>     data-sra-args-row-names = "carnum;name"</pre>Once each row has a name, then a Class, HTML, or Label can be assigned to those rows by using their name in the argument variable name as follows:<pre>     data-sra-args-row-name-label       = "(translations.NAME|sraEncodeEntities) + ':'"     data-sra-args-row-name             = "(data.Car.REFERENCE.DriverName.ValueFormatted|sraEncodeEntities)"     data-sra-args-row-name-class       = "'myNameClass'"     data-sra-args-row-name-label-class = "'myNameLabelClass'"     data-sra-args-row-name-value-class = "'myNameValueClass'"     data-sra-args-row-carnum-label     = "(translations.CARNUMBER|sraEncodeEntities) + ':'"     data-sra-args-row-carnum           = "(data.Car.REFERENCE.CarNumber.ValueFormatted|sraEncodeEntities)"      </pre><p>Example from the CrewChief App:<pre><b>&lt;sra-data-table     id                                  = "SIMRacingApps-App-CrewChief-CarTrack"     data-sra-args-data                  = "Car/REFERENCE/DriverName;Car/REFERENCE/Number;Car/REFERENCE/DriverRating;Session/Type;Car/REFERENCE/Status;Car/REFERENCE/Description;Track/Description;Track/Length;Track/Category;Track/PitSpeedLimit"     data-sra-args-row-names             = "drivername;rating;session;cardesc;trackdesc;trackinfo;pitinfo"     data-sra-args-row-drivername        = "(data.Car.REFERENCE.DriverName.ValueFormatted|sraEncodeEntities)"     data-sra-args-row-rating            = "(data.Car.REFERENCE.DriverRating.ValueFormatted+' #'+data.Car.REFERENCE.Number.ValueFormatted)|sraEncodeEntities"     data-sra-args-row-session           = "(data.Session.Type.ValueFormatted+' - '+data.Car.REFERENCE.Status.ValueFormatted)|sraEncodeEntities"     data-sra-args-row-cardesc           = "data.Car.REFERENCE.Description.ValueFormatted|sraEncodeEntities"     data-sra-args-row-trackdesc         = "data.Track.Description.ValueFormatted|sraEncodeEntities"     data-sra-args-row-trackinfo         = "((data.Track.Length.Value|sraNumber:1)+' '+data.Track.Length.UOMDesc+' '+data.Track.Category.ValueFormatted)|sraEncodeEntities"     data-sra-args-row-pitinfo           = "(translations.PITROADSPEEDLIMIT+': '+(data.Track.PitSpeedLimit|sraNumber:0))|sraEncodeEntities"&gt;&lt;/sra-data-table&gt;</b></pre>
         </div>
         <div class="details"></div>
         <div>

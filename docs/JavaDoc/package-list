@@ -2,6 +2,7 @@ com.SIMRacingApps
 com.SIMRacingApps.JComponents
 com.SIMRacingApps.SIMPluginCallbacks
 com.SIMRacingApps.SIMPluginCallbacks.DataPublisher
+com.SIMRacingApps.SIMPluginCallbacks.LIFX
 com.SIMRacingApps.SIMPluginCallbacks.MSPEC
 com.SIMRacingApps.SIMPluginCallbacks.Sounds
 com.SIMRacingApps.SIMPluginCallbacks.Template
