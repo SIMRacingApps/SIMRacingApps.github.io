@@ -127,7 +127,6 @@
 		<li>It has a hardware plug-in interface, for Shift Lights, Sound, Arduino, Raspberry Pi or anything else you can think of.</li>
 		<li>It's a ReST interface for developers to access the SIM Data via an HTTP call from anywhere on your network.</li>
 		<li>There's a <a target="_blank" href="http://voiceattack.com">Voice Attack</a> Profile on the download's page that uses the ReST API to control the SIM.</li>
-		<li>It's adds various sounds when speeding, when to shift, and count down to pit stall.</li> 
 		<li>It's a HTML5 platform for other developers to write Apps and Widgets and share them with you.</li>
 		<li>It's a Java SDK for developing your own Java Based Apps.</li>
 		<li>And it is free, no hidden fees, not a demo, full 100% functionality available, open source, released under the <a target="_blank" href="LICENSE.TXT">Apache License 2.0</a>.
@@ -150,8 +149,9 @@
     <h3>On the same computer where the simulator is running:</h3>
     <ul>
 		<li>Download the latest version of SIMRacingAppsServer....exe and save it where you can find it later. It is not an installer.</li>
-		<li>Execute SIMRacingAppsServer....exe. If you get a warning from Windows Defender or other Antivirus software, you can safely allow it to run as long as you downloaded from my download link. Do not accept it from any other source. This is due to the exe is not signed. To sign the exe it would cost me a couple of hundred dollars a year for a certificate.</li>
+		<li>Execute SIMRacingAppsServer....exe. If you get a warning from Windows Defender or other Antivirus software, you can safely allow it to run as long as you downloaded from my download link. Do not accept it from any other source. Download the "signed" version, but you still may get a waring due to certificate has not been certified by a public authority. It would cost me a couple of hundred dollars a year for certification.</li>
 		<li>If you don't have Java 1.8 or better installed, it will direct you to the download page so you can install Java.
+		    I have not tested this on version 10,11, or 12 as of yet.
 		    But, if you are running 64-bit Windows, you are better off installing the 64-bit version of Java.
             I have a Wiki page with instructions <a target="_blank" href="https://github.com/SIMRacingApps/SIMRacingApps/wiki/Java-64-Bit-Installation">here</a>.
 		    After Java is installed, execute the SIMRacingAppsServer....exe again. 
@@ -161,7 +161,7 @@
 		<h3>Clients can connect from any device connected to your home network<br />
     (including the SIM computer):</h3>
     <ul>
-		<li>Open a browser from your computer, phone or tablet (Chrome, FireFox, IE10, EDGE, Safari) and enter the HTTP address of the server. 
+		<li>The Electron menu should open when you start the server, but you can also open a browser from your computer, phone or tablet (Chrome, FireFox, IE10, EDGE, Safari) and enter the HTTP address of the server. 
 		    On phones and tablets, you can 
 		    <a target="_blank" href="https://github.com/SIMRacingApps/SIMRacingApps/wiki/Add-to-Home-Screen-on-iOS-or-Andriod">add the App to your home screen</a> to get a full screen experience.
 		</li>
