@@ -76,6 +76,10 @@
               </li><li>
                 <a href="sra-analog-gauge-spek-fuel-pressure.html">sra-analog-gauge-spek-fuel-pressure</a>
               </li><li>
+                <a href="sra-analog-gauge-spek-h-y-s-charge.html">sra-analog-gauge-spek-h-y-s-charge</a>
+              </li><li>
+                <a href="sra-analog-gauge-spek-h-y-s-deployment.html">sra-analog-gauge-spek-h-y-s-deployment</a>
+              </li><li>
                 <a href="sra-analog-gauge-spek-oil-level.html">sra-analog-gauge-spek-oil-level</a>
               </li><li>
                 <a href="sra-analog-gauge-spek-oil-pressure.html">sra-analog-gauge-spek-oil-pressure</a>
@@ -101,6 +105,10 @@
                 <a href="sra-bar-gauge-fuel-level.html">sra-bar-gauge-fuel-level</a>
               </li><li>
                 <a href="sra-bar-gauge-fuel-pressure.html">sra-bar-gauge-fuel-pressure</a>
+              </li><li>
+                <a href="sra-bar-gauge-h-y-s-charge.html">sra-bar-gauge-h-y-s-charge</a>
+              </li><li>
+                <a href="sra-bar-gauge-h-y-s-deployment.html">sra-bar-gauge-h-y-s-deployment</a>
               </li><li>
                 <a href="sra-bar-gauge-oil-level.html">sra-bar-gauge-oil-level</a>
               </li><li>
@@ -156,6 +164,8 @@
               </li><li>
                 <a href="sra-gear.html">sra-gear</a>
               </li><li>
+                <a href="sra-in-car-adjustments.html">sra-in-car-adjustments</a>
+              </li><li>
                 <a href="sra-in-garage.html">sra-in-garage</a>
               </li><li>
                 <a href="sra-lap-times.html">sra-lap-times</a>
@@ -181,6 +191,8 @@
                 <a href="sra-relative-small.html">sra-relative-small</a>
               </li><li>
                 <a href="sra-replay-control.html">sra-replay-control</a>
+              </li><li>
+                <a href="sra-s-i-m-time.html">sra-s-i-m-time</a>
               </li><li>
                 <a href="sra-s-r-a-logo.html">sra-s-r-a-logo</a>
               </li><li>
@@ -260,6 +272,8 @@
             <ul ng-hide="module_____acing_ppsfilter">
               <li>
                 <a href="module-SIMRacingApps.sraCeil.html">sraCeil</a>
+              </li><li>
+                <a href="module-SIMRacingApps.sraDate.html">sraDate</a>
               </li><li>
                 <a href="module-SIMRacingApps.sraDebug.html">sraDebug</a>
               </li><li>
@@ -352,7 +366,7 @@
       <dt></dt>
       <dd>
         <div class="description">
-          This widget displays a TV style banner showing the standings.Designed to be used as an overlay with OBS.By default, the session type is displayed as the title.The default sponsor is SIMRacingApps.To change either, create a file called "StandingsBanner.json" in the "Documents/SIMRacingApps" folder with the following entries.<pre>{  "title":            "DAYTONA 500",  "fontSize":         "100%",  "sponsorImageUrls": ["Sponsors/Sponsor1.png","Sponsors/Sponsor2.png","sra"],  "sponsorSeconds":   [60,120,60]}</pre>In the example, the sponsor logos is an array of files that are stored in the "Documents/SIMRacingApps/Sponsors" folder.The ratio of a sponsor file should be 4x1. The default window size calculates that to be 200x50 pixels, but it will scale up and down.Each sponsor can have their own display time using the seconds array.The first sponsor will be displayed for 60 seconds, the second for 120 seconds, then start over.You can add more sponsors and seconds to display as needed.Any image that cannot be found will be replaced with the stock SRA logo.<p>Example list of the files.<pre>   Documents\SIMRacingApps\StandingsBanner.json   Documents\SIMRacingApps\Sponsors\Sponsor1.png   Documents\SIMRacingApps\Sponsors\Sponsor2.png</pre><p>Example:<p><b>&lt;sra-standings-banner&gt;&lt;/sra-standings-banner&gt;<br /></b><img src="../widgets/StandingsBanner/icon.png" alt="Image goes here"/>
+          This widget displays a TV style banner showing the standings of your class.Designed to be used as an overlay with OBS.By default, the session type is displayed as the title.The default sponsor is SIMRacingApps.To change either, create a file called "StandingsBanner.json" in the "Documents/SIMRacingApps" folder with the following entries.<pre>{  "title":            "DAYTONA 500",  "fontSize":         "100%",  "sponsorImageUrls": ["Sponsors/Sponsor1.png","Sponsors/Sponsor2.png","sra"],  "sponsorSeconds":   [60,120,60]}</pre>In the example, the sponsor logos is an array of files that are stored in the "Documents/SIMRacingApps/Sponsors" folder.The ratio of a sponsor file should be 4x1. The default window size calculates that to be 200x50 pixels, but it will scale up and down.Each sponsor can have their own display time using the seconds array.The first sponsor will be displayed for 60 seconds, the second for 120 seconds, then start over.You can add more sponsors and seconds to display as needed.Any image that cannot be found will be replaced with the stock SRA logo.<p>Example list of the files.<pre>   Documents\SIMRacingApps\StandingsBanner.json   Documents\SIMRacingApps\Sponsors\Sponsor1.png   Documents\SIMRacingApps\Sponsors\Sponsor2.png</pre><p>Example:<p><b>&lt;sra-standings-banner&gt;&lt;/sra-standings-banner&gt;<br /></b><img src="../widgets/StandingsBanner/icon.png" alt="Image goes here"/>
         </div>
         <div class="details"></div>
         <div>
