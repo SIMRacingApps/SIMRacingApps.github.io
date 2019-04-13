@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10};
+var methods = {"i0":10,"i1":10,"i2":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -151,11 +151,15 @@ extends java.lang.Object</pre>
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
+<td class="colFirst"><code>&lt;T extends com.sun.jna.Structure&gt;<br>T</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Windows.Pointer.html#asStructure-java.util.function.Function-">asStructure</a></span>(java.util.function.Function&lt;com.sun.jna.Pointer,T&gt;&nbsp;structureCreator)</code>&nbsp;</td>
+</tr>
+<tr id="i1" class="rowColor">
 <td class="colFirst"><code>byte[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Windows.Pointer.html#getByteArray-long-int-">getByteArray</a></span>(long&nbsp;offset,
             int&nbsp;arraySize)</code>&nbsp;</td>
 </tr>
-<tr id="i1" class="rowColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>java.nio.ByteBuffer</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Windows.Pointer.html#getByteBuffer-long-long-">getByteBuffer</a></span>(long&nbsp;offset,
              long&nbsp;length)</code>&nbsp;</td>
@@ -212,11 +216,20 @@ extends java.lang.Object</pre>
 <a name="getByteBuffer-long-long-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>getByteBuffer</h4>
 <pre>public&nbsp;java.nio.ByteBuffer&nbsp;getByteBuffer(long&nbsp;offset,
                                          long&nbsp;length)</pre>
+</li>
+</ul>
+<a name="asStructure-java.util.function.Function-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>asStructure</h4>
+<pre>public&nbsp;&lt;T extends com.sun.jna.Structure&gt;&nbsp;T&nbsp;asStructure(java.util.function.Function&lt;com.sun.jna.Pointer,T&gt;&nbsp;structureCreator)</pre>
 </li>
 </ul>
 </li>
