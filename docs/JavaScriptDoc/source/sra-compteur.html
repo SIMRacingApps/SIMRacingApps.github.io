@@ -1,0 +1,418 @@
+<!doctype html>
+<html>
+  <head>
+    <base href="../">
+    <title>JSDoc: source : Compteur.js</title>
+    <link type="text/css" rel="stylesheet" href="css/jsdoc-default.css">
+    <link href="css/prettify-tomorrow.css" type="text/css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,400,300,700" rel="stylesheet" type="text/css">
+    <link href="css/custom.css" type="text/css" rel="stylesheet">
+    <script src="js/prettify.js"></script>
+    <script src="js/angular.min.js"></script>
+  </head>
+  <body ng-app="">
+    <nav>
+      <h2><a href="index.html">Index</a></h2>
+      <ul class="module">
+        <!-- undefined -->
+        <h3>
+          <a href="" ng-click="moduleundefined = !moduleundefined">
+            module: undefined
+          </a>
+          <i ng-cloak="" ng-show="moduleundefined">+</i>
+        </h3>
+        <li id="undefined" ng-hide="moduleundefined">
+          <ul class="group">
+            <h3>
+              <a href="" ng-click="undefinedapps = !undefinedapps">
+                apps
+              </a>
+              <i ng-cloak="" ng-show="undefinedapps">+</i>
+            </h3>
+            <ul ng-hide="undefinedapps">
+              <li>
+                <a href="CrewChief.html">CrewChief</a>
+              </li><li>
+                <a href="CrewChief-Large.html">CrewChief-Large</a>
+              </li><li>
+                <a href="Dash-BarGauges-DigitalOverlay.html">Dash-BarGauges-DigitalOverlay</a>
+              </li><li>
+                <a href="Dash-Gauges-Spek.html">Dash-Gauges-Spek</a>
+              </li><li>
+                <a href="Dash-Gauges-Spek-Horizontal.html">Dash-Gauges-Spek-Horizontal</a>
+              </li><li>
+                <a href="Dash-Minimum.html">Dash-Minimum</a>
+              </li><li>
+                <a href="Dash-Small.html">Dash-Small</a>
+              </li><li>
+                <a href="Dash-StockCars-DigitalOverlay.html">Dash-StockCars-DigitalOverlay</a>
+              </li><li>
+                <a href="NASCAR-Analog-Dash.html">NASCAR-Analog-Dash</a>
+              </li><li>
+                <a href="NASCAR-Digital-Dash.html">NASCAR-Digital-Dash</a>
+              </li><li>
+                <a href="RaceAdministrator.html">RaceAdministrator</a>
+              </li><li>
+                <a href="Spectator.html">Spectator</a>
+              </li><li>
+                <a href="Spectator60.html">Spectator60</a>
+              </li><li>
+                <a href="Spotter.html">Spotter</a>
+              </li><li>
+                <a href="Spotter60.html">Spotter60</a>
+              </li><li>
+                <a href="StreamingOverlay.html">StreamingOverlay</a>
+              </li>
+            </ul>
+          </ul><ul class="group">
+            <h3>
+              <a href="" ng-click="undefineddirective = !undefineddirective">
+                directive
+              </a>
+              <i ng-cloak="" ng-show="undefineddirective">+</i>
+            </h3>
+            <ul ng-hide="undefineddirective">
+              <li>
+                <a href="sra-analog-gauge.html">sra-analog-gauge</a>
+              </li><li>
+                <a href="sra-analog-gauge-spek-brake-pressure.html">sra-analog-gauge-spek-brake-pressure</a>
+              </li><li>
+                <a href="sra-analog-gauge-spek-fuel-level.html">sra-analog-gauge-spek-fuel-level</a>
+              </li><li>
+                <a href="sra-analog-gauge-spek-fuel-pressure.html">sra-analog-gauge-spek-fuel-pressure</a>
+              </li><li>
+                <a href="sra-analog-gauge-spek-h-y-s-charge.html">sra-analog-gauge-spek-h-y-s-charge</a>
+              </li><li>
+                <a href="sra-analog-gauge-spek-h-y-s-deployment.html">sra-analog-gauge-spek-h-y-s-deployment</a>
+              </li><li>
+                <a href="sra-analog-gauge-spek-oil-level.html">sra-analog-gauge-spek-oil-level</a>
+              </li><li>
+                <a href="sra-analog-gauge-spek-oil-pressure.html">sra-analog-gauge-spek-oil-pressure</a>
+              </li><li>
+                <a href="sra-analog-gauge-spek-oil-temp.html">sra-analog-gauge-spek-oil-temp</a>
+              </li><li>
+                <a href="sra-analog-gauge-spek-speedometer.html">sra-analog-gauge-spek-speedometer</a>
+              </li><li>
+                <a href="sra-analog-gauge-spek-tachometer.html">sra-analog-gauge-spek-tachometer</a>
+              </li><li>
+                <a href="sra-analog-gauge-spek-voltage.html">sra-analog-gauge-spek-voltage</a>
+              </li><li>
+                <a href="sra-analog-gauge-spek-water-level.html">sra-analog-gauge-spek-water-level</a>
+              </li><li>
+                <a href="sra-analog-gauge-spek-water-pressure.html">sra-analog-gauge-spek-water-pressure</a>
+              </li><li>
+                <a href="sra-analog-gauge-spek-water-temp.html">sra-analog-gauge-spek-water-temp</a>
+              </li><li>
+                <a href="sra-bar-gauge.html">sra-bar-gauge</a>
+              </li><li>
+                <a href="sra-bar-gauge-brake-pressure.html">sra-bar-gauge-brake-pressure</a>
+              </li><li>
+                <a href="sra-bar-gauge-fuel-level.html">sra-bar-gauge-fuel-level</a>
+              </li><li>
+                <a href="sra-bar-gauge-fuel-pressure.html">sra-bar-gauge-fuel-pressure</a>
+              </li><li>
+                <a href="sra-bar-gauge-h-y-s-charge.html">sra-bar-gauge-h-y-s-charge</a>
+              </li><li>
+                <a href="sra-bar-gauge-h-y-s-deployment.html">sra-bar-gauge-h-y-s-deployment</a>
+              </li><li>
+                <a href="sra-bar-gauge-oil-level.html">sra-bar-gauge-oil-level</a>
+              </li><li>
+                <a href="sra-bar-gauge-oil-pressure.html">sra-bar-gauge-oil-pressure</a>
+              </li><li>
+                <a href="sra-bar-gauge-oil-temp.html">sra-bar-gauge-oil-temp</a>
+              </li><li>
+                <a href="sra-bar-gauge-speedometer.html">sra-bar-gauge-speedometer</a>
+              </li><li>
+                <a href="sra-bar-gauge-tachometer.html">sra-bar-gauge-tachometer</a>
+              </li><li>
+                <a href="sra-bar-gauge-voltage.html">sra-bar-gauge-voltage</a>
+              </li><li>
+                <a href="sra-bar-gauge-water-level.html">sra-bar-gauge-water-level</a>
+              </li><li>
+                <a href="sra-bar-gauge-water-pressure.html">sra-bar-gauge-water-pressure</a>
+              </li><li>
+                <a href="sra-bar-gauge-water-temp.html">sra-bar-gauge-water-temp</a>
+              </li><li>
+                <a href="sra-camera-selector.html">sra-camera-selector</a>
+              </li><li>
+                <a href="sra-camera-selector30.html">sra-camera-selector30</a>
+              </li><li>
+                <a href="sra-camera-selector-vertical30.html">sra-camera-selector-vertical30</a>
+              </li><li>
+                <a href="sra-car-controls.html">sra-car-controls</a>
+              </li><li>
+                <a href="sra-car-image.html">sra-car-image</a>
+              </li><li>
+                <a href="sra-car-left.html">sra-car-left</a>
+              </li><li>
+                <a href="sra-car-number.html">sra-car-number</a>
+              </li><li>
+                <a href="sra-car-number-extended.html">sra-car-number-extended</a>
+              </li><li>
+                <a href="sra-car-right.html">sra-car-right</a>
+              </li><li>
+                <a href="sra-car-selector.html">sra-car-selector</a>
+              </li><li>
+                <a href="sra-car-selector64.html">sra-car-selector64</a>
+              </li><li>
+                <a href="sra-car-telemetry.html">sra-car-telemetry</a>
+              </li><li>
+                <a href="sra-chat.html">sra-chat</a>
+              </li><li>
+                <a href="sra-compteur.html">sra-compteur</a>
+              </li><li>
+                <a href="sra-data-table.html">sra-data-table</a>
+              </li><li>
+                <a href="sra-driver-info.html">sra-driver-info</a>
+              </li><li>
+                <a href="sra-flags.html">sra-flags</a>
+              </li><li>
+                <a href="sra-fuel-tank.html">sra-fuel-tank</a>
+              </li><li>
+                <a href="sra-gear.html">sra-gear</a>
+              </li><li>
+                <a href="sra-gforce.html">sra-gforce</a>
+              </li><li>
+                <a href="sra-in-car-adjustments.html">sra-in-car-adjustments</a>
+              </li><li>
+                <a href="sra-in-garage.html">sra-in-garage</a>
+              </li><li>
+                <a href="sra-lap-times.html">sra-lap-times</a>
+              </li><li>
+                <a href="sra-lap-timing.html">sra-lap-timing</a>
+              </li><li>
+                <a href="sra-laps-banner.html">sra-laps-banner</a>
+              </li><li>
+                <a href="sra-messages.html">sra-messages</a>
+              </li><li>
+                <a href="sra-pedals.html">sra-pedals</a>
+              </li><li>
+                <a href="sra-pit-commander.html">sra-pit-commander</a>
+              </li><li>
+                <a href="sra-pit-road.html">sra-pit-road</a>
+              </li><li>
+                <a href="sra-radio-control.html">sra-radio-control</a>
+              </li><li>
+                <a href="sra-radio-transmitting.html">sra-radio-transmitting</a>
+              </li><li>
+                <a href="sra-relative.html">sra-relative</a>
+              </li><li>
+                <a href="sra-relative-small.html">sra-relative-small</a>
+              </li><li>
+                <a href="sra-replay-control.html">sra-replay-control</a>
+              </li><li>
+                <a href="sra-s-i-m-time.html">sra-s-i-m-time</a>
+              </li><li>
+                <a href="sra-s-r-a-logo.html">sra-s-r-a-logo</a>
+              </li><li>
+                <a href="sra-s-r-a-logo-u-r-l.html">sra-s-r-a-logo-u-r-l</a>
+              </li><li>
+                <a href="sra-shift-light.html">sra-shift-light</a>
+              </li><li>
+                <a href="sra-shift-lights.html">sra-shift-lights</a>
+              </li><li>
+                <a href="sra-standings.html">sra-standings</a>
+              </li><li>
+                <a href="sra-standings-banner.html">sra-standings-banner</a>
+              </li><li>
+                <a href="sra-standings-banner-class-vertical.html">sra-standings-banner-class-vertical</a>
+              </li><li>
+                <a href="sra-standings-banner-class-vertical20.html">sra-standings-banner-class-vertical20</a>
+              </li><li>
+                <a href="sra-standings-banner-vertical.html">sra-standings-banner-vertical</a>
+              </li><li>
+                <a href="sra-standings-banner-vertical20.html">sra-standings-banner-vertical20</a>
+              </li><li>
+                <a href="sra-standings-top-10.html">sra-standings-top-10</a>
+              </li><li>
+                <a href="sra-standings-top-20.html">sra-standings-top-20</a>
+              </li><li>
+                <a href="sra-standings-top-35.html">sra-standings-top-35</a>
+              </li><li>
+                <a href="sra-standings-top-43.html">sra-standings-top-43</a>
+              </li><li>
+                <a href="sra-standings-top-60.html">sra-standings-top-60</a>
+              </li><li>
+                <a href="sra-steering-wheel.html">sra-steering-wheel</a>
+              </li><li>
+                <a href="sra-team-speak-talking.html">sra-team-speak-talking</a>
+              </li><li>
+                <a href="sra-template.html">sra-template</a>
+              </li><li>
+                <a href="sra-text-gauge.html">sra-text-gauge</a>
+              </li><li>
+                <a href="sra-text-gauge-brake-bias-adjustment.html">sra-text-gauge-brake-bias-adjustment</a>
+              </li><li>
+                <a href="sra-text-gauge-brake-pressure.html">sra-text-gauge-brake-pressure</a>
+              </li><li>
+                <a href="sra-text-gauge-fuel-level.html">sra-text-gauge-fuel-level</a>
+              </li><li>
+                <a href="sra-text-gauge-fuel-pressure.html">sra-text-gauge-fuel-pressure</a>
+              </li><li>
+                <a href="sra-text-gauge-h-y-s-charge.html">sra-text-gauge-h-y-s-charge</a>
+              </li><li>
+                <a href="sra-text-gauge-h-y-s-deployment.html">sra-text-gauge-h-y-s-deployment</a>
+              </li><li>
+                <a href="sra-text-gauge-oil-level.html">sra-text-gauge-oil-level</a>
+              </li><li>
+                <a href="sra-text-gauge-oil-pressure.html">sra-text-gauge-oil-pressure</a>
+              </li><li>
+                <a href="sra-text-gauge-oil-temp.html">sra-text-gauge-oil-temp</a>
+              </li><li>
+                <a href="sra-text-gauge-speedometer.html">sra-text-gauge-speedometer</a>
+              </li><li>
+                <a href="sra-text-gauge-tachometer.html">sra-text-gauge-tachometer</a>
+              </li><li>
+                <a href="sra-text-gauge-voltage.html">sra-text-gauge-voltage</a>
+              </li><li>
+                <a href="sra-text-gauge-water-level.html">sra-text-gauge-water-level</a>
+              </li><li>
+                <a href="sra-text-gauge-water-pressure.html">sra-text-gauge-water-pressure</a>
+              </li><li>
+                <a href="sra-text-gauge-water-temp.html">sra-text-gauge-water-temp</a>
+              </li><li>
+                <a href="sra-time.html">sra-time</a>
+              </li><li>
+                <a href="sra-timing-delta.html">sra-timing-delta</a>
+              </li><li>
+                <a href="sra-tire.html">sra-tire</a>
+              </li><li>
+                <a href="sra-tire-measurements.html">sra-tire-measurements</a>
+              </li><li>
+                <a href="sra-track-map.html">sra-track-map</a>
+              </li><li>
+                <a href="sra-track-map-car.html">sra-track-map-car</a>
+              </li><li>
+                <a href="sra-track-map-finish-line.html">sra-track-map-finish-line</a>
+              </li><li>
+                <a href="sra-waiting-for-s-i-m.html">sra-waiting-for-s-i-m</a>
+              </li><li>
+                <a href="sra-weather-info.html">sra-weather-info</a>
+              </li><li>
+                <a href="sra-wind-gauge.html">sra-wind-gauge</a>
+              </li>
+            </ul>
+          </ul>
+        </li>
+      </ul><ul class="module">
+        <!-- module_____acing_pps -->
+        <h3>
+          <a href="" ng-click="modulemodule_____acing_pps = !modulemodule_____acing_pps">
+            module: module:SIMRacingApps
+          </a>
+          <i ng-cloak="" ng-show="modulemodule_____acing_pps">+</i>
+        </h3>
+        <li id="module:SIMRacingApps" ng-hide="modulemodule_____acing_pps">
+          <ul class="group">
+            <h3>
+              <a href="" ng-click="module_____acing_ppsfilter = !module_____acing_ppsfilter">
+                filter
+              </a>
+              <i ng-cloak="" ng-show="module_____acing_ppsfilter">+</i>
+            </h3>
+            <ul ng-hide="module_____acing_ppsfilter">
+              <li>
+                <a href="module-SIMRacingApps.sraCeil.html">sraCeil</a>
+              </li><li>
+                <a href="module-SIMRacingApps.sraDate.html">sraDate</a>
+              </li><li>
+                <a href="module-SIMRacingApps.sraDebug.html">sraDebug</a>
+              </li><li>
+                <a href="module-SIMRacingApps.sraDecodeEntities.html">sraDecodeEntities</a>
+              </li><li>
+                <a href="module-SIMRacingApps.sraDuration.html">sraDuration</a>
+              </li><li>
+                <a href="module-SIMRacingApps.sraEncodeEntities.html">sraEncodeEntities</a>
+              </li><li>
+                <a href="module-SIMRacingApps.sraFloor.html">sraFloor</a>
+              </li><li>
+                <a href="module-SIMRacingApps.sraHex.html">sraHex</a>
+              </li><li>
+                <a href="module-SIMRacingApps.sraLowerCase.html">sraLowerCase</a>
+              </li><li>
+                <a href="module-SIMRacingApps.sraLPad.html">sraLPad</a>
+              </li><li>
+                <a href="module-SIMRacingApps.sraNumber.html">sraNumber</a>
+              </li><li>
+                <a href="module-SIMRacingApps.sraRGB.html">sraRGB</a>
+              </li><li>
+                <a href="module-SIMRacingApps.sraRound.html">sraRound</a>
+              </li><li>
+                <a href="module-SIMRacingApps.sraRPad.html">sraRPad</a>
+              </li><li>
+                <a href="module-SIMRacingApps.sraUpperCase.html">sraUpperCase</a>
+              </li>
+            </ul>
+          </ul><ul class="group">
+            <h3>
+              <a href="" ng-click="module_____acing_ppsdirective = !module_____acing_ppsdirective">
+                directive
+              </a>
+              <i ng-cloak="" ng-show="module_____acing_ppsdirective">+</i>
+            </h3>
+            <ul ng-hide="module_____acing_ppsdirective">
+              <li>
+                <a href="module-SIMRacingApps-sra-data.html">sra-data</a>
+              </li><li>
+                <a href="module-SIMRacingApps-sra-horizontal-align.html">sra-horizontal-align</a>
+              </li><li>
+                <a href="module-SIMRacingApps-sra-resize.html">sra-resize</a>
+              </li><li>
+                <a href="module-SIMRacingApps-sra-vertical-align.html">sra-vertical-align</a>
+              </li>
+            </ul>
+          </ul><ul class="group">
+            <h3>
+              <a href="" ng-click="module_____acing_ppscontroller = !module_____acing_ppscontroller">
+                controller
+              </a>
+              <i ng-cloak="" ng-show="module_____acing_ppscontroller">+</i>
+            </h3>
+            <ul ng-hide="module_____acing_ppscontroller">
+              <li>
+                <a href="module-SIMRacingApps-sraController.html">sraController</a>
+              </li>
+            </ul>
+          </ul><ul class="group">
+            <h3>
+              <a href="" ng-click="module_____acing_ppsfactory = !module_____acing_ppsfactory">
+                factory
+              </a>
+              <i ng-cloak="" ng-show="module_____acing_ppsfactory">+</i>
+            </h3>
+            <ul ng-hide="module_____acing_ppsfactory">
+              <li>
+                <a href="module-SIMRacingApps-sraDispatcher.html">sraDispatcher</a>
+              </li>
+            </ul>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+    <div id="content" class="page-wrap">
+      <h1 class="title">
+        source : Compteur.js
+      </h1>
+      <div id="main" class="big-container">
+        <!-- source code html -->
+        <article>
+          <pre class="prettyprint source linenums"><code>'use strict';/** * This widget displays various driver inputs. * &lt;p> * Example: * &lt;p>&lt;b> * &lt;sra-compteur&gt;&lt;/sra-compteur&gt;&lt;br /> * &lt;/b> * &lt;img src="../widgets/Compteur/icon.png" /> * @ngdoc directive * @name sra-compteur * @param {boolean} data-sra-args-show-f1-compteur Show the F1 version of Compteur. Defaults to false. * @param {boolean} data-sra-args-show-clutch-f1-compteur Show the clutch on the F1 version of Compteur. Defaults to false. * @param {integer} data-sra-args-interval The interval, in milliseconds, that this widget will update from the server. Default is 1000. * @author Gary Prince * @since 1.0 * @copyright Copyright (C) 2015 - 2019 Jeffrey Gilliam * @license Apache License 2.0 */define(['SIMRacingApps','css!widgets/Compteur/Compteur'],function(SIMRacingApps) {    /* Moved these to $scope	// Compteur Widget Settings	var showSteeringWheel = true;	var showGforceMapAndDot = true;	var gforceMax = 3; 		var showKPH = false;	var showRPMLines = true;	var showPedalText = true;	var showLapTime = true;	var showCarImage = true;	var showClutchF1Compteur = false;	// CompteurF1 Widget Settings	var showF1Compteur = true;	var showSteeringWheel = false;	var showGforceMapAndDot = false;	var gforceMax = 3; 		var showKPH = false;	var showRPMLines = true;	var showPedalText = true;	var showLapTime = true;	var showCarImage = true;	var showClutchF1Compteur = false;	*/    var self = {        name:            "sraCompteur",        url:             'Compteur',        template:        'Compteur.html',        defaultWidth:    480,        defaultHeight:   480,        defaultInterval: 100   //initialize with the default interval    };    self.module = angular.module('SIMRacingApps'); //get the main module    self.module.directive(self.name,           ['sraDispatcher', '$filter', '$rootScope',    function(sraDispatcher,   $filter,   $rootScope) {        return {            restrict:    'EA',            $scope:       true,            templateUrl: sraDispatcher.getWidgetUrl(self.url) + '/' + self.template,            controller: [ '$scope', function($scope) {                $scope.directiveName   = self.name;                $scope.defaultWidth    = self.defaultWidth;                $scope.defaultHeight   = self.defaultHeight;                $scope.defaultInterval = self.defaultInterval;                // load translations, if you have any un-comment this				sraDispatcher.loadTranslations(sraDispatcher.getWidgetUrl(self.url),'text',function(path) {				$scope.translations = sraDispatcher.getTranslation(path);				});                /** your code goes here **/								    $scope.showF1Compteur = false;			    $scope.showSteeringWheel = true;			    $scope.showGforceMapAndDot = true;			    $scope.gforceMax = 3;  //			    $scope.showKPH = false;			    $scope.showRPMLines = true;			    $scope.showPedalText = true;			    $scope.showLapTime = true;			    $scope.showCarImage = true;			    $scope.showClutchF1Compteur = false;				// -------------------------------------------------------------				// -- RPM Ticks and Numbers ------------------------------------				// -------------------------------------------------------------				$scope.startAngle       = 120;                $scope.endAngle         = 420;                $scope.ringSize         = -36; // number ring				$scope.ringSizeTicks    = 45; // tick ring                $scope.majorSize        = 30;                $scope.majorBuffer      = 3;				$scope.majorSizeTicks   = 18; // tick length                $scope.majorBufferTicks = 2; // tick radius                $scope.majorTextBuffer  = 30;                 $scope.majorFontSize    = 30;                $scope.roundTo          = 1;                $scope.decimals         = 0;                $scope.majorMaxText = 3;				$scope.majorScale  = [                        { angle: 120, text: '0' },                        { angle: 150, text: '1' },                        { angle: 180, text: '2' },                        { angle: 210, text: '3' },                        { angle: 240, text: '4' },                        { angle: 270, text: '5' },                        { angle: 300, text: '6' },                        { angle: 330, text: '7' },                        { angle: 360, text: '8' },                        { angle: 390, text: '9' },                        { angle: 420, text: '10' }                ];                $scope.buildScales = function() {                    var Minimum        = $scope.data.Car.REFERENCE.Gauge.Tachometer.Minimum.Value || 0;                    var Maximum        = $scope.data.Car.REFERENCE.Gauge.Tachometer.Maximum.Value || 100;                    var MajorIncrement = $scope.data.Car.REFERENCE.Gauge.Tachometer.MajorIncrement.Value || 10;                    var range          = ($scope.endAngle - $scope.startAngle);                    // Major scale					//changed on 7/11/2018 to track the floored min and only create it once                    if (Minimum !== "" && Maximum !== "" && MajorIncrement !== "") {                        //console.log($scope.sraAnalogGauge + ': AnalogGauge.buildScales.major('+Minimum+','+Maximum+','+MajorIncrement+')');                        $scope.majorScale  = [];                        var angle          = $scope.startAngle;                        var inc   = range / ((Maximum - Minimum) / MajorIncrement);                        var minFloored = -1;                        for (var min = Minimum; MajorIncrement > 0 && min &lt;= Maximum; min += MajorIncrement) {                            if (minFloored != Math.floor(min)) {                                minFloored = Math.floor(min);                                //calculate the angle based on the floored value, else needle will not be accurate.                                var v = minFloored;                                if (v &lt;= Minimum)                                    angle = $scope.startAngle;                                else                                if (v >= Maximum)                                    angle = $scope.endAngle;                                else {                                    var percentage = (v - Minimum) / (Maximum - Minimum);                                    angle = $scope.startAngle + (percentage * range);                                }                                $scope.majorScale.push({angle: angle, text: minFloored});                            }                            //angle += inc;                        }                    }                };				// -------------------------------------------------------------				// -- GForce ---------------------------------------------------				// -------------------------------------------------------------				// move the dot and update the labels                $scope.myLongG=null;                $scope.myLatG=null;                $scope.myLongGReplayPaused=null;                $scope.myLatGReplayPaused=null;                $scope.replayState=null;				$scope.MoveDotAndUpdateLabels = function() { 	                				    $scope.replayState = $scope.data.Session.Replay.Value;					if ($scope.replayState != "||") { 						// get current Gs					    $scope.myLongG = $scope.data.Car.REFERENCE.LongitudeAcceleration.GF.Value;					    $scope.myLatG = $scope.data.Car.REFERENCE.LatitudeAcceleration.GF.Value;						// save Gs for when replay is paused										    $scope.myLongGReplayPaused = $scope.myLongG;					    $scope.myLatGReplayPaused = $scope.myLatG;					}					// set Gs to the previous frame's Gforce data				    if ($scope.replayState == "||") {				        $scope.myLongG	= $scope.myLongGReplayPaused;								        $scope.myLatG = $scope.myLatGReplayPaused;					}					// check gforceMax					if ($scope.gforceMax > 5) { $scope.gforceMax = 5; }					if ($scope.gforceMax &lt; 3) { $scope.gforceMax = 3; }					// move the dot					// G range = 0 to gforceMax, dot range = 80 to 400, center = 240					// dot has range of 160 from center -- adjust according to G % of gforceMax					// gforceMax = 3 (default setting)					function moveDot(myG) {											var myXY = ((myG / $scope.gforceMax) * 160) + 240;						if (myXY > 400) { myXY = 400; }						if (myXY &lt; 80) { myXY = 80; }						return myXY;					}					$scope.CY = moveDot($scope.myLongG);					$scope.CX = moveDot($scope.myLatG);					// get gforce path length and set dasharray					var myGforcePath = $scope.myGforcePathS;					var gforceDasharrayPathLength = Math.round(myGforcePath.getTotalLength());					$scope.gforceDasharray = gforceDasharrayPathLength;                    // GForce arc and label --> display strongest gforce										var myGforce = Math.max(Math.abs($scope.myLongG), Math.abs($scope.myLatG));					var myGforceMin = Math.min(myGforce, $scope.gforceMax); // keep arc fill from spilling into brake					$scope.gforcePct = gforceDasharrayPathLength - ((myGforceMin / $scope.gforceMax) * gforceDasharrayPathLength);						 					$scope.gforceTextOpacity = 0.0;					if ($scope.showPedalText) { 					    $scope.gforceNumber = myGforce;                        $scope.gforceTextOpacity = 0.55;											}					//show gforce background map and dot					$scope.gforceDotOpacity = 0.0;				    $scope.gforceLineOpacity = 0.0;					if ($scope.showGforceMapAndDot) { 					    $scope.gforceDotOpacity = 0.5;						$scope.gforceLineOpacity = 0.15;					}					// show gforce label f1 compteur					$scope.GforceLabelOpacityF1 = 0.0;					if ($scope.showGforceMapAndDot && $scope.showF1Compteur) {						$scope.GforceLabelOpacityF1 = 0.7;						$scope.GforceNumberF1 = myGforce;					}				};                // -------------------------------------------------------------				// -- RPM ------------------------------------------------------				// -------------------------------------------------------------				// fill the rpm arc and update labels								$scope.UpdateRPM = function() {					// get rpm values					var myRPM = $scope.data.Car.REFERENCE.Gauge.Tachometer.ValueCurrent.Value;					var myRPMState = $scope.data.Car.REFERENCE.Gauge.Tachometer.ValueCurrent.State;					var myRPMMin = $scope.data.Car.REFERENCE.Gauge.Tachometer.Minimum.Value * 1000;                    var myRPMMax = $scope.data.Car.REFERENCE.Gauge.Tachometer.Maximum.Value * 1000;					// set rpm color					// SHIFTLIGHTS - indicates the shift lights should be turned on					// SHIFT - indicates it is time to shift to the next gear					// SHIFTBLINK - Blink is after Shift and it's where the light will blink					// CRITICAL - indicates it has red-lined										if (myRPMState == "SHIFTLIGHTS") { $scope.RPMColor = "yellow"; }					else if (myRPMState == "SHIFT" || myRPMState == "SHIFTBLINK" || myRPMState == "CRITICAL") { $scope.RPMColor = "red"; }                    else { $scope.RPMColor = "blue"; }					// get rpm path length and set dasharray					var myRPMPath = $scope.myRPMPathS;										var rpmDasharrayPathLength = Math.round(myRPMPath.getTotalLength());					$scope.rpmDasharray = rpmDasharrayPathLength;					// set rpm arc pct and update display					// https://codepen.io/xgad/post/svg-radial-progress-meters					// stroke-dasharray = get path length					// stroke-dashoffset = % of stroke-dasharray to stroke/display					                    					$scope.RPMPct = rpmDasharrayPathLength + ((myRPM / (myRPMMax - myRPMMin)) * rpmDasharrayPathLength);					$scope.RPMNumber = myRPM;					//show rpm lines					$scope.rpmLineOpacity = 0.0;					if ($scope.showRPMLines) { $scope.rpmLineOpacity = 0.15; }				};				// -------------------------------------------------------------				// -- Speed ----------------------------------------------------				// -------------------------------------------------------------				// update the speed label				$scope.UpdateSpeed = function() {					// Speed = GPS vehicle speed, m/s, float					var mySpeed = $scope.data.Car.REFERENCE.Gauge.Speedometer.ValueCurrent.Value;										//if ($scope.showKPH) { mySpeed = $scope.data.Car.REFERENCE.Gauge.Speedometer.ValueCurrent.KPH.Value; } 					                    $scope.SpeedNumber = mySpeed;			                    $scope.SpeedLabel = $scope.data.Car.REFERENCE.Gauge.Speedometer.ValueCurrent.UOMAbbr;				};				// set the speed label//				var mySpeedLabel = "mph";//				if ($scope.showKPH) { mySpeedLabel = "kph"; } //                $scope.SpeedLabel = mySpeedLabel;				// -------------------------------------------------------------				// -- Gear -----------------------------------------------------				// -------------------------------------------------------------				// update the gear				$scope.UpdateGear = function() {					var myGear = $scope.data.Car.REFERENCE.Gauge.Gear.ValueCurrent.Value;					$scope.GearNumber = myGear;				};				// -------------------------------------------------------------				// -- Steering Wheel -------------------------------------------				// -------------------------------------------------------------				// update steering wheel				$scope.UpdateSteeringWheel = function() {					var mySteeringWheel = $scope.data.Car.REFERENCE.Gauge.Steering.ValueCurrent.DEG.Value;										$scope.SteeringAngle = mySteeringWheel;				};				// -------------------------------------------------------------				// -- Throttle Arc and Label -----------------------------------				// -------------------------------------------------------------				// update the throttle				$scope.UpdateThrottle = function() {					// get throttle path length and set dasharray					var myThrottlePath = $scope.myThrottlePathS;					var throttleDasharrayPathLength = Math.round(myThrottlePath.getTotalLength());					$scope.throttleDasharray = throttleDasharrayPathLength;						var myThrottle = $scope.data.Car.REFERENCE.Gauge.Throttle.ValueCurrent.Value;                    $scope.throttlePct = throttleDasharrayPathLength + ((myThrottle / 100) * throttleDasharrayPathLength);					$scope.throttleTextOpacity = 0.0;					if ($scope.showPedalText) { 					    $scope.throttleNumber = myThrottle;                        $scope.throttleTextOpacity = 0.55;											}                    // F1 compteur                    if ($scope.showF1Compteur)	{                        $scope.throttlePctF1 = myThrottle;						$scope.throttleOpacityContF1 = 1.0;						$scope.throttleOpacityBkgdF1 = 0.25;						$scope.throttleOpacityFillF1 = 0.99;                        // pedal text                        $scope.throttleTextOpacityF1 = 0.0;						if ($scope.showPedalText) { 							$scope.throttleNumberF1 = myThrottle;							$scope.throttleTextOpacityF1 = 0.5;										}                        // move throttle down a bit if clutch is hidden						if ($scope.showClutchF1Compteur) { $scope.throttleTopF1 = 61; }						else { $scope.throttleTopF1 = 65; }									    }				};				// -------------------------------------------------------------				// -- Brake Arc and Label --------------------------------------				// -------------------------------------------------------------				// update the brake				$scope.UpdateBrake = function() {					// get brake path length and set dasharray					var myBrakePath = $scope.myBrakePathS;					var brakeDasharrayPathLength = Math.round(myBrakePath.getTotalLength());					$scope.brakeDasharray = brakeDasharrayPathLength;						var myBrake = $scope.data.Car.REFERENCE.Gauge.Brake.ValueCurrent.Value;                    $scope.brakePct = brakeDasharrayPathLength - ((myBrake / 100) * brakeDasharrayPathLength);					$scope.brakeTextOpacity = 0.0;					if ($scope.showPedalText) { 					    $scope.brakeNumber = myBrake;                        $scope.brakeTextOpacity = 0.55;											}                    // F1 compteur                    if ($scope.showF1Compteur)	{                        $scope.brakePctF1 = myBrake;						$scope.brakeOpacityContF1 = 1.0;						$scope.brakeOpacityBkgdF1 = 0.15;						$scope.brakeOpacityFillF1 = 0.65;						// pedal text                        $scope.brakeTextOpacityF1 = 0.0;						if ($scope.showPedalText) { 							$scope.brakeNumberF1 = myBrake;							$scope.brakeTextOpacityF1 = 0.5;												}						// move brake down a bit if clutch is hidden						if ($scope.showClutchF1Compteur) { $scope.brakeTopF1 = 68.5; }						else { $scope.brakeTopF1 = 73; }				    }				};				// -------------------------------------------------------------				// -- Clutch Arc and Label -------------------------------------				// -------------------------------------------------------------				// update the clutch				$scope.UpdateClutch = function() {					// get clutch path length and set dasharray					var myClutchPath = $scope.myClutchPathS;					var clutchDasharrayPathLength = Math.round(myClutchPath.getTotalLength());					$scope.clutchDasharray = clutchDasharrayPathLength;						var myClutch = 100 - $scope.data.Car.REFERENCE.Gauge.Clutch.ValueCurrent.Value;                    $scope.clutchPct = clutchDasharrayPathLength + ((myClutch / 100) * clutchDasharrayPathLength);                    $scope.clutchTextOpacity = 0.0;					if ($scope.showPedalText) { 					    $scope.clutchNumber = myClutch;                        $scope.clutchTextOpacity = 0.55;											}                    // F1 compteur                    if ($scope.showF1Compteur)	{                        $scope.clutchPctF1 = myClutch;						$scope.clutchOpacityContF1 = 1.0;						$scope.clutchOpacityBkgdF1 = 0.15;						$scope.clutchOpacityFillF1 = 0.65;						// pedal text                        $scope.clutchTextOpacityF1 = 0.0;						if ($scope.showPedalText) { 							$scope.clutchNumberF1 = myClutch;							$scope.clutchTextOpacityF1 = 0.5;												}						// hide clutch						if (!$scope.showClutchF1Compteur) { 						    $scope.clutchOpacityContF1 = 0.0;						    $scope.clutchOpacityBkgdF1 = 0.0;						    $scope.clutchOpacityFillF1 = 0.0;						    $scope.clutchTextOpacityF1 = 0.0;						}				    }				};  				// -------------------------------------------------------------				// -- Lap Time -------------------------------------------------				// -------------------------------------------------------------				/*				#####################################################################				### Accurate 'current lap time' is found in 'ibt' and 'live' data				### Replay lap time needs to be estimated				###	Replay lap time will have a few limitations:				###	    will only start when you cross the start/finish line				###		will always be off a few tenths compared to live or ibt data				###		lap time count breaks if you rewind past the start/finish line				#####################################################################				*/				// update lap time				$scope.myNextLap = 0;				$scope.lapStartTime=null;				$scope.updateLapTime = function() {	                                					var myLapTime = $scope.data.Car.REFERENCE.LapTime.Current.Value;					var myIsReplay = $scope.data.Session.IsReplay.Value;										$scope.lapTimeOpacity = 0.0;					if (myIsReplay) {						var myCurrentLap = $scope.data.Car.REFERENCE.Lap.Value;						var myReplaySessionTime = $scope.data.Session.TimeElapsed.Value;						// check next lap -- if replay jumps a few laps, reset myNextLap						if ($scope.myNextLap &lt; myCurrentLap || $scope.myNextLap > myCurrentLap + 1) {						    $scope.myNextLap = myCurrentLap;						}						// these two vars will be equal at start of new lap 						if (myCurrentLap == $scope.myNextLap) { 							// reset lap start time						    $scope.lapStartTime = myReplaySessionTime;							// increment next lap						    $scope.myNextLap = myCurrentLap + 1;							}						//show lap time												if ($scope.showLapTime) {							$scope.lapTimeOpacity = 0.65;	                            $scope.lapTime = myReplaySessionTime - $scope.lapStartTime;													}					}                    else {						// show lap time												if ($scope.showLapTime) {							$scope.lapTimeOpacity = 0.65;							$scope.lapTime = myLapTime;						}											}				};				// -------------------------------------------------------------				// -- Arc Functions --------------------------------------------				// -------------------------------------------------------------				/* These 2 functions were found at:				 * http://stackoverflow.com/questions/5736398/how-to-calculate-the-svg-path-for-an-arc-of-a-circle				 */				$scope.polarToCartesian = function (centerX, centerY, radius, angleInDegrees) {					var angleInRadians = (angleInDegrees) * Math.PI / 180.0;					return {					  x: centerX + (radius * Math.cos(angleInRadians)),					  y: centerY + (radius * Math.sin(angleInRadians))					};				}				$scope.describeArc = function (centerX, centerY, radius, startAngle, endAngle){				    var start = $scope.polarToCartesian(centerX, centerY, radius, endAngle);				    var end = $scope.polarToCartesian(centerX, centerY, radius, startAngle);				    var largeArcFlag = endAngle - startAngle &lt;= 180 ? "0" : "1";				    var d = [					    "M", start.x, start.y,					    "A", radius, radius, 0, largeArcFlag, 0, end.x, end.y				    ].join(" ");				    return d;				}				// set the desired flags -- 0,1 for clockwise -- 1,0 for counter-clockwise 				$scope.describeArcFlags = function (centerX, centerY, radius, startAngle, endAngle, largeArcFlag, sweepFlag){				    var start = $scope.polarToCartesian(centerX, centerY, radius, endAngle);				    var end = $scope.polarToCartesian(centerX, centerY, radius, startAngle);				    var d = [					    "M", start.x, start.y,					    "A", radius, radius, 0, largeArcFlag, sweepFlag, end.x, end.y				    ].join(" ");				    return d;				}				// -------------------------------------------------------------				// -- What browser Function ------------------------------------				// -------------------------------------------------------------                // Edge returns 'Chrome'				// https://stackoverflow.com/questions/10505966/determine-what-browser-being-used-using-javascript                $scope.getBrowser = function () {				  if( navigator.userAgent.indexOf("Chrome") != -1 ) {					return "Chrome";				  } else if( navigator.userAgent.indexOf("Opera") != -1 ) {					return "Opera";				  } else if( navigator.userAgent.indexOf("Firefox") != -1 ) {					return "Firefox";				  } else {					return "unknown";				  }				}		            }]            , link: function($scope,$element,$attrs) {                //copy arguments to our $scope. First if using attribute, second tag, else default to something.                $attrs.sraArgsData = $attrs.sraArgsData || "";				$scope.value =                 $scope[self.name] = sraDispatcher.getTruthy($scope.sraArgsVALUE, $attrs[self.name], $attrs.sraArgsValue, "DefaultValue");				$scope.showF1Compteur = sraDispatcher.getBoolean($scope.sraArgsSHOWF1COMPTEUR, $attrs.sraArgsShowF1Compteur, $scope.showF1Compteur);				if ($scope.showF1Compteur) {				    $scope.showSteeringWheel = false;				    $scope.showGforceMapAndDot = false;				    $scope.gforceMax = 3;  				    $scope.showRPMLines = true;				    $scope.showPedalText = true;				    $scope.showLapTime = true;				    $scope.showCarImage = true;				    $scope.showClutchF1Compteur = false;				}                $scope.showClutchF1Compteur = sraDispatcher.getBoolean($scope.sraArgsSHOWCLUTCHF1COMPTEUR, $attrs.sraArgsShowClutchF1Compteur, $scope.showClutchF1Compteur);                /** your code goes here **/							        // add sim telemetry								$attrs.sraArgsData += ";Car/REFERENCE/LongitudeAcceleration/GF";				$attrs.sraArgsData += ";Car/REFERENCE/LatitudeAcceleration/GF";					$attrs.sraArgsData += ";Car/REFERENCE/Gauge/Tachometer/ValueCurrent";                $attrs.sraArgsData += ";Car/REFERENCE/Gauge/Tachometer/Minimum";				$attrs.sraArgsData += ";Car/REFERENCE/Gauge/Tachometer/Maximum";								$attrs.sraArgsData += ";Car/REFERENCE/Gauge/Tachometer/MajorIncrement";                $attrs.sraArgsData += ";Car/REFERENCE/Gauge/Tachometer/Multiplier";								$attrs.sraArgsData += ";Car/REFERENCE/Gauge/Speedometer/ValueCurrent";                $attrs.sraArgsData += ";Car/REFERENCE/Gauge/Speedometer/ValueCurrent/KPH";				                $attrs.sraArgsData += ";Car/REFERENCE/Gauge/Gear/ValueCurrent";                $attrs.sraArgsData += ";Car/REFERENCE/Gauge/Steering/ValueCurrent/DEG";								$attrs.sraArgsData += ";Car/REFERENCE/Gauge/Throttle/ValueCurrent";				$attrs.sraArgsData += ";Car/REFERENCE/Gauge/Brake/ValueCurrent";						$attrs.sraArgsData += ";Car/REFERENCE/Gauge/Clutch/ValueCurrent";	                $attrs.sraArgsData += ";Car/REFERENCE/ImageUrl";				$attrs.sraArgsData += ";Car/REFERENCE/LapTime/Current";                $attrs.sraArgsData += ";Session/Replay";				$attrs.sraArgsData += ";Session/IsReplay";				$attrs.sraArgsData += ";Car/REFERENCE/Lap";                $attrs.sraArgsData += ";Session/TimeElapsed";				// watch for changes, then call function				$scope.$watch("data.Car.REFERENCE.LongitudeAcceleration.GF.Value", $scope.MoveDotAndUpdateLabels);				$scope.$watch("data.Car.REFERENCE.LatitudeAcceleration.GF.Value", $scope.MoveDotAndUpdateLabels);				$scope.$watch("data.Car.REFERENCE.Gauge.Tachometer.ValueCurrent.Value", $scope.UpdateRPM);				$scope.$watch("data.Car.REFERENCE.Gauge.Tachometer.Minimum.Value", $scope.buildScales);				$scope.$watch("data.Car.REFERENCE.Gauge.Tachometer.Maximum.Value", $scope.buildScales);								$scope.$watch("data.Car.REFERENCE.Gauge.Tachometer.MajorIncrement.Value", $scope.buildScales);				$scope.$watch("data.Car.REFERENCE.Gauge.Tachometer.Multiplier.Value", $scope.buildScales);				$scope.$watch("data.Car.REFERENCE.Gauge.Speedometer.ValueCurrent.Value", $scope.UpdateSpeed);				$scope.$watch("data.Car.REFERENCE.Gauge.Speedometer.ValueCurrent.KPH.Value", $scope.UpdateSpeed);				$scope.$watch("data.Car.REFERENCE.Gauge.Gear.ValueCurrent.Value", $scope.UpdateGear);				$scope.$watch("data.Car.REFERENCE.Gauge.Steering.ValueCurrent.DEG.Value", $scope.UpdateSteeringWheel);				$scope.$watch("data.Car.REFERENCE.Gauge.Throttle.ValueCurrent.Value", $scope.UpdateThrottle);				$scope.$watch("data.Car.REFERENCE.Gauge.Brake.ValueCurrent.Value", $scope.UpdateBrake);				$scope.$watch("data.Car.REFERENCE.Gauge.Clutch.ValueCurrent.Value", $scope.UpdateClutch);				$scope.$watch("data.Car.REFERENCE.LapTime.Current.Value", $scope.updateLapTime);				$scope.$watch('data.Session.Replay.Value', $scope.MoveDotAndUpdateLabels);				$scope.$watch('data.Session.IsReplay.Value', $scope.updateLapTime);				$scope.$watch("data.Car.REFERENCE.Lap.Value", $scope.updateLapTime);				$scope.$watch("data.Session.TimeElapsed.Value", $scope.updateLapTime);				// get path length for curved text				$scope.myGforcePathS = $element[0];				$scope.myGforcePathS = $scope.myGforcePathS.querySelector('.myGforcePathFill');				$scope.myRPMPathS = $element[0];				$scope.myRPMPathS = $scope.myRPMPathS.querySelector('.myRPMPathFill');				$scope.myThrottlePathS = $element[0];				$scope.myThrottlePathS = $scope.myThrottlePathS.querySelector('.myThrottlePathFill');				$scope.myBrakePathS = $element[0];				$scope.myBrakePathS = $scope.myBrakePathS.querySelector('.myBrakePathFill');				$scope.myClutchPathS = $element[0];								$scope.myClutchPathS = $scope.myClutchPathS.querySelector('.myClutchPathFill');				                //show major numbers for F1 compteur                $scope.tickNumberOpacity = 0.0;                if ($scope.showF1Compteur) {                    $scope.tickNumberOpacity = 0.7;                }                //show major ticks                $scope.tickOpacity = 0.0;                if ($scope.showRPMLines) {                    $scope.tickOpacity = 0.35;                }                // -------------------------------------------------------------                // -- Old Style F1 Compteur ------------------------------------                // -------------------------------------------------------------                $scope.F1StyleOpacity = 1.0;                if ($scope.showF1Compteur) {                    $scope.F1StyleOpacity = 0.0; // hide pedal arcs                }                // calculate the gforce arc paths                $scope.gforcePathFillBkgd = $scope.describeArc(240,240,212,380,420);                $scope.gforcePathFill = $scope.describeArc(240,240,212,380,420);                 $scope.gforcePathNumber = $scope.describeArc(240,240,217,374,414);                // calculate the rpm arc paths                $scope.rpmPathStroke = $scope.describeArc(240,240,193,120,420);                $scope.rpmPathFillBkgd = $scope.describeArc(240,240,183,120,420);                $scope.rpmPathFill = $scope.describeArc(240,240,183,120,420);                $scope.rpmPathx1000 = $scope.describeArc(240,240,188,166,466);                // -------------------------------------------------------------                // -- RPM x1000Label -------------------------------------------                // -------------------------------------------------------------                $scope.tapepath = $scope.describeArc(240,240,177,268,275);                $scope.steeringTapeOpacity = 0.0;                if($scope.showSteeringWheel) { $scope.steeringTapeOpacity = 0.7; }                // calculate the throttle arc paths                         $scope.throttlePathFillBkgd = $scope.describeArc(240,240,212,160,245);                 $scope.throttlePathFill = $scope.describeArc(240,240,212,160,245);                $scope.throttlePathNumber = $scope.describeArcFlags(240,240,204,275,185,0,1);                // calculate the brake arc paths                $scope.brakePathFillBkgd = $scope.describeArc(240,240,212,295,380);                $scope.brakePathFill = $scope.describeArc(240,240,212,295,380);                $scope.brakePathNumber = $scope.describeArcFlags(240,240,204,415,325,0,1);                             // calculate the clutch arc paths                $scope.clutchPathFillBkgd = $scope.describeArc(240,240,212,120,160);                $scope.clutchPathFill = $scope.describeArc(240,240,212,120,160);                $scope.clutchPathNumber = $scope.describeArc(240,240,217,112,152,0,1);                // -------------------------------------------------------------                // -- Car Image ------------------------------------------------                // -------------------------------------------------------------                $scope.carImageOpacity = 0.0;                if ($scope.showCarImage && !$scope.showF1Compteur) {                    $scope.carImageOpacity = 0.75;                }                $scope.lapTimePath = $scope.describeArcFlags(240,240,204,320,620,0,1);                //Sad we have to do this                if ($scope.getBrowser() == "Firefox") {                    $scope.rpmx1000url = "http://" + document.location.hostname + "/SIMRacingApps/apps/WidgetLoader?widget=Compteur#rpmCurve"+$scope.$id;                    $scope.gforceurl = "http://" + document.location.hostname + "/SIMRacingApps/apps/WidgetLoader?widget=Compteur#gforceCurve"+$scope.$id;                    $scope.throttleurl = "http://" + document.location.hostname + "/SIMRacingApps/apps/WidgetLoader?widget=Compteur#throttleCurve"+$scope.$id;                    $scope.brakeurl = "http://" + document.location.hostname + "/SIMRacingApps/apps/WidgetLoader?widget=Compteur#brakeCurve"+$scope.$id;                    $scope.clutchurl = "http://" + document.location.hostname + "/SIMRacingApps/apps/WidgetLoader?widget=Compteur#clutchCurve"+$scope.$id;					$scope.laptimeurl = "http://" + document.location.hostname + "/SIMRacingApps/apps/WidgetLoader?widget=Compteur#lapTimeCurve"+$scope.$id;                }                else {                    $scope.rpmx1000url = '#rpmCurve'+$scope.$id;                    $scope.gforceurl = '#gforceCurve'+$scope.$id;                    $scope.throttleurl = '#throttleCurve'+$scope.$id;                    $scope.brakeurl = '#brakeCurve'+$scope.$id;					$scope.clutchurl = '#clutchCurve'+$scope.$id;                    $scope.laptimeurl = '#lapTimeCurve'+$scope.$id;                }                               /**standard code that should be in every directive **/                $rootScope.$on('sraResize', sraDispatcher.resize($scope,$element,self.defaultWidth,self.defaultHeight));                //register with the dispatcher                $scope.names = sraDispatcher.subscribe($scope,$attrs,self.defaultInterval); //register subscriptions and options to the dispatcher				            }        };    }]);    return self;});</code></pre>
+        </article>
+        <!-- index.html -->
+        <!-- class files -->
+      </div>
+      <footer style="clear:both">
+        Documentation generated by
+        <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.2</a>
+        using
+        <a href="https://github.com/allenhwkim/angular-jsdoc">Angular-JSDoc template</a>
+      </footer>
+    </div>
+    <!--%= prettyJson %-->
+    <script>
+      prettyPrint();
+      var lineNo = window.location.hash.match(/#line([0-9]+)$/);
+      lineNo && document.querySelector("ol li:nth-child("+(lineNo[1])+")").scrollIntoView();
+    </script>
+  </body>
+</html>
