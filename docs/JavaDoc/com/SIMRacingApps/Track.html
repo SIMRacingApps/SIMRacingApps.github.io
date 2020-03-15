@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10,"i26":10,"i27":10,"i28":10,"i29":10,"i30":10,"i31":10,"i32":10,"i33":10,"i34":10,"i35":10,"i36":10,"i37":10,"i38":10,"i39":10,"i40":10,"i41":10,"i42":10,"i43":10,"i44":10,"i45":10,"i46":10,"i47":10,"i48":10,"i49":10,"i50":10,"i51":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10,"i26":10,"i27":10,"i28":10,"i29":10,"i30":10,"i31":10,"i32":10,"i33":10,"i34":10,"i35":10,"i36":10,"i37":10,"i38":10,"i39":10,"i40":10,"i41":10,"i42":10,"i43":10,"i44":10,"i45":10,"i46":10,"i47":10,"i48":10,"i49":10,"i50":10,"i51":10,"i52":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -125,7 +125,7 @@ extends java.lang.Object</pre>
 <dt><span class="simpleTagLabel">Author:</span></dt>
 <dd>Jeffrey Gilliam</dd>
 <dt><span class="simpleTagLabel">Copyright:</span></dt>
-<dd>Copyright (C) 2015 - 2019 Jeffrey Gilliam</dd>
+<dd>Copyright (C) 2015 - 2020 Jeffrey Gilliam</dd>
 <dt><span class="simpleTagLabel">License:</span></dt>
 <dd>Apache License 2.0</dd>
 </dl>
@@ -194,14 +194,24 @@ extends java.lang.Object</pre>
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
+<td class="colFirst"><code>double</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Track.html#Z:Z_getMergePoint-double-">_getMergePoint</a></span>(double&nbsp;relativeTo)</code>
+<div class="block">Returns the merging point as a percentage of where you are allowed to merge onto the track after when leaving the pits.</div>
+</td>
+</tr>
+<tr id="i1" class="rowColor">
+<td class="colFirst"><code>double</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Track.html#Z:Z_maxPercentage--">_maxPercentage</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i2" class="altColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Track.html#getBearing--">getBearing</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i1" class="rowColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Track.html#getBearing-java.lang.String-">getBearing</a></span>(java.lang.String&nbsp;location)</code>&nbsp;</td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Track.html#getBearing-java.lang.String-java.lang.Double-java.lang.String-">getBearing</a></span>(java.lang.String&nbsp;location,
           java.lang.Double&nbsp;percentage,
@@ -209,76 +219,76 @@ extends java.lang.Object</pre>
 <div class="block">Returns the bearing of the requested position based on percentage traveled from the start/finish line.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Track.html#getBearing-java.lang.String-java.lang.String-">getBearing</a></span>(java.lang.String&nbsp;location,
           java.lang.String&nbsp;percentage)</code>&nbsp;</td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Track.html#getBearing-java.lang.String-java.lang.String-java.lang.String-">getBearing</a></span>(java.lang.String&nbsp;location,
           java.lang.String&nbsp;percentage,
           java.lang.String&nbsp;UOM)</code>&nbsp;</td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Track.html#getCategory--">getCategory</a></span>()</code>
 <div class="block">Returns the track category as defined by <a href="../../com/SIMRacingApps/Track.Category.html" title="class in com.SIMRacingApps"><code>Track.Category</code></a></div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Track.html#getCity--">getCity</a></span>()</code>
 <div class="block">Returns the city of where the track is as reported by the SIM SIMPlugin.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Track.html#getConfiguration--">getConfiguration</a></span>()</code>
 <div class="block">Returns the track configuration as reported by the SIM SIMPlugin.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Track.html#getCountry--">getCountry</a></span>()</code>
 <div class="block">Returns the country code of where the track is as reported by the SIM SIMPlugin.</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Track.html#getDescription--">getDescription</a></span>()</code>
 <div class="block">Returns the description of the track.</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Track.html#getFinishLineRotation--">getFinishLineRotation</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Track.html#getFinishLineRotation-java.lang.String-">getFinishLineRotation</a></span>(java.lang.String&nbsp;UOM)</code>
 <div class="block">Returns the degrees to rotate the finish line.</div>
 </td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Track.html#getImage--">getImage</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Track.html#getImage-java.lang.String-">getImage</a></span>(java.lang.String&nbsp;type)</code>
 <div class="block">Returns the path to the track image specified by the "type" of image.</div>
 </td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i16" class="altColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Track.html#getLatitude--">getLatitude</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i15" class="rowColor">
+<tr id="i17" class="rowColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Track.html#getLatitude-java.lang.String-">getLatitude</a></span>(java.lang.String&nbsp;location)</code>&nbsp;</td>
 </tr>
-<tr id="i16" class="altColor">
+<tr id="i18" class="altColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Track.html#getLatitude-java.lang.String-java.lang.Double-java.lang.String-">getLatitude</a></span>(java.lang.String&nbsp;location,
            java.lang.Double&nbsp;percentage,
@@ -286,36 +296,36 @@ extends java.lang.Object</pre>
 <div class="block">Returns the Latitude of the requested position based on percentage traveled from the start/finish line.</div>
 </td>
 </tr>
-<tr id="i17" class="rowColor">
+<tr id="i19" class="rowColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Track.html#getLatitude-java.lang.String-java.lang.String-">getLatitude</a></span>(java.lang.String&nbsp;location,
            java.lang.String&nbsp;percentage)</code>&nbsp;</td>
 </tr>
-<tr id="i18" class="altColor">
+<tr id="i20" class="altColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Track.html#getLatitude-java.lang.String-java.lang.String-java.lang.String-">getLatitude</a></span>(java.lang.String&nbsp;location,
            java.lang.String&nbsp;percentage,
            java.lang.String&nbsp;UOM)</code>&nbsp;</td>
 </tr>
-<tr id="i19" class="rowColor">
+<tr id="i21" class="rowColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Track.html#getLength--">getLength</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i20" class="altColor">
+<tr id="i22" class="altColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Track.html#getLength-java.lang.String-">getLength</a></span>(java.lang.String&nbsp;UOM)</code>
 <div class="block">Returns the length of the track using the unit of measure the distance of this track is normally reported in.</div>
 </td>
 </tr>
-<tr id="i21" class="rowColor">
+<tr id="i23" class="rowColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Track.html#getLongitude--">getLongitude</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i22" class="altColor">
+<tr id="i24" class="altColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Track.html#getLongitude-java.lang.String-">getLongitude</a></span>(java.lang.String&nbsp;location)</code>&nbsp;</td>
 </tr>
-<tr id="i23" class="rowColor">
+<tr id="i25" class="rowColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Track.html#getLongitude-java.lang.String-java.lang.Double-java.lang.String-">getLongitude</a></span>(java.lang.String&nbsp;location,
             java.lang.Double&nbsp;percentage,
@@ -323,151 +333,145 @@ extends java.lang.Object</pre>
 <div class="block">Returns the Longitude of the requested position based on percentage traveled from the start/finish line.</div>
 </td>
 </tr>
-<tr id="i24" class="altColor">
+<tr id="i26" class="altColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Track.html#getLongitude-java.lang.String-java.lang.String-">getLongitude</a></span>(java.lang.String&nbsp;location,
             java.lang.String&nbsp;percentage)</code>&nbsp;</td>
 </tr>
-<tr id="i25" class="rowColor">
+<tr id="i27" class="rowColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Track.html#getLongitude-java.lang.String-java.lang.String-java.lang.String-">getLongitude</a></span>(java.lang.String&nbsp;location,
             java.lang.String&nbsp;percentage,
             java.lang.String&nbsp;UOM)</code>&nbsp;</td>
 </tr>
-<tr id="i26" class="altColor">
+<tr id="i28" class="altColor">
 <td class="colFirst"><code>java.util.Map&lt;java.lang.String,java.lang.Object&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Track.html#getMap--">getMap</a></span>()</code>
 <div class="block">Returns the data map of the track as a Map&lt;String,Object&gt;.</div>
 </td>
 </tr>
-<tr id="i27" class="rowColor">
-<td class="colFirst"><code>double</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Track.html#getMergePoint-double-">getMergePoint</a></span>(double&nbsp;relativeTo)</code>
-<div class="block">Returns the merging point as a percentage of where you are allowed to merge onto the track after when leaving the pits.</div>
-</td>
-</tr>
-<tr id="i28" class="altColor">
+<tr id="i29" class="rowColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Track.html#getName--">getName</a></span>()</code>
 <div class="block">Returns the name of the track as reported by the SIM.</div>
 </td>
 </tr>
-<tr id="i29" class="rowColor">
+<tr id="i30" class="altColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Track.html#getNorth--">getNorth</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i30" class="altColor">
+<tr id="i31" class="rowColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Track.html#getNorth-java.lang.String-">getNorth</a></span>(java.lang.String&nbsp;UOM)</code>
 <div class="block">Returns the degrees of where North points, where zero degrees is at 3 o'clock and rotates clockwise.</div>
 </td>
 </tr>
-<tr id="i31" class="rowColor">
+<tr id="i32" class="altColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Track.html#getPath--">getPath</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i32" class="altColor">
+<tr id="i33" class="rowColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Track.html#getPath-java.lang.String-">getPath</a></span>(java.lang.String&nbsp;location)</code>&nbsp;</td>
 </tr>
-<tr id="i33" class="rowColor">
+<tr id="i34" class="altColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Track.html#getPath-java.lang.String-java.lang.String-">getPath</a></span>(java.lang.String&nbsp;location,
        java.lang.String&nbsp;UOM)</code>
 <div class="block">Returns the path of the track's configuration.</div>
 </td>
 </tr>
-<tr id="i34" class="altColor">
+<tr id="i35" class="rowColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Track.html#getPitSpeedLimit--">getPitSpeedLimit</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i35" class="rowColor">
+<tr id="i36" class="altColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Track.html#getPitSpeedLimit-java.lang.String-">getPitSpeedLimit</a></span>(java.lang.String&nbsp;UOM)</code>
 <div class="block">Returns the Pit Speed Limit for this session as reported by the SIM SIMPlugin.</div>
 </td>
 </tr>
-<tr id="i36" class="altColor">
+<tr id="i37" class="rowColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Track.html#getResolution--">getResolution</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i37" class="rowColor">
+<tr id="i38" class="altColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Track.html#getResolution-java.lang.String-">getResolution</a></span>(java.lang.String&nbsp;UOM)</code>
 <div class="block">Returns the resolution to be used with GPS mapping software for displaying the track on a map.</div>
 </td>
 </tr>
-<tr id="i38" class="altColor">
+<tr id="i39" class="rowColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Track.html#getTemp--">getTemp</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i39" class="rowColor">
+<tr id="i40" class="altColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Track.html#getTemp-java.lang.String-">getTemp</a></span>(java.lang.String&nbsp;UOM)</code>
 <div class="block">Returns the current temperature of the track.</div>
 </td>
 </tr>
-<tr id="i40" class="altColor">
+<tr id="i41" class="rowColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Track.html#getTimeZone--">getTimeZone</a></span>()</code>
 <div class="block">Returns the time zone of the track's actual location in long format (i.e.</div>
 </td>
 </tr>
-<tr id="i41" class="rowColor">
+<tr id="i42" class="altColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Track.html#getType--">getType</a></span>()</code>
 <div class="block">Returns the track's type as defined by <a href="../../com/SIMRacingApps/Track.Type.html" title="class in com.SIMRacingApps"><code>Track.Type</code></a></div>
 </td>
 </tr>
-<tr id="i42" class="altColor">
+<tr id="i43" class="rowColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Track.html#getWeatherFogLevel--">getWeatherFogLevel</a></span>()</code>
 <div class="block">Returns the fog level as a percentage.</div>
 </td>
 </tr>
-<tr id="i43" class="rowColor">
+<tr id="i44" class="altColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Track.html#getWeatherRelativeHumidity--">getWeatherRelativeHumidity</a></span>()</code>
 <div class="block">Returns the relative humidity as a percentage.</div>
 </td>
 </tr>
-<tr id="i44" class="altColor">
+<tr id="i45" class="rowColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Track.html#getWeatherSkies--">getWeatherSkies</a></span>()</code>
 <div class="block">Returns the condition of the skies, like "Partly Cloudy".</div>
 </td>
 </tr>
-<tr id="i45" class="rowColor">
+<tr id="i46" class="altColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Track.html#getWeatherTemp--">getWeatherTemp</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i46" class="altColor">
+<tr id="i47" class="rowColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Track.html#getWeatherTemp-java.lang.String-">getWeatherTemp</a></span>(java.lang.String&nbsp;UOM)</code>
 <div class="block">Returns the current ambient temperature at the track.</div>
 </td>
 </tr>
-<tr id="i47" class="rowColor">
+<tr id="i48" class="altColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Track.html#getWeatherWindDirection--">getWeatherWindDirection</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i48" class="altColor">
+<tr id="i49" class="rowColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Track.html#getWeatherWindDirection-java.lang.String-">getWeatherWindDirection</a></span>(java.lang.String&nbsp;UOM)</code>
 <div class="block">Returns the wind direction, where East is zero degrees at 3 o'clock.</div>
 </td>
 </tr>
-<tr id="i49" class="rowColor">
+<tr id="i50" class="altColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Track.html#getWeatherWindSpeed--">getWeatherWindSpeed</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i50" class="altColor">
+<tr id="i51" class="rowColor">
 <td class="colFirst"><code><a href="../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Track.html#getWeatherWindSpeed-java.lang.String-">getWeatherWindSpeed</a></span>(java.lang.String&nbsp;UOM)</code>
 <div class="block">Returns the wind speed.</div>
 </td>
 </tr>
-<tr id="i51" class="rowColor">
+<tr id="i52" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/SIMRacingApps/Track.html#reload--">reload</a></span>()</code>
 <div class="block">Forces a reload of the track's JSON files.</div>
@@ -517,6 +521,15 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Method Detail</h3>
+<a name="Z:Z_maxPercentage--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>_maxPercentage</h4>
+<pre>public&nbsp;double&nbsp;_maxPercentage()</pre>
+</li>
+</ul>
 <a name="reload--">
 <!--   -->
 </a>
@@ -544,6 +557,7 @@ extends java.lang.Object</pre>
      "Longitude":   -80.682891,       //center to rotate on
      "Resolution":  1.9,              //meters per pixed @ 800x480
      "MergePoint":  38.5,             //percentage from finish line where you are safe to merge from pit road to the track
+     "MaxPercentage": 100.0,          //Normalize the percentage for distance according to this
      "DistanceUOM": "mile",           //the unit of measure to show distance in
      "TempUOM":     "F",              //the unit of measure to show temperature in
      "SpeedUOM":    "mph",            //the unit of measure to show speed in
@@ -573,13 +587,13 @@ extends java.lang.Object</pre>
 </dl>
 </li>
 </ul>
-<a name="getMergePoint-double-">
+<a name="Z:Z_getMergePoint-double-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>getMergePoint</h4>
-<pre>public&nbsp;double&nbsp;getMergePoint(double&nbsp;relativeTo)</pre>
+<h4>_getMergePoint</h4>
+<pre>public&nbsp;double&nbsp;_getMergePoint(double&nbsp;relativeTo)</pre>
 <div class="block">Returns the merging point as a percentage of where you are allowed to merge onto the track after when leaving the pits.
  <p>
  Some tracks, like Bristol, have multiple merge points because it has 2 pit lanes. 
@@ -824,7 +838,7 @@ extends java.lang.Object</pre>
                         java.lang.String&nbsp;UOM)</pre>
 <div class="block">Returns the Latitude of the requested position based on percentage traveled from the start/finish line.
  Can return the coordinate based on 3 locations, CENTER, ONTRACK and ONPITROAD.
- You can get the start/finish line by passing in ONTRACK with a percentage of zero.
+ You can get the start/finish line by passing in ONTRACK with a percentage of 100.
  <p>
  If a SIM can return the exact coordinates, then it should override this functions and return them.
  Otherwise, the percentage is used to approximate the position.
@@ -835,7 +849,7 @@ extends java.lang.Object</pre>
 <dd><code>location</code> - (Optional), The location of where you want the percentage to apply to, CENTER, ONTRACK, or ONPITROAD. 
         Defaults to CENTER.</dd>
 <dd><code>percentage</code> - (Optional), The percentage traveled from the start/finish line. 
-        Range 0.0 to 100.0. 
+        Range 0.0 to 100.0 or MaxPercentage. 
         Defaults to 0.0.</dd>
 <dd><code>UOM</code> - (optional), The UOM to return the Latitude in. 
         Defaults to degrees.</dd>
@@ -924,7 +938,7 @@ extends java.lang.Object</pre>
                          java.lang.String&nbsp;UOM)</pre>
 <div class="block">Returns the Longitude of the requested position based on percentage traveled from the start/finish line.
  Can return the coordinate based on 3 locations, CENTER, ONTRACK and ONPITROAD.
- You can get the start/finish line by passing in ONTRACK with a percentage of 0.0.
+ You can get the start/finish line by passing in ONTRACK with a percentage of 100.0.
  <p>
  If a SIM can return the exact coordinates, then it should override this functions and return them.
  Otherwise, the percentage is used to approximate the position.
@@ -935,7 +949,7 @@ extends java.lang.Object</pre>
 <dd><code>location</code> - (Optional), The location of where you want the percentage to apply to, CENTER, ONTRACK, or ONPITROAD. 
         Defaults to CENTER.</dd>
 <dd><code>percentage</code> - (Optional), The percentage traveled from the start/finish line. 
-        Range 0.0 to 100.0. 
+        Range 0.0 to 100.0 or MaxPercentage. 
         Defaults to 0.0.</dd>
 <dd><code>UOM</code> - (optional), The UOM to return the Longitude in. 
         Defaults to degrees.</dd>
