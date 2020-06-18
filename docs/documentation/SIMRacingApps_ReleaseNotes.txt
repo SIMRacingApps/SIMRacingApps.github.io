@@ -4,17 +4,80 @@ Copyright (C) 2015 - 2020 Jeffrey Gilliam
 For a complete list of issues completed in this version goto 
 (https://github.com/SIMRacingApps/SIMRacingApps/milestone/14?closed=1)
 
-Version: 1.12_Build_2020.03.28
+Version: 1.13_Build_2020.06.16
 
-    1. Added new widgets FlagsBarHorizontal.
+    1. Fixed RadioControl widget. It would not change channels.
+       iRacing seems to have a bug, where you cannot select the @DRIVERS channel from chat.
+       @TRANSMIT @DRIVERS
+       Does not work 
+
+    2. Fixed #188 (https://github.com/SIMRacingApps/SIMRacingApps/issues/188) 
+       LapDelta widget not always in sync with final time posted by iRacing
+       iRacing was calculating this based on your last clean best lap.
+       I was using the best lap on the Lap Timing box, which doesn't care if it's clean.
+       This was only a problem if your best lap wasn't clean.
+
+    3. Added new Incidents widget.
     
-    2. Updates for iRacings March 26th, 2020 Patch
-       - Bristol (Single Pit)
-       - Lankebanen (Club) 
-       - Lankebanen (Rally Short) 
-       - Lankebanen (Road Short) 
-       - Lankebanen (Road Long) 
+    4. Added ability to select the Pace Car Camera in the CameraSelector Widgets.
+
+    5. Closed #209 (https://github.com/SIMRacingApps/SIMRacingApps/issues/209)
+       Add Real-time iRating to Standing Widget
+       Changed iRating to be dynamically calculated as the positions change throughout the race.
+       This only applies to single class races. I have not figured out how multi-class races are calculated.
+       To turn this feature off and display the iRating the driver started the race with
+       add this to the settings.txt.
+           dynamic-irating = N
+           
+       New API to get the change in the iRating. /Car/REFERENCE/DriverRatingDelta
     
+    6. Created new widget called DriverRating
+    
+    7. Went back to version 5.0.13 of Electron as that version was reported as working in some VR environments.
+       Please send me your feedback. To try other versions see instructions here.
+       https://github.com/SIMRacingApps/SIMRacingApps/wiki/How-to-setup-the-Electron-client
+       
+    8. New APIs to reload paint for all cars or a specific car.
+       - /Session/setReloadPaint
+       - /Car/{CARIDENTIFIER}/setReloadPaint
+       - Also new commands for Voice Attack  2020.05.16
+         - Reload All Paints
+         - Reload My Paint
+       
+    9. Added North Wilkesboro Speedway Track Profile   
+    
+    10. Fixed the "What's the Weather" command in Voice Attack to say the SIM Time of Day
+        - Voice Attack profile version 2020.05.16   
+        - New API /Session/TimeString   
+       
+    11. Added more information in Voice Attack 2020.05.16 when pitting.
+        Now says what tires and fuel you are asking for upon approaching the pits and when issuing the "Pitting In" command. 
+        Also says your stall number based on your qualifying position.  
+        
+    12. In the Browser Menu, added the link to the widget to make it easier for streamers to get the links.
+    
+    13. Removed the Delayed Green message. iRacing re-purposed this flag to mean restart pending.
+    
+    14. iRacing's June 2020 build
+        - BMW M4 GT4
+        - Indy Pro 2000 PM-18
+        - NASCAR Chevrolet Monte Carlo - 1987
+        - NASCAR Ford Thunderbird - 1987
+        - NASCAR Gander Outdoors Ford F150
+        - USF 2000
+        - Kentucky Speedway (Name Changed) - re-built from new scan data!
+        - Utilize the TiresAvailable and TiresUsed telemetry variables.
+       
+    15. Added new API /Session/Name and used it in several apps were it was using /Session/Type
+        This will allow for each Heat Race session to have a name.
+
+    16. Closed #226 (https://github.com/SIMRacingApps/SIMRacingApps/issues/226)
+        LIFX lights need option for Green to stay on while under green
+        To turn this off add this to your settings:
+        - LIFX-always-green = N
+       
+    17. Fixed issue where the Fast Repair would turn off if you sent any pit commands after you set it.
+
     For notes on previous versions, see below.
        
 ------------------------------------------------------------------------------------------------------
@@ -53,6 +116,17 @@ Version: 1.12_Build_2020.03.28
         Here you can find solutions, work-around, etc.
        
 ****************** Previous Versions *************************
+
+1.12_Build_2020.03.29
+
+    1. Added new widgets FlagsBarHorizontal.
+    
+    2. Updates for iRacings March 26th, 2020 Patch
+       - Bristol (Single Pit)
+       - Lankebanen (Club) 
+       - Lankebanen (Rally Short) 
+       - Lankebanen (Road Short) 
+       - Lankebanen (Road Long) 
 
 1.12_Build_2020.03.15
 

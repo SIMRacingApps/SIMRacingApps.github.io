@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -221,59 +221,65 @@ extends <a href="../../../../../com/SIMRacingApps/SIMPlugins/iRacing/iRacingGaug
 </tr>
 <tr id="i5" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/SIMRacingApps/SIMPlugins/iRacing/Gauges/FuelLevel.html#getCount--">getCount</a></span>()</code>
+<div class="block">Returns the number of times this gauge was used.</div>
+</td>
+</tr>
+<tr id="i6" class="altColor">
+<td class="colFirst"><code><a href="../../../../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/SIMRacingApps/SIMPlugins/iRacing/Gauges/FuelLevel.html#getLapsHistorical--">getLapsHistorical</a></span>()</code>
 <div class="block">Returns the number of laps since the last change.</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/SIMRacingApps/SIMPlugins/iRacing/Gauges/FuelLevel.html#getMajorIncrement-java.lang.String-">getMajorIncrement</a></span>(java.lang.String&nbsp;UOM)</code>
 <div class="block">Returns how often to show major tick marks between the minimum and the maximum.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code><a href="../../../../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/SIMRacingApps/SIMPlugins/iRacing/Gauges/FuelLevel.html#getMaximum-java.lang.String-">getMaximum</a></span>(java.lang.String&nbsp;UOM)</code>
 <div class="block">Returns the maximum value of where this gauge should end with the last tick mark (i.e.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/SIMRacingApps/SIMPlugins/iRacing/Gauges/FuelLevel.html#getMinorIncrement-java.lang.String-">getMinorIncrement</a></span>(java.lang.String&nbsp;UOM)</code>
 <div class="block">Returns how often to show minor tick marks between the minimum and the maximum.</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code><a href="../../../../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/SIMRacingApps/SIMPlugins/iRacing/Gauges/FuelLevel.html#getValueCurrent-java.lang.String-">getValueCurrent</a></span>(java.lang.String&nbsp;UOM)</code>
 <div class="block">Returns the current value of the gauge.</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/SIMRacingApps/SIMPlugins/iRacing/Gauges/FuelLevel.html#getValueHistorical-java.lang.String-">getValueHistorical</a></span>(java.lang.String&nbsp;UOM)</code>
 <div class="block">Returns the historical value of the gauge taken at the time it was changed.</div>
 </td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code><a href="../../../../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/SIMRacingApps/SIMPlugins/iRacing/Gauges/FuelLevel.html#getValueNext-java.lang.String-">getValueNext</a></span>(java.lang.String&nbsp;UOM)</code>
 <div class="block">Returns the value of the next value that the object will be at the next pit stop.</div>
 </td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/SIMRacingApps/SIMPlugins/iRacing/Gauges/FuelLevel.html#incrementValueNext-java.lang.String-">incrementValueNext</a></span>(java.lang.String&nbsp;UOM)</code>
 <div class="block">Increments the next value, to be applied at the next pit stop, according to the value set by <a href="../../../../../com/SIMRacingApps/Gauge.html#Z:Z_setCapacityIncrement-double-java.lang.String-"><code>Gauge._setCapacityIncrement(double,String)</code></a>.</div>
 </td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code><a href="../../../../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/SIMRacingApps/SIMPlugins/iRacing/Gauges/FuelLevel.html#setChangeFlag-boolean-">setChangeFlag</a></span>(boolean&nbsp;flag)</code>
 <div class="block">Sets the change flag for this gauge and all the gauges grouped with it.</div>
 </td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/SIMRacingApps/SIMPlugins/iRacing/Gauges/FuelLevel.html#setValueNext-double-java.lang.String-">setValueNext</a></span>(double&nbsp;d,
             java.lang.String&nbsp;UOM)</code>
@@ -293,7 +299,7 @@ extends <a href="../../../../../com/SIMRacingApps/SIMPlugins/iRacing/iRacingGaug
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;com.SIMRacingApps.<a href="../../../../../com/SIMRacingApps/Gauge.html" title="class in com.SIMRacingApps">Gauge</a></h3>
-<code><a href="../../../../../com/SIMRacingApps/Gauge.html#Z:Z_addStateRange-com.SIMRacingApps.Gauge-">_addStateRange</a>, <a href="../../../../../com/SIMRacingApps/Gauge.html#Z:Z_addStateRange-java.lang.String-java.lang.String-double-double-java.lang.String-">_addStateRange</a>, <a href="../../../../../com/SIMRacingApps/Gauge.html#Z:Z_addStateRange-java.lang.String-java.lang.String-double-double-java.lang.String-com.SIMRacingApps.Data-">_addStateRange</a>, <a href="../../../../../com/SIMRacingApps/Gauge.html#Z:Z_removeStateRange-java.lang.String-java.lang.String-">_removeStateRange</a>, <a href="../../../../../com/SIMRacingApps/Gauge.html#Z:Z_setCapacityIncrement-double-java.lang.String-">_setCapacityIncrement</a>, <a href="../../../../../com/SIMRacingApps/Gauge.html#Z:Z_setCapacityMaximum-double-java.lang.String-">_setCapacityMaximum</a>, <a href="../../../../../com/SIMRacingApps/Gauge.html#Z:Z_setCapacityMinimum-double-java.lang.String-">_setCapacityMinimum</a>, <a href="../../../../../com/SIMRacingApps/Gauge.html#Z:Z_setIsChangable-boolean-">_setIsChangable</a>, <a href="../../../../../com/SIMRacingApps/Gauge.html#Z:Z_setIsDirty-boolean-">_setIsDirty</a>, <a href="../../../../../com/SIMRacingApps/Gauge.html#Z:Z_setIsFixed-boolean-">_setIsFixed</a>, <a href="../../../../../com/SIMRacingApps/Gauge.html#Z:Z_setMajorIncrement-double-java.lang.String-">_setMajorIncrement</a>, <a href="../../../../../com/SIMRacingApps/Gauge.html#Z:Z_setMaximum-double-java.lang.String-">_setMaximum</a>, <a href="../../../../../com/SIMRacingApps/Gauge.html#Z:Z_setMinimum-double-java.lang.String-">_setMinimum</a>, <a href="../../../../../com/SIMRacingApps/Gauge.html#Z:Z_setMinorIncrement-double-java.lang.String-">_setMinorIncrement</a>, <a href="../../../../../com/SIMRacingApps/Gauge.html#Z:Z_setOnResetChange-boolean-">_setOnResetChange</a>, <a href="../../../../../com/SIMRacingApps/Gauge.html#decrementValueNext--">decrementValueNext</a>, <a href="../../../../../com/SIMRacingApps/Gauge.html#getCapacityIncrement--">getCapacityIncrement</a>, <a href="../../../../../com/SIMRacingApps/Gauge.html#getCapacityMaximum--">getCapacityMaximum</a>, <a href="../../../../../com/SIMRacingApps/Gauge.html#getCapacityMinimum--">getCapacityMinimum</a>, <a href="../../../../../com/SIMRacingApps/Gauge.html#getChangeFlag--">getChangeFlag</a>, <a href="../../../../../com/SIMRacingApps/Gauge.html#getCount--">getCount</a>, <a href="../../../../../com/SIMRacingApps/Gauge.html#getIsChangeable--">getIsChangeable</a>, <a href="../../../../../com/SIMRacingApps/Gauge.html#getIsDirty--">getIsDirty</a>, <a href="../../../../../com/SIMRacingApps/Gauge.html#getIsFixed--">getIsFixed</a>, <a href="../../../../../com/SIMRacingApps/Gauge.html#getLapChanged--">getLapChanged</a>, <a href="../../../../../com/SIMRacingApps/Gauge.html#getLaps-int-">getLaps</a>, <a href="../../../../../com/SIMRacingApps/Gauge.html#getLaps-java.lang.String-">getLaps</a>, <a href="../../../../../com/SIMRacingApps/Gauge.html#getMajorIncrement--">getMajorIncrement</a>, <a href="../../../../../com/SIMRacingApps/Gauge.html#getMaximum--">getMaximum</a>, <a href="../../../../../com/SIMRacingApps/Gauge.html#getMinimum--">getMinimum</a>, <a href="../../../../../com/SIMRacingApps/Gauge.html#getMinimum-java.lang.String-">getMinimum</a>, <a href="../../../../../com/SIMRacingApps/Gauge.html#getMinorIncrement--">getMinorIncrement</a>, <a href="../../../../../com/SIMRacingApps/Gauge.html#getMultiplier--">getMultiplier</a>, <a href="../../../../../com/SIMRacingApps/Gauge.html#getName--">getName</a>, <a href="../../../../../com/SIMRacingApps/Gauge.html#getOnResetChange--">getOnResetChange</a>, <a href="../../../../../com/SIMRacingApps/Gauge.html#getType--">getType</a>, <a href="../../../../../com/SIMRacingApps/Gauge.html#getTypeName--">getTypeName</a>, <a href="../../../../../com/SIMRacingApps/Gauge.html#getUOM--">getUOM</a>, <a href="../../../../../com/SIMRacingApps/Gauge.html#getValueCurrent--">getValueCurrent</a>, <a href="../../../../../com/SIMRacingApps/Gauge.html#getValueHistorical--">getValueHistorical</a>, <a href="../../../../../com/SIMRacingApps/Gauge.html#getValueNext--">getValueNext</a>, <a href="../../../../../com/SIMRacingApps/Gauge.html#incrementValueNext--">incrementValueNext</a>, <a href="../../../../../com/SIMRacingApps/Gauge.html#setChangeFlag-java.lang.String-">setChangeFlag</a>, <a href="../../../../../com/SIMRacingApps/Gauge.html#setValueNext--">setValueNext</a>, <a href="../../../../../com/SIMRacingApps/Gauge.html#setValueNext-java.lang.String-">setValueNext</a>, <a href="../../../../../com/SIMRacingApps/Gauge.html#setValueNext-java.lang.String-java.lang.String-">setValueNext</a>, <a href="../../../../../com/SIMRacingApps/Gauge.html#toString--">toString</a></code></li>
+<code><a href="../../../../../com/SIMRacingApps/Gauge.html#Z:Z_addStateRange-com.SIMRacingApps.Gauge-">_addStateRange</a>, <a href="../../../../../com/SIMRacingApps/Gauge.html#Z:Z_addStateRange-java.lang.String-java.lang.String-double-double-java.lang.String-">_addStateRange</a>, <a href="../../../../../com/SIMRacingApps/Gauge.html#Z:Z_addStateRange-java.lang.String-java.lang.String-double-double-java.lang.String-com.SIMRacingApps.Data-">_addStateRange</a>, <a href="../../../../../com/SIMRacingApps/Gauge.html#Z:Z_removeStateRange-java.lang.String-java.lang.String-">_removeStateRange</a>, <a href="../../../../../com/SIMRacingApps/Gauge.html#Z:Z_setCapacityIncrement-double-java.lang.String-">_setCapacityIncrement</a>, <a href="../../../../../com/SIMRacingApps/Gauge.html#Z:Z_setCapacityMaximum-double-java.lang.String-">_setCapacityMaximum</a>, <a href="../../../../../com/SIMRacingApps/Gauge.html#Z:Z_setCapacityMinimum-double-java.lang.String-">_setCapacityMinimum</a>, <a href="../../../../../com/SIMRacingApps/Gauge.html#Z:Z_setIsChangable-boolean-">_setIsChangable</a>, <a href="../../../../../com/SIMRacingApps/Gauge.html#Z:Z_setIsDirty-boolean-">_setIsDirty</a>, <a href="../../../../../com/SIMRacingApps/Gauge.html#Z:Z_setIsFixed-boolean-">_setIsFixed</a>, <a href="../../../../../com/SIMRacingApps/Gauge.html#Z:Z_setMajorIncrement-double-java.lang.String-">_setMajorIncrement</a>, <a href="../../../../../com/SIMRacingApps/Gauge.html#Z:Z_setMaximum-double-java.lang.String-">_setMaximum</a>, <a href="../../../../../com/SIMRacingApps/Gauge.html#Z:Z_setMinimum-double-java.lang.String-">_setMinimum</a>, <a href="../../../../../com/SIMRacingApps/Gauge.html#Z:Z_setMinorIncrement-double-java.lang.String-">_setMinorIncrement</a>, <a href="../../../../../com/SIMRacingApps/Gauge.html#Z:Z_setOnResetChange-boolean-">_setOnResetChange</a>, <a href="../../../../../com/SIMRacingApps/Gauge.html#decrementValueNext--">decrementValueNext</a>, <a href="../../../../../com/SIMRacingApps/Gauge.html#getCapacityIncrement--">getCapacityIncrement</a>, <a href="../../../../../com/SIMRacingApps/Gauge.html#getCapacityMaximum--">getCapacityMaximum</a>, <a href="../../../../../com/SIMRacingApps/Gauge.html#getCapacityMinimum--">getCapacityMinimum</a>, <a href="../../../../../com/SIMRacingApps/Gauge.html#getChangeFlag--">getChangeFlag</a>, <a href="../../../../../com/SIMRacingApps/Gauge.html#getIsChangeable--">getIsChangeable</a>, <a href="../../../../../com/SIMRacingApps/Gauge.html#getIsDirty--">getIsDirty</a>, <a href="../../../../../com/SIMRacingApps/Gauge.html#getIsFixed--">getIsFixed</a>, <a href="../../../../../com/SIMRacingApps/Gauge.html#getLapChanged--">getLapChanged</a>, <a href="../../../../../com/SIMRacingApps/Gauge.html#getLaps-int-">getLaps</a>, <a href="../../../../../com/SIMRacingApps/Gauge.html#getLaps-java.lang.String-">getLaps</a>, <a href="../../../../../com/SIMRacingApps/Gauge.html#getMajorIncrement--">getMajorIncrement</a>, <a href="../../../../../com/SIMRacingApps/Gauge.html#getMaxCount--">getMaxCount</a>, <a href="../../../../../com/SIMRacingApps/Gauge.html#getMaximum--">getMaximum</a>, <a href="../../../../../com/SIMRacingApps/Gauge.html#getMinimum--">getMinimum</a>, <a href="../../../../../com/SIMRacingApps/Gauge.html#getMinimum-java.lang.String-">getMinimum</a>, <a href="../../../../../com/SIMRacingApps/Gauge.html#getMinorIncrement--">getMinorIncrement</a>, <a href="../../../../../com/SIMRacingApps/Gauge.html#getMultiplier--">getMultiplier</a>, <a href="../../../../../com/SIMRacingApps/Gauge.html#getName--">getName</a>, <a href="../../../../../com/SIMRacingApps/Gauge.html#getOnResetChange--">getOnResetChange</a>, <a href="../../../../../com/SIMRacingApps/Gauge.html#getType--">getType</a>, <a href="../../../../../com/SIMRacingApps/Gauge.html#getTypeName--">getTypeName</a>, <a href="../../../../../com/SIMRacingApps/Gauge.html#getUOM--">getUOM</a>, <a href="../../../../../com/SIMRacingApps/Gauge.html#getValueCurrent--">getValueCurrent</a>, <a href="../../../../../com/SIMRacingApps/Gauge.html#getValueHistorical--">getValueHistorical</a>, <a href="../../../../../com/SIMRacingApps/Gauge.html#getValueNext--">getValueNext</a>, <a href="../../../../../com/SIMRacingApps/Gauge.html#incrementValueNext--">incrementValueNext</a>, <a href="../../../../../com/SIMRacingApps/Gauge.html#setChangeFlag-java.lang.String-">setChangeFlag</a>, <a href="../../../../../com/SIMRacingApps/Gauge.html#setValueNext--">setValueNext</a>, <a href="../../../../../com/SIMRacingApps/Gauge.html#setValueNext-java.lang.String-">setValueNext</a>, <a href="../../../../../com/SIMRacingApps/Gauge.html#setValueNext-java.lang.String-java.lang.String-">setValueNext</a>, <a href="../../../../../com/SIMRacingApps/Gauge.html#toString--">toString</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.java.lang.Object">
@@ -655,7 +661,7 @@ extends <a href="../../../../../com/SIMRacingApps/SIMPlugins/iRacing/iRacingGaug
 <a name="Z:Z_onDataVersionChange-com.SIMRacingApps.Util.State-int-double-double-double-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>_onDataVersionChange</h4>
 <pre>public&nbsp;void&nbsp;_onDataVersionChange(<a href="../../../../../com/SIMRacingApps/Util/State.html" title="class in com.SIMRacingApps.Util">State</a>&nbsp;status,
@@ -666,6 +672,25 @@ extends <a href="../../../../../com/SIMRacingApps/SIMPlugins/iRacing/iRacingGaug
 <dl>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
 <dd><code><a href="../../../../../com/SIMRacingApps/SIMPlugins/iRacing/iRacingGauge.html#Z:Z_onDataVersionChange-com.SIMRacingApps.Util.State-int-double-double-double-">_onDataVersionChange</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../com/SIMRacingApps/SIMPlugins/iRacing/iRacingGauge.html" title="class in com.SIMRacingApps.SIMPlugins.iRacing">iRacingGauge</a></code></dd>
+</dl>
+</li>
+</ul>
+<a name="getCount--">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>getCount</h4>
+<pre>public&nbsp;<a href="../../../../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a>&nbsp;getCount()</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="../../../../../com/SIMRacingApps/Gauge.html#getCount--">Gauge</a></code></span></div>
+<div class="block">Returns the number of times this gauge was used.
+ 
+ <p>PATH = <a href="../../../../../com/SIMRacingApps/Gauge.html#getCount--"><code>/Car/(CARIDENTIFIER)/Gauge/(GAUGETYPE)/Count</code></a> 1.2</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../../../../../com/SIMRacingApps/Gauge.html#getCount--">getCount</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../com/SIMRacingApps/Gauge.html" title="class in com.SIMRacingApps">Gauge</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The number of times this gauge was changed.</dd>
 </dl>
 </li>
 </ul>
