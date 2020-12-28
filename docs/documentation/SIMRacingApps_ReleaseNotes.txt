@@ -2,33 +2,33 @@ SIMRacingApps Release Notes
 Copyright (C) 2015 - 2020 Jeffrey Gilliam
 ---------------------------
 For a complete list of issues completed in this version goto 
-(https://github.com/SIMRacingApps/SIMRacingApps/milestone/15?closed=1)
+(https://github.com/SIMRacingApps/SIMRacingApps/milestone/17?closed=1)
 
-Version: 1.14_Build_2020.10.01
+Version: 1.15_Build_2020.12.28
 
-    1. Fixed bug that would sometimes cause the main thread to restart.
+    1. Closed #237 (https://github.com/SIMRacingApps/SIMRacingApps/issues/237)
+       TireCompound API
+       - /Car/(CARIDENTIFIER)/Gauge/TireCompound
+       - Implemented on McLaren MP4-30, Dallara iR-01, Dallara IR18
     
-    2. Fixed issue where your Best and Last lap times would not display if your country's number format contained a comma.
-    
-    3. Fixed an issue where the links on the menu were not correct of you tried to override the language.
+    2. Fixed issue with Fast Repair Button on the PitCommander widget. It would not always update properly.
 
-    4. Closed #231 (https://github.com/SIMRacingApps/SIMRacingApps/issues/231)
-       Added 'drive through' penalty in Race Administrator App
-       Replaced the 1 Lap Black flag with Drive Through.
+    3. Content from iRacing's December 2020 build and patches.
+       - Dallara iR-01 (with Tire Compounds, S,M,H)
+       - Dallara IR18 (with Tire Compounds, P,A)
+       - Dirt Modified
+       - Ford GT GT3 - Shift lights have been updated to better match the engine power curve
+       - Lamborghini Huracan GT3 EVO
+       - BMW M4 GT3 - Prototype
+       - Brands Hatch Circuit (Rallycross)
+       - Cedar Lake Speedway (Dirt Oval)
+       - Charlotte Motor Speedway (Rallycross)
+       - Irwindale Speedway (Figure Eight Jump)
+       - Long Beach Street Circuit
 
-    5. Fix issue with the Dallara IR 18 where it would cause the shift light to 
-       blink at the wrong time.
-       
-    6. Added the NASCAR Road Course configuration at Daytona from iRacing's Aug 4th patch.
-    
-    7. Content from iRacing's Sept. 2020 Build
-       - Crandon International Raceway
-       - Nashville Fairgrounds Speedway
-       - Weedsport Speedway
-       - New Jersey Motorsports Park
-       - Chevrolet Corvette C8.R GTE
-       - Dallara P217
-    
+    4. Added iRacing's Superspeedway Track from the December 2020 Patch 1 release.
+       It's not a real track, but iRacing has mapped the GPS coordinates to a real location that 
+       will not make since if displayed in the TrackMap. So, the background has been grayed out.
 
     For notes on previous versions, see below.
        
@@ -68,6 +68,31 @@ Version: 1.14_Build_2020.10.01
         Here you can find solutions, work-around, etc.
        
 ****************** Previous Versions *************************
+
+1.14_Build_2020.10.01
+
+    1. Fixed bug that would sometimes cause the main thread to restart.
+    
+    2. Fixed issue where your Best and Last lap times would not display if your country's number format contained a comma.
+    
+    3. Fixed an issue where the links on the menu were not correct of you tried to override the language.
+
+    4. Closed #231 (https://github.com/SIMRacingApps/SIMRacingApps/issues/231)
+       Added 'drive through' penalty in Race Administrator App
+       Replaced the 1 Lap Black flag with Drive Through.
+
+    5. Fix issue with the Dallara IR 18 where it would cause the shift light to 
+       blink at the wrong time.
+       
+    6. Added the NASCAR Road Course configuration at Daytona from iRacing's Aug 4th patch.
+    
+    7. Content from iRacing's Sept. 2020 Build
+       - Crandon International Raceway
+       - Nashville Fairgrounds Speedway
+       - Weedsport Speedway
+       - New Jersey Motorsports Park
+       - Chevrolet Corvette C8.R GTE
+       - Dallara P217
 
 1.13_Build_2020.06.16
 
