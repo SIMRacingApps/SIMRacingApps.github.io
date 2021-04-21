@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -282,7 +282,7 @@ extends <a href="../../../../com/SIMRacingApps/SIMPluginCallbacks/SIMPluginCallb
 <dt><span class="simpleTagLabel">Author:</span></dt>
 <dd>Jeffrey Gilliam</dd>
 <dt><span class="simpleTagLabel">Copyright:</span></dt>
-<dd>Copyright (C) 2015 - 2020 Jeffrey Gilliam</dd>
+<dd>Copyright (C) 2015 - 2021 Jeffrey Gilliam</dd>
 <dt><span class="simpleTagLabel">License:</span></dt>
 <dd>Apache License 2.0</dd>
 </dl>
@@ -336,6 +336,12 @@ extends <a href="../../../../com/SIMRacingApps/SIMPluginCallbacks/SIMPluginCallb
 </td>
 </tr>
 <tr id="i2" class="altColor">
+<td class="colFirst"><code><a href="../../../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/SIMRacingApps/SIMPluginCallbacks/DataPublisher/Post.html#getResults--">getResults</a></span>()</code>
+<div class="block">Gets the entire results structure.</div>
+</td>
+</tr>
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/SIMRacingApps/SIMPluginCallbacks/DataPublisher/Post.html#ProcessData-com.SIMRacingApps.SIMPlugin-java.util.Map-">ProcessData</a></span>(<a href="../../../../com/SIMRacingApps/SIMPlugin.html" title="class in com.SIMRacingApps">SIMPlugin</a>&nbsp;SIMPlugin,
            java.util.Map&lt;java.lang.String,<a href="../../../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a>&gt;&nbsp;data)</code>
@@ -448,6 +454,22 @@ extends <a href="../../../../com/SIMRacingApps/SIMPluginCallbacks/SIMPluginCallb
 <dd><code>data</code> - The Data objects added to the queue.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>true to keep the plug-in alive, false to kill it.</dd>
+</dl>
+</li>
+</ul>
+<a name="getResults--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getResults</h4>
+<pre>public&nbsp;<a href="../../../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps">Data</a>&nbsp;getResults()</pre>
+<div class="block">Gets the entire results structure.
+ 
+ <p>PATH = <a href="../../../../com/SIMRacingApps/SIMPluginCallbacks/DataPublisher/Post.html#getResults--"><code>/SIMPluginCallback/DataPublisher/Post/Results</code></a></div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The entire results in a <a href="../../../../com/SIMRacingApps/Data.html" title="class in com.SIMRacingApps"><code>Data</code></a> container.</dd>
 </dl>
 </li>
 </ul>
