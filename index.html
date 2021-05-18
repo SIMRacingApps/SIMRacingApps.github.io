@@ -86,6 +86,30 @@
         <span class="fb-like" data-href="https://www.facebook.com/SIMRacingApps" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></span>
         the <a href="http://facebook.SIMRacingApps.com" target="_blank">SIMRacingApps Page</a> on FaceBook to get notifications on updates, tips and tricks.
         </h4>
+    <!-- Messenger Chat Plugin Code -->
+    <div id="fb-root"></div>
+      <script>
+        window.fbAsyncInit = function() {
+          FB.init({
+            xfbml            : true,
+            version          : 'v10.0'
+          });
+        };
+
+        (function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+      </script>
+
+      <!-- Your Chat Plugin code -->
+      <div class="fb-customerchat"
+        attribution="biz_inbox"
+        page_id="750150528428265">
+      </div>
         <h4>Support can be found by requesting to join the <a target="_blank" href="http://www.facebook.com/groups/SIMRacingApps">SIMRacingApps Group</a> on FaceBook, 
             where you can post questions, participate in the discussions. 
             User contributed Apps and Widgets can be found in the "Files" section of the group. 
