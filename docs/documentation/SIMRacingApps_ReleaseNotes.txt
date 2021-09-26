@@ -4,7 +4,102 @@ Copyright (C) 2015 - 2021 Jeffrey Gilliam
 For a complete list of issues completed in this version goto 
 (https://github.com/SIMRacingApps/SIMRacingApps/milestone/18?closed=1)
 
-Version: 1.16_Build_2021.04.20
+Version: 1.17_Build_2021.09.26
+
+    1. Fixed #249 (https://github.com/SIMRacingApps/SIMRacingApps/issues/249)
+       CameraSelector Names Overlapped
+
+    2. Fixed #245 (https://github.com/SIMRacingApps/SIMRacingApps/issues/245)
+       Gauges do not work in AI Session or when ghosting watching.
+       
+    3. Figured out all the wheel types and colors.
+       So, now your painted wheel types and colors will be shown on the CarImage widget.
+       NOTE: Brushed and Glossy rims will not show, even in iRacing, unless session is launched from the new UI.
+       
+    4. Added new NASCAR Next Gen 2022 cars.
+       NOTE: I'm seeing the voltage and brake bias in the telemetry is not matching the SIM display.
+
+    5. Fixed Steering Wheel position. It was off by 6 degrees.
+       
+    6. Added Content from iRacing's June-Sept 2021 build and subsequent patches.
+       - Formula Vee
+       - VW Beetle Lite
+       - SCCA Spec Racer Ford (Updated 6 Gears, Shift Points, Tach)
+       - Porsche 911 GT3 R
+       - Red Bull Ring
+       - Nashville Superspeedway
+       - Chicago Street Circuit
+       - Mount Washington Auto Road (This required some changes to the Track Map calculations)
+       - Ferrari 488 GT3 Evo 2020
+       - Porsche 911 GT3 Cup (992)
+       - Hickory Motor Speedway
+       - Hungaroring Circuit
+       
+    7. Fixed an issue with Chrome Browser and the Trackmap black boxes.
+       They changed the default width behavior.
+
+    8. Moved the SIMRacingApps/electron-apps folder to the %LOCALAPPDATA% folder.
+       You may remove the Documents/SIMRacingApps/electron-apps folder.
+       This can be changed by specifying the path in the settings with this variable, showing the default path.
+       - electron-apps = %LOCALAPPDATA%/SIMRacingApps/electron-apps
+       
+    9. Added option to have the server continue running when Electron exits.
+       To enable this, add this to your settings. This is the default setting.
+       - electron-kills-server = Y
+       
+    10. Added missing club names
+        - Japan
+        - Mexico
+
+    11. Added Pit Open/Closed buttons to the RaceAdministrator App
+        - Implemented Pull Request #2 from Cody Moore
+        - Also added Add/Subtract Caution Laps and One to Green.
+       
+    12. Fixed issue where trailing spaces in the settings were not trimmed off.
+    
+    13. Fix spelling error with the "reserved-cores" setting. No longer needs the one with the space in it.
+    
+
+    For notes on previous versions, see below.
+       
+------------------------------------------------------------------------------------------------------
+---                    Configuration Requirements                                                  ---
+------------------------------------------------------------------------------------------------------
+    1. To get the server running, simply execute the SIMRacingAppsServer...exe 
+       on the same computer that the Simulator is running on.
+    2. If you do not have Java 1.8 or better installed, it will redirect you to the Java download page.
+       NOTE: This page may install the 32-bit version of Java. The 64-bit version is faster.
+       See https://github.com/SIMRacingApps/SIMRacingApps/wiki/Java-64-Bit-Installation on how to find it.
+       Also see http://wiki.SIMRacingApps.com/Java-Update-Configuration 
+       for detailed instructions on how to configure Java's Automatic Updates so it doesn't interrupt your racing.
+    3. If a Firewall is running, you might get prompted to allow the server to run.
+       Depending on if your Ethernet connection was made private or public, 
+       you may be asked to confirm that also. Please select allow.
+       If your Firewall doesn't prompt you, then you will have to add an exception to allow "java.exe"
+       for both in-bound and out-bound traffic on all ports. 
+       See https://github.com/SIMRacingApps/SIMRacingApps/wiki/How-to-fix-Firewall-issues for more information.
+    4. Enter the server address (found in the Title Bar of the server window) in your browser 
+       from any device connected to the same local network.
+       Connecting from outside the local network is not supported and not recommended due to security concerns.
+    5. To use the Electron client with the Apps/Widgets overlaid on top of the SIM, you 
+       must have the SIM running in Windowed mode. Please see the following Wiki info to configure the SIM.
+       https://github.com/SIMRacingApps/SIMRacingApps/wiki/How-to-setup-iRacing-in-Windowed-Mode
+    6. Please refer to the Quick Start Guide at http://quickstart.SIMRacingApps.com
+       for more details and options for running the server.
+    
+    Issues:
+        Please visit the issues list at http://issues.SIMRacingApps.com to see if an issue you are have 
+        has already been reported. This list also contains enhancement requests.
+        You will need to create a GitHub account to post a new issue or subscribe to an existing issue. 
+        But, that is the easiest way to keep track of it and follow conversations on the issue.
+        
+    Wiki:
+        There is a Wiki for SIMRacingApps at http://wiki.SIMRacingApps.com.
+        Here you can find solutions, work-around, etc.
+       
+****************** Previous Versions *************************
+
+1.16_Build_2021.04.20
 
     1. Added more robust parsing logic for sound devices.
     
@@ -52,45 +147,6 @@ Version: 1.16_Build_2021.04.20
 
     11. Fixed #246 (https://github.com/SIMRacingApps/SIMRacingApps/issues/246)
         Shift Overrides in settings are not working
-
-    For notes on previous versions, see below.
-       
-------------------------------------------------------------------------------------------------------
----                    Configuration Requirements                                                  ---
-------------------------------------------------------------------------------------------------------
-    1. To get the server running, simply execute the SIMRacingAppsServer...exe 
-       on the same computer that the Simulator is running on.
-    2. If you do not have Java 1.8 or better installed, it will redirect you to the Java download page.
-       NOTE: This page may install the 32-bit version of Java. The 64-bit version is faster.
-       See https://github.com/SIMRacingApps/SIMRacingApps/wiki/Java-64-Bit-Installation on how to find it.
-       Also see http://wiki.SIMRacingApps.com/Java-Update-Configuration 
-       for detailed instructions on how to configure Java's Automatic Updates so it doesn't interrupt your racing.
-    3. If a Firewall is running, you might get prompted to allow the server to run.
-       Depending on if your Ethernet connection was made private or public, 
-       you may be asked to confirm that also. Please select allow.
-       If your Firewall doesn't prompt you, then you will have to add an exception to allow "java.exe"
-       for both in-bound and out-bound traffic on all ports. 
-       See https://github.com/SIMRacingApps/SIMRacingApps/wiki/How-to-fix-Firewall-issues for more information.
-    4. Enter the server address (found in the Title Bar of the server window) in your browser 
-       from any device connected to the same local network.
-       Connecting from outside the local network is not supported and not recommended due to security concerns.
-    5. To use the Electron client with the Apps/Widgets overlaid on top of the SIM, you 
-       must have the SIM running in Windowed mode. Please see the following Wiki info to configure the SIM.
-       https://github.com/SIMRacingApps/SIMRacingApps/wiki/How-to-setup-iRacing-in-Windowed-Mode
-    6. Please refer to the Quick Start Guide at http://quickstart.SIMRacingApps.com
-       for more details and options for running the server.
-    
-    Issues:
-        Please visit the issues list at http://issues.SIMRacingApps.com to see if an issue you are have 
-        has already been reported. This list also contains enhancement requests.
-        You will need to create a GitHub account to post a new issue or subscribe to an existing issue. 
-        But, that is the easiest way to keep track of it and follow conversations on the issue.
-        
-    Wiki:
-        There is a Wiki for SIMRacingApps at http://wiki.SIMRacingApps.com.
-        Here you can find solutions, work-around, etc.
-       
-****************** Previous Versions *************************
 
 1.15_Build_2020.12.28
 

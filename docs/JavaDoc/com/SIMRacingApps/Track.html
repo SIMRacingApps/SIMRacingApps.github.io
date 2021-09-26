@@ -1057,13 +1057,12 @@ extends java.lang.Object</pre>
  The format follows how SVG defines a path with a Start, MoveTo, End.
  If needed, there could be more than one segment if it is not continuous.
  <p>
- The results are returned in the following format. Type values are: -1.0 move to, 0.0 line to and 1.0 close. 
+ The results are returned in the following format. Type values are: -1.0 move to, 0.0 line to. 
+ NOTE: I use to use the close Type, but not all Start/Finish lines are at the same place on all tracks.
  <pre>
  [
      { "Type": -1.0,  "Lat": 0.0, "Lon": 0.0 },
      { "Type":  0.0,  "Lat": 0.0, "Lon": 0.0 },
-     ...
-     { "Type":  1.0,  "Lat": 0.0, "Lon": 0.0 }
  ]
  </pre>
  <p>PATH = <a href="../../com/SIMRacingApps/Track.html#getName--"><code>/Track/Path</code></a></div>
