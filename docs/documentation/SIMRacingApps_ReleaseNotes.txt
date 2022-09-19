@@ -2,9 +2,106 @@ SIMRacingApps Release Notes
 Copyright (C) 2015 - 2022 Jeffrey Gilliam
 ---------------------------
 For a complete list of issues completed in this version goto 
-(https://github.com/SIMRacingApps/SIMRacingApps/milestone/18?closed=1)
+(https://github.com/SIMRacingApps/SIMRacingApps/milestone/20?closed=1)
 
-Version: 1.18_Build_2022.03.20
+Version: 1.19_Build_2022.09.18
+    1. Added new configuration for Bristol Dirt 2022.
+    
+    2. Fixed issue where the "hideCarNum" variable was moved from the app.ini to the rendererDX11.ini file.
+       It defaults to the Monitor file. But if you use VR, you can add this variable with the file of choice to the settings.
+          iracing-renderer-file = rendererDX11Monitor.ini
+
+    3. New content from iRacing's June 2022 and Oct 2022 builds and patches thus far.
+       - Mercedes-AMG GT3 2020
+       - Mercedes-AMG GT4
+       - Radical SR10
+       - Sandown International Motor Raceway
+       - Fuji International Speedway
+       - Port Royal Speedway
+       - Atlanta New Scan
+       - Indianapolis Motor Speedway Road Course
+       - Porsche Mission R
+       - Lucas Oil Speedway - Dirt Oval
+       - Motorsport Arena Oschersleben - Road Course (4 configs)
+       - Rudskogen Motorsenter - Road Course
+       - Indianapolis Motor Speedway - IndyCar Oval 2022 Laser Scan Update
+       - Porsche 911 GT3 Cup (992) Shiftlamp RPM range has been adjusted.
+
+    4. Because iRacing added an option to disable their Pit Count Down, 
+       I'm re-enabling SRA's Pit Count Down if the option in iRacing has been turned off.
+       After making the change in iRacing, exit iRacing to update the app.ini and restart SRA.
+       Make sure to turn on SRA, update/add the following to the settings.
+         pit-count-down-enabled = Y
+         
+    5. Fixed issue with the car's bearing calculation where some tracks where correct and others not.
+       Changed the Track/Bearing and Car/{REFERENCECAR}/Bearing API to normalize the bearing where north is 270 degrees like all other API calls.
+       This also required a change to the WindGauge widget.
+    
+    6. Added an option to the Car/{REFERENCECAR}/Bearing API to use the YawNorth telemetry value instead of the track based bearing.
+       Here is the new setting and it defaults to Y.
+         bearing-uses-actual-yaw = Y
+
+    7. In the RaceAdministrator app, added code to close the pits before the stages end.
+       To enable this you will have to download the 
+       https://raw.githubusercontent.com/SIMRacingApps/SIMRacingAppsWebContent/master/apps/RaceAdministrator/default.js 
+       file and save it in the Documents/SIMRacingApps/apps/RaceAdministrator folder. 
+       Then before each session modify the variables around line 260 to suite your needs.
+       New API, /Session/IsPitRoadOpen was created to support this feature.
+
+    8. Added new widget called Pit Road Lights
+    
+    9. Closed #173 (https://github.com/SIMRacingApps/SIMRacingApps/issues/173)
+       Added red dots on the TrackMap and also made displaying them an option controlled with the parameter, SHOWSECTORS.
+       Streamers need to add "&SHOWSECTORS=Y" to the end of the TrackMap URL to enable them. They are off by default.
+       Added these new API methods
+       - /Track/Sectors/(SECTORTYPE)/(UOM)
+       - /Car/(CARIDENTIFIER)/Sector
+
+    10. Close #264 (https://github.com/SIMRacingApps/SIMRacingApps/issues/264)
+        Added new widget called SIMState to show the SIM's State (OFF, REPLAY, LIVE)
+        Thanks to Ricky Thompson for this suggestion.
+       
+    
+    For notes on previous versions, see below.
+       
+------------------------------------------------------------------------------------------------------
+---                    Configuration Requirements                                                  ---
+------------------------------------------------------------------------------------------------------
+    1. To get the server running, simply execute the SIMRacingAppsServer...exe 
+       on the same computer that the Simulator is running on.
+    2. If you do not have Java 1.8 or better installed, it will redirect you to the Java download page.
+       NOTE: This page may install the 32-bit version of Java. The 64-bit version is faster.
+       See https://github.com/SIMRacingApps/SIMRacingApps/wiki/Java-64-Bit-Installation on how to find it.
+       Also see http://wiki.SIMRacingApps.com/Java-Update-Configuration 
+       for detailed instructions on how to configure Java's Automatic Updates so it doesn't interrupt your racing.
+    3. If a Firewall is running, you might get prompted to allow the server to run.
+       Depending on if your Ethernet connection was made private or public, 
+       you may be asked to confirm that also. Please select allow.
+       If your Firewall doesn't prompt you, then you will have to add an exception to allow "java.exe"
+       for both in-bound and out-bound traffic on all ports. 
+       See https://github.com/SIMRacingApps/SIMRacingApps/wiki/How-to-fix-Firewall-issues for more information.
+    4. Enter the server address (found in the Title Bar of the server window) in your browser 
+       from any device connected to the same local network.
+       Connecting from outside the local network is not supported and not recommended due to security concerns.
+    5. To use the Electron client with the Apps/Widgets overlaid on top of the SIM, you 
+       must have the SIM running in Windowed mode. Please see the following Wiki info to configure the SIM.
+       https://github.com/SIMRacingApps/SIMRacingApps/wiki/How-to-setup-iRacing-in-Windowed-Mode
+    6. Please refer to the Quick Start Guide at http://quickstart.SIMRacingApps.com
+       for more details and options for running the server.
+    
+    Issues:
+        Please visit the issues list at http://issues.SIMRacingApps.com to see if an issue you are have 
+        has already been reported. This list also contains enhancement requests.
+        You will need to create a GitHub account to post a new issue or subscribe to an existing issue. 
+        But, that is the easiest way to keep track of it and follow conversations on the issue.
+        
+    Wiki:
+        There is a Wiki for SIMRacingApps at http://wiki.SIMRacingApps.com.
+        Here you can find solutions, work-around, etc.
+       
+****************** Previous Versions *************************
+
+1.18_Build_2022.03.20
     1. Added ability to override car profile values in the settings.
        - {Car}-{Gauge}-{Track}-{Attribute} = {value}
        - {Car}-{Gauge}-{Track}-{Gear}-{Attribute} = {value}
@@ -119,45 +216,6 @@ Version: 1.18_Build_2022.03.20
     
     13. Fix spelling error with the "reserved-cores" setting. No longer needs the one with the space in it.
     
-
-    For notes on previous versions, see below.
-       
-------------------------------------------------------------------------------------------------------
----                    Configuration Requirements                                                  ---
-------------------------------------------------------------------------------------------------------
-    1. To get the server running, simply execute the SIMRacingAppsServer...exe 
-       on the same computer that the Simulator is running on.
-    2. If you do not have Java 1.8 or better installed, it will redirect you to the Java download page.
-       NOTE: This page may install the 32-bit version of Java. The 64-bit version is faster.
-       See https://github.com/SIMRacingApps/SIMRacingApps/wiki/Java-64-Bit-Installation on how to find it.
-       Also see http://wiki.SIMRacingApps.com/Java-Update-Configuration 
-       for detailed instructions on how to configure Java's Automatic Updates so it doesn't interrupt your racing.
-    3. If a Firewall is running, you might get prompted to allow the server to run.
-       Depending on if your Ethernet connection was made private or public, 
-       you may be asked to confirm that also. Please select allow.
-       If your Firewall doesn't prompt you, then you will have to add an exception to allow "java.exe"
-       for both in-bound and out-bound traffic on all ports. 
-       See https://github.com/SIMRacingApps/SIMRacingApps/wiki/How-to-fix-Firewall-issues for more information.
-    4. Enter the server address (found in the Title Bar of the server window) in your browser 
-       from any device connected to the same local network.
-       Connecting from outside the local network is not supported and not recommended due to security concerns.
-    5. To use the Electron client with the Apps/Widgets overlaid on top of the SIM, you 
-       must have the SIM running in Windowed mode. Please see the following Wiki info to configure the SIM.
-       https://github.com/SIMRacingApps/SIMRacingApps/wiki/How-to-setup-iRacing-in-Windowed-Mode
-    6. Please refer to the Quick Start Guide at http://quickstart.SIMRacingApps.com
-       for more details and options for running the server.
-    
-    Issues:
-        Please visit the issues list at http://issues.SIMRacingApps.com to see if an issue you are have 
-        has already been reported. This list also contains enhancement requests.
-        You will need to create a GitHub account to post a new issue or subscribe to an existing issue. 
-        But, that is the easiest way to keep track of it and follow conversations on the issue.
-        
-    Wiki:
-        There is a Wiki for SIMRacingApps at http://wiki.SIMRacingApps.com.
-        Here you can find solutions, work-around, etc.
-       
-****************** Previous Versions *************************
 
 1.16_Build_2021.04.20
 
